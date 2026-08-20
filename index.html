@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<!-- lastAutoRun: {"gw":1,"ts":"2026-08-20T23:21:59Z"} -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>FPL Consensus Hub — GW1</title>
+<style>
+:root{
+  --bg:#0a0a0c; --bg2:#111114; --card:rgba(255,255,255,.055); --card-hover:rgba(255,255,255,.09);
+  --stroke:rgba(255,255,255,.09); --stroke2:rgba(255,255,255,.16);
+  --text:#f5f5f7; --text2:rgba(245,245,247,.62); --text3:rgba(245,245,247,.38);
+  --green:#30d158; --mint:#00ffa3; --red:#ff453a; --orange:#ff9f0a; --yellow:#ffd60a;
+  --blue:#0a84ff; --purple:#bf5af2; --teal:#64d2ff;
+  --radius:18px; --radius-sm:12px;
+  font-optical-sizing:auto;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font:15px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
+  background:var(--bg); color:var(--text);
+  min-height:100vh; overflow-x:hidden;
+}
+body::before{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(900px 500px at 85% -10%, rgba(0,255,163,.07), transparent 60%),
+    radial-gradient(800px 500px at -10% 20%, rgba(10,132,255,.06), transparent 60%),
+    radial-gradient(700px 600px at 50% 110%, rgba(191,90,242,.05), transparent 60%);
+}
+::selection{background:rgba(0,255,163,.25)}
+
+/* ---------- Header ---------- */
+header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(10,10,12,.72);
+  backdrop-filter:blur(22px) saturate(180%);
+  -webkit-backdrop-filter:blur(22px) saturate(180%);
+}
+/* scroll edge effect instead of a hard divider */
+header::after{content:"";position:absolute;left:0;right:0;top:100%;height:16px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,10,12,.55),transparent)}
+.hwrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.hrow{display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;letter-spacing:-.01em;white-space:nowrap}
+.logo .dot{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint)}
+.logo span.sub{font-weight:500;color:var(--text3);font-size:13px}
+.deadline-pill{
+  display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+  background:rgba(255,69,58,.12);border:1px solid rgba(255,69,58,.25);color:#ff8a80;
+  padding:6px 12px;border-radius:99px;white-space:nowrap;font-variant-numeric:tabular-nums;
+}
+.deadline-pill .live{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ---------- Tabs ---------- */
+nav{overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;margin:0 -20px;padding:0 20px}
+nav::-webkit-scrollbar{display:none}
+.tabs{display:flex;gap:4px;padding:8px 0 10px;width:max-content}
+.tab{
+  border:none;background:transparent;color:var(--text2);font:inherit;font-size:13.5px;font-weight:600;
+  padding:7px 14px;border-radius:99px;cursor:pointer;white-space:nowrap;
+  transition:transform .12s ease,background .18s ease,color .18s ease;
+}
+.tab:active{transform:scale(.95)}
+.tab:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.tab.on{background:var(--text);color:#000}
+.tab .n{opacity:.55;font-weight:500;margin-left:4px;font-size:12px}
+
+/* ---------- Layout ---------- */
+main{max-width:1080px;margin:0 auto;padding:24px 20px 80px}
+.page{display:none;animation:pagein .34s cubic-bezier(.32,.72,.28,1)}
+.page.on{display:block}
+@keyframes pagein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+h1{font-size:clamp(1.7rem,4vw,2.3rem);line-height:1.08;letter-spacing:-.022em;font-weight:800;margin-bottom:6px}
+.lede{color:var(--text2);font-size:15px;max-width:640px;margin-bottom:24px}
+h2{font-size:19px;letter-spacing:-.015em;font-weight:700;margin:28px 0 12px}
+h2:first-of-type{margin-top:0}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+
+.card{
+  background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);
+  padding:18px;transition:transform .15s ease,background .2s ease,border-color .2s ease;
+}
+.card.tap{cursor:pointer}
+.card.tap:hover{background:var(--card-hover);border-color:var(--stroke2)}
+.card.tap:active{transform:scale(.98)}
+.kicker{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:8px}
+.big{font-size:30px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+.sub{color:var(--text2);font-size:13px;margin-top:4px}
+
+/* badges — short state labels. Wraps instead of overflowing when content is long. */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:99px;white-space:normal;line-height:1.4;max-width:100%;word-break:break-word}
+.b-green{background:rgba(48,209,88,.14);color:#4cd964;border:1px solid rgba(48,209,88,.25)}
+.b-mint{background:rgba(0,255,163,.1);color:var(--mint);border:1px solid rgba(0,255,163,.22)}
+.b-red{background:rgba(255,69,58,.13);color:#ff6b61;border:1px solid rgba(255,69,58,.25)}
+.b-orange{background:rgba(255,159,10,.13);color:#ffb340;border:1px solid rgba(255,159,10,.25)}
+.b-blue{background:rgba(10,132,255,.14);color:#64a8ff;border:1px solid rgba(10,132,255,.28)}
+.b-purple{background:rgba(191,90,242,.13);color:#d99bff;border:1px solid rgba(191,90,242,.28)}
+.b-gray{background:rgba(255,255,255,.07);color:var(--text2);border:1px solid var(--stroke)}
+/* long-form warning rows — sentences belong in prose, not pill badges */
+.warnlist{display:flex;flex-direction:column;gap:8px}
+.warnrow{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:#ff9a90;background:rgba(255,69,58,.09);border:1px solid rgba(255,69,58,.2);border-radius:10px;padding:8px 11px}
+.warnrow .wi{flex-shrink:0}
+
+/* tables */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);font-weight:700;text-align:left;padding:10px 12px;border-bottom:1px solid var(--stroke)}
+.tbl td{padding:12px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tbody tr{cursor:pointer;transition:background .15s ease}
+.tbl tbody tr:hover{background:rgba(255,255,255,.045)}
+.tbl tbody tr:active{background:rgba(255,255,255,.08)}
+.tblwrap{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);overflow:hidden;overflow-x:auto}
+.num{font-variant-numeric:tabular-nums}
+.pname{font-weight:700;display:flex;align-items:center;gap:8px}
+.pmeta{font-size:12px;color:var(--text3);font-weight:500}
+
+/* score ring/bar */
+.scorebar{height:5px;border-radius:99px;background:rgba(255,255,255,.09);overflow:hidden;min-width:64px}
+.scorebar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--mint));transition:width .8s cubic-bezier(.32,.72,.28,1)}
+.score-num{font-weight:800;font-size:16px;font-variant-numeric:tabular-nums}
+
+/* agreement dots */
+.dots{display:inline-flex;gap:4px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.14)}
+.dots i.f{background:var(--mint);box-shadow:0 0 6px rgba(0,255,163,.5)}
+
+/* list rows */
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.055)}
+.row:last-child{border-bottom:none}
+
+/* modal — transform driven by JS spring physics (interruptible, velocity-aware) */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:90;opacity:0;pointer-events:none}
+.scrim.on{pointer-events:auto}
+.sheet{
+  position:fixed;z-index:100;left:50%;bottom:0;transform:translate(-50%,110%);
+  width:min(680px,100%);max-height:88vh;overflow-y:auto;overscroll-behavior:contain;
+  background:rgba(24,24,28,.92);backdrop-filter:blur(30px) saturate(160%);-webkit-backdrop-filter:blur(30px) saturate(160%);
+  border:1px solid var(--stroke2);border-bottom:none;border-radius:22px 22px 0 0;
+  padding:0 24px 40px;
+  will-change:transform;
+}
+.grabzone{position:sticky;top:0;z-index:2;padding:10px 24px 12px;margin:0 -24px;touch-action:none;cursor:grab;
+  background:linear-gradient(180deg,rgba(24,24,28,.95),rgba(24,24,28,0))}
+.grabzone:active{cursor:grabbing}
+.grab{width:38px;height:5px;border-radius:99px;background:rgba(255,255,255,.22);margin:0 auto}
+.sheet h3{font-size:24px;font-weight:800;letter-spacing:-.02em}
+.close-x{position:absolute;top:16px;right:18px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.1);color:var(--text2);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .12s}
+.close-x:active{transform:scale(.9)}
+
+.factor{margin-bottom:12px}
+.factor .frow{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px}
+.factor .fname{color:var(--text2);font-weight:600}
+.factor .fval{font-weight:700;font-variant-numeric:tabular-nums}
+
+.chip{display:inline-block;background:rgba(255,255,255,.07);border:1px solid var(--stroke);border-radius:9px;padding:4px 10px;font-size:12.5px;font-weight:600;color:var(--text2);margin:0 6px 6px 0}
+
+/* mobile-only helper: a small caption that only appears once tables collapse into cards */
+.tdcap{display:none}
+
+/* stars */
+.stars{color:var(--yellow);letter-spacing:2px;font-size:13px}
+.stars .off{color:rgba(255,255,255,.15)}
+
+/* countdown big */
+.count{display:flex;gap:10px;margin-top:10px}
+.count .cbox{background:rgba(255,255,255,.06);border:1px solid var(--stroke);border-radius:14px;padding:10px 0;text-align:center;flex:1;max-width:90px}
+.count .cv{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.count .cl{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);font-weight:700;margin-top:2px}
+
+/* pitch */
+.pitch{background:linear-gradient(180deg,rgba(0,255,163,.05),rgba(10,132,255,.04));border:1px solid var(--stroke);border-radius:var(--radius);padding:26px 10px}
+.pline{display:flex;justify-content:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.pline:last-child{margin-bottom:0}
+.pp{text-align:center;width:86px}
+.pp .shirt{width:44px;height:44px;margin:0 auto 6px;border-radius:13px;background:rgba(255,255,255,.09);border:1px solid var(--stroke2);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;position:relative}
+.pp .shirt .cap{position:absolute;top:-6px;right:-6px;background:var(--yellow);color:#000;font-size:9.5px;font-weight:900;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.pp .nm{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pp .pr{font-size:11px;color:var(--text3);font-variant-numeric:tabular-nums}
+
+.notice{background:rgba(10,132,255,.08);border:1px solid rgba(10,132,255,.2);border-radius:var(--radius-sm);padding:12px 16px;font-size:13px;color:var(--text2);margin-bottom:20px}
+.notice b{color:#8ec2ff}
+
+footer{max-width:1080px;margin:0 auto;padding:0 20px 40px;color:var(--text3);font-size:12px;line-height:1.7}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+}
+@media (prefers-reduced-transparency: reduce){
+  header{background:#0a0a0c;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .sheet{background:#18181c;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .scrim{backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+@media (prefers-contrast: more){
+  :root{--card:#17171b;--stroke:rgba(255,255,255,.3);--stroke2:rgba(255,255,255,.45);--text2:rgba(245,245,247,.85);--text3:rgba(245,245,247,.6)}
+  header{background:#0a0a0c;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .sheet{background:#141418;backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+@media (max-width:640px){
+  .hrow{height:52px}
+  .logo{font-size:14px}
+  .logo span.sub{display:none}
+  .logo #liveState{display:none}
+  .deadline-pill{font-size:11px;padding:5px 10px}
+  main{padding:16px 14px 70px}
+  h1{font-size:1.5rem}
+  .card{padding:14px}
+  .tab{padding:9px 14px;font-size:13px} /* keep tap targets comfortable on touch */
+  .pname{flex-wrap:wrap}
+  .count .cbox{max-width:none}
+  .pitch{padding:18px 6px}
+  .pline{gap:6px}
+  .pp{width:70px}
+  .pp .shirt{width:38px;height:38px;font-size:11px}
+  .pp .nm{font-size:10.5px}
+  .sheet{padding-left:16px;padding-right:16px;max-height:92vh}
+  .sheet h3{font-size:20px}
+  #teamId{min-width:0!important;width:100%}
+  .hwrap #teamId,.card > div[style*="flex"]{flex-wrap:wrap}
+
+  /* tables collapse into stacked cards — no more squeezed 4-5 column rows */
+  .tblwrap{overflow-x:visible}
+  .tbl{font-size:14px}
+  .tbl thead{display:none}
+  .tbl tbody tr{display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:14px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .tbl tbody td{display:block;padding:0;border:none;width:100%}
+  .tbl tbody td.num{text-align:left}
+  .tdcap{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);font-weight:700;margin-bottom:3px}
+
+  /* text+badge rows (Home takeaways, Disagreement stances) — stack instead of squeezing the badge into a sliver */
+  .rowsplit{flex-direction:column;align-items:flex-start;gap:8px}
+  .rowsplit .badge{align-self:flex-start}
+  .frowsplit{flex-direction:column;align-items:flex-start;gap:4px}
+  .frowsplit .fval{text-align:left!important;max-width:100%!important}
+}
+@media (max-width:400px){
+  .g3{grid-template-columns:1fr 1fr}
+  .g4{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <div class="hrow">
+      <div class="logo"><div class="dot"></div>FPL Consensus Hub <span class="sub">· GW1 · 2026/27</span> <span class="pmeta" id="liveState" style="margin-left:6px;font-weight:600">⚪ loading live data…</span></div>
+      <div class="deadline-pill"><span class="live"></span><span id="hdCount">—</span></div>
+    </div>
+    <nav><div class="tabs" id="tabs"></div></nav>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<footer>
+  <div style="border-top:1px solid var(--stroke);padding-top:16px">
+    <b style="color:var(--text2)">FPL Consensus Hub</b> — aggregated from creator videos &amp; press coverage for GW1 (2026/27). Deadline and fixtures from the official FPL API. Data compiled Aug 20, 2026. This is decision-support, not guaranteed outcomes — always check final team news before the deadline.
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet"></div>
+
+<script>
+/* =====================================================
+   DATA — update this block each gameweek
+   ===================================================== */
+const DATA = {
+gw: 1, season: "2026/27", analysisGW: 1,
+deadline: "2026-08-21T17:30:00Z",
+updated: "Aug 20, 2026",
+sourceNames: ["FPL Harry","FPL Raptor","Let's Talk FPL","FPL Mate","Official FPL API","Fantasy Football Scout","AllAboutFPL"],
+creators: ["FPL Harry","FPL Raptor","Let's Talk FPL","FPL Mate"],
+
+summary: [
+  "Re-watched all four channels' ACTUAL final-team reveal videos, published Aug 19-20 (real transcripts via YouTube's own captions, not the earlier draft-stage videos). The captain race has genuinely tightened: FPL Harry and Let's Talk FPL are still on Haaland, but FPL Raptor is now '51/49 leaning towards a Bruno Fernandez captaincy', and FPL Mate has gone further — Bruno is his outright captain for the Hull opener, not Haaland.",
+  "Arsenal's defence just got real news: both FPL Harry and Let's Talk FPL independently cite David Ornstein reporting Arsenal have agreed a deal for Ezri Konsa from Aston Villa (not yet official), with Yuri Timber now expected back 'in September' (around GW3). That's pushing creators AWAY from Mosquera and Ben White as medium-term picks — Let's Talk FPL has dropped from 2-3 Arsenal defenders to just Calafiori as a result. Calafiori himself is now the one Arsenal defender all four tracked creators independently start with.",
+  "Pascal Groß's penalty case has weakened: three of the four creators (Let's Talk FPL, FPL Mate, and implicitly FPL Harry's squad) now flag that Brighton's new striker signing Promise David could take his penalties — a live risk for anyone holding Groß at £5.5m expecting spot-kicks.",
+  "Bench Boost timing still splits the room, but with more detail: FPL Harry is leaning GW1/GW2 depending on Brighton's Thursday minutes, FPL Raptor has his ACTIVE for GW1, Let's Talk FPL is doing GW1 too — but FPL Mate has deliberately built his for GW2, backing Coventry's 34% clean-sheet odds vs Hull with real data cited on-screen from FPL Joe.",
+  "Ajer (Brentford, £4.5m) gets a standout, sourced stat from FPL Mate: 9.47 defensive contributions per 90 last season — 'in a league of his own' among cheap defenders, comparable to players costing £1-1.5m more."
+],
+agreedPoints: [
+  {t:"Captain race has tightened to a real 2-2 split in creators' actual final videos: FPL Harry and Let's Talk FPL are on Haaland; FPL Raptor is '51/49' leaning Bruno; FPL Mate has gone outright Bruno for the Hull opener", by:"FPL Harry · Let's Talk FPL · FPL Raptor · FPL Mate (final-team videos)"},
+  {t:"Calafiori is the one Arsenal defender all four tracked creators independently start with in their real GW1 squads — the debate has shifted to who partners him, not whether he starts", by:"FPL Harry · Let's Talk FPL · FPL Raptor · FPL Mate (final-team videos)"},
+  {t:"Ezri Konsa's move from Aston Villa to Arsenal is reported as agreed (per David Ornstein) though not yet official — two creators independently cite it and say it's pushing them away from Mosquera/Ben White as medium-term picks", by:"FPL Harry · Let's Talk FPL"},
+  {t:"Nobody is going without both Haaland and Bruno — 'I don't see a world where you should be going without both of them' (FPL Harry)", by:"FPL Harry"},
+  {t:"Bruno is the safe pick for the Hull + Ipswich double regardless of price concerns — 'he starts every game... that's why I love Bruno' (FPL Raptor)", by:"FPL Raptor"},
+  {t:"Gabriel remains a top defender pick even as the Calafiori/Mosquera debate rages — Arsenal's clean-sheet odds vs Coventry are the banker of the week (official FDR rates it Arsenal's easiest fixture on the slate)", by:"FPL Harry · FPL Raptor · Official FPL API"},
+  {t:"Dan Ballard (£5.0m, Sunderland) is called a 'DefCon machine' independently by both FPL Raptor and FPL Mate", by:"FPL Raptor · FPL Mate"},
+  {t:"Pascal Groß is a nailed-on Brighton midfielder at £5.5m, mentioned as a top cheap-midfielder option by multiple tracked creators", by:"FPL Harry · FPL Mate · Let's Talk FPL"},
+  {t:"Calvert-Lewin's penalty duties and reliable minutes at £6.0m are backed by 3 of 4 creators — only FPL Focal (Harry's guest) is going differential with Igor Jesus instead", by:"FPL Harry · FPL Raptor · Let's Talk FPL"},
+  {t:"Saka's underlying numbers look excellent, but he returned late from World Cup duty — his minutes are the one open question every source flags", by:"FPL Harry · Let's Talk FPL · AllAboutFPL"},
+  {t:"Saliba is OUT for GW1 with a back injury (unknown return date, per the official API) — the biggest defensive absence of the week, directly reshaping Arsenal-defender picks", by:"Official FPL API"},
+  {t:"Neco Williams (£5.0m) posted more shots than any other defender last season and is a value pick many sources still undervalue", by:"AllAboutFPL"},
+  {t:"Fantasy Football Scout's official GW1 Scout Picks squad (published Aug 20) triples up on Arsenal and Man Utd — Mosquera, Calafiori and Maguire in defence, Bruno Fernandes, Szoboszlai, Tzolis and Mbeumo in midfield, Haaland up front", by:"Fantasy Football Scout"},
+  {t:"Szoboszlai created 78 chances last season (2nd only to Bruno) and racked up 20 DEFCON points — with Salah gone, he's now a live shout for a share of Liverpool's penalties", by:"AllAboutFPL"}
+],
+
+teams: {
+  ARS:{name:"Arsenal"}, AVL:{name:"Aston Villa"}, BOU:{name:"Bournemouth"}, BRE:{name:"Brentford"},
+  BHA:{name:"Brighton"}, CHE:{name:"Chelsea"}, COV:{name:"Coventry"}, CRY:{name:"Crystal Palace"},
+  EVE:{name:"Everton"}, FUL:{name:"Fulham"}, HUL:{name:"Hull City"}, IPS:{name:"Ipswich"},
+  LEE:{name:"Leeds"}, LIV:{name:"Liverpool"}, MCI:{name:"Man City"}, MUN:{name:"Man Utd"},
+  NEW:{name:"Newcastle"}, NFO:{name:"Nott'm Forest"}, SUN:{name:"Sunderland"}, TOT:{name:"Spurs"}
+},
+fixtures: [
+  {h:"ARS",a:"COV",when:"Fri 21 Aug 20:00",hEase:4,aEase:1},
+  {h:"HUL",a:"MUN",when:"Sat 22 Aug 12:30",hEase:2,aEase:4},
+  {h:"EVE",a:"CRY",when:"Sat 22 Aug 15:00",hEase:3,aEase:3},
+  {h:"IPS",a:"SUN",when:"Sat 22 Aug 15:00",hEase:4,aEase:4},
+  {h:"NFO",a:"LEE",when:"Sat 22 Aug 15:00",hEase:4,aEase:3},
+  {h:"BRE",a:"TOT",when:"Sat 22 Aug 17:30",hEase:3,aEase:3},
+  {h:"BHA",a:"AVL",when:"Sun 23 Aug 14:00",hEase:3,aEase:3},
+  {h:"MCI",a:"BOU",when:"Sun 23 Aug 14:00",hEase:3,aEase:1},
+  {h:"NEW",a:"LIV",when:"Sun 23 Aug 16:30",hEase:2,aEase:3},
+  {h:"FUL",a:"CHE",when:"Mon 24 Aug 20:00",hEase:2,aEase:3}
+],
+
+/* Prices & ownership below are pulled live from the official FPL API (bootstrap-static,
+   Aug 15 2026). Fixture ease is derived from the FPL API's own Fixture Difficulty Rating.
+   Player narrative/pros/cons are sourced ONLY from: FPL Harry, FPL Raptor, Let's Talk FPL,
+   FPL Mate (real GW1 video transcripts), Fantasy Football Scout and AllAboutFPL articles,
+   or the official API's injury/news flags. No RotoWire / FFFix / OnsideArena content remains.
+   Consensus AI Score = mentions 40 / strength 20 / fixture 15 / minutes 10 / stats 10 / news 5,
+   where "stats" now reflects real last-season output (pts, pts/90, or AllAboutFPL's per-90
+   underlying numbers) rather than a projected points figure. */
+players: [
+ {id:"haaland",name:"Haaland",team:"MCI",pos:"FWD",price:15.5,own:73.4,fix:"BOU (H)",fixEase:3,
+  srcs:["FPL Harry","FPL Mate","FPL Raptor","Official FPL API"],strength:"Must-buy",minutes:"Guaranteed",
+  f:{mentions:27,strength:20,fixture:9,minutes:9,stats:10,news:5},capScore:88,buy:true,
+  pros:["Captain for 2 of 4 tracked creators in their actual final GW1 videos (FPL Harry, Let's Talk FPL) — FPL Harry: 'I just like him at home'","Season-long Triple Captain earmarked for Haaland v Hull in GW16 by FPL Mate, even though Mate is captaining Bruno GW1","239 points last season (6.8 pts/90) — the highest of any tracked player","Record £15.5m price, but 73.4% ownership (official API) says almost everyone pays it"],
+  cons:["The armband is now a genuine 2-2 split — FPL Raptor ('51/49') and FPL Mate have both swung their actual captaincy to Bruno for GW1, not Haaland","Minimal preseason involvement remains the live concern — only 53 minutes and one big chance in the Community Shield per FPL Raptor's own numbers","£15.5m eats your structure — very few forwards this expensive"],
+  reasons:"Still owned by all four tracked creators, but the captaincy consensus has broken — 2 of 4 final-team videos back Bruno instead this week, largely on minutes-certainty grounds."},
+
+ {id:"bruno",name:"Bruno Fernandes",team:"MUN",pos:"MID",price:12.0,own:48.0,fix:"HUL (A)",fixEase:2,
+  srcs:["FPL Harry","FPL Raptor","FPL Mate","Official FPL API"],strength:"Must-buy",minutes:"Guaranteed",
+  f:{mentions:27,strength:19,fixture:6,minutes:10,stats:10,news:5},capScore:86,buy:true,
+  pros:["235 points last season (6.7 pts/90) — the 2nd-highest points total of any tracked player","FPL Mate's actual GW1 captain, not vice — 'Bruno I think is probably going to be the best captain for gameweeks one and two while Haaland... just [got] back to training'","FPL Raptor now '51/49 leaning towards a Bruno Fernandez captaincy' over Haaland — a real shift from his earlier videos","FPL Harry: fully fit, 'had a good preseason, ready to go' — rates him '~75%' likely in his final draft vs Haaland's 95-100%"],
+  cons:["FPL Harry's own worry: after a big price hike a couple of years ago 'that price was not worth it... came crashing down for several seasons' — asks if history repeats","£12.0m midfielder is a huge structural commitment"],
+  reasons:"Every tracked creator owns him for the Hull/Ipswich window, and in their actual final-team videos 2 of 4 (FPL Raptor, FPL Mate) now captain him over Haaland — the strongest the Bruno captaincy case has looked all preseason."},
+
+ {id:"saka",name:"Saka",team:"ARS",pos:"MID",price:9.5,own:10.6,fix:"COV (H)",fixEase:4,
+  srcs:["Let's Talk FPL","AllAboutFPL"],strength:"Strong buy — but debated",minutes:"Likely starter",
+  f:{mentions:13,strength:14,fixture:12,minutes:6,stats:9,news:4},capScore:60,split:true,
+  pros:["157 points last season (5.1 pts/90) with Arsenal's softest fixture of the slate (champions v promoted Coventry)","Only 10.6% owned (official API) despite the underlying numbers"],
+  cons:["Let's Talk FPL, replying directly to his own audience: 'I will agree if Saka gets great minutes... he's being seriously undervalued. But I think most of us are assuming he probably won't' — and says it's hard to justify dropping Haaland/Bruno/Gabriel to fit him in","AllAboutFPL flagged him coming back from an Achilles issue and playing only 360 minutes across the World Cup — a real minutes doubt for GW1"],
+  reasons:"Strong underlying numbers, but the two sources that actually discussed his GW1 fitness (Let's Talk FPL, AllAboutFPL) are both cautious about his minutes — 'I'm just not convinced of it. Maybe that changes after the Community Shield.'"},
+
+ {id:"gyokeres",name:"Gyökeres",team:"ARS",pos:"FWD",price:7.5,own:13.0,fix:"COV (H)",fixEase:4,
+  srcs:["Official FPL API"],strength:"Strong buy",minutes:"Likely starter",
+  f:{mentions:7,strength:15,fixture:12,minutes:8,stats:7,news:5},capScore:0,buy:true,
+  pros:["128 points in his debut Arsenal season (3.6 pts/90) after joining from Sporting","Arsenal's softest fixture of the week at a mid-price (£7.5m)"],
+  cons:["Shares Arsenal's attacking budget with Saka/Tzolis/Bruno Guimarães routes"],
+  reasons:"Arsenal's front-line forward for the best fixture on the board — no tracked creator video has discussed him individually yet this week."},
+
+ {id:"gabriel",name:"Gabriel",team:"ARS",pos:"DEF",price:8.0,own:27.2,fix:"COV (H)",fixEase:4,
+  srcs:["FPL Harry","FPL Raptor","Official FPL API"],strength:"Top defender",minutes:"Guaranteed",
+  f:{mentions:20,strength:16,fixture:12,minutes:10,stats:9,news:5},capScore:0,buy:true,
+  pros:["209 points last season (6.5 pts/90) — comfortably the top-scoring tracked defender","Arsenal's best clean-sheet fixture of the week (official FDR rates COV away as their hardest fixture)","Both FPL Harry and FPL Raptor keep him as a defensive anchor even while debating the rest of Arsenal's back line"],
+  cons:["£8.0m is striker money for a defender","Saliba is OUT (back injury, official API) — the unit is thinner than usual"],
+  reasons:"The consensus defensive anchor: top-scoring tracked defender, best fixture, still owned regardless of the Calafiori/Mosquera debate around him."},
+
+ {id:"white",name:"Ben White",team:"ARS",pos:"DEF",price:5.5,own:1.2,fix:"COV (H)",fixEase:4,
+  srcs:["Official FPL API"],strength:"Watch",minutes:"Likely starter",
+  f:{mentions:7,strength:10,fixture:12,minutes:7,stats:5,news:5},capScore:0,
+  pros:["Same Arsenal clean-sheet fixture as Gabriel for £2.5m less","100% chance of playing per the official API"],
+  cons:["Only 45 points last season (3.8 pts/90) — well below Gabriel and Calafiori/Mosquera","Not discussed by any tracked creator this week"],
+  reasons:"Cheap route into the Arsenal defence on paper, but no tracked source is actively backing him this week — treat as a watch, not a buy."},
+
+ {id:"tzolis",name:"Tzolis",team:"ARS",pos:"MID",price:6.5,own:4.1,fix:"COV (H)",fixEase:4,
+  srcs:["Official FPL API","Fantasy Football Scout"],strength:"Unproven",minutes:"Rotation risk",
+  f:{mentions:7,strength:8,fixture:12,minutes:5,stats:3,news:5},capScore:0,
+  pros:["New Arsenal signing with the week's best fixture at an enabler price","Included in Fantasy Football Scout's official GW1 Scout Picks squad (published Aug 20) alongside Bruno Fernandes and Szoboszlai — the first tracked-source backing he's had"],
+  cons:["Zero Premier League points on record yet (new to the league) — no track record to judge","Arsenal's attacking rotation is deep; none of the four tracked YouTube creators have backed him yet"],
+  reasons:"An unproven new signing at a kind price — now with one real tracked-source pick behind him (Fantasy Football Scout), though the creator videos remain silent on him."},
+
+ {id:"mbeumo",name:"Mbeumo",team:"MUN",pos:"MID",price:8.0,own:26.8,fix:"HUL (A)",fixEase:2,
+  srcs:["FPL Mate","Official FPL API"],strength:"Buy",minutes:"Guaranteed",
+  f:{mentions:13,strength:14,fixture:6,minutes:10,stats:8,news:5},capScore:0,buy:true,
+  pros:["148 points last season (4.5 pts/90) in his first United campaign","FPL Mate keeps him in his actual GW1 squad alongside Bruno","Same kind Hull opener as Bruno at £4.0m less"],
+  cons:["Shares United's returns with Bruno and Cunha"],
+  reasons:"The cheaper, still-productive route into United's plum opener."},
+
+ {id:"szobo",name:"Szoboszlai",team:"LIV",pos:"MID",price:7.0,own:42.6,fix:"NEW (A)",fixEase:2,
+  srcs:["Let's Talk FPL","FPL Raptor","Official FPL API","AllAboutFPL"],strength:"Split verdict",minutes:"Guaranteed",
+  f:{mentions:20,strength:12,fixture:6,minutes:10,stats:8,news:5},capScore:0,split:true,
+  pros:["160 points last season (4.4 pts/90) — 42.6% owned, the template's favourite £7.0m pick","Let's Talk FPL, defending him against 'slow drip value' criticism from his own audience: 'I've had him in since day one... great value over the season'","Nailed for set pieces and penalty-sharing per Let's Talk FPL — 'if he sneezes, he gets three bonus'","AllAboutFPL: 6 goals/7 assists and 20 DEFCON points last season, 78 chances created (2nd only to Bruno) — now a live shout for penalties with Salah gone"],
+  cons:["FPL Raptor has moved away from him this week: 'this guy just doesn't carry the goal threat... he scored two open play goals all season' last year, favouring Wirtz instead","Toughest opener among the top mids (Newcastle away)"],
+  reasons:"A real split between two tracked creators: Let's Talk FPL defends him on set-piece/bonus floor, while FPL Raptor has actively swapped him out this week for Wirtz."},
+
+ {id:"palmer",name:"Palmer",team:"CHE",pos:"MID",price:9.5,own:11.2,fix:"FUL (A)",fixEase:3,
+  srcs:["Official FPL API"],strength:"Split verdict",minutes:"Guaranteed",
+  f:{mentions:7,strength:10,fixture:9,minutes:10,stats:6,news:5},capScore:0,split:true,
+  pros:["Chelsea's talisman; Monday game lets you watch everyone else first"],
+  cons:["Only 114 points last season (4.4 pts/90) — a down year by his own standard","11.2% ownership (official API) shows the market is still cautious"],
+  reasons:"No tracked creator has discussed him this week — last season's underlying numbers argue for patience rather than an early buy."},
+
+ {id:"joaopedro",name:"João Pedro",team:"CHE",pos:"FWD",price:7.5,own:55.4,fix:"FUL (A)",fixEase:3,
+  srcs:["FPL Harry","FPL Mate","Official FPL API"],strength:"Template pick",minutes:"Guaranteed",
+  f:{mentions:13,strength:14,fixture:9,minutes:10,stats:6,news:5},capScore:0,buy:true,
+  pros:["55.4% owned — the most-owned player in the game bar Haaland's tier","In both FPL Harry's and FPL Mate's actual GW1 squads","No European football for Chelsea this season means lower rotation risk than most"],
+  cons:["Points-per-90 (4.4) is solid but unspectacular for the price — this is a structural, season-long pick more than a week-1 spike"],
+  reasons:"The structural £7.5m forward everyone owns, backed by two of the four tracked creators' real squads."},
+
+ {id:"thiago",name:"Igor Thiago",team:"BRE",pos:"FWD",price:8.0,own:16.1,fix:"TOT (H)",fixEase:3,
+  srcs:["Official FPL API"],strength:"Buy",minutes:"Guaranteed",
+  f:{mentions:7,strength:12,fixture:9,minutes:10,stats:7,news:5},capScore:0,buy:true,
+  pros:["181 points last season (4.8 pts/90) — the best-scoring tracked forward outside Haaland","Home to Spurs, a fair mid-tier opener"],
+  cons:["Not discussed by any tracked creator this week — the case here is purely the underlying numbers"],
+  reasons:"The strongest non-Haaland forward by last-season output, even without a creator co-sign yet."},
+
+ {id:"cunha",name:"Cunha",team:"MUN",pos:"MID",price:8.0,own:12.1,fix:"HUL (A)",fixEase:2,
+  srcs:["Official FPL API"],strength:"Consider",minutes:"Likely starter",
+  f:{mentions:7,strength:9,fixture:6,minutes:8,stats:6,news:5},capScore:0,
+  pros:["143 points last season (4.3 pts/90) — third United attacker with a kind opening fixture"],
+  cons:["Third in the pecking order behind Bruno and Mbeumo for the same team's points"],
+  reasons:"Fine pick, but Bruno and Mbeumo are the better-evidenced routes into the same fixture this week."},
+
+ {id:"rice",name:"Rice",team:"ARS",pos:"MID",price:7.5,own:21.6,fix:"COV (H)",fixEase:4,
+  srcs:["AllAboutFPL","Official FPL API"],strength:"Consider — flagged",minutes:"Doubt",
+  f:{mentions:13,strength:10,fixture:12,minutes:4,stats:8,news:2},capScore:0,split:true,
+  pros:["184 points last season (5.1 pts/90) — Arsenal's best fixture of the week if he plays"],
+  cons:["AllAboutFPL flagged a hamstring issue that could rule him out of GW1 entirely — check Friday's team news before locking him in","21.6% owned already, so a bench outcome would hurt a lot of squads"],
+  reasons:"Good player, great fixture on paper — but AllAboutFPL's hamstring flag makes him a genuine doubt, not a safe pick, for GW1 specifically."},
+
+ {id:"maguire",name:"Maguire",team:"MUN",pos:"DEF",price:5.0,own:9.9,fix:"HUL (A)",fixEase:2,
+  srcs:["FPL Raptor","Let's Talk FPL","AllAboutFPL","Official FPL API"],strength:"Differential",minutes:"Likely starter",
+  f:{mentions:27,strength:14,fixture:6,minutes:8,stats:8,news:5},capScore:0,buy:true,diff:true,
+  pros:["FPL Raptor, on record: 'I can sit here right now and promise you Maguire is a much better pick than Luke Shaw. If you've got the 0.5, you should absolutely do it'","Let's Talk FPL agrees: 'his defcons are better... maybe [with Casemiro gone] Maguire becomes the set-piece target' — a good pick, 'nothing more than that'","AllAboutFPL's per-90 numbers back this up: across last season Maguire out-produced Shaw in defensive contributions (8.21 vs 6.24 per 90) and shots (0.60 vs 0.17 per 90), despite starting only 19 games to Shaw's 38"],
+  cons:["FPL Raptor's caveat: neither Maguire nor Shaw is fully nailed — Man Utd are still assessing left-back options with De Ligt back in training","Only 90 total points last season vs Shaw's 113 — mostly because he started half as many games"],
+  reasons:"Independently backed by two of four tracked creators AND AllAboutFPL's per-90 data — the strongest cross-source agreement of any budget defender, even though his raw points total trails Shaw's."},
+
+ {id:"shaw",name:"Shaw",team:"MUN",pos:"DEF",price:4.5,own:24.2,fix:"HUL (A)",fixEase:2,
+  srcs:["AllAboutFPL","Official FPL API"],strength:"Budget pick",minutes:"Likely starter",
+  f:{mentions:13,strength:11,fixture:6,minutes:8,stats:6,news:5},capScore:0,buy:true,
+  pros:["The popular £4.5m route into United's defence (24.2% owned) — 113 points and 38 starts last season, the nailed-on option","Cheapest of the viable MUN defenders"],
+  cons:["AllAboutFPL's per-90 numbers favour Maguire in defensive contributions and shots"],
+  reasons:"Fine, nailed-on enabler — AllAboutFPL's own numbers argue the extra £0.5m for Maguire pays for itself per-90, but Shaw's guaranteed minutes are the safer floor."},
+
+ {id:"tarkowski",name:"Tarkowski",team:"EVE",pos:"DEF",price:6.0,own:9.7,fix:"CRY (H)",fixEase:3,
+  srcs:["Official FPL API"],strength:"Consider",minutes:"Guaranteed",
+  f:{mentions:7,strength:11,fixture:9,minutes:10,stats:8,news:5},capScore:0,
+  pros:["170 points last season (4.6 pts/90) — the best-scoring tracked defender outside Gabriel","Fully fit, nailed starter"],
+  cons:["£6.0m for an Everton defender is a real budget commitment","No tracked creator has discussed him this week — this is purely the raw numbers"],
+  reasons:"Strong last-season output, but with no creator or AllAboutFPL coverage this week, this card leans on official stats alone."},
+
+ {id:"sarr",name:"Sarr",team:"CRY",pos:"MID",price:6.5,own:7.6,fix:"EVE (A)",fixEase:3,
+  srcs:["Official FPL API"],strength:"Consider",minutes:"Likely starter",
+  f:{mentions:7,strength:9,fixture:9,minutes:8,stats:6,news:5},capScore:0,
+  pros:["117 points last season (4.2 pts/90) at a mid-price"],
+  cons:["Mixed opening fixtures (Everton away, then Man City at home) and no tracked-source discussion this week"],
+  reasons:"Solid underlying numbers with nothing beyond that to lean on this week — watch rather than a confident buy."},
+
+ {id:"schade",name:"Schade",team:"BRE",pos:"MID",price:6.0,own:1.9,fix:"TOT (H)",fixEase:3,
+  srcs:["Official FPL API"],strength:"Consider",minutes:"Likely starter",
+  f:{mentions:7,strength:9,fixture:9,minutes:8,stats:6,news:5},capScore:0,
+  pros:["125 points last season (3.6 pts/90); home to Spurs is a fair opener"],
+  cons:["Very low ownership (1.9%) and no tracked-source discussion this week to corroborate a differential call"],
+  reasons:"Decent underlying numbers but currently unbacked by any of the tracked video sources — treat as a watch."},
+
+ {id:"anderson",name:"Elliot Anderson",team:"MCI",pos:"MID",price:6.5,own:11.0,fix:"BOU (H)",fixEase:3,
+  srcs:["Official FPL API"],strength:"Consider",minutes:"Rotation risk",
+  f:{mentions:7,strength:10,fixture:9,minutes:5,stats:8,news:5},capScore:0,
+  pros:["180 points last season (4.7 pts/90) — now a Man City player with a kind opening fixture"],
+  cons:["New signing in Pep's midfield — minutes are a genuine unknown at a new club"],
+  reasons:"Cheap route into City's opener IF he starts — that 'if' is doing heavy lifting, and no tracked creator has confirmed his role yet."},
+
+ {id:"semenyo",name:"Semenyo",team:"MCI",pos:"MID",price:8.5,own:27.6,fix:"BOU (H)",fixEase:3,
+  srcs:["Let's Talk FPL","Official FPL API"],strength:"Buy",minutes:"Likely starter",
+  f:{mentions:13,strength:13,fixture:9,minutes:8,stats:8,news:5},capScore:0,buy:true,
+  pros:["202 points last season (5.5 pts/90) — moved to Man City this summer, facing his old club at home","Let's Talk FPL names him among the cheaper midfielders 'who could do really well especially early on'"],
+  cons:["First competitive game in a new system","£8.5m with Pep rotation forever lurking"],
+  reasons:"Strong last-season output in the week's second-best fixture, with one tracked creator flagging him as an early option."},
+
+ {id:"doku",name:"Doku",team:"MCI",pos:"MID",price:7.5,own:6.4,fix:"BOU (H)",fixEase:3,
+  srcs:["Official FPL API"],strength:"Differential",minutes:"Rotation risk",
+  f:{mentions:7,strength:9,fixture:9,minutes:5,stats:7,news:5},capScore:0,diff:true,
+  pros:["120 points last season (4.0 pts/90) at just 6.4% ownership, City's best fixture"],
+  cons:["Peak Pep roulette — no tracked source has confirmed his starting role this week"],
+  reasons:"Reasonable underlying numbers, low ownership, but zero minutes certainty — a punt rather than a confident buy."},
+
+ {id:"foden",name:"Foden",team:"MCI",pos:"MID",price:7.0,own:6.2,fix:"BOU (H)",fixEase:3,
+  srcs:["Official FPL API"],strength:"Split verdict",minutes:"Rotation risk",
+  f:{mentions:7,strength:8,fixture:9,minutes:5,stats:6,news:4},capScore:0,split:true,
+  pros:["£7.0m — a low launch price relative to his ceiling; 6.2% owned with City's best fixture"],
+  cons:["Only 131 points last season (4.0 pts/90) after missing England's World Cup squad","A bounce-back is a bet, not a fact — no tracked creator has backed him this week"],
+  reasons:"Cheap for a reason. The price says buy; last season's underlying numbers say wait."},
+
+ {id:"gibbswhite",name:"Gibbs-White",team:"NFO",pos:"MID",price:8.0,own:11.6,fix:"LEE (H)",fixEase:4,
+  srcs:["Official FPL API"],strength:"Consider",minutes:"Guaranteed",
+  f:{mentions:7,strength:10,fixture:12,minutes:10,stats:8,news:5},capScore:0,
+  pros:["188 points last season (5.1 pts/90) — a nice opener at home to promoted Leeds"],
+  cons:["£8.0m is a full-price midfielder and no tracked creator has made the case for him this week"],
+  reasons:"Solid underlying numbers and a kind opener, but nothing beyond the raw stats backs this pick right now."},
+
+ {id:"necowilliams",name:"Neco Williams",team:"NFO",pos:"DEF",price:5.0,own:11.8,fix:"LEE (H)",fixEase:4,
+  srcs:["AllAboutFPL","Official FPL API"],strength:"Budget pick",minutes:"Guaranteed",
+  f:{mentions:13,strength:12,fixture:12,minutes:10,stats:9,news:5},capScore:0,buy:true,
+  pros:["AllAboutFPL: no defender registered more shots last season (46 shots), plus 2 goals, 3 assists and 9 clean sheets","£5.0m with a home opener v promoted Leeds","128 points last season (3.5 pts/90) at a budget price"],
+  cons:["Forest's clean sheets are less bankable than a top-6 side's"],
+  reasons:"The best-evidenced £5.0m defender: real attacking volume backed by AllAboutFPL's actual shot data, at an enabler price."},
+
+ {id:"ballard",name:"Ballard",team:"SUN",pos:"DEF",price:5.0,own:4.5,fix:"IPS (A)",fixEase:4,
+  srcs:["FPL Raptor","FPL Mate","Official FPL API"],strength:"Strong buy",minutes:"Guaranteed",
+  f:{mentions:20,strength:15,fixture:12,minutes:10,stats:8,news:5},capScore:0,buy:true,diff:true,
+  pros:["FPL Raptor's answer to 'favourite £5.0m defender': 'I'm going to go for big Dan Ballard'","FPL Mate independently: 'absolute DefCon machine' with real goal threat too","116 points last season (4.0 pts/90) — solid production at a budget price"],
+  cons:["FPL Mate's own caution: Sunderland's other centre-backs (Alderete, Murillo) are only 75% and available-but-unconfirmed for GW1, which weakens the defence overall","Fixtures get tougher by GW4-5 per FPL Mate"],
+  reasons:"Two creators independently named him their favourite £5.0m defender in the same week — the strongest budget-defender consensus outside Maguire."},
+
+ {id:"tielemans",name:"Tielemans",team:"MUN",pos:"MID",price:6.0,own:1.8,fix:"HUL (A)",fixEase:2,
+  srcs:["Official FPL API"],strength:"Sleeper",minutes:"Likely starter",
+  f:{mentions:7,strength:8,fixture:6,minutes:8,stats:5,news:5},capScore:0,
+  pros:["Now at Man Utd with the kindest opener; 100% chance of playing per the official API"],
+  cons:["Only 68 points last season (2.7 pts/90) at his previous club, and no tracked source has discussed his United role yet"],
+  reasons:"An unproven role at a new club — the fixture is kind, but there's no source backing beyond that this week."},
+
+ {id:"isak",name:"Isak",team:"LIV",pos:"FWD",price:9.0,own:13.9,fix:"NEW (A)",fixEase:2,
+  srcs:["Let's Talk FPL","Official FPL API"],strength:"Split verdict",minutes:"Guaranteed",
+  f:{mentions:13,strength:11,fixture:6,minutes:10,stats:5,news:5},capScore:0,split:true,
+  pros:["Liverpool's new #9; Let's Talk FPL concedes the case: 'Liverpool's number nine, no competition, plus penalties — that's potentially great'"],
+  cons:["Faces his old club Newcastle away in GW1 — the week's most hostile reception","Let's Talk FPL's actual verdict: 'there's a lot of good midfielders cheaper — Semenyo, Wirtz, Mbeumo — who could do really well especially early on... he's probably not going to get into my team unless I drop Haaland'","Only 41 points and a modest 2.9 pts/90 in his injury-hit season at his old club"],
+  reasons:"The one creator who discussed him this week talked himself OUT of him in real time — a GW2+ entry avoids the St James' cauldron."},
+
+ {id:"virgil",name:"Van Dijk",team:"LIV",pos:"DEF",price:6.5,own:16.9,fix:"NEW (A)",fixEase:2,
+  srcs:["Let's Talk FPL","Official FPL API"],strength:"Underrated — buy",minutes:"Guaranteed",
+  f:{mentions:13,strength:13,fixture:6,minutes:10,stats:8,news:5},capScore:0,buy:true,
+  pros:["175 points last season (his best defensive output in years) — ever-present","Let's Talk FPL, unprompted: 'I genuinely think Van Dijk is being massively overlooked by most people... his goal threat is better, his defcons are better' than the cheaper Shaw, and he's £1.5m cheaper than Gabriel's tier"],
+  cons:["Newcastle away is a poor clean-sheet spot to start his ownership case"],
+  reasons:"The one defender Let's Talk FPL volunteered as underrated with no prompting — a genuine 'nobody's talking about this' pick from the transcript, backed by a strong last-season points total."},
+
+ {id:"lefee",name:"Le Fée",team:"SUN",pos:"MID",price:6.0,own:12.7,fix:"IPS (A)",fixEase:4,
+  srcs:["Official FPL API"],strength:"Consider",minutes:"Guaranteed",
+  f:{mentions:7,strength:10,fixture:12,minutes:9,stats:8,news:5},capScore:0,
+  pros:["147 points last season (best of Sunderland's midfield) with a fair opener","Official API lists him fully available — no live injury flag"],
+  cons:["No tracked creator has discussed him specifically this week"],
+  reasons:"Solid underlying numbers and no injury concern per the official API, but nothing beyond the raw stats backs this pick yet."},
+
+ {id:"raya",name:"Raya",team:"ARS",pos:"GK",price:6.0,own:31.2,fix:"COV (H)",fixEase:4,
+  srcs:["Official FPL API"],strength:"Top keeper",minutes:"Guaranteed",
+  f:{mentions:7,strength:14,fixture:12,minutes:10,stats:8,news:5},capScore:0,buy:true,
+  pros:["162 points last season — the top-scoring tracked keeper — with Arsenal's best fixture of the week","31.2% owned, the highest of any tracked keeper"],
+  cons:["£1.5m more than the budget keepers (Verbruggen, Petrović, Lammens all £4.5-5.0m)"],
+  reasons:"Set-and-forget #1 for anyone who can afford the extra £1.0-1.5m over the budget options."},
+
+ {id:"lammens",name:"Lammens",team:"MUN",pos:"GK",price:5.0,own:19.4,fix:"HUL (A)",fixEase:2,
+  srcs:["FPL Mate","Official FPL API"],strength:"Value keeper",minutes:"Likely starter",
+  f:{mentions:13,strength:13,fixture:6,minutes:8,stats:6,news:5},capScore:0,buy:true,
+  pros:["United's kind opening run (Hull, Ipswich, Everton)","FPL Mate: 'no other goalkeeper in the game who I am confident is going to play every single game and get clean sheet points' across that run"],
+  cons:["109 points last season and 19.4% ownership already pricing in the value"],
+  reasons:"The mid-price keeper route if Raya's £6.0m stings — and FPL Mate's explicit #1 GK for a GW4-wildcard build."},
+
+ {id:"calafiori",name:"Calafiori",team:"ARS",pos:"DEF",price:5.5,own:18.0,fix:"COV (H)",fixEase:4,
+  srcs:["FPL Mate","FPL Raptor","Official FPL API","Fantasy Football Scout"],strength:"Split verdict",minutes:"Likely starter",
+  f:{mentions:20,strength:13,fixture:12,minutes:7,stats:7,news:5},capScore:0,split:true,
+  pros:["FPL Mate just swapped IN Calafiori over Mosquera: 'coming off no World Cup football... Calafiori to me is the main starting left-back, no real doubt about that'","109 points last season (4.2 pts/90) — the strongest attacking output of Arsenal's left-back options","Correction: the official API prices him at £5.5m, not the £6.5m shown in an earlier version of this page","Rostered alongside Mosquera in Fantasy Football Scout's official GW1 Scout Picks squad (Aug 20) — their team goes double Arsenal defence rather than picking one over the other"],
+  cons:["FPL Raptor's guest Oscar prefers Mosquera specifically because Calafiori is the lower-floor, higher-ceiling pick","Rotation risk grows once League Cup/Champions League minutes are added to the calendar"],
+  reasons:"FPL Mate's active swap-in this week — directly against FPL Raptor's guest Oscar, who prefers the safer Mosquera at the same spot."},
+
+ {id:"mosquera",name:"Mosquera",team:"ARS",pos:"DEF",price:5.5,own:13.6,fix:"COV (H)",fixEase:4,
+  srcs:["FPL Raptor","Official FPL API","Fantasy Football Scout"],strength:"Safe pick",minutes:"Likely starter",
+  f:{mentions:13,strength:12,fixture:12,minutes:8,stats:5,news:5},capScore:0,buy:true,
+  pros:["FPL Raptor's guest Oscar: 'I just think Mosquera is the safer pick, but definitely lower ceiling' vs Calafiori/White","Correction: the official API prices him at £5.5m, not the £5.0m shown in an earlier version of this page — the same price as Calafiori","Also Fantasy Football Scout's own Scout Squad watchlist pick at the position (unchanged since 13 Aug), and rostered alongside Calafiori in their official GW1 Scout Picks squad"],
+  cons:["FPL Mate has actively moved away from him this week over signing rumours pushing him to right-back","Only 40 points last season (2.0 pts/90) — lower attacking upside than Calafiori"],
+  reasons:"The 'boring but safe' Arsenal defender — explicitly preferred by one creator (Oscar/Raptor video) over the more exciting Calafiori, and now confirmed the same price."},
+
+ {id:"brunog",name:"Bruno Guimarães",team:"ARS",pos:"MID",price:7.0,own:10.3,fix:"COV (H)",fixEase:4,
+  srcs:["Official FPL API"],strength:"Watch — new signing",minutes:"Rotation risk",
+  f:{mentions:7,strength:9,fixture:12,minutes:5,stats:8,news:5},capScore:0,
+  pros:["154 points last season at his previous club (a proven Premier League midfielder) — now at Arsenal for £7.0m with the week's best fixture","10.3% owned already"],
+  cons:["Brand-new Arsenal signing — his exact role in an already-crowded midfield (Rice, Ødegaard, Tzolis) isn't settled yet, and none of the four tracked creators have discussed him yet"],
+  reasons:"Added this update: the official API confirms Bruno Guimarães is now an Arsenal player. No tracked creator video has covered him individually yet — this card is official-data-only until that changes."},
+
+ {id:"ajer",name:"Ajer",team:"BRE",pos:"DEF",price:4.5,own:1.9,fix:"TOT (H)",fixEase:3,
+  srcs:["FPL Mate","FPL Raptor"],strength:"Budget starter",minutes:"Likely starter",
+  f:{mentions:20,strength:10,fixture:9,minutes:7,stats:5,news:4},capScore:0,buy:true,
+  pros:["FPL Mate: expected to be the main left-centre-back after Van den Berg's injury layoff","FPL Raptor: 'if he looks likely to start the season, Ajer' is his pick for the 4.5m slot","Kind opener at home to Spurs","FPL Mate's final-team video (Aug 19): 9.47 defensive contributions per 90 last season — 'in a league of his own' among £4.5m defenders, in the same range as £5.5-6.0m DEFCON picks. Now in his actual GW1 XI, not just a watchlist name"],
+  cons:["76 points last season and a squad-depth question at Brentford until he's fully confirmed as first-choice"],
+  reasons:"Two of four tracked creators independently land on him as the budget defender of the week, and FPL Mate has him locked in his real final squad with standout DEFCON data behind the pick."},
+
+ {id:"sangare",name:"Sangaré",team:"BRE",pos:"MID",price:5.5,own:1.5,fix:"TOT (H)",fixEase:3,
+  srcs:["FPL Raptor","FPL Mate","Let's Talk FPL"],strength:"Hype pick — wait",minutes:"Likely starter",
+  f:{mentions:30,strength:14,fixture:9,minutes:6,stats:4,news:5},capScore:0,split:true,diff:true,
+  pros:["FPL Raptor: 'Sangaré at Brentford... good short-term fixtures, and he actually doesn't have terrible attacking numbers. Feels like Elliot Anderson of this season'","FPL Mate: strong defensive-contribution numbers in Ligue 1 last season, a record Brentford signing","Both opening fixtures are kind (Spurs then Fulham)"],
+  cons:["Let's Talk FPL is the skeptic: 'Tom's put me off... I don't think it's worth the risk straight away' comparing the hype directly to Elliot Anderson last year","Zero Premier League track record yet — Ligue 1 numbers may not translate"],
+  reasons:"The week's most-discussed hype pick — two creators love the profile, a third explicitly won't touch him yet over transfer risk."},
+
+ {id:"wirtz",name:"Wirtz",team:"LIV",pos:"MID",price:7.5,own:14.7,fix:"NEW (A)",fixEase:2,
+  srcs:["FPL Mate","FPL Raptor","Official FPL API"],strength:"Split verdict",minutes:"Guaranteed",
+  f:{mentions:20,strength:14,fixture:6,minutes:10,stats:6,news:5},capScore:0,split:true,
+  pros:["FPL Mate just switched IN Wirtz: seen playing as a second striker/advanced 10 in friendlies vs Monaco, taking lots of shots in central, dangerous areas","FPL Mate: underperformed his own underlying numbers last season (0.19 goals/90 vs 0.26 xG, 0.11 assists/90 vs 0.19 xA) — real regression-upside case at £7.5m","FPL Raptor, on record: 'I think for me [Wirtz] is 0.5 at least better than Szoboszlai... this guy just doesn't carry the goal threat' — his favourite mid-price midfielder for GW1, 'if I need to own one going into Gameweek 1, I think it'll be Wirtz'"],
+  cons:["Newcastle away is the joint-toughest fixture of the top mids","New system under a new manager — still unproven in this exact role","125 points last season (3.8 pts/90) — underlying numbers so far are good but not yet elite output"],
+  reasons:"Two of four tracked creators are actively backing Wirtz as their favourite mid-price midfielder this week, on the strength of his advanced positioning in friendlies. Correction: an earlier version of this page had a duplicate card under the name 'Vertonghen' — no such player exists in this season's FPL game, and re-checking FPL Raptor's transcript confirmed the quote was actually about Wirtz (an auto-caption mis-hearing), so it's merged in here."},
+
+ {id:"calvertlewin",name:"Calvert-Lewin",team:"LEE",pos:"FWD",price:6.0,own:25.4,fix:"NFO (A)",fixEase:3,
+  srcs:["FPL Harry","FPL Raptor","Let's Talk FPL","Official FPL API"],strength:"Strong buy",minutes:"Guaranteed",
+  f:{mentions:20,strength:16,fixture:9,minutes:10,stats:7,news:5},capScore:0,buy:true,
+  pros:["FPL Harry: 'very bullish on Calvert-Lewin at 6 million... I just think he's a great option'; on penalties, better minutes/data/fixtures than the alternatives per Raptor","Let's Talk FPL directly rebuts the 'trap' narrative: 'I feel like Calvert-Lewin is a trap that everyone is falling into... I don't think he's a trap at all, I think he's just a good pick'","New club Leeds under Glasner, who 'knows how to get the best out of attackers' (FPL Raptor) — a fresh start after a 'write-off' spell before","142 points last season (4.1 pts/90)"],
+  cons:["Let's Talk FPL's own caveat: started slowly last season too, so a repeat slow start is plausible","One creator (Oscar/FPL Focal) actively avoids him, calling him a player who's 'burned him over the years'"],
+  reasons:"The most heavily cross-examined forward of the week — three separate creators independently defended him against 'trap' accusations from their own audiences."},
+
+ {id:"igorjesus",name:"Igor Jesus",team:"NFO",pos:"FWD",price:6.0,own:5.4,fix:"LEE (H)",fixEase:4,
+  srcs:["FPL Raptor","Official FPL API","AllAboutFPL"],strength:"Differential",minutes:"Likely starter",
+  f:{mentions:13,strength:12,fixture:12,minutes:7,stats:6,news:5},capScore:0,diff:true,
+  pros:["Chosen by FPL Raptor's guest Oscar (FPL Focal) explicitly OVER Calvert-Lewin: 'about the only person who doesn't own Haaland, João Pedro and DCL as their front line'","Home to promoted Leeds; Raptor: 'scored four in four or something like that' in pre-season","114 points last season at his previous club","AllAboutFPL independently confirms the pre-season form (4 goals in 4 games) and notes he closed 25/26 with 4 goals, 3 assists in his last 10"],
+  cons:["Not on penalties — the trade-off Oscar himself admits versus DCL","Forest's new manager (Glasner) still bedding in a system — sample size is small"],
+  reasons:"A genuine, named differential from one creator's actual GW1 squad — picked specifically to avoid a player who's 'burned him' before (Calvert-Lewin)."},
+
+ {id:"hume",name:"Hume",team:"SUN",pos:"DEF",price:4.5,own:5.1,fix:"IPS (A)",fixEase:4,
+  srcs:["FPL Raptor","Official FPL API"],strength:"Bench Boost pick",minutes:"Likely starter",
+  f:{mentions:13,strength:10,fixture:12,minutes:6,stats:5,news:5},capScore:0,
+  pros:["Named directly by FPL Raptor's guest Oscar as his bench-boost enabler: 'playing a promoted team gameweek one, one goal one assist in preseason... he's playing right wing out of position, 4.5 mil, so he's a nice early pick'","110 points last season"],
+  cons:["Explicitly a bench-boost-only, short-term pick — 'the puntiest beyond the first few weeks' per Oscar himself","Playing out of position (right wing, not his natural role)"],
+  reasons:"A pure early-Bench-Boost enabler pick, straight from one creator's actual GW1 squad reveal."},
+
+ {id:"gross",name:"Pascal Groß",team:"BHA",pos:"MID",price:5.5,own:11.1,fix:"AVL (H)",fixEase:3,
+  srcs:["FPL Harry","FPL Mate","FPL Raptor","Let's Talk FPL"],strength:"Strong buy",minutes:"Guaranteed",
+  f:{mentions:40,strength:17,fixture:9,minutes:10,stats:5,news:5},capScore:0,buy:true,
+  pros:["Let's Talk FPL: 'for 5.5 million... I don't see anyone else of that price or below that I think is better'","All four tracked creators mention him as a top sub-£6m midfielder this week","78 points last season, and 11.1% owned (official API) as the market catches on"],
+  cons:["Villa then Chelsea away isn't the kindest opening double","Let's Talk FPL flags a small early-minutes risk before he's fully bedded into his role"],
+  reasons:"Full 4/4 consensus — every tracked creator independently lands on Groß as the standout cheap midfielder of the week."},
+
+ {id:"petrovic",name:"Petrović",team:"BOU",pos:"GK",price:4.5,own:3.7,fix:"MCI (A)",fixEase:1,
+  srcs:["FPL Mate","Official FPL API"],strength:"Bench Boost pick",minutes:"Backup plan",
+  f:{mentions:13,strength:9,fixture:3,minutes:5,stats:5,news:5},capScore:0,
+  pros:["FPL Mate's dedicated Bench Boost GW2 goalkeeper — targets Bournemouth's home fixture v Everton that week specifically","124 points last season"],
+  cons:["Toughest fixture on the board in GW1 (Man City away) — purely a GW2 bench-boost slot filler"],
+  reasons:"Not a GW1 play at all — a specific, named Bench Boost GW2 pick from FPL Mate's actual squad."}
+],
+
+injuries: [
+  {name:"Saliba", team:"ARS", status:"OUT", detail:"Official FPL API: back injury, unknown return date, 0% chance of playing. Route Arsenal defence money via Gabriel, Calafiori or Mosquera instead.", sev:"red"},
+  {name:"Minteh", team:"BHA", status:"OUT to ~28 Nov", detail:"Official FPL API: leg injury, expected back 28 Nov — a season-long absence, not just a GW1 doubt.", sev:"red"},
+  {name:"Gudmundsson", team:"LEE", status:"OUT to ~30 Aug", detail:"Official FPL API: hamstring injury, expected back around 30 Aug — will miss the season opener.", sev:"red"},
+  {name:"Mukiele", team:"SUN", status:"Doubt (75%)", detail:"Official FPL API: knock, 75% chance of playing GW1 — worth checking Friday's team news given Ballard's defence relies on this back line.", sev:"orange"},
+  {name:"Alderete", team:"SUN", status:"Doubt (75%)", detail:"Official FPL API: knock, 75% chance of playing GW1 — same defensive line as Ballard and Mukiele.", sev:"orange"},
+  {name:"Rice", team:"ARS", status:"Doubt — flagged", detail:"AllAboutFPL flagged a hamstring issue that could rule him out of the opener. Not reflected in the official API's status field yet — check press conferences before the deadline.", sev:"orange"},
+  {name:"Saka", team:"ARS", status:"Watch — minutes", detail:"AllAboutFPL: coming back from an Achilles issue, played only 360 minutes across the World Cup. Official API shows him fully available, but game-time is the open question every source flags.", sev:"yellow"},
+  {name:"Leeds GK rotation", team:"LEE", status:"Watch", detail:"Both Lucas Perri and Jonas Trafford are on Leeds' books per the official API (Perri £4.5m, Trafford £5.0m) — who starts in goal isn't yet confirmed by any tracked source.", sev:"yellow"}
+],
+
+minutesTiers: {
+  "Guaranteed": ["Haaland","Bruno Fernandes","Gabriel","Raya","João Pedro","Tarkowski","Neco Williams","Gibbs-White","Szoboszlai"],
+  "Likely starter": ["Saka (late WC return, Achilles history — AllAboutFPL)","Gyökeres","Mbeumo","Thiago","Maguire / Shaw","Semenyo","Ballard","Lammens","Calafiori","Mosquera"],
+  "Rotation risk": ["Foden","Doku","Anderson","Bruno Guimarães (new signing, role unsettled)","Tzolis (new signing)","Ajer (not fully nailed)"],
+  "Doubt / OUT": ["Saliba (out — official API)","Minteh (out to ~28 Nov — official API)","Gudmundsson (out to ~30 Aug — official API)","Rice (hamstring flag — AllAboutFPL)","Mukiele / Alderete (75% — official API)"]
+},
+
+videos: [
+  {creator:"FPL Harry", title:"MY FPL GW1 TEAM SELECTION! 💥 LOCK IT IN? 🔒 5X TOP 10K FINISHES 🏆", url:"https://www.youtube.com/watch?v=zqf5l-qv7WM", when:"14 hours ago", fresh:true,
+   summary:"Harry's actual final XI, not a draft — real transcript pulled deadline-eve. Kinsky in goal (holding for a GW6 wildcard), Calafiori/Maguire/Muharemovic across the back — he's now ruling out Mosquera and Ben White as medium-term picks now that Ezri Konsa's Arsenal move is agreed (per his own reporting) and Yuri Timber is nearing full fitness. Midfield: Sangaré, Bruno and Mbeumo, plus a 5th name the auto-captions render as 'Solace' against 'the safe pick of Szoboszlai' — unclear who this actually is, so treat it as unconfirmed. Front three unchanged: João Pedro, Calvert-Lewin, Haaland. Bench Boost is 'very certain' for GW1 or GW2 depending on how Brighton look on Thursday, built around a triple-Brighton bench (Verbruggen, Vuskovic, Groß).",
+   picks:["Kinsky (GK)","Calafiori, Maguire, Muharemovic (DEF)","Sangaré, Bruno, Mbeumo (MID)","João Pedro, Calvert-Lewin, Haaland (FWD)"], transfers:"None — this is his deadline-eve squad, not a swap from a prior draft", captain:"Haaland — 'I just like him at home... I've still not seen anything from Bruno to really want to move it off him'", warnings:["Ezri Konsa's Arsenal move is agreed but not yet official — 'almost certainly not going to start gameweek two' per Harry, which pressures Mosquera/White as picks","One midfield name is unclear from auto-captions ('Solace'/'Solis') — not confirmed, don't assume who this is"]},
+  {creator:"Let's Talk FPL", title:"My FPL Gameweek 1 Team Selection 🔥 588th last season 👀 Bench Boost ACTIVE 🚀", url:"https://www.youtube.com/watch?v=dVer0i0upKI", when:"15 hours ago", fresh:true,
+   summary:"Andy's actual GW1 team, not a draft. Confirms via David Ornstein's reporting that Arsenal have agreed a deal for Ezri Konsa from Aston Villa (not yet official), and that Yuri Timber is now expected back 'in September', around GW3 — which pushes him down to just one Arsenal defender (Calafiori) versus 2-3 in his earlier videos. Rest of the XI: Kinsky/Verbruggen in goal for a GW1 bench boost, Maguire, Neco Williams and Dan Ballard alongside Calafiori, then Bruno, Mbeumo, Szoboszlai and a wavering Pascal Groß (cold feet after Brighton signed striker Promise David, who may take his penalties) in midfield, with the same template front three. Also walks through 'No João Pedro' and 'No Haaland' contingency drafts.",
+   picks:["Kinsky/Verbruggen (GK, bench boost)","Calafiori, Maguire, Neco Williams, Ballard, O'Shea (DEF)","Bruno, Mbeumo, Szoboszlai, Groß (MID)","Haaland, João Pedro, Calvert-Lewin (FWD)"], transfers:"Downgraded from 2-3 Arsenal defenders to just Calafiori after the Konsa/Timber news; sketched a full 'no Haaland' wildcard-3 contingency plan", captain:"Haaland GW1, switching to Bruno for GW2's Hull/Ipswich double", warnings:["Ezri Konsa to Arsenal reported as agreed by David Ornstein — 'it's going to happen', not official yet","Pascal Groß may lose Brighton's penalties to new signing Promise David"]},
+  {creator:"FPL Raptor", title:"MY FPL GW1 TEAM SELECTION 🚨 | BENCH BOOST ACTIVE! 🚀", url:"https://www.youtube.com/watch?v=KeQ_0QeXTNQ", when:"16 hours ago", fresh:true,
+   summary:"Raptor frames this as '10 locked players' plus 5 open spots. Locked: Kinsky, Calafiori, Ballard, Leif Davis, João Pedro, Haaland, Calvert-Lewin, Hinchwood ('a vibes pick... but I can back it up with data' — 0.42 non-penalty xG/90 since his role change at Brighton), Mbeumo and Bruno. Still deciding between Verbruggen/Lammens, Maguire+Rodon vs a Muharemovic upgrade, and Tzolis+Sangaré vs alternatives. The real headline: he's now genuinely torn on the armband — 'as of right now I am marginally... 51-49 leaning towards a Bruno Fernandez captaincy' over Haaland, a real shift from his earlier videos.",
+   picks:["Kinsky (GK)","Calafiori, Ballard, Leif Davis (DEF)","Hinchwood, Mbeumo, Bruno (MID)","João Pedro, Haaland, Calvert-Lewin (FWD)"], transfers:"5 of 15 spots still open at filming (2nd GK, 2 DEF, 2 MID) — weighing a Muharemovic upgrade on Rodon", captain:"51/49 leaning Bruno Fernandes over Haaland — 'I am marginally... leaning towards a Bruno Fernandez captaincy'", warnings:["Ben White and Mosquera both flagged as doubts behind Calafiori at Arsenal","Muharemovic swap depends on a Nottingham Forest teammate battle he says is 'too much risk there right now'"]},
+  {creator:"FPL Mate", title:"FPL 2026/27 IS HERE! | FINAL TEAM for Fantasy Premier League New Season Gameweek 1 🔒", url:"https://www.youtube.com/watch?v=v1rY-bYDTt0", when:"1 day ago", fresh:true,
+   summary:"Dan's actual final squad — and a notable break from the pack: he's captaining Bruno Fernandes, not Haaland, for the Hull opener. Goes big at the back with Raya plus Calafiori (double Arsenal, 59% GW1 clean-sheet odds per FPL Joe's numbers, cited on screen) and cheap-but-elite Ajer at £4.5m (9.47 defensive contributions/90 last season — 'in a league of his own'). Bruno and Mbeumo double up Man Utd in midfield alongside Szoboszlai (picked over Wirtz to save £0.5m) and a wavering Pascal Groß. Chip plan: Bench Boost GW2 (not GW1) built deliberately around a double-Coventry bench (Vuskovic, Thomas) backed by clean-sheet-odds data, Wildcard GW4, Triple Captain earmarked for GW16 v Hull. Team rated 90% for GW1, 93% for GW2 by Fantasy Football Hub's tool.",
+   picks:["Raya (GK)","Calafiori, Shaw, Ajer (DEF)","Bruno, Mbeumo, Szoboszlai, Groß (MID)","Haaland, João Pedro, Calvert-Lewin (FWD)"], transfers:"No change from his last draft in defence/attack; still torn on Groß vs a new Brighton striker taking penalties", captain:"Bruno Fernandes, not Haaland — 'Bruno I think is probably going to be the best captain for gameweeks one and two while Haaland... just [got] back to training'", warnings:["Bench Boost is deliberately GW2, not GW1, built around Coventry's 34% clean-sheet odds vs Hull","Pascal Groß may lose Brighton's penalties to new signing Promise David"]}
+],
+
+disagreements: [
+  {topic:"Maguire or Shaw — is £0.5m worth it?", detail:"FPL Raptor states it outright on camera: 'I can sit here right now and promise you Maguire is a much better pick than Luke Shaw.' AllAboutFPL's per-90 data backs him, even though Shaw's raw points total is higher (more starts).",
+   stances:[{who:"FPL Raptor",say:"Maguire — 'much better pick', promise",tone:"green"},{who:"Let's Talk FPL",say:"Agrees — better DefCon, maybe new set-piece taker",tone:"green"},{who:"AllAboutFPL (per-90 data)",say:"Maguire — 8.21 v 6.24 DefCon/90",tone:"green"},{who:"The template (ownership)",say:"Shaw — cheaper, more owned (24.2%), nailed starter",tone:"orange"}]},
+  {topic:"Calafiori or Mosquera at Arsenal?", detail:"FPL Mate just switched INTO Calafiori this week; FPL Raptor's guest Oscar explicitly prefers Mosquera at the same slot. Both are now confirmed at the same £5.5m price by the official API.",
+   stances:[{who:"FPL Mate",say:"Calafiori — 'no real doubt' he starts",tone:"green"},{who:"FPL Raptor (Oscar)",say:"Mosquera — 'safer, lower ceiling'",tone:"orange"},{who:"Official FPL API",say:"Both priced £5.5m — no cost tiebreaker",tone:"orange"},{who:"The risk",say:"Arsenal may still sign new CB cover",tone:"red"}]},
+  {topic:"Calvert-Lewin or Igor Jesus at Leeds/Forest?", detail:"3 of 4 tracked creators back Calvert-Lewin on pens; FPL Raptor's guest Oscar deliberately avoids him.",
+   stances:[{who:"FPL Harry",say:"'Very bullish' on Calvert-Lewin",tone:"green"},{who:"Let's Talk FPL",say:"'Not a trap at all... just a good pick'",tone:"green"},{who:"FPL Raptor (Oscar)",say:"Igor Jesus — DCL has 'burned me before'",tone:"orange"},{who:"FPL Raptor (Ross)",say:"Agrees with Harry — DCL better data",tone:"green"}]},
+  {topic:"Szoboszlai or Wirtz — which £7.0-7.5m mid?", detail:"Two creators, two different favourites for the same budget slot this week. (An earlier version of this page also listed a 'Vertonghen' as a third option — that player doesn't exist in this season's game; the quote was actually about Wirtz.)",
+   stances:[{who:"FPL Mate",say:"Wirtz — spotted as advanced 10 in friendlies",tone:"green"},{who:"FPL Raptor (Ross)",say:"Wirtz — 'my favourite... if I need to own one'",tone:"green"},{who:"Let's Talk FPL",say:"Defends Szoboszlai — 'great value, don't sell'",tone:"green"},{who:"Official FPL API",say:"Szoboszlai 42.6% owned vs Wirtz 14.7%",tone:"orange"}]},
+  {topic:"Bench Boost — GW1, GW2, or hold?", detail:"Every tracked creator is weighing this differently, in their own words.",
+   stances:[{who:"FPL Harry",say:"Get it out the way GW1/GW2 if light on Haaland/Bruno",tone:"green"},{who:"FPL Mate",say:"Locked for GW2 — double cheap Coventry defenders",tone:"orange"},{who:"FPL Raptor (Ross)",say:"Considering both, budget-dependent",tone:"orange"},{who:"Let's Talk FPL",say:"Leaning early personally — 'caused me such a headache last year'",tone:"green"}]}
+],
+
+aiRec: {
+  "Best Captain":{v:"Haaland or Bruno — genuine 2-2 split",d:"In final-team videos: Harry & Let's Talk FPL captain Haaland; Raptor (51/49) & Mate captain Bruno. No clear consensus this week",conf:52},
+  "Top Transfer-In":{v:"Bruno Guimarães",d:"£7.0m · confirmed Arsenal move (official API) · best fixture of the week · role still unproven",conf:55},
+  "Best Differential":{v:"Igor Jesus",d:"£6.0m · 5.4% owned · FPL Raptor's guest Oscar's named GW1 differential over Calvert-Lewin",conf:66},
+  "Best Defender":{v:"Gabriel",d:"£8.0m · top-scoring tracked defender last season (209 pts) · Arsenal's best fixture",conf:88},
+  "Best Budget Pick":{v:"Ballard",d:"£5.0m · independently backed by FPL Raptor and FPL Mate as their favourite £5.0m defender",conf:78},
+  "Avoid This Week":{v:"Bournemouth attackers @ Man City",d:"Official FDR rates this Bournemouth's hardest fixture of the week (ease 1/5)",conf:80},
+  "Sleeper Pick":{v:"Neco Williams",d:"£5.0m · AllAboutFPL: most shots of any defender last season (46) · only 11.8% owned",conf:72}
+},
+
+totw: {
+  formation:"3-4-3",
+  note:"A GW1 XI drawn from the players with the strongest cross-source backing this update (tracked-creator picks + official API output) — not budget-constrained, and not a numeric points projection.",
+  gk:[{n:"Raya",t:"ARS",p:6.0}],
+  def:[{n:"Gabriel",t:"ARS",p:8.0},{n:"Calafiori",t:"ARS",p:5.5},{n:"Maguire",t:"MUN",p:5.0}],
+  mid:[{n:"Bruno",t:"MUN",p:12.0,cap:"V"},{n:"Saka",t:"ARS",p:9.5},{n:"Mbeumo",t:"MUN",p:8.0},{n:"Groß",t:"BHA",p:5.5}],
+  fwd:[{n:"Haaland",t:"MCI",p:15.5,cap:"C"},{n:"Gyökeres",t:"ARS",p:7.5},{n:"Thiago",t:"BRE",p:8.0}],
+  bench:[{n:"Lammens",t:"MUN",p:5.0},{n:"Szoboszlai",t:"LIV",p:7.0},{n:"Ballard",t:"SUN",p:5.0},{n:"Neco Williams",t:"NFO",p:5.0}]
+},
+
+sources: [
+  {t:"Official FPL API — prices, ownership, injury status, fixtures & Fixture Difficulty Rating", u:"https://fantasy.premierleague.com/api/bootstrap-static/"},
+  {t:"Fantasy Football Scout — 2026/27 season coverage", u:"https://www.fantasyfootballscout.co.uk/"},
+  {t:"AllAboutFPL — Best FPL Value Defenders and GKs for 2026/27", u:"https://allaboutfpl.com/2026/08/best-fpl-value-defenders-and-gks-for-the-2026-27-season/"},
+  {t:"AllAboutFPL — Five Must Own Players in GW1", u:"https://allaboutfpl.com/"},
+  {t:"AllAboutFPL — FPL Players To Avoid in Your GW1 Drafts", u:"https://allaboutfpl.com/"},
+  {t:"FPL Harry — YouTube, GW1 draft videos", u:"https://www.youtube.com/@FPLHarry"},
+  {t:"FPL Raptor — YouTube, GW1 draft videos", u:"https://www.youtube.com/@FPLRaptor"},
+  {t:"Let's Talk FPL — YouTube, GW1 draft videos", u:"https://www.youtube.com/@LetsTalkFPL"},
+  {t:"FPL Mate — YouTube, GW1 draft videos", u:"https://www.youtube.com/@FPLMate"}
+]
+};
+/* ===================== END DATA ====================== */
+</script>
+<script>
+/* ============ helpers ============ */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const score=p=>Object.values(p.f).reduce((a,b)=>a+b,0);
+const stars=n=>{let s='';for(let i=1;i<=5;i++)s+=`<span class="${i<=n?'':'off'}">★</span>`;return `<span class="stars">${s}</span>`};
+const dots=(n,t)=>{let s='';for(let i=0;i<t;i++)s+=`<i class="${i<n?'f':''}"></i>`;return `<span class="dots">${s}</span>`};
+const bar=v=>`<div class="scorebar"><i style="width:0" data-w="${v}"></i></div>`;
+const posB={GK:'b-purple',DEF:'b-blue',MID:'b-mint',FWD:'b-orange'};
+const byScore=[...DATA.players].sort((a,b)=>score(b)-score(a));
+const confColor=c=>c>=85?'var(--mint)':c>=70?'var(--yellow)':'var(--orange)';
+const srcChips=p=>p.srcs.map(s=>`<span class="chip" style="padding:2px 8px;font-size:11px">${esc(s)}</span>`).join('');
+const verdictBadge=p=>`<span class="badge ${p.wait?'b-orange':p.split?'b-orange':p.buy?'b-green':'b-gray'}">${esc(p.strength)}</span>`;
+
+const prow=p=>`<tr onclick="openPlayer('${p.id}')">
+  <td><div class="pname">${esc(p.name)} <span class="badge ${posB[p.pos]}">${p.pos}</span>${p._live?' <span class="pmeta" title="Live price/ownership from the official FPL API">🟢</span>':''}</div>
+    <div class="pmeta">${esc(DATA.teams[p.team].name)} · £${p.price.toFixed(1)}m · ${p.own}% owned</div></td>
+  <td class="num"><span class="tdcap">AI score</span><span class="score-num">${score(p)}</span><div style="margin-top:4px">${bar(score(p))}</div></td>
+  <td><span class="tdcap">Fixture</span>${esc(p.fix)} ${stars(p.fixEase)}</td>
+  <td><span class="tdcap">Verdict</span>${verdictBadge(p)}</td>
+</tr>`;
+
+/* ============ live FPL API sync ============ */
+let LIVE={loaded:false,raw:null,elements:[],teamsById:{},teamCodeToId:{},allFixtures:null};
+const normName=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z]/g,'');
+function toLiveStats(m){
+  return {
+    apps:m.starts, mins:m.minutes, goals:m.goals_scored, assists:m.assists,
+    cs:m.clean_sheets, xg:parseFloat(m.expected_goals||0), xa:parseFloat(m.expected_assists||0),
+    ict:parseFloat(m.ict_index||0), bonus:m.bonus, bps:m.bps,
+    defcon:m.defensive_contribution!=null?m.defensive_contribution:null,
+    saves:m.saves, yellow:m.yellow_cards, red:m.red_cards
+  };
+}
+function statPairsFor(st,pos){
+  if(!st) return [];
+  return [
+    ['Starts',st.apps],['Mins',st.mins],['Goals',st.goals],['Assists',st.assists],
+    (pos==='GK'||pos==='DEF')?['Clean sheets',st.cs]:null,
+    ['xG',Number(st.xg||0).toFixed(2)],['xA',Number(st.xa||0).toFixed(2)],
+    ['ICT Index',st.ict],['Bonus',st.bonus],
+    st.defcon!=null?['Def. contributions',st.defcon]:null,
+    pos==='GK'?['Saves',st.saves]:null,
+    (st.yellow||st.red)?['Cards',`${st.yellow||0}🟨${st.red?' '+st.red+'🟥':''}`]:null
+  ].filter(Boolean);
+}
+/* next-N fixture ticker for a player's team, colored by official FDR:
+   1-2 easy (green), 3 medium (white/neutral), 4-5 hard (red) — matches
+   the standard FPL fixture-difficulty convention the user asked for. */
+function diffColor(d){
+  if(d<=2) return {bg:'rgba(48,209,88,.16)',fg:'#3ddc6a',bd:'rgba(48,209,88,.35)'};
+  if(d===3) return {bg:'rgba(245,245,247,.92)',fg:'#111114',bd:'rgba(245,245,247,.92)'};
+  return {bg:'rgba(255,69,58,.18)',fg:'#ff6b61',bd:'rgba(255,69,58,.4)'};
+}
+function nextFixturesFor(teamCode,n){
+  n=n||5;
+  const tid=LIVE.teamCodeToId[teamCode];
+  if(!tid||!Array.isArray(LIVE.allFixtures)) return [];
+  return LIVE.allFixtures
+    .filter(f=>!f.finished&&(f.team_h===tid||f.team_a===tid))
+    .sort((a,b)=>(a.event||999)-(b.event||999))
+    .slice(0,n)
+    .map(f=>{
+      const isHome=f.team_h===tid;
+      return {
+        opp:LIVE.teamsById[isHome?f.team_a:f.team_h]||'?',
+        isHome, event:f.event,
+        diff:isHome?(f.team_h_difficulty||3):(f.team_a_difficulty||3)
+      };
+    });
+}
+function fixtureTicker(teamCode){
+  const fx=nextFixturesFor(teamCode,5);
+  if(!fx.length) return '<div class="pmeta">Fixture list not loaded yet — open with a live connection to see the next 5 games.</div>';
+  return `<div style="display:flex;gap:6px;flex-wrap:wrap">${fx.map(f=>{
+    const c=diffColor(f.diff);
+    return `<div style="flex:1;min-width:58px;text-align:center;background:${c.bg};border:1px solid ${c.bd};border-radius:10px;padding:8px 4px">
+      <div style="font-size:10px;font-weight:800;color:${c.fg};opacity:.85">GW${f.event??'?'}</div>
+      <div style="font-size:13px;font-weight:800;color:${c.fg}">${esc(f.opp)}</div>
+      <div style="font-size:10px;font-weight:700;color:${c.fg};opacity:.75">${f.isHome?'H':'A'}</div>
+    </div>`;
+  }).join('')}</div>`;
+}
+function fmtKick(iso){
+  try{
+    const d=new Date(iso);
+    const wd=new Intl.DateTimeFormat('en-GB',{weekday:'short',timeZone:'Europe/London'}).format(d);
+    const day=new Intl.DateTimeFormat('en-GB',{day:'2-digit',timeZone:'Europe/London'}).format(d);
+    const mon=new Intl.DateTimeFormat('en-GB',{month:'short',timeZone:'Europe/London'}).format(d);
+    const time=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'Europe/London'}).format(d);
+    return `${wd} ${day} ${mon} ${time}`;
+  }catch(e){ return iso; }
+}
+async function loadLiveData(){
+  const pill=$('#liveState');
+  try{
+    const boot=await fplFetch('bootstrap-static/');
+    LIVE.raw=boot; LIVE.elements=boot.elements||[];
+    const tm={}, codeToId={}; (boot.teams||[]).forEach(t=>{tm[t.id]=t.short_name; codeToId[t.short_name]=t.id;});
+    LIVE.teamsById=tm; LIVE.teamCodeToId=codeToId;
+    try{
+      const allFx=await fplFetch('fixtures/');
+      if(Array.isArray(allFx)) LIVE.allFixtures=allFx;
+    }catch(e){}
+    DATA.players.forEach(p=>{
+      const cands=LIVE.elements.filter(e=>tm[e.team]===p.team);
+      const target=normName(p.name.split(' ').pop());
+      let m=cands.find(e=>normName(e.web_name)===normName(p.name));
+      if(!m&&target.length>2) m=cands.find(e=>normName(e.second_name).includes(target));
+      if(!m&&target.length>2) m=cands.find(e=>normName(e.web_name).includes(target));
+      if(m){
+        p.price=m.now_cost/10; p.own=parseFloat(m.selected_by_percent);
+        p.liveStatus=m.status; p.liveNews=m.news; p._live=true;
+        p.liveStats=toLiveStats(m);
+      }
+    });
+    /* auto-detect the real current/next gameweek + deadline + fixtures, live —
+       so the site stays accurate after GW1 without needing a manual edit.
+       DATA.analysisGW remembers which gameweek the curated pros/cons/fixture
+       tags on each player card were actually written for. */
+    try{
+      const events=boot.events||[];
+      const curEvent=events.find(e=>e.is_current)||events.find(e=>e.is_next);
+      if(curEvent){
+        if(DATA.analysisGW==null) DATA.analysisGW=DATA.gw;
+        DATA.gw=curEvent.id;
+        DATA.deadline=curEvent.deadline_time;
+        const fx=await fplFetch('fixtures/?event='+DATA.gw);
+        if(Array.isArray(fx)&&fx.length){
+          DATA.fixtures=fx.map(f=>({
+            h:tm[f.team_h]||'?', a:tm[f.team_a]||'?', when:fmtKick(f.kickoff_time),
+            hEase:6-(f.team_h_difficulty||3), aEase:6-(f.team_a_difficulty||3)
+          }));
+        }
+      }
+    }catch(e){}
+    LIVE.loaded=true;
+    if(pill)pill.innerHTML='🟢 Live from the official FPL API';
+    if(cur){DL_UPDATE();go(cur);}
+  }catch(e){
+    LIVE.loaded=false;
+    if(pill)pill.innerHTML='⚪ Live fetch blocked — showing saved prices (Aug 15)';
+  }
+}
+
+/* ============ pages ============ */
+const PAGES=[
+ {id:'home',label:'🏠 Home'},
+ {id:'captain',label:'⭐ Captain'},
+ {id:'transfers',label:'🔥 Transfers'},
+ {id:'consensus',label:'🧠 Consensus'},
+ {id:'disagree',label:'⚔️ Disagreements'},
+ {id:'injury',label:'🚑 Injuries & Minutes'},
+ {id:'diffs',label:'💎 Differentials'},
+ {id:'ai',label:'🤖 AI Picks'},
+ {id:'players',label:'📋 All Players'},
+ {id:'prices',label:'💷 Prices'},
+ {id:'myteam',label:'🏆 My Team'},
+ {id:'videos',label:'📺 Videos'},
+ {id:'fixtures',label:'📅 Fixtures'}
+];
+
+function renderHome(){
+  const stale=DATA.analysisGW!=null&&DATA.gw!==DATA.analysisGW;
+  return `<h1>Gameweek ${DATA.gw} <span style="color:var(--text3)">·</span> <span style="background:linear-gradient(90deg,var(--mint),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent">${DATA.season}</span></h1>
+  <p class="lede">Verified consensus from ${DATA.sourceNames.join(' · ')} — every number traced to a source. Updated ${DATA.updated}.</p>
+  ${stale?`<div class="notice" style="border-color:rgba(255,159,10,.3);background:rgba(255,159,10,.08)"><b style="color:#ffb340">Heads up:</b> deadline, fixtures, prices, ownership and live stats above are auto-refreshed for GW${DATA.gw}. The captain/transfer/differential <i>write-ups</i> (pros, cons, quotes) were researched for GW${DATA.analysisGW} and haven't been re-reviewed yet — treat the numbers as current and the narrative as GW${DATA.analysisGW}'s.</div>`:''}
+  <div class="grid g2" style="margin-bottom:12px">
+    <div class="card">
+      <div class="kicker">⏱ Deadline — GW${DATA.gw}</div>
+      <div class="count" id="bigCount"></div>
+    </div>
+    <div class="card">
+      <div class="kicker">🤖 One-line verdict</div>
+      <div style="font-size:16px;font-weight:600;line-height:1.45">Captain is a genuine toss-up between <b style="color:var(--mint)">Haaland</b> and <b style="color:var(--mint)">Bruno</b> this week — load up on <b>Arsenal v Coventry</b> assets (Calafiori nailed across all 4 creators), and let <b>Gyökeres</b> (£7.5m) be your value play.</div>
+      <div class="sub">From the official FPL API, AllAboutFPL, Fantasy Football Scout &amp; your 4 tracked YouTube channels</div>
+    </div>
+  </div>
+  <h2>🏆 Top picks this gameweek</h2>
+  <div class="grid g2">${[...DATA.players].filter(p=>p.buy).sort((a,b)=>score(b)-score(a)).slice(0,5).map((p,i)=>`<div class="card tap" onclick="openPlayer('${p.id}')">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+      <div><div style="font-weight:800;font-size:16px"><span style="color:var(--text3)">${String(i+1).padStart(2,'0')}</span> ${esc(p.name)} <span class="badge ${posB[p.pos]}">${p.pos}</span></div>
+      <div class="pmeta">${esc(DATA.teams[p.team].name)} · £${p.price.toFixed(1)}m · ${esc(p.fix)} ${stars(p.fixEase)}</div></div>
+      <div style="text-align:right;flex-shrink:0"><div class="score-num">${score(p)}</div><div class="pmeta">AI score</div></div>
+    </div>
+    <div class="sub" style="margin-top:8px">${esc(p.reasons)}</div>
+    <div style="margin-top:8px">${srcChips(p)}</div>
+  </div>`).join('')}</div>
+  <h2>AI Summary — what the sources actually say</h2>
+  <div class="card">${DATA.summary.map(s=>`<div class="row" style="justify-content:flex-start;gap:10px"><span style="color:var(--mint);flex-shrink:0">●</span><span style="font-size:14px;color:var(--text2)">${esc(s)}</span></div>`).join('')}</div>
+  <h2>Top 10 sourced takeaways</h2>
+  <div class="card">${DATA.agreedPoints.map((s,i)=>`<div class="row rowsplit"><span style="font-size:14px;flex:1"><span style="color:var(--text3);font-weight:800;margin-right:10px">${String(i+1).padStart(2,'0')}</span>${esc(s.t)}</span><span class="badge b-blue" style="flex-shrink:0">${esc(s.by)}</span></div>`).join('')}</div>
+  <h2>Where the data disagrees</h2>
+  <div class="grid g2">${DATA.disagreements.slice(0,2).map(d=>`<div class="card tap" onclick="go('disagree')">
+    <div class="kicker">⚔️ Split decision</div>
+    <div style="font-weight:700;margin-bottom:4px">${esc(d.topic)}</div>
+    <div class="sub">${esc(d.detail)}</div>
+  </div>`).join('')}</div>
+  <div class="notice" style="margin-top:20px"><b>Sources, every update:</b> official FPL API (prices, ownership, injuries, fixtures), AllAboutFPL, Fantasy Football Scout, and real transcripts from your 4 tracked channels — FPL Harry, FPL Raptor, Let's Talk FPL, FPL Mate. Nothing here is sourced from sites outside that list.</div>`;
+}
+
+function renderCaptain(){
+  const caps=[...DATA.players].filter(p=>p.capScore>0).sort((a,b)=>b.capScore-a.capScore);
+  return `<h1>⭐ Captain Picks</h1><p class="lede">Only sourced captaincy calls — from real GW1 video transcripts (FPL Harry, FPL Raptor, FPL Mate, Let's Talk FPL) and the official FPL API's own numbers.</p>
+  <div class="tblwrap"><table class="tbl">
+  <thead><tr><th>Player</th><th>Captain Score</th><th>AI Score</th><th>Ownership</th><th>Who says so</th></tr></thead>
+  <tbody>${caps.map(p=>`<tr onclick="openPlayer('${p.id}')">
+    <td><div class="pname">${esc(p.name)}</div><div class="pmeta">${esc(p.fix)} · £${p.price.toFixed(1)}m</div></td>
+    <td class="num"><span class="tdcap">Captain score</span><span class="score-num" style="color:${p.capScore>=90?'var(--mint)':p.capScore>=70?'var(--yellow)':'var(--text)'}">${p.capScore}</span>/100<div style="margin-top:4px">${bar(p.capScore)}</div></td>
+    <td class="num"><span class="tdcap">AI score</span>${score(p)} <span class="pmeta">/100</span></td>
+    <td class="num"><span class="tdcap">Owned</span>${p.own}%</td>
+    <td><span class="tdcap">Who says so</span>${srcChips(p)}</td>
+  </tr>`).join('')}</tbody></table></div>
+  <div class="notice" style="margin-top:16px"><b>The real split:</b> in creators' actual final-team videos (Aug 19-20), the armband is now a genuine 2-2 — FPL Harry and Let's Talk FPL are captaining Haaland, while FPL Raptor ('51/49 leaning Bruno') and FPL Mate (explicitly Bruno for the Hull opener) have swung to Bruno Fernandes. Saka's underlying numbers are strong and his fixture is the softest of the week, but every source that discussed him this week flagged his late World Cup return as a live minutes risk.</div>`;
+}
+
+function renderTransfers(){
+  const buys=DATA.players.filter(p=>p.buy).sort((a,b)=>score(b)-score(a));
+  const waits=DATA.players.filter(p=>p.wait);
+  return `<h1>🔥 Transfer Targets</h1><p class="lede">Backed picks vs. flagged ones — with the reason and the source for each.</p>
+  <h2 style="color:var(--green)">↑ In — backed by the data</h2>
+  <div class="tblwrap"><table class="tbl">
+  <thead><tr><th>Player</th><th>AI Score</th><th>Fixture</th><th>Verdict</th></tr></thead>
+  <tbody>${buys.map(prow).join('')}</tbody></table></div>
+  <h2 style="color:var(--orange)">⏸ Wait / flagged</h2>
+  <div class="tblwrap"><table class="tbl">
+  <thead><tr><th>Player</th><th>AI Score</th><th>Fixture</th><th>Verdict</th></tr></thead>
+  <tbody>${waits.map(prow).join('')}</tbody></table></div>
+  <div class="notice" style="margin-top:16px"><b>Also out of bounds:</b> Saliba, Minteh and Gudmundsson are all confirmed OUT by the official FPL API — see the Injury Center. No sourced sell-calls exist yet for GW1 since nobody owns a team before the season starts.</div>`;
+}
+
+function renderConsensus(){
+  return `<h1>🧠 Consensus</h1><p class="lede">Every tracked player ranked by Consensus AI Score — 40% source mentions · 20% recommendation strength · 15% fixture · 10% minutes · 10% underlying stats · 5% news. Prices &amp; ownership from the official FPL API; narrative from AllAboutFPL, Fantasy Football Scout and your 4 tracked YouTube channels. Tap a row for full reasoning.</p>
+  <div class="tblwrap"><table class="tbl">
+  <thead><tr><th>Player</th><th>AI Score</th><th>Fixture</th><th>Verdict</th></tr></thead>
+  <tbody>${byScore.map(prow).join('')}</tbody></table></div>`;
+}
+
+function renderDisagree(){
+  return `<h1>⚔️ Disagreements</h1><p class="lede">Real splits in the sourced data — the calls that separate ranks.</p>
+  <div class="grid g2">${DATA.disagreements.map(d=>`<div class="card">
+    <div style="font-weight:800;font-size:16px;margin-bottom:4px">${esc(d.topic)}</div>
+    <div class="sub" style="margin-bottom:14px">${esc(d.detail)}</div>
+    ${d.stances.map(s=>`<div class="row rowsplit"><span style="font-weight:600;font-size:13.5px">${esc(s.who)}</span><span class="badge b-${s.tone}">${esc(s.say)}</span></div>`).join('')}
+  </div>`).join('')}</div>`;
+}
+function renderInjury(){
+  const sevB={red:'b-red',orange:'b-orange',yellow:'b-gray',green:'b-green'};
+  const tierMeta={"Guaranteed":'🟢',"Likely starter":'🔵',"Rotation risk":'🟠',"Doubt / OUT":'🔴'};
+  return `<h1>🚑 Injury Center &amp; Minutes</h1><p class="lede">Injury status straight from the official FPL API, plus real minutes flags from AllAboutFPL and your tracked creators.</p>
+  <h2>Injury &amp; news flags</h2>
+  <div class="grid g2">${DATA.injuries.map(i=>`<div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <div style="font-weight:800">${esc(i.name)} <span class="pmeta" style="font-weight:500">· ${esc(i.team)}</span></div>
+      <span class="badge ${sevB[i.sev]}">${esc(i.status)}</span></div>
+    <div class="sub">${esc(i.detail)}</div></div>`).join('')}</div>
+  <h2>⏱ Minutes risk board</h2>
+  <div class="grid g4">${Object.entries(DATA.minutesTiers).map(([tier,list])=>`<div class="card">
+    <div class="kicker">${tierMeta[tier]||''} ${esc(tier)}</div>
+    ${list.map(n=>`<div class="chip">${esc(n)}</div>`).join('')}
+  </div>`).join('')}</div>`;
+}
+
+function renderDiffs(){
+  const diffs=DATA.players.filter(p=>p.diff).sort((a,b)=>score(b)-score(a));
+  return `<h1>💎 Differentials</h1><p class="lede">Low-ownership picks with sourced upside — real named differentials from the 4 tracked creators' actual GW1 squads, plus AllAboutFPL and official-API value plays.</p>
+  <div class="grid g2">${diffs.map(p=>`<div class="card tap" onclick="openPlayer('${p.id}')">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div><div style="font-weight:800;font-size:17px">${esc(p.name)} <span class="badge ${posB[p.pos]}">${p.pos}</span></div>
+      <div class="pmeta">${esc(DATA.teams[p.team].name)} · £${p.price.toFixed(1)}m · <b style="color:var(--purple)">${p.own}% owned</b></div></div>
+      <div style="text-align:right"><div class="score-num">${score(p)}</div><div class="pmeta">AI score</div></div></div>
+    <div style="margin:12px 0 4px" class="factor"><div class="frow"><span class="fname">Upside</span></div><div style="font-size:13px;color:var(--text2)">${esc(p.pros[0])}</div></div>
+    <div class="factor"><div class="frow"><span class="fname">Risk</span></div><div style="font-size:13px;color:#ff8a80">${esc(p.cons[0])}</div></div>
+    <div style="margin-top:8px"><span class="pmeta">Sources:</span> ${srcChips(p)}</div>
+  </div>`).join('')}</div>`;
+}
+
+const pitchLine=(arr)=>`<div class="pline">${arr.map(x=>`<div class="pp"><div class="shirt">${esc(x.n.split(' ').map(w=>w[0]).join('').slice(0,3).toUpperCase())}${x.cap?`<span class="cap">${x.cap}</span>`:''}</div><div class="nm">${esc(x.n)}</div><div class="pr">${esc(x.t)} £${x.p.toFixed(1)}m</div></div>`).join('')}</div>`;
+function renderAI(){
+  const t=DATA.totw;
+  const pl=pitchLine;
+  return `<h1>🤖 AI Recommendation</h1><p class="lede">The sourced data reduced to one screen. Confidence reflects how aligned the sources are.</p>
+  <div class="grid g3">${Object.entries(DATA.aiRec).map(([k,r])=>`<div class="card">
+    <div class="kicker">${esc(k)}</div>
+    <div style="font-size:20px;font-weight:800;letter-spacing:-.01em">${esc(r.v)}</div>
+    <div class="sub">${esc(r.d)}</div>
+    <div style="display:flex;align-items:center;gap:8px;margin-top:12px">
+      <div class="scorebar" style="flex:1"><i style="width:0;background:${confColor(r.conf)}" data-w="${r.conf}"></i></div>
+      <span class="num" style="font-weight:800;font-size:13px;color:${confColor(r.conf)}">${r.conf}%</span></div>
+  </div>`).join('')}</div>
+  <h2>📈 Team of the Week — ${t.formation}</h2>
+  <p class="lede" style="margin-bottom:12px">${esc(t.note)}</p>
+  <div class="pitch">${pl(t.fwd)}${pl(t.mid)}${pl(t.def)}${pl(t.gk)}</div>
+  <div class="card" style="margin-top:12px"><div class="kicker">Bench (in order)</div>${t.bench.map((b,i)=>`<span class="chip">${i+1}. ${esc(b.n)} <span style="color:var(--text3)">£${b.p.toFixed(1)}m</span></span>`).join('')}</div>`;
+}
+
+function renderVideos(){
+  return `<h1>📺 Video Insights</h1><p class="lede">Watched directly via transcript — 4 real GW1 videos across your tracked channels, pulled Aug 15. Every summary, pick and quote below is from the actual video, not inferred.</p>
+  <div class="grid g2">${DATA.videos.map(v=>`<div class="card">
+    <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:8px">
+      <span class="badge b-blue">${esc(v.creator)}</span><span class="pmeta">${esc(v.when)}</span></div>
+    <a href="${esc(v.url)}" target="_blank" rel="noopener" style="font-weight:800;font-size:15.5px;line-height:1.3;color:var(--text);display:block;margin-bottom:10px">${esc(v.title)} ↗</a>
+    <div class="sub" style="margin-bottom:12px">${esc(v.summary)}</div>
+    <div class="factor"><div class="frow"><span class="fname">Key picks discussed</span></div>${v.picks.map(p=>`<span class="chip">${esc(p)}</span>`).join('')}</div>
+    <div class="factor"><div class="frow frowsplit"><span class="fname">Transfers / changes</span><span class="fval" style="text-align:right;max-width:60%">${esc(v.transfers)}</span></div></div>
+    <div class="factor"><div class="frow"><span class="fname">Captain</span><span class="fval" style="color:var(--yellow)">${esc(v.captain)}</span></div></div>
+    ${v.warnings.length?`<div class="factor"><div class="frow"><span class="fname">⚠️ Warnings / open questions</span></div><div class="warnlist">${v.warnings.map(w=>`<div class="warnrow"><span class="wi">⚠️</span><span>${esc(w)}</span></div>`).join('')}</div></div>`:''}
+  </div>`).join('')}</div>`;
+}
+
+function renderFixtures(){
+  return `<h1>📅 Fixture Analysis</h1><p class="lede">GW1 slate from the official FPL API, rated for FPL ease (5★ = target it). Champions Arsenal open v promoted Coventry on Friday night.</p>
+  <div class="tblwrap"><table class="tbl">
+  <thead><tr><th>Fixture</th><th>Kickoff (UK)</th><th>Home ease</th><th>Away ease</th><th>Target</th></tr></thead>
+  <tbody>${DATA.fixtures.map(f=>{
+    const best=f.hEase>=4?`${DATA.teams[f.h].name} assets`:f.aEase>=4?`${DATA.teams[f.a].name} assets`:'—';
+    return `<tr style="cursor:default">
+    <td><div class="pname">${esc(DATA.teams[f.h].name)} <span class="pmeta">v</span> ${esc(DATA.teams[f.a].name)}</div><div class="pmeta">${esc(f.when)}</div></td>
+    <td><span class="tdcap">Home ease</span>${esc(DATA.teams[f.h].name)} ${stars(f.hEase)}</td>
+    <td><span class="tdcap">Away ease</span>${esc(DATA.teams[f.a].name)} ${stars(f.aEase)}</td>
+    <td><span class="tdcap">Target</span>${best==='—'?'<span class="pmeta">—</span>':`<span class="badge b-mint">${esc(best)}</span>`}</td></tr>`}).join('')}</tbody></table></div>
+  <div class="notice" style="margin-top:16px"><b>Fixture verdict:</b> two standout targets — <b>Arsenal</b> (v COV) and <b>Man City</b> (v BOU). Next tier: Man Utd (at promoted Hull) &amp; Forest (v promoted Leeds). Avoid attackers visiting the Emirates or the Etihad.</div>`;
+}
+
+/* ============ All Players (live) ============ */
+function renderPlayers(){
+  if(!LIVE.loaded){
+    return `<h1>📋 All Players</h1><p class="lede">Every Premier League player, live from the official FPL API.</p>
+    <div class="card" style="text-align:center;color:var(--text2);padding:32px 20px">Fetching all 587 players from the official API — this can take a few seconds.
+      <div style="margin-top:14px"><button onclick="loadLiveData()" style="background:var(--text);color:#000;border:none;border-radius:10px;padding:9px 18px;font:inherit;font-weight:700;cursor:pointer">Retry live fetch</button></div>
+    </div>`;
+  }
+  return `<h1>📋 All Players</h1><p class="lede">Every Premier League player, live from the official FPL API — price, ownership and points update every time this loads. Only the ${DATA.players.length} tracked players in the other tabs have creator/analyst commentary; this tab is pure official data, searchable across the whole league.</p>
+  <div class="card" style="margin-bottom:14px">
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <input id="plSearch" placeholder="Search player name…" oninput="filterPlayers()" style="flex:1;min-width:180px;background:rgba(255,255,255,.07);border:1px solid var(--stroke2);border-radius:12px;padding:10px 14px;color:var(--text);font:inherit;font-size:14px;outline:none">
+      <select id="plPos" onchange="filterPlayers()" style="background:rgba(255,255,255,.07);border:1px solid var(--stroke2);border-radius:12px;padding:10px 14px;color:var(--text);font:inherit;font-size:14px">
+        <option value="">All positions</option><option value="1">GK</option><option value="2">DEF</option><option value="3">MID</option><option value="4">FWD</option>
+      </select>
+    </div>
+  </div>
+  <div class="tblwrap"><table class="tbl">
+  <thead><tr><th>Player</th><th class="num">Pts</th><th>Status</th></tr></thead>
+  <tbody id="plBody"></tbody></table></div>`;
+}
+function filterPlayers(){
+  const body=$('#plBody'); if(!body)return;
+  const q=(($('#plSearch')||{}).value||'').toLowerCase();
+  const pos=(($('#plPos')||{}).value||'');
+  const posN={1:'GK',2:'DEF',3:'MID',4:'FWD'};
+  const statusB=s=>s==='a'?'':s==='i'?'b-red':s==='d'?'b-orange':s==='u'?'b-gray':'b-orange';
+  const statusT=s=>s==='a'?'Available':s==='i'?'Injured':s==='d'?'Doubtful':s==='u'?'Unavailable':'Suspended';
+  const rows=LIVE.elements.filter(e=>{
+    if(pos&&String(e.element_type)!==pos)return false;
+    if(q&&!((e.web_name+' '+e.first_name+' '+e.second_name).toLowerCase().includes(q)))return false;
+    return true;
+  }).sort((a,b)=>b.total_points-a.total_points).slice(0,150);
+  body.innerHTML=rows.map(e=>{
+    const hub=DATA.players.find(p=>LIVE.teamsById[e.team]===p.team&&normName(p.name)===normName(e.web_name));
+    return `<tr style="cursor:pointer" onclick="${hub?`openPlayer('${hub.id}')`:`openLivePlayer(${e.id})`}">
+      <td><div class="pname">${esc(e.web_name)}${hub?' <span class="badge b-mint" style="font-size:9px">tracked</span>':''} <span class="badge ${posB[posN[e.element_type]]||'b-gray'}">${posN[e.element_type]||'—'}</span></div>
+          <div class="pmeta">${esc(LIVE.teamsById[e.team]||'')} · £${(e.now_cost/10).toFixed(1)}m · ${e.selected_by_percent}% owned</div></td>
+      <td class="num"><span class="tdcap">Points</span><b>${e.total_points}</b></td>
+      <td><span class="tdcap">Status</span>${e.status==='a'?'<span class="pmeta">Available</span>':`<span class="badge ${statusB(e.status)}">${statusT(e.status)}</span>`}</td>
+    </tr>`;
+  }).join('')+(rows.length===150?`<tr style="cursor:default"><td colspan="3" class="pmeta" style="text-align:center;padding:14px">Showing the top 150 by points — search to narrow further.</td></tr>`:'');
+}
+
+/* ============ Price Watch (live, official) ============ */
+function priceRow(e,field='cost_change_event'){
+  const hub=DATA.players.find(p=>LIVE.teamsById[e.team]===p.team&&normName(p.name)===normName(e.web_name));
+  const posN2={1:'GK',2:'DEF',3:'MID',4:'FWD'};
+  const delta=e[field]||0;
+  return `<div class="row" style="cursor:pointer" onclick="${hub?`openPlayer('${hub.id}')`:`openLivePlayer(${e.id})`}">
+    <div><div class="pname">${esc(e.web_name)} <span class="badge ${posB[posN2[e.element_type]]||'b-gray'}">${posN2[e.element_type]||'—'}</span></div>
+    <div class="pmeta">${esc(LIVE.teamsById[e.team]||'')} · £${(e.now_cost/10).toFixed(1)}m now</div></div>
+    <span class="badge ${delta>0?'b-green':'b-red'}" style="flex-shrink:0">${delta>0?'▲':'▼'} £${Math.abs(delta/10).toFixed(1)}m</span>
+  </div>`;
+}
+function renderPrices(){
+  if(!LIVE.loaded){
+    return `<h1>💷 Price Watch</h1><p class="lede">Real price rises and falls, straight from the official FPL API's own price-change fields — not a guess.</p>
+    <div class="card" style="text-align:center;color:var(--text2);padding:32px 20px">Fetching live price data — this can take a few seconds.
+      <div style="margin-top:14px"><button onclick="loadLiveData()" style="background:var(--text);color:#000;border:none;border-radius:10px;padding:9px 18px;font:inherit;font-weight:700;cursor:pointer">Retry live fetch</button></div>
+    </div>`;
+  }
+  const risers=LIVE.elements.filter(e=>e.cost_change_event>0).sort((a,b)=>b.cost_change_event-a.cost_change_event);
+  const fallers=LIVE.elements.filter(e=>e.cost_change_event<0).sort((a,b)=>a.cost_change_event-b.cost_change_event);
+  const seasonRisers=LIVE.elements.filter(e=>e.cost_change_start>0).sort((a,b)=>b.cost_change_start-a.cost_change_start).slice(0,10);
+  const seasonFallers=LIVE.elements.filter(e=>e.cost_change_start<0).sort((a,b)=>a.cost_change_start-b.cost_change_start).slice(0,10);
+  return `<h1>💷 Price Watch</h1><p class="lede">Real price rises and falls this gameweek, straight from the official FPL API's own price-change fields (<code>cost_change_event</code>/<code>cost_change_start</code>) — not a localStorage guess.</p>
+  ${(risers.length===0&&fallers.length===0)?`<div class="notice"><b>No price moves yet this gameweek.</b> Prices haven't changed since the last deadline — check back once the season is a few days in, or once transfers start moving the market.</div>`:''}
+  <div class="grid g2">
+    <div>
+      <h2 style="color:var(--green)">▲ Risen this gameweek</h2>
+      <div class="card">${risers.length?risers.map(priceRow).join(''):'<div class="pmeta">None yet.</div>'}</div>
+    </div>
+    <div>
+      <h2 style="color:var(--red)">▼ Fallen this gameweek</h2>
+      <div class="card">${fallers.length?fallers.map(priceRow).join(''):'<div class="pmeta">None yet.</div>'}</div>
+    </div>
+  </div>
+  <h2>Season so far (top 10 each way)</h2>
+  <div class="grid g2">
+    <div class="card">${seasonRisers.length?seasonRisers.map(e=>priceRow(e,'cost_change_start')).join(''):'<div class="pmeta">No season-long risers yet.</div>'}</div>
+    <div class="card">${seasonFallers.length?seasonFallers.map(e=>priceRow(e,'cost_change_start')).join(''):'<div class="pmeta">No season-long fallers yet.</div>'}</div>
+  </div>`;
+}
+
+/* ============ My Team (FPL API) ============ */
+function renderMyTeam(){
+  let saved='';
+  try{saved=localStorage.getItem('fplTeamId')||''}catch(e){}
+  return `<h1>🏆 My Team</h1><p class="lede">Enter your FPL Team ID and I'll pull your squad from the official FPL API, live. Find the ID in the URL when you open “Points” on fantasy.premierleague.com — e.g. /entry/<b>1234567</b>/event/1.</p>
+  <div class="card" style="margin-bottom:16px">
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <input id="teamId" inputmode="numeric" placeholder="Team ID e.g. 1234567" value="${esc(saved)}"
+        style="flex:1;min-width:200px;background:rgba(255,255,255,.07);border:1px solid var(--stroke2);border-radius:12px;padding:12px 16px;color:var(--text);font:inherit;font-size:15px;outline:none"
+        onkeydown="if(event.key==='Enter')loadTeam()">
+      <button onclick="loadTeam()" style="background:var(--text);color:#000;border:none;border-radius:12px;padding:12px 22px;font:inherit;font-weight:700;cursor:pointer;transition:transform .12s" onpointerdown="this.style.transform='scale(.96)'" onpointerup="this.style.transform=''">Load team</button>
+    </div>
+  </div>
+  <div id="teamOut">
+    <div class="notice"><b>Heads up:</b> the FPL API only exposes your picks for a gameweek <i>after its deadline passes</i> (your current team stays private until then). Before the GW1 deadline you'll see your manager profile; from GW1 onwards your full squad appears here with the hub's verdict on each player, plus a transfer planner using live prices.</div>
+  </div>`;
+}
+async function fplFetch(path){
+  const url='https://fantasy.premierleague.com/api/'+path;
+  try{
+    const r0=await fetch('/api/fpl?path='+encodeURIComponent(path));
+    if(r0.ok) return await r0.json();
+  }catch(e){}
+  try{
+    const r=await fetch(url);
+    if(r.ok) return await r.json();
+    throw new Error('HTTP '+r.status);
+  }catch(e){
+    const r2=await fetch('https://corsproxy.io/?url='+encodeURIComponent(url));
+    if(!r2.ok) throw new Error('HTTP '+r2.status);
+    return await r2.json();
+  }
+}
+const posN={1:'GK',2:'DEF',3:'MID',4:'FWD'};
+let TEAM={entry:null,boot:null,picks:null,swaps:{},free:1};
+function managerCard(entry){
+  return `<div class="card" style="margin-bottom:12px">
+    <div class="kicker">Manager</div>
+    <div style="font-size:20px;font-weight:800">${esc(entry.name||'—')}</div>
+    <div class="sub">${esc((entry.player_first_name||'')+' '+(entry.player_last_name||''))} · ${esc(entry.player_region_name||'')}</div>
+    <div style="margin-top:10px">
+      ${entry.summary_overall_points!=null?`<span class="chip">Overall pts: <b>${entry.summary_overall_points}</b></span>`:''}
+      ${entry.summary_overall_rank!=null?`<span class="chip">Rank: <b>${Number(entry.summary_overall_rank).toLocaleString()}</b></span>`:''}
+      ${entry.last_deadline_value!=null?`<span class="chip">Squad value: <b>£${(entry.last_deadline_value/10).toFixed(1)}m</b></span>`:''}
+      ${entry.last_deadline_bank!=null?`<span class="chip">Bank: <b>£${(entry.last_deadline_bank/10).toFixed(1)}m</b></span>`:''}
+    </div></div>`;
+}
+async function loadTeam(){
+  const id=($('#teamId').value||'').replace(/\D/g,'');
+  const out=$('#teamOut');
+  if(!id){out.innerHTML='<div class="notice">Enter a numeric Team ID first.</div>';return}
+  try{localStorage.setItem('fplTeamId',id)}catch(e){}
+  out.innerHTML='<div class="card" style="text-align:center;color:var(--text2)">Loading from the FPL API…</div>';
+  let entry;
+  try{ entry=await fplFetch('entry/'+id+'/'); }
+  catch(e){ out.innerHTML='<div class="notice" style="border-color:rgba(255,69,58,.3);background:rgba(255,69,58,.08)"><b style="color:#ff8a80">Couldn\'t reach the FPL API</b> — '+esc(e.message)+'. This can be a network/CORS block or a wrong ID. Double-check the ID and try again.</div>'; return; }
+  TEAM.entry=entry; TEAM.swaps={};
+  try{
+    const picks=await fplFetch('entry/'+id+'/event/'+DATA.gw+'/picks/');
+    const boot=(LIVE.loaded&&LIVE.raw)?LIVE.raw:await fplFetch('bootstrap-static/');
+    TEAM.picks=picks; TEAM.boot=boot;
+    renderTeamOut();
+  }catch(e){
+    out.innerHTML=managerCard(entry)+`<div class="notice"><b>Squad not visible yet:</b> the API returned an error for GW${DATA.gw} picks (${esc(e.message)}). That's expected before the deadline — FPL keeps your current team private until GW${DATA.gw} kicks off. Come back after the deadline.</div>`;
+  }
+}
+function renderTeamOut(){
+  const out=$('#teamOut'); if(!out||!TEAM.picks||!TEAM.boot)return;
+  const {picks,boot,entry}=TEAM;
+  const els={}; (boot.elements||[]).forEach(e=>els[e.id]=e);
+  const effEl=pk=>{const inId=TEAM.swaps[pk.element]; return inId?(els[inId]||els[pk.element]||{}):(els[pk.element]||{})};
+  const findHub=nm=>DATA.players.find(x=>x.name.toLowerCase().includes((nm||'').toLowerCase())||((nm||'').toLowerCase().includes(x.name.toLowerCase())));
+  let html=managerCard(entry);
+
+  /* captain suggestion — prefers a tracked/analysed starter with the highest
+     Captain Score; falls back to whoever has the most live points if none
+     of the 11 starters are on the tracked/analysed list. */
+  const starters=picks.picks.filter(pk=>pk.position<=11);
+  const startCands=starters.map(pk=>{const e=effEl(pk); return {pk,e,hub:findHub(e.web_name)}});
+  let capPick=startCands.filter(c=>c.hub&&c.hub.capScore>0).sort((a,b)=>b.hub.capScore-a.hub.capScore)[0];
+  if(!capPick) capPick=startCands.sort((a,b)=>(b.e.total_points||0)-(a.e.total_points||0))[0];
+  if(capPick){
+    const already=picks.picks.find(pk=>pk.is_captain&&pk.element===capPick.pk.element);
+    html+=`<div class="card" style="margin-bottom:12px;border-color:rgba(0,255,163,.25)">
+      <div class="kicker">🎯 Captain suggestion for YOUR squad</div>
+      <div style="font-size:20px;font-weight:800">${esc(capPick.e.web_name||'—')} ${already?'<span class="badge b-mint">already your C</span>':''}</div>
+      <div class="sub">${capPick.hub?`Consensus AI Score ${score(capPick.hub)}/100${capPick.hub.capScore?` · Captain Score ${capPick.hub.capScore}/100`:''} — tap the squad row below for the full reasoning.`:`Not on the tracked/analysed list — ranked by live points this season (${capPick.e.total_points||0} pts) among your starting 11.`}</div>
+    </div>`;
+  }
+
+  /* starting XI on a pitch, grouped by position — same visual pattern as the AI Picks Team of the Week */
+  const posGroups={1:[],2:[],3:[],4:[]};
+  starters.forEach(pk=>{
+    const e=effEl(pk);
+    posGroups[e.element_type||els[pk.element]?.element_type||2].push({n:e.web_name||'—',t:LIVE.teamsById[e.team]||'',p:(e.now_cost||0)/10,cap:pk.is_captain?'C':pk.is_vice_captain?'V':null});
+  });
+  html+=`<h2>Your starting XI</h2><div class="pitch">${pitchLine(posGroups[4])}${pitchLine(posGroups[3])}${pitchLine(posGroups[2])}${pitchLine(posGroups[1])}</div>`;
+
+  html+=`<h2>Your GW${DATA.gw} squad</h2><div class="tblwrap"><table class="tbl">
+    <thead><tr><th>Player</th><th>Hub verdict</th><th>Plan transfer</th></tr></thead><tbody>`+
+    picks.picks.map(pk=>{
+      const origE=els[pk.element]||{};
+      const inId=TEAM.swaps[pk.element];
+      const e=inId?(els[inId]||origE):origE;
+      const nm=e.web_name||('#'+pk.element);
+      const hub=DATA.players.find(x=>x.name.toLowerCase().includes((nm||'').toLowerCase())||((nm||'').toLowerCase().includes(x.name.toLowerCase())));
+      const posType=origE.element_type;
+      const candidates=(boot.elements||[]).filter(c=>c.element_type===posType&&c.id!==pk.element).sort((a,b)=>b.total_points-a.total_points).slice(0,80);
+      const swapped=!!inId;
+      return `<tr>
+        <td ${hub?`style="cursor:pointer" onclick="openPlayer('${hub.id}')"`:''}>
+          <div class="pname">${pk.position}. ${esc(nm)} <span class="badge ${posB[posN[posType]]||'b-gray'}">${posN[posType]||'—'}</span>${pk.is_captain?' <span class="badge b-mint">C</span>':''}${pk.is_vice_captain?' <span class="badge b-gray">V</span>':''}</div>
+          <div class="pmeta">£${((e.now_cost||0)/10).toFixed(1)}m${swapped?` · was ${esc(origE.web_name||'')}`:''}</div>
+        </td>
+        <td ${hub?`style="cursor:pointer" onclick="openPlayer('${hub.id}')"`:''}><span class="tdcap">Hub verdict</span>${hub?`<span class="score-num">${score(hub)}</span><span class="pmeta">/100</span>`:'<span class="pmeta">not tracked</span>'}</td>
+        <td><span class="tdcap">Plan transfer</span>
+          <select onchange="planSwap(${pk.element},this.value)" style="background:rgba(255,255,255,.07);border:1px solid var(--stroke2);border-radius:8px;color:var(--text);font:inherit;font-size:12px;padding:6px 8px;max-width:100%;width:100%">
+            <option value="">${swapped?'↺ change again':'🔁 swap out'}</option>
+            ${candidates.map(c=>`<option value="${c.id}" ${inId===c.id?'selected':''}>${esc(c.web_name)} · £${(c.now_cost/10).toFixed(1)}m</option>`).join('')}
+          </select>
+          ${swapped?` <button onclick="planSwap(${pk.element},'')" style="background:none;border:none;color:#ff8a80;cursor:pointer;font-size:13px">✕</button>`:''}
+        </td>
+      </tr>`;
+    }).join('')+`</tbody></table></div>`;
+
+  const bankBase=(entry.last_deadline_bank||0)/10;
+  let costDelta=0,nSwaps=0;
+  Object.entries(TEAM.swaps).forEach(([outId,inId])=>{
+    if(!inId)return;
+    const outE=els[outId],inE=els[inId];
+    if(outE&&inE){ costDelta+=(outE.now_cost-inE.now_cost)/10; nSwaps++; }
+  });
+  const bankAfter=bankBase+costDelta;
+  const hit=Math.max(0,nSwaps-TEAM.free)*4;
+  html+=`<div class="card" style="margin-top:16px">
+    <div class="kicker">📋 Transfer planner</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0">
+      <span class="chip">Bank after changes: <b style="color:${bankAfter<0?'#ff6b61':'#4cd964'}">£${bankAfter.toFixed(1)}m</b></span>
+      <span class="chip">Transfers planned: <b>${nSwaps}</b></span>
+      <span class="chip">Free transfers: <input type="number" min="0" max="5" value="${TEAM.free}" oninput="TEAM.free=parseInt(this.value)||0;renderTeamOut()" style="width:38px;background:transparent;border:none;color:var(--mint);font:inherit;font-weight:800;outline:none"></span>
+      ${hit>0?`<span class="chip" style="color:#ff8a80;border-color:rgba(255,69,58,.3)">Estimated hit: <b>-${hit} pts</b></span>`:''}
+      ${nSwaps>0?`<button onclick="TEAM.swaps={};renderTeamOut()" style="background:rgba(255,255,255,.08);border:1px solid var(--stroke2);border-radius:10px;padding:6px 12px;color:var(--text2);font:inherit;font-size:12px;cursor:pointer">Reset</button>`:''}
+    </div>
+    <div class="sub">Bank &amp; prices come live from the official FPL API. The free-transfer count and −4pt hit here are estimates you control — the public API doesn't expose how many transfers you've already banked, so confirm the real number in the FPL app before making changes there.</div>
+  </div>`;
+  if(bankAfter<0)html+=`<div class="notice" style="margin-top:12px;border-color:rgba(255,69,58,.3);background:rgba(255,69,58,.08)"><b style="color:#ff8a80">Over budget:</b> this combination of swaps costs £${Math.abs(bankAfter).toFixed(1)}m more than you have in the bank.</div>`;
+  out.innerHTML=html;
+}
+function planSwap(outId,inId){
+  outId=Number(outId);
+  if(!inId)delete TEAM.swaps[outId];
+  else TEAM.swaps[outId]=Number(inId);
+  renderTeamOut();
+}
+
+/* ============ player sheet — spring physics ============ */
+const FLABEL={mentions:["Source mentions (40)",40],strength:["Rec. strength (20)",20],fixture:["Fixture ease (15)",15],minutes:["Minutes security (10)",10],stats:["Underlying stats (10)",10],news:["News / injuries (5)",5]};
+const sheetEl=$('#sheet'), scrimEl=$('#scrim');
+const REDUCED=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
+let sheetY=0, sheetAnim=0, sheetOpen=false;
+const closedY=()=>sheetEl.offsetHeight+80;
+function setY(y){
+  sheetY=y;
+  sheetEl.style.transform=`translate(-50%,${y}px)`;
+  scrimEl.style.opacity=Math.max(0,Math.min(1,1-y/Math.max(1,closedY()*.8)));
+}
+function springTo(target,{velocity=0,damping=1,response=.4,done}={}){
+  cancelAnimationFrame(sheetAnim);
+  if(REDUCED.matches){setY(target);done&&done();return}
+  const w=2*Math.PI/response, k=w*w, c=2*damping*w;
+  let y=sheetY, v=velocity, last=performance.now();
+  const step=now=>{
+    const dt=Math.min(.032,(now-last)/1000)||.016; last=now;
+    v+=(-k*(y-target)-c*v)*dt; y+=v*dt;
+    if(Math.abs(y-target)<.5&&Math.abs(v)<15){setY(target);done&&done();return}
+    setY(y); sheetAnim=requestAnimationFrame(step);
+  };
+  sheetAnim=requestAnimationFrame(step);
+}
+const project=v=>(v/1000)*.998/(1-.998);
+const rubber=(o,d,c=.55)=>(o*d*c)/(d+c*Math.abs(o));
+let drag=null, hist=[];
+sheetEl.addEventListener('pointerdown',e=>{
+  if(!sheetOpen||e.target.closest('a,button,input'))return;
+  drag={y0:e.clientY,sy:sheetY,committed:false,onGrab:!!e.target.closest('.grabzone')};
+  hist=[[e.clientY,performance.now()]];
+});
+sheetEl.addEventListener('pointermove',e=>{
+  if(!drag)return;
+  const dy=e.clientY-drag.y0;
+  if(!drag.committed){
+    if(Math.abs(dy)<10)return;
+    if(!(drag.onGrab||(dy>0&&sheetEl.scrollTop<=0))){drag=null;return}
+    cancelAnimationFrame(sheetAnim);
+    sheetEl.setPointerCapture(e.pointerId);
+    drag.committed=true; drag.y0=e.clientY; drag.sy=sheetY;
+    return;
+  }
+  e.preventDefault();
+  let y=drag.sy+(e.clientY-drag.y0);
+  if(y<0)y=-rubber(-y,sheetEl.offsetHeight);
+  setY(y);
+  hist.push([e.clientY,performance.now()]); if(hist.length>6)hist.shift();
+});
+const endDrag=e=>{
+  if(!drag)return;
+  if(!drag.committed){drag=null;return}
+  drag=null;
+  const [p0,t0]=hist[0],[p1,t1]=hist[hist.length-1];
+  const v=(p1-p0)/Math.max(1,t1-t0)*1000;
+  const projected=sheetY+project(v);
+  if(projected>sheetEl.offsetHeight*.35) dismissSheet(v);
+  else springTo(0,{velocity:v,damping:.8,response:.3});
+};
+sheetEl.addEventListener('pointerup',endDrag);
+sheetEl.addEventListener('pointercancel',endDrag);
+function dismissSheet(v=0){
+  sheetOpen=false;
+  springTo(closedY(),{velocity:v,damping:1,response:.4,done:()=>{
+    scrimEl.classList.remove('on');scrimEl.style.opacity=0;document.body.style.overflow='';
+  }});
+}
+function closeSheet(){dismissSheet(0)}
+scrimEl.addEventListener('click',closeSheet);
+addEventListener('keydown',e=>{if(e.key==='Escape'&&sheetOpen)closeSheet()});
+
+function openPlayer(id){
+  const p=DATA.players.find(x=>x.id===id); if(!p) return;
+  const sh=sheetEl;
+  const statPairs=statPairsFor(p.liveStats,p.pos);
+  sh.innerHTML=`<div class="grabzone"><div class="grab"></div></div><button class="close-x" onclick="closeSheet()">✕</button>
+  <h3>${esc(p.name)} <span class="badge ${posB[p.pos]}">${p.pos}</span></h3>
+  <div class="pmeta" style="margin:2px 0 16px">${esc(DATA.teams[p.team].name)} · £${p.price.toFixed(1)}m · ${p.own}% owned · ${esc(p.fix)} ${stars(p.fixEase)}</div>
+  <div class="grid g3" style="margin-bottom:18px">
+    <div class="card" style="padding:14px"><div class="kicker">Consensus Score</div><div class="big" style="font-size:26px;color:var(--mint)">${score(p)}<span style="font-size:14px;color:var(--text3)">/100</span></div></div>
+    <div class="card" style="padding:14px"><div class="kicker">Ownership</div><div class="big" style="font-size:26px">${p.own}<span style="font-size:14px;color:var(--text3)">%</span></div><div class="pmeta">Official FPL API</div></div>
+    <div class="card" style="padding:14px"><div class="kicker">Sources</div><div style="margin-top:4px">${srcChips(p)}</div></div>
+  </div>
+  ${statPairs.length?`<div class="kicker">📊 This season — live stats <span style="text-transform:none;font-weight:500;color:var(--text3)">(official FPL data)</span></div>
+  <div class="grid g4" style="margin-bottom:18px">${statPairs.map(([k,v])=>`<div class="card" style="padding:10px 12px"><div class="pmeta" style="margin-bottom:3px">${esc(k)}</div><div style="font-size:17px;font-weight:800;font-variant-numeric:tabular-nums">${esc(String(v))}</div></div>`).join('')}</div>`
+  :`<div class="notice" style="margin-bottom:18px"><b>Live stats not loaded yet.</b> Prices/points shown are the Aug 15 snapshot — open the site with a live connection for this season's goals/assists/xG for ${esc(p.name)}.</div>`}
+  <div class="kicker">📅 Next 5 fixtures <span style="text-transform:none;font-weight:500;color:var(--text3)">(official FDR — green easy, white medium, red hard)</span></div>
+  <div style="margin-bottom:18px">${fixtureTicker(p.team)}</div>
+  <div class="kicker">Score breakdown</div>
+  ${Object.entries(p.f).map(([k,v])=>`<div class="factor"><div class="frow"><span class="fname">${FLABEL[k][0]}</span><span class="fval">${v}</span></div>
+    <div class="scorebar"><i style="width:${v/FLABEL[k][1]*100}%"></i></div></div>`).join('')}
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card" style="padding:14px"><div class="kicker" style="color:#4cd964">For (sourced)</div>${p.pros.map(x=>`<div class="row" style="padding:8px 0"><span style="font-size:13.5px">${esc(x)}</span></div>`).join('')}</div>
+    <div class="card" style="padding:14px"><div class="kicker" style="color:#ff6b61">Against (sourced)</div>${p.cons.map(x=>`<div class="row" style="padding:8px 0"><span style="font-size:13.5px">${esc(x)}</span></div>`).join('')}</div>
+  </div>
+  <div class="notice" style="margin-top:16px;margin-bottom:0"><b>Read:</b> ${esc(p.reasons)}</div>`;
+  scrimEl.classList.add('on');
+  document.body.style.overflow='hidden';
+  sh.scrollTop=0; sheetOpen=true;
+  setY(closedY());
+  springTo(0,{damping:1,response:.42});
+}
+
+/* opens a lightweight stats-only sheet for any of the 587 live players
+   who aren't in the 43 tracked/analysed players — same live source, no
+   creator commentary since none has been reviewed for them yet. */
+function openLivePlayer(elId){
+  if(!LIVE.loaded) return;
+  const e=LIVE.elements.find(x=>x.id===elId); if(!e) return;
+  const posN={1:'GK',2:'DEF',3:'MID',4:'FWD'};
+  const pos=posN[e.element_type]||'—';
+  const statPairs=statPairsFor(toLiveStats(e),pos);
+  const sh=sheetEl;
+  sh.innerHTML=`<div class="grabzone"><div class="grab"></div></div><button class="close-x" onclick="closeSheet()">✕</button>
+  <h3>${esc(e.web_name)} <span class="badge ${posB[pos]}">${pos}</span></h3>
+  <div class="pmeta" style="margin:2px 0 16px">${esc(LIVE.teamsById[e.team]||'')} · £${(e.now_cost/10).toFixed(1)}m · ${e.selected_by_percent}% owned</div>
+  <div class="notice"><b>Not on the tracked-analysis list yet</b> — none of your 4 creators or the AllAboutFPL/FFScout coverage has discussed ${esc(e.web_name)} this week, so there's no Consensus Score or sourced pros/cons for them. Everything below is live official stats only.</div>
+  <div class="kicker">📊 This season — live stats <span style="text-transform:none;font-weight:500;color:var(--text3)">(official FPL data)</span></div>
+  <div class="grid g4" style="margin-bottom:18px">${statPairs.length?statPairs.map(([k,v])=>`<div class="card" style="padding:10px 12px"><div class="pmeta" style="margin-bottom:3px">${esc(k)}</div><div style="font-size:17px;font-weight:800;font-variant-numeric:tabular-nums">${esc(String(v))}</div></div>`).join(''):'<div class="pmeta">No minutes recorded yet this season.</div>'}</div>
+  <div class="kicker">📅 Next 5 fixtures <span style="text-transform:none;font-weight:500;color:var(--text3)">(official FDR — green easy, white medium, red hard)</span></div>
+  <div>${fixtureTicker(LIVE.teamsById[e.team]||'')}</div>`;
+  scrimEl.classList.add('on');
+  document.body.style.overflow='hidden';
+  sh.scrollTop=0; sheetOpen=true;
+  setY(closedY());
+  springTo(0,{damping:1,response:.42});
+}
+
+/* ============ nav / render ============ */
+const R={home:renderHome,captain:renderCaptain,transfers:renderTransfers,consensus:renderConsensus,disagree:renderDisagree,injury:renderInjury,diffs:renderDiffs,ai:renderAI,players:renderPlayers,prices:renderPrices,myteam:renderMyTeam,videos:renderVideos,fixtures:renderFixtures};
+let cur=null;
+function go(id){
+  cur=id;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.id===id));
+  const m=$('#main');
+  m.innerHTML=`<div class="page on">${R[id]()}</div>`;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    m.querySelectorAll('.scorebar i[data-w]').forEach(i=>i.style.width=i.dataset.w+'%');
+  }));
+  if(id==='home')tickBig();
+  if(id==='players'&&LIVE.loaded)filterPlayers();
+  try{history.replaceState(null,'','#'+id)}catch(e){}
+}
+$('#tabs').innerHTML=PAGES.map(p=>`<button class="tab" data-id="${p.id}" onclick="go('${p.id}')">${p.label}</button>`).join('');
+
+/* ============ countdown ============ */
+let DL=new Date(DATA.deadline).getTime();
+function DL_UPDATE(){DL=new Date(DATA.deadline).getTime();}
+function parts(){
+  let d=Math.max(0,DL-Date.now());
+  return {d:Math.floor(d/864e5),h:Math.floor(d%864e5/36e5),m:Math.floor(d%36e5/6e4),s:Math.floor(d%6e4/1e3),over:d<=0};
+}
+function tick(){
+  const p=parts();
+  $('#hdCount').textContent=p.over?'Deadline passed':`GW${DATA.gw} deadline · ${p.d}d ${p.h}h ${p.m}m`;
+}
+function tickBig(){
+  const el=$('#bigCount'); if(!el||cur!=='home')return;
+  const p=parts();
+  el.innerHTML=[['Days',p.d],['Hours',p.h],['Min',p.m],['Sec',p.s]].map(([l,v])=>`<div class="cbox"><div class="cv">${String(v).padStart(2,'0')}</div><div class="cl">${l}</div></div>`).join('');
+}
+tick(); setInterval(()=>{tick();tickBig()},1000);
+
+/* boot */
+go(location.hash&&R[location.hash.slice(1)]?location.hash.slice(1):'home');
+loadLiveData();
+</script>
+</body>
+</html>
