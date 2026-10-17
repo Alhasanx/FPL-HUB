@@ -25,10 +25,10 @@ async function fpl(path) {
 
 const KW = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kuwait', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false });
 
-function message(boot, fixtures, ev) {
+function message(boot, fixtures, ev, recent) {
   let lines = [];
   try {
-    const m = globalThis.Engine.build(boot, fixtures, creators, sites, null);
+    const m = globalThis.Engine.build(boot, fixtures, creators, sites, recent);
     const cap = m.players.slice().sort((a, b) => b.cap - a.cap).slice(0, 3);
     lines.push('Captain: ' + cap.map(p => `${p.name} ${p.cap}`).join(' · '));
     const flags = m.players.filter(p => p.own >= 15 && p.status !== 'a').sort((a, b) => b.own - a.own).slice(0, 3);
@@ -57,8 +57,13 @@ export default async function handler(req, res) {
     const due = test || (target >= slot && target < slot + SLOT);
     const subs = subscriptions();
     if (!due) return res.status(200).json({ ok: true, gw: ev.id, sendAt: new Date(target).toISOString(), subscribers: subs.length, sent: 0 });
-    const fixtures = await fpl('fixtures/?future=1').catch(() => []);
-    const payload = message(boot, fixtures, ev);
+    const cur = (boot.events || []).find(e => e.is_current);
+    const [fixtures, recent] = await Promise.all([
+      fpl('fixtures/?future=1').catch(() => []),
+      /* same recent-form feed the site uses, so the alert matches what the site shows */
+      cur ? fetch(`https://${req.headers.host}/api/recent?to=${cur.id}&n=4`, { signal: AbortSignal.timeout(12000) }).then(r => r.ok ? r.json() : null).catch(() => null) : null
+    ]);
+    const payload = message(boot, fixtures, ev, recent);
     webpush.setVapidDetails(process.env.VAPID_SUBJECT || 'https://fpl-hub-eight.vercel.app', process.env.VAPID_PUBLIC_KEY, process.env.VAPID_PRIVATE_KEY);
     let sent = 0; const gone = [];
     await Promise.all(subs.map(s => webpush.sendNotification(s, JSON.stringify(payload), { TTL: 1800, urgency: 'high' })
