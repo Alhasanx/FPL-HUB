@@ -8,14 +8,16 @@ import creators from '../data/creators.json';
 import sites from '../data/sites.json';
 
 const SLOT = 5 * 60 * 1000, LEAD = 30 * 60 * 1000;
-const H = { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36', 'Accept': 'application/json' };
+const HEADERS = [{ 'User-Agent': 'Mozilla/5.0 (fpl-consensus-hub proxy)' }, { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36', 'Accept': 'application/json' }];
 
 async function fpl(path) {
   for (let i = 0; i < 4; i++) {
     try {
-      const r = await fetch('https://fantasy.premierleague.com/api/' + path, { headers: H, signal: AbortSignal.timeout(9000) });
-      if (r.ok) return await r.json();
-    } catch (_) {}
+      const r = await fetch('https://fantasy.premierleague.com/api/' + path, { headers: HEADERS[i % 2], signal: AbortSignal.timeout(9000) });
+      const body = await r.text();
+      if (r.ok && /^[\[{]/.test(body.trim())) return JSON.parse(body);
+      console.error('fpl', path, r.status);
+    } catch (e) { console.error('fpl', path, String(e)); }
     await new Promise(s => setTimeout(s, 500 * (i + 1)));
   }
   throw new Error('FPL unavailable: ' + path);
