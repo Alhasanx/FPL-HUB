@@ -153,6 +153,19 @@
       const reg = players.filter(p => p.pos === pos && p.minutes >= 450).map(p => raw[p.id]);
       const per90 = (e, k) => num(e[k]) * 90 / Math.max(1, num(e.minutes));
       PRI[pos] = { xg: med(reg.map(e => num(e.expected_goals_per_90))), xa: med(reg.map(e => num(e.expected_assists_per_90))), dc: med(reg.map(e => num(e.defensive_contribution_per_90))), sv: med(reg.map(e => num(e.saves_per_90))), bn: med(reg.map(e => per90(e, 'bonus'))), yc: med(reg.map(e => per90(e, 'yellow_cards'))) };
+      /* the market knows something: a £15m forward's "average" is not a £5m forward's. Prior for attacking
+         output = fitted line of per-90 rate vs price among regulars in that position (falls back to the median) */
+      const fit = vals => {
+        const xs = reg.map(e => num(e.now_cost) / 10), n = xs.length, md = med(vals);
+        if (n < 8) return () => md;
+        const mx = xs.reduce((a, b) => a + b, 0) / n, my = vals.reduce((a, b) => a + b, 0) / n;
+        const vx = xs.reduce((a, x) => a + (x - mx) ** 2, 0) || 1;
+        const b = Math.max(0, xs.reduce((a, x, i) => a + (x - mx) * (vals[i] - my), 0) / vx), a0 = my - b * mx;
+        return price => Math.min(2.5 * md, Math.max(0.5 * md, a0 + b * price));
+      };
+      PRI[pos].xgF = fit(reg.map(e => num(e.expected_goals_per_90)));
+      PRI[pos].xaF = fit(reg.map(e => num(e.expected_assists_per_90)));
+      PRI[pos].bnF = fit(reg.map(e => per90(e, 'bonus')));
     }
     const K = 450;
     const shrink = (v, m, prior) => (v * m + prior * K) / (m + K);
@@ -198,7 +211,7 @@
       const per90 = k => num(e[k]) * 90 / Math.max(1, m);
       /* finishing matters: 70% expected, 30% actual output */
       const g90 = 0.7 * num(e.expected_goals_per_90) + 0.3 * per90('goals_scored'), a90 = 0.7 * num(e.expected_assists_per_90) + 0.3 * per90('assists');
-      const s = { xg: shrink(g90, m, pr.xg), xa: shrink(a90, m, pr.xa), dc: shrink(num(e.defensive_contribution_per_90), m, pr.dc), sv: shrink(num(e.saves_per_90), m, pr.sv), bn: shrink(per90('bonus'), m, pr.bn), yc: shrink(per90('yellow_cards'), m, pr.yc) };
+      const s = { xg: shrink(g90, m, pr.xgF(p.price)), xa: shrink(a90, m, pr.xaF(p.price)), dc: shrink(num(e.defensive_contribution_per_90), m, pr.dc), sv: shrink(num(e.saves_per_90), m, pr.sv), bn: shrink(per90('bonus'), m, pr.bnF(p.price)), yc: shrink(per90('yellow_cards'), m, pr.yc) };
       const rc = recentOf(p);
       p.recent = rc;
       let sp = clamp01(p.starts / t.g);
