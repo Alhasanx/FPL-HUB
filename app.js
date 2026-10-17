@@ -306,6 +306,39 @@
   $('#scrim').onclick = closeSheet;
   addEventListener('keydown', e => { if (e.key === 'Escape') { closeSheet(); closeStory(); } if (story && e.key === 'ArrowRight') $('#vtap').click(); });
 
+
+  /* ---------- deadline alerts (web push, needs Home Screen on iPhone) ---------- */
+  const bell = $('#bell'), pop = $('#alertPop');
+  const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  const pushOK = 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
+  let popT;
+  function say(html, ms = 6000) { pop.innerHTML = html; pop.hidden = false; clearTimeout(popT); if (ms) popT = setTimeout(() => { pop.hidden = true; }, ms); }
+  const b64 = s => { const p = '='.repeat((4 - s.length % 4) % 4); const r = atob((s + p).replace(/-/g, '+').replace(/_/g, '/')); return Uint8Array.from([...r].map(c => c.charCodeAt(0))); };
+  async function swReg() { return navigator.serviceWorker.getRegistration('/') || navigator.serviceWorker.register('/sw.js', { scope: '/' }); }
+  async function refreshBell() {
+    if (!pushOK) return;
+    try { const r = await navigator.serviceWorker.getRegistration('/'); const s = r && await r.pushManager.getSubscription(); bell.classList.toggle('on', !!s && Notification.permission === 'granted'); } catch (e) {}
+  }
+  async function enableAlerts() {
+    if (isIOS && !standalone) return say('<b>Add to Home Screen first.</b><br>Tap Share <span aria-hidden="true">⎋</span> → <b>Add to Home Screen</b>, open FPL Hub from there, then tap the bell again.', 0);
+    if (!pushOK) return say('This browser can\'t receive notifications.');
+    if (Notification.permission === 'denied') return say('Notifications are blocked for FPL Hub. Turn them on in Settings → Notifications → FPL Hub.', 0);
+    try {
+      const reg = await swReg(); await navigator.serviceWorker.ready;
+      const perm = await Notification.requestPermission();
+      if (perm !== 'granted') return say('Notifications weren\'t allowed.');
+      let sub = await reg.pushManager.getSubscription();
+      if (!sub) { const { publicKey } = await fetchJson('/api/subscribe', 10000); if (!publicKey) throw new Error('no key'); sub = await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: b64(publicKey) }); }
+      const r = await fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(sub) }).then(x => x.json());
+      bell.classList.add('on');
+      say(r.active ? '<b>Deadline alerts are on.</b> You\'ll get a notification 30 minutes before every deadline.' : '<b>This phone is registered.</b> Alerts start once it\'s activated on the server.', 7000);
+    } catch (e) { console.error(e); say('Couldn\'t turn on alerts. Try again in a moment.'); }
+  }
+  bell.addEventListener('click', () => { if (bell.classList.contains('on')) say('<b>Deadline alerts are on.</b> 30 minutes before every deadline, with the captain picks.'); else enableAlerts(); });
+  pop.addEventListener('click', () => { pop.hidden = true; });
+  if (pushOK) { navigator.serviceWorker.register('/sw.js', { scope: '/' }).then(refreshBell).catch(() => {}); }
+
   boot();
   const savedId = store.get('fplId'); if (savedId) { const t = setInterval(() => { if (M) { clearInterval(t); checkTeam(savedId); } }, 300); }
 })();

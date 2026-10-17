@@ -317,3 +317,13 @@ button,a,.dock{touch-action:manipulation}
 .fxrow{grid-template-columns:repeat(5,1fr)}
 .fxrow em.xp{font-style:normal;font:600 11px var(--f-m);color:var(--t1);margin-top:3px}
 .fxrow b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+
+/* deadline alerts */
+.topr{display:flex;align-items:center;gap:8px}
+.bell{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:0;color:var(--t2);cursor:pointer;padding:0}
+.bell svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bell.on{color:var(--mint)}
+.bell.on svg{fill:rgba(60,240,160,.18)}
+.note-pop{position:sticky;top:calc(env(safe-area-inset-top,0px) + 64px);z-index:39;margin:0 0 12px;padding:14px 16px;border-radius:18px;font:500 14px/1.45 var(--f-b);color:var(--t1)}
+.note-pop b{font-weight:600;color:var(--mint)}
+.note-pop button{margin-top:10px}

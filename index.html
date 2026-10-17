@@ -9,6 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Outfit:wght@400;500;600&family=Martian+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FPL Hub">
 </head>
 <body data-tab="home">
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
@@ -19,8 +25,12 @@
       <svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3CF0A0"/><stop offset="1" stop-color="#3DDCF0"/></linearGradient></defs><rect x="2" y="2" width="36" height="36" rx="12" fill="url(#lg)"/><circle cx="20" cy="20" r="7" fill="none" stroke="#14081F" stroke-width="2.6"/><circle cx="20" cy="20" r="13" fill="none" stroke="#14081F" stroke-width="1.4" stroke-dasharray="3 4"/></svg>
       <div><b>Consensus Hub</b><small>FPL · <span id="season">2026/27</span></small></div>
     </div>
-    <div class="gw glass" id="gwPill"><i></i><span>LOADING</span></div>
+    <div class="topr">
+      <button class="bell glass" id="bell" aria-label="Deadline alerts"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 1 1 12 0c0 4.5 1.6 6.3 2.4 7H3.6C4.4 15.3 6 13.5 6 9Z"/><path d="M10 20a2.2 2.2 0 0 0 4 0"/></svg></button>
+      <div class="gw glass" id="gwPill"><i></i><span>LOADING</span></div>
+    </div>
   </header>
+  <div class="note-pop glass" id="alertPop" hidden></div>
 
   <main>
     <section class="screen on" data-screen="home" id="home"></section>
