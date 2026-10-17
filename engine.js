@@ -92,7 +92,7 @@
       return {
         id: e.id, name: e.web_name, full: `${e.first_name} ${e.second_name}`, pos: POS[e.element_type], team: teamsById[e.team].short_name, teamName: teamsById[e.team].name, teamId: e.team,
         price: e.now_cost / 10, own: num(e.selected_by_percent), form: num(e.form), xgi90: num(e.expected_goal_involvements_per_90),
-        minutes: num(e.minutes), starts: num(e.starts), points: num(e.total_points), defcon90: num(e.defensive_contribution_per_90), cs90: num(e.clean_sheets_per_90), saves90: num(e.saves_per_90),
+        minutes: num(e.minutes), starts: num(e.starts), points: num(e.total_points), defcon90: num(e.defensive_contribution_per_90), xg90: num(e.expected_goals_per_90), xa90: num(e.expected_assists_per_90), ppg: num(e.points_per_game), cs90: num(e.clean_sheets_per_90), saves90: num(e.saves_per_90),
         status: e.status, news: e.news || '', chance, next: nextFx.slice(0, 5), avgFdr, src: s,
         ini: initials(e.web_name)
       };
@@ -123,10 +123,6 @@
       }
     }
 
-    /* captaincy compares everyone against everyone, not within position */
-    const allPlayed = players.filter(p => p.minutes >= 270);
-    const gThreat = allPlayed.map(p => p.xgi90).sort((a, b) => a - b);
-    const gForm = allPlayed.map(p => p.form).sort((a, b) => a - b);
     for (const p of players) {
       const fitness = p.status === 'a' ? 1 : (p.status === 'd' ? p.chance / 100 : 0);
       const startRate = clamp01(p.starts / finished);
@@ -141,14 +137,20 @@
       };
       p.f = f;
       p.ai = Math.min(100, f.form + f.threat + f.fixtures + f.minutes + f.fitness + f.creators);
+      /* captain: expected points this GW, built from real per-90 output (not rankings) */
       const nf = p.next[0];
-      const opp = nf ? (0.8 * clamp01((5 - nf.fdr) / 3) + (nf.home ? 0.2 : 0)) : 0;
-      const cw = Math.min(1, p.minutes / 270), gT = cw * pct(gThreat, p.xgi90), gF = cw * pct(gForm, p.form);
-      p.cap = nf ? Math.round(40 * gT + 25 * gF + 25 * opp + 10 * startRate * fitness) : 0;
+      const goalPts = { GK: 6, DEF: 6, MID: 5, FWD: 4 }[p.pos];
+      const sample = Math.min(1, p.minutes / 270);
+      const attack = (p.xg90 * goalPts + p.xa90 * 3) * sample;
+      const base = 2 + attack * 0.7 + Math.min(p.form, 12) * 0.3;
+      const fixMult = nf ? ({ 1: 1.25, 2: 1.15, 3: 1.0, 4: 0.88, 5: 0.78 }[nf.fdr] || 1) * (nf.home ? 1.05 : 0.97) : 0;
+      p.ep = nf ? base * fixMult * startRate * fitness : 0;
     }
 
+    const topEp = Math.max(...players.map(p => p.ep), 0.01);
+    for (const p of players) p.cap = Math.round(100 * p.ep / topEp);
     for (const pos in byPos) byPos[pos].slice().sort((a, b) => b.ai - a.ai).forEach((p, i) => { p.rank = i + 1; });
-    players.slice().sort((a, b) => b.cap - a.cap).forEach((p, i) => { p.capRank = i + 1; });
+    players.slice().sort((a, b) => b.ep - a.ep).forEach((p, i) => { p.capRank = i + 1; });
 
     /* rule-based reasons (max 3), every line tagged with its source */
     for (const p of players) {
@@ -199,7 +201,7 @@
     return out;
   }
 
-  function captainTop(model, n = 3) { return model.players.filter(p => p.next.length).sort((a, b) => b.cap - a.cap).slice(0, n); }
+  function captainTop(model, n = 3) { return model.players.filter(p => p.next.length).sort((a, b) => b.ep - a.ep).slice(0, n); }
 
   /* Team check from a manager's picks */
   function teamCheck(model, picksRes) {

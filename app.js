@@ -97,7 +97,7 @@
               <div class="meta">${esc(p.teamName)} <span class="fx ${fxClass(p.next[0].fdr)}">${fxTxt(p.next[0])}</span></div></div>
             <span class="score">${p.cap}</span></div>
           <div class="bar"><i data-w="${p.cap}"></i></div></button>`).join('')}
-        <p class="note">From the FPL API: threat, form, opponent and minutes</p>
+        <p class="note">Expected points this GW from the FPL API: xG, xA, form, fixture and minutes</p>
       </div>
       ${signals ? `<div class="sec"><h2>This week's signals</h2><span>${esc(SI ? 'GW' + SI.gw : '')}</span></div><div class="rail">${signals}</div>` : ''}
       <div class="sec"><h2>Picks by position</h2><span>most-mentioned this GW</span></div>
