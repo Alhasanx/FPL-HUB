@@ -1,0 +1,12 @@
+{
+  "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
+  "gw": 4,
+  "updated": "2026-09-11",
+  "items": [
+    { "type": "pick",  "player": "Calafiori", "team": "ARS", "source": "FF Scout",    "why": "Goal threat in the Arsenal double-up", "url": "https://www.fantasyfootballscout.co.uk/" },
+    { "type": "pick",  "player": "Isak",      "team": "LIV", "source": "FF Scout",    "why": "Fulham still without a clean sheet",   "url": "https://www.fantasyfootballscout.co.uk/" },
+    { "type": "pick",  "player": "Janelt",    "team": "BRE", "source": "FF Scout",    "why": "Scored and hit defcon in both home games", "url": "https://www.fantasyfootballscout.co.uk/" },
+    { "type": "pick",  "player": "Rogers",    "team": "CHE", "source": "FF Hub",      "why": "Named in the Chelsea v Hull captaincy debate", "url": "https://www.fantasyfootballhub.co.uk/" },
+    { "type": "avoid", "player": "Scott",     "team": "BOU", "source": "AllAboutFPL", "why": "Three of the next five fixtures are FDR 4", "url": "https://allaboutfpl.com/" }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
+  "gw": 4,
+  "updated": "2026-09-11",
+  "creators": [
+    {
+      "id": "FH",
+      "name": "FPL Harry",
+      "tone": ["mint", "aqua"],
+      "video": { "title": "MY FPL GW4 TEAM SELECTION! 3x TRANSFERS CONFIRMED", "url": "https://www.youtube.com/watch?v=FObTD-bB3w0", "date": "2026-09-10" },
+      "buys": [],
+      "avoids": [],
+      "moves": { "chip": null, "note": "3 transfers confirmed in the video", "transfers": [] },
+      "squad": {
+        "xi": [
+          { "player": "Verbruggen", "team": "BHA" },
+          { "player": "Maguire", "team": "MUN" }, { "player": "Ajer", "team": "BRE" }, { "player": "Calafiori", "team": "ARS" },
+          { "player": "Szoboszlai", "team": "LIV" }, { "player": "Gomez", "team": null }, { "player": "B.Fernandes", "team": "MUN" }, { "player": "Mbeumo", "team": "MUN" },
+          { "player": "João Pedro", "team": "CHE" }, { "player": "Calvert-Lewin", "team": "LEE" }, { "player": "Haaland", "team": "MCI" }
+        ],
+        "captain": "Haaland",
+        "vice": "B.Fernandes",
+        "bench": ["Kinsky", "Tzolis", "Rodon", "Diop"]
+      },
+      "extra": []
+    },
+    {
+      "id": "LT",
+      "name": "Let's Talk FPL",
+      "tone": ["gold", "rose"],
+      "video": { "title": "My FPL Team for GW4 · 1 transfer made", "url": "https://www.youtube.com/watch?v=pBPZMJQa5Xg", "date": "2026-09-10" },
+      "buys": [],
+      "avoids": [],
+      "moves": { "chip": null, "note": "1 transfer made", "transfers": [] },
+      "squad": { "xi": [], "captain": null, "vice": null, "bench": [] },
+      "extra": []
+    },
+    {
+      "id": "FR",
+      "name": "FPL Raptor",
+      "tone": ["rose", "lilac"],
+      "video": { "title": "WILDCARD ACTIVE! MY FPL GW4 TEAM SELECTION", "url": "https://www.youtube.com/watch?v=EE_ZRD_shU4", "date": "2026-09-10" },
+      "buys": [
+        { "player": "Rogers", "team": "CHE", "why": "Cheaper way into Chelsea v Hull", "t": null },
+        { "player": "Palmer", "team": "CHE", "why": "Chelsea's main threat, Hull at home", "t": null },
+        { "player": "João Pedro", "team": "CHE", "why": "Leads the line for the Hull game", "t": null }
+      ],
+      "avoids": [],
+      "moves": { "chip": "wildcard", "note": "Full rebuild, 3 free transfers banked before it", "transfers": [] },
+      "squad": {
+        "xi": [
+          { "player": "Vuskovic", "team": null }, { "player": "Konsa", "team": "AVL" }, { "player": "Calafiori", "team": "ARS" },
+          { "player": "Rogers", "team": "CHE" }, { "player": "Palmer", "team": "CHE" }, { "player": "Szoboszlai", "team": "LIV" },
+          { "player": "João Pedro", "team": "CHE" }, { "player": "Haaland", "team": "MCI" }
+        ],
+        "captain": null,
+        "vice": null,
+        "bench": []
+      },
+      "extra": [ { "topic": "Mini-league", "text": "Shared his league code on screen: son7do", "t": null } ]
+    },
+    {
+      "id": "FM",
+      "name": "FPL Mate",
+      "tone": ["lilac", "aqua"],
+      "video": { "title": "FPL GW4 FINAL WILDCARD · My squad & captain", "url": "https://www.youtube.com/watch?v=M71lcpXfZp4", "date": "2026-09-11" },
+      "buys": [],
+      "avoids": [],
+      "moves": { "chip": "wildcard", "note": "Wildcard rebuild", "transfers": [] },
+      "squad": { "xi": [], "captain": null, "vice": null, "bench": [] },
+      "extra": []
+    }
+  ]
+}
