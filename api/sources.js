@@ -31,22 +31,43 @@ async function feed(ch, n) {
   }));
 }
 
-/* captions: watch page -> captionTracks -> json3 */
+/* captions: try the mobile player API first (less often bot-checked), then the watch page */
+async function captionTracks(videoId) {
+  const tries = [];
+  for (const client of [
+    { clientName: 'ANDROID', clientVersion: '20.10.38', androidSdkVersion: 30, userAgent: 'com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip' },
+    { clientName: 'IOS', clientVersion: '20.10.4', deviceModel: 'iPhone16,2', userAgent: 'com.google.ios.youtube/20.10.4 (iPhone16,2; U; CPU iOS 18_3 like Mac OS X)' },
+    { clientName: 'TVHTML5_SIMPLY_EMBEDDED_PLAYER', clientVersion: '2.0' }
+  ]) {
+    try {
+      const r = await get('https://www.youtube.com/youtubei/v1/player?prettyPrint=false', 10000, { method: 'POST', headers: { 'Content-Type': 'application/json', ...(client.userAgent ? { 'User-Agent': client.userAgent } : {}) }, body: JSON.stringify({ videoId, context: { client: { hl: 'en', gl: 'GB', ...client } } }) });
+      const j = await r.json();
+      const t = j && j.captions && j.captions.playerCaptionsTracklistRenderer && j.captions.playerCaptionsTracklistRenderer.captionTracks;
+      tries.push(client.clientName + ':' + (j && j.playabilityStatus && j.playabilityStatus.status));
+      if (t && t.length) return { tracks: t, via: client.clientName };
+    } catch (e) { tries.push(client.clientName + ':err'); }
+  }
+  const html = await (await get(`https://www.youtube.com/watch?v=${videoId}&hl=en`, 12000)).text();
+  const m = /"captionTracks":(\[.*?\])/.exec(html);
+  if (m) return { tracks: JSON.parse(m[1]), via: 'web' };
+  return { tracks: null, why: (/confirm you.re not a bot/i.test(html) ? 'blocked' : 'no captions') + ' · ' + tries.join(',') };
+}
 async function transcript(videoId) {
   try {
-    const html = await (await get(`https://www.youtube.com/watch?v=${videoId}&hl=en`, 12000)).text();
-    const m = /"captionTracks":(\[.*?\])/.exec(html);
-    if (!m) return { ok: false, why: /confirm you.re not a bot|consent/i.test(html) ? 'blocked' : 'no captions' };
-    const tracks = JSON.parse(m[1]);
+    const ct = await captionTracks(videoId);
+    if (!ct.tracks) return { ok: false, why: ct.why };
+    const tracks = ct.tracks;
     const t = tracks.find(x => /^en/.test(x.languageCode) && x.kind !== 'asr') || tracks.find(x => /^en/.test(x.languageCode)) || tracks[0];
-    const j = await (await get(t.baseUrl.replace(/\\u0026/g, '&') + '&fmt=json3', 12000)).json();
+    const raw = await (await get(t.baseUrl.replace(/\\u0026/g, '&').replace(/&fmt=[^&]*/, '') + '&fmt=json3', 12000)).text();
+    if (!raw.trim()) return { ok: false, why: 'empty caption file (' + ct.via + ')' };
+    const j = JSON.parse(raw);
     const parts = [];
     for (const ev of j.events || []) {
       if (!ev.segs) continue;
       const txt = ev.segs.map(s => s.utf8).join('').replace(/\s+/g, ' ').trim();
       if (txt) parts.push(`[${Math.floor(ev.tStartMs / 60000)}:${String(Math.floor(ev.tStartMs / 1000) % 60).padStart(2, '0')}] ${txt}`);
     }
-    return { ok: parts.length > 0, lang: t.languageCode, auto: t.kind === 'asr', text: parts.join('\n').slice(0, 60000) };
+    return { ok: parts.length > 0, via: ct.via, lang: t.languageCode, auto: t.kind === 'asr', text: parts.join('\n').slice(0, 60000) };
   } catch (e) { return { ok: false, why: String(e.message || e) }; }
 }
 
