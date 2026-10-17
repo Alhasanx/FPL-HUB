@@ -78,7 +78,9 @@
     const info = gwInfo(boot);
     const fx = teamFixtures(fixtures, teamsById, info.gw);
     const resolve = resolver(boot.elements, teamsById);
-    const src = sourceIndex(creators, sites, resolve);
+    /* sources only count for the gameweek they were written for */
+    const fresh = d => d && d.gw >= info.gw;
+    const src = sourceIndex(fresh(creators) ? creators : null, fresh(sites) ? sites : null, resolve);
     const finished = Math.max(1, info.finished);
 
     const players = boot.elements.filter(e => e.status !== 'u').map(e => {
@@ -100,7 +102,7 @@
     const byPos = {};
     for (const p of players) (byPos[p.pos] = byPos[p.pos] || []).push(p);
     for (const pos in byPos) {
-      const pool = byPos[pos].filter(p => p.minutes > 0);
+      const pool = byPos[pos].filter(p => p.minutes >= 270);
       const sForm = pool.map(p => p.form).sort((a, b) => a - b);
       const sThreat = pool.map(p => p.xgi90).sort((a, b) => a - b);
       const sDef = pool.map(p => p.defcon90).sort((a, b) => a - b);
@@ -108,11 +110,12 @@
       const sSv = pool.map(p => p.saves90).sort((a, b) => a - b);
       for (const p of byPos[pos]) {
         const played = p.minutes > 0;
-        p.pForm = played ? pct(sForm, p.form) : 0;
-        p.pDef = played ? pct(sDef, p.defcon90) : 0;
-        const pX = played ? pct(sThreat, p.xgi90) : 0;
+        const w = Math.min(1, p.minutes / 270);
+        p.pForm = played ? w * pct(sForm, p.form) : 0;
+        p.pDef = played ? w * pct(sDef, p.defcon90) : 0;
+        const pX = played ? w * pct(sThreat, p.xgi90) : 0;
         /* "threat" means what earns points in that position */
-        if (pos === 'GK') p.pThreat = played ? 0.6 * pct(sCs, p.cs90) + 0.4 * pct(sSv, p.saves90) : 0;
+        if (pos === 'GK') p.pThreat = played ? w * (0.6 * pct(sCs, p.cs90) + 0.4 * pct(sSv, p.saves90)) : 0;
         else if (pos === 'DEF') p.pThreat = played ? 0.5 * pX + 0.5 * p.pDef : 0;
         else p.pThreat = pX;
         p.pX = pX;
@@ -121,7 +124,7 @@
     }
 
     /* captaincy compares everyone against everyone, not within position */
-    const allPlayed = players.filter(p => p.minutes >= 90);
+    const allPlayed = players.filter(p => p.minutes >= 270);
     const gThreat = allPlayed.map(p => p.xgi90).sort((a, b) => a - b);
     const gForm = allPlayed.map(p => p.form).sort((a, b) => a - b);
     for (const p of players) {
@@ -140,7 +143,7 @@
       p.ai = Math.min(100, f.form + f.threat + f.fixtures + f.minutes + f.fitness + f.creators);
       const nf = p.next[0];
       const opp = nf ? (0.8 * clamp01((5 - nf.fdr) / 3) + (nf.home ? 0.2 : 0)) : 0;
-      const gT = p.minutes >= 90 ? pct(gThreat, p.xgi90) : 0, gF = p.minutes >= 90 ? pct(gForm, p.form) : 0;
+      const cw = Math.min(1, p.minutes / 270), gT = cw * pct(gThreat, p.xgi90), gF = cw * pct(gForm, p.form);
       p.cap = nf ? Math.round(40 * gT + 25 * gF + 25 * opp + 10 * startRate * fitness) : 0;
     }
 
@@ -151,7 +154,7 @@
     for (const p of players) {
       const r = [];
       const posName = { GK: 'keepers', DEF: 'defenders', MID: 'midfielders', FWD: 'forwards' }[p.pos];
-      const top5 = q => Math.ceil((byPos[p.pos].filter(x => x.minutes > 0).length || 1) * (1 - q)) <= 5;
+      const top5 = q => p.minutes >= 270 && Math.ceil((byPos[p.pos].filter(x => x.minutes >= 270).length || 1) * (1 - q)) <= 5;
       if (p.minutes > 0 && p.pos !== 'GK' && top5(p.pX)) r.push({ good: true, text: `Top 5 ${posName} for xGI per 90`, by: 'FPL API' });
       if (p.minutes > 0 && p.pos !== 'FWD' && p.pos !== 'GK' && top5(p.pDef)) r.push({ good: true, text: `Top 5 ${posName} for defensive contributions per 90`, by: 'FPL API' });
       if (p.src.creatorsBuy.length) r.push({ good: true, text: `Backed by ${listNames(p.src.creatorsBuy)}`, by: 'Creators' });
@@ -230,6 +233,7 @@
 
   /* creators summaries */
   function creatorsView(model, creators) {
+    const stale = !creators || creators.gw < model.info.gw;
     const list = (creators && creators.creators) || [];
     const res = n => n && model.resolve(n.player || n, n.team);
     const agree = {};
@@ -238,7 +242,7 @@
     const captains = list.map(c => ({ id: c.id, name: c.name, captain: c.squad && c.squad.captain ? c.squad.captain : null }));
     const splits = [];
     for (const c of list) for (const a of c.avoids || []) { const e = res(a); if (!e || !agree[e.id]) continue; splits.push({ p: model.byId[e.id], against: [c.id], for: agree[e.id].by, whyAgainst: a.why }); }
-    return { list, agreeList, captains, splits, gw: creators && creators.gw, updated: creators && creators.updated };
+    return { list, agreeList: stale ? [] : agreeList, captains, splits: stale ? [] : splits, stale, gw: creators && creators.gw, updated: creators && creators.updated };
   }
 
   root.Engine = { build, picksByPosition, captainTop, teamCheck, creatorsView, gwInfo, norm };

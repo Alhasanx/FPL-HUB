@@ -54,7 +54,8 @@
     const caps = Engine.captainTop(M, 3);
     const c1 = caps[0];
     const picks = Engine.picksByPosition(M);
-    const items = (SI && SI.items) || [];
+    const sitesFresh = SI && SI.gw >= M.info.gw, crFresh = CR && CR.gw >= M.info.gw;
+    const items = sitesFresh ? SI.items : [];
     const signals = items.map(it => {
       const p = M.resolve(it.player, it.team), tone = it.type === 'avoid' ? TONE.rose : TONE.mint;
       return `<a class="signal glass" href="${esc(it.url || '#')}" target="_blank" rel="noopener" style="--tone:${tone}"><span class="chip ${it.type === 'avoid' ? 'rose' : 'mint'}">${it.type === 'avoid' ? 'Avoid' : 'Pick'}</span><h3>${esc(p ? p.web_name : it.player)}</h3><p>${esc(it.why)}</p><span class="src">${esc(it.source)}</span></a>`;
@@ -84,7 +85,7 @@
         ${picks[pos].length ? picks[pos].map(x => `<button class="prow" data-open="${x.p.id}"><span class="av ${pos}">${esc(x.p.ini)}</span>
           <span class="tx"><b>${esc(x.p.name)}</b><small>${esc(x.p.teamName)} · £${x.p.price.toFixed(1)}m · ${x.p.own}%</small>${x.why ? `<span>${esc(x.why)}</span>` : ''}<em>via ${esc(x.names.join(' · '))}</em></span>
           <span class="dots"><div>${x.names.map(n => `<i style="background:${SRC_COL[n] || TONE.aqua}"></i>`).join('')}</div><small>×${x.names.length}</small></span></button>`).join('')
-        : `<div class="empty">No standout pick from the sources this week</div>`}</div>`).join('')}</div>
+        : `<div class="empty">${sitesFresh || crFresh ? 'No standout pick from the sources this week' : `Waiting for GW${M.info.gw} sources`}</div>`}</div>`).join('')}</div>
       <p class="note">Ranked by how many of your sources named them this week. Players owned by 35%+ are skipped: everyone already has them.</p>`;
     stagger(el); tickClock(); bars(el);
   }
@@ -108,10 +109,10 @@
     el.innerHTML = `
       <div class="hero"><span class="label">Gameweek ${M.info.gw} · Creators</span><h1>What they <span class="hl">said.</span></h1>${sourceStamp(CR, 'videos')}</div>
       <div class="stories">${v.list.map(c => { const [a, b] = CTONE(c); const fresh = CR.gw >= M.info.gw; return `<button class="story" data-story="${esc(c.id)}" style="--c1:${a};--c2:${b}"><span class="sring"><div><div><span>${esc(c.id)}</span></div></div>${fresh ? '<i class="dot"></i>' : ''}</span><b>${esc(c.name)}</b><span class="dashes">${'<i></i>'.repeat(cards(c))}</span></button>`; }).join('')}</div>
-      <div class="panel glass card"><div class="head"><h3>Their captain</h3><span>from card 4</span></div>
+      <div class="panel glass card"><div class="head"><h3>Their captain</h3><span>${v.stale ? 'GW' + v.gw + ' videos' : 'from card 4'}</span></div>
         <div class="capt">${v.captains.map(c => `<div>${cav(c.id)}<span class="chip ${c.captain ? 'mint' : ''}">${esc(c.captain ? c.captain : 'TBC')}</span></div>`).join('')}</div></div>
       <div class="panel glass card agree"><div class="head"><h3>Where they agree</h3><span>backed in card 1 · out of ${v.list.length}</span></div>
-        ${v.agreeList.length ? v.agreeList.map(a => `<button class="r" data-open="${a.p.id}" style="text-align:left"><div class="t"><b>${esc(a.p.name)}</b><span class="stack">${a.by.map(id => cav(id)).join('')}</span><span style="font:600 11px var(--f-m);color:${a.by.length === v.list.length ? TONE.mint : 'var(--t2)'}">${a.by.length}/${v.list.length}</span></div><div class="bar"><i data-w="${100 * a.by.length / v.list.length}" style="background:var(--grad)"></i></div></button>`).join('') : '<div class="empty">No players backed in this week\'s videos yet</div>'}</div>
+        ${v.agreeList.length ? v.agreeList.map(a => `<button class="r" data-open="${a.p.id}" style="text-align:left"><div class="t"><b>${esc(a.p.name)}</b><span class="stack">${a.by.map(id => cav(id)).join('')}</span><span style="font:600 11px var(--f-m);color:${a.by.length === v.list.length ? TONE.mint : 'var(--t2)'}">${a.by.length}/${v.list.length}</span></div><div class="bar"><i data-w="${100 * a.by.length / v.list.length}" style="background:var(--grad)"></i></div></button>`).join('') : `<div class="empty">${v.stale ? `Fills in when the GW${M.info.gw} videos are added` : 'No players backed in this week\'s videos yet'}</div>`}</div>
       ${v.splits.map(s => `<div class="panel glass card"><div class="head"><span class="chip lilac">They disagree</span><span>${esc(s.p.name)}</span></div><p class="lede">${s.for.map(id => cav(id)).join(' ')} back him. ${s.against.map(id => cav(id)).join(' ')} ${esc(s.whyAgainst || 'is avoiding him')}.</p></div>`).join('')}
       <p class="note">Everything here comes from their videos. Each creator gets the same cards: buys, avoids, moves, squad, plus anything extra.</p>`;
     stagger(el); bars(el);
