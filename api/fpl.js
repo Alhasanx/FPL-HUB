@@ -4,12 +4,15 @@ export const config = { maxDuration: 30 };
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
 
-async function get(url, ms) {
+const HEADERS = [
+  { 'User-Agent': 'Mozilla/5.0 (fpl-consensus-hub proxy)' },
+  { 'User-Agent': UA, 'Accept': 'application/json' }
+];
+async function get(url, ms, i) {
   const ctl = new AbortController();
   const t = setTimeout(() => ctl.abort(), ms);
-  try {
-    return await fetch(url, { signal: ctl.signal, headers: { 'User-Agent': UA, 'Accept': 'application/json,text/plain,*/*', 'Accept-Language': 'en-GB,en;q=0.9', 'Referer': 'https://fantasy.premierleague.com/' } });
-  } finally { clearTimeout(t); }
+  try { return await fetch(url, { signal: ctl.signal, headers: HEADERS[i % HEADERS.length] }); }
+  finally { clearTimeout(t); }
 }
 
 export default async function handler(req, res) {
@@ -18,9 +21,9 @@ export default async function handler(req, res) {
   const url = 'https://fantasy.premierleague.com/api/' + path;
   const personal = path.startsWith('entry/');
   let last = '';
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 4; i++) {
     try {
-      const r = await get(url, 9000);
+      const r = await get(url, 9000, i);
       const body = await r.text();
       if (r.ok && body.trim().startsWith('{') || r.ok && body.trim().startsWith('[')) {
         res.setHeader('Access-Control-Allow-Origin', '*');
