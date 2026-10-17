@@ -113,6 +113,7 @@ export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
   const secret = process.env.CRON_SECRET;
   if (!secret || req.query.key !== secret) return res.status(401).json({ error: 'Unauthorized' });
+  if (req.query.raw) { const r = await get(`https://inv.nadeko.net/api/v1/captions/${req.query.raw}?label=English+%28auto-generated%29`, 15000); const t = await r.text(); return res.status(200).json({ status: r.status, len: t.length, head: t.slice(0, 1500) }); }
   if (req.query.video) return res.status(200).json(await transcript(String(req.query.video).slice(0, 20)));
   const gw = parseInt(req.query.gw, 10) || null;
   const n = Math.min(8, Math.max(1, parseInt(req.query.n, 10) || 4));
