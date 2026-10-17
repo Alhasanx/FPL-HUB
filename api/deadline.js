@@ -10,6 +10,7 @@ import sites from '../data/sites.json';
 const SLOT = 5 * 60 * 1000, LEAD = 30 * 60 * 1000;
 const HEADERS = [{ 'User-Agent': 'Mozilla/5.0 (fpl-consensus-hub proxy)' }, { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36', 'Accept': 'application/json' }];
 
+let HOST = '';
 async function fpl(path) {
   for (let i = 0; i < 4; i++) {
     try {
@@ -20,6 +21,8 @@ async function fpl(path) {
     } catch (e) { console.error('fpl', path, String(e)); }
     await new Promise(s => setTimeout(s, 500 * (i + 1)));
   }
+  /* some regions get blocked by FPL: fall back to the site's own proxy, whose CDN copy is region-independent */
+  if (HOST) { try { const r = await fetch(`https://${HOST}/api/fpl?path=${encodeURIComponent(path)}`, { signal: AbortSignal.timeout(15000) }); if (r.ok) return await r.json(); } catch (_) {} }
   throw new Error('FPL unavailable: ' + path);
 }
 
@@ -47,6 +50,7 @@ export default async function handler(req, res) {
   const secret = process.env.CRON_SECRET;
   if (!secret || (req.query.key !== secret && req.headers.authorization !== `Bearer ${secret}`)) return res.status(401).json({ error: 'Unauthorized' });
   const test = req.query.test === '1';
+  HOST = req.headers.host || '';
   try {
     const boot = await fpl('bootstrap-static/');
     const now = Date.now();
