@@ -73,7 +73,7 @@
   }
 
   /* main model */
-  function build(boot, fixtures, creators, sites) {
+  function build(boot, fixtures, creators, sites, recent) {
     const teamsById = Object.fromEntries(boot.teams.map(t => [t.id, t]));
     const info = gwInfo(boot);
     const fx = teamFixtures(fixtures, teamsById, info.gw);
@@ -156,27 +156,108 @@
     }
     const K = 450;
     const shrink = (v, m, prior) => (v * m + prior * K) / (m + K);
+    const gws = []; for (let g = info.gw; g < info.gw + 5; g++) gws.push(g);
+    const deadlineOf = Object.fromEntries((boot.events || []).map(ev => [ev.id, new Date(ev.deadline_time)]));
+    const MON = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+    /* "Expected back 25 Oct" / "Suspended until 25 Oct" -> Date */
+    const backDate = news => {
+      const m = /(?:expected back|until|return(?:s|ing)? on)\s+(\d{1,2})\s+([a-z]{3})/i.exec(news || '');
+      if (!m || MON[m[2].toLowerCase()] == null) return null;
+      const ref = deadlineOf[info.gw] || new Date();
+      let d = new Date(Date.UTC(ref.getUTCFullYear(), MON[m[2].toLowerCase()], +m[1]));
+      if (d - ref < -200 * 864e5) d = new Date(Date.UTC(ref.getUTCFullYear() + 1, d.getUTCMonth(), d.getUTCDate()));
+      return d;
+    };
+    /* chance of being available in each of the next 5 GWs, from FPL's status/chance/news */
+    const fitnessCurve = p => {
+      const back = backDate(p.news);
+      return gws.map((g, k) => {
+        if (p.status === 'a') return 1;
+        const dl = deadlineOf[g];
+        if (back && dl) { if (dl < back) return 0; const wk = Math.floor((dl - back) / (7 * 864e5)); return Math.min(1, 0.75 + 0.12 * wk); }
+        if (p.status === 'd') return 1 - (1 - p.chance / 100) * Math.pow(0.5, k);
+        if (p.status === 's') return [0, 0.5, 0.8, 1, 1][k];
+        return 0; /* injured / unavailable with no return date */
+      });
+    };
+    /* recent form = the last few GWs from event/{gw}/live (who started, minutes, xG, xA, defcon) */
+    const R = recent && recent.p ? recent : null;
+    const recentOf = p => {
+      if (!R) return null;
+      const rows = R.p[p.id] || {};
+      let min = 0, st = 0, xg = 0, xa = 0, dc = 0, tg = 0, missed = 0;
+      for (const g of R.gws) { const n = num((R.teamGames[g] || {})[p.teamId]); tg += n; const r = rows[g]; if (r) { min += r[0]; st += r[1]; xg += r[2]; xa += r[3]; dc += r[4]; } else missed += n; }
+      /* a game with no minutes at all is usually an injury or ban, not a benching: if he is fit now, it counts less */
+      const tgEff = p.status === 'a' ? tg - 0.6 * missed : tg;
+      return tg ? { min, st, xg, xa, dc, tg, tgEff } : null;
+    };
+
+    /* pass 1: per-90 rates, base start probability, fitness per GW */
     for (const p of players) {
       const e = raw[p.id], m = p.minutes, pr = PRI[p.pos], t = T[p.teamId];
       const per90 = k => num(e[k]) * 90 / Math.max(1, m);
       /* finishing matters: 70% expected, 30% actual output */
       const g90 = 0.7 * num(e.expected_goals_per_90) + 0.3 * per90('goals_scored'), a90 = 0.7 * num(e.expected_assists_per_90) + 0.3 * per90('assists');
       const s = { xg: shrink(g90, m, pr.xg), xa: shrink(a90, m, pr.xa), dc: shrink(num(e.defensive_contribution_per_90), m, pr.dc), sv: shrink(num(e.saves_per_90), m, pr.sv), bn: shrink(per90('bonus'), m, pr.bn), yc: shrink(per90('yellow_cards'), m, pr.yc) };
-      const fitness = p.status === 'a' ? 1 : (p.status === 'd' ? p.chance / 100 : 0);
-      const startP = clamp01(p.starts / t.g);
-      const minPerStart = p.starts ? Math.min(90, m / p.starts) : 0;
-      const p60 = startP * fitness * (minPerStart >= 70 ? 0.95 : minPerStart >= 60 ? 0.8 : 0.5);
-      const cameo = (1 - startP) * fitness * (m > 0 ? 0.35 : 0.05);
-      const mf = startP * fitness * (minPerStart / 90) + cameo * 0.25;
+      const rc = recentOf(p);
+      p.recent = rc;
+      let sp = clamp01(p.starts / t.g);
+      if (rc) {
+        /* last ~4 GWs: underlying numbers pulled toward his season rate when the sample is small, then 30% weight */
+        const RK = 270, blend = (season, tot) => 0.7 * season + 0.3 * ((tot * 90 / Math.max(1, rc.min)) * rc.min + season * RK) / (rc.min + RK);
+        if (rc.min > 0) { s.xg = blend(s.xg, rc.xg); s.xa = blend(s.xa, rc.xa); s.dc = blend(s.dc, rc.dc); }
+        /* who is starting now matters more than who started in August */
+        sp = 0.45 * sp + 0.55 * clamp01(rc.st / Math.max(1, rc.tgEff));
+      }
+      p.s90 = s; p.baseSP = sp;
+      p.minPerStart = p.starts ? Math.min(90, m / p.starts) : 75;
+      p.fitC = fitnessCurve(p);
+      p.spC = gws.map(() => sp);
+      p.coverC = gws.map(() => null);
+    }
+
+    /* pass 2: if a regular starter is out, his starts go to the teammates in the same position who are next in line */
+    const groups = {};
+    for (const p of players) (groups[p.teamId + p.pos] = groups[p.teamId + p.pos] || []).push(p);
+    for (const key in groups) {
+      const g = groups[key];
+      gws.forEach((gw, k) => {
+        const out = g.filter(p => p.baseSP >= 0.3 && p.fitC[k] < 0.75);
+        const missing = out.reduce((a, p) => a + p.baseSP * (1 - p.fitC[k]), 0);
+        if (missing < 0.15) return;
+        const cands = g.filter(p => p.fitC[k] >= 0.75 && p.baseSP < 0.8);
+        const w = p => (0.1 + (p.recent ? clamp01(p.recent.min / (90 * p.recent.tg)) : clamp01(p.minutes / (90 * T[p.teamId].g)))) * p.fitC[k];
+        const W = cands.reduce((a, p) => a + w(p), 0);
+        if (!W) return;
+        for (const c of cands) {
+          const add = Math.min(missing * w(c) / W, 0.95 - c.baseSP);
+          if (add <= 0) continue;
+          c.spC[k] = c.baseSP + add;
+          if (add >= 0.15) c.coverC[k] = out.map(o => o.name).join(' & ');
+        }
+      });
+    }
+
+    /* pass 3: expected points per fixture */
+    for (const p of players) {
+      const e = raw[p.id], m = p.minutes, t = T[p.teamId], s = p.s90;
       const gPts = ptsFor('goals_scored', p.pos, 4), csPts = ptsFor('clean_sheets', p.pos, 0), gcPts = ptsFor('goals_conceded', p.pos, 0), dcPts = ptsFor('defensive_contribution', p.pos, 2);
-      const fxPts = f => {
+      const mins = (k) => {
+        const fit = p.fitC[k], sp = clamp01(p.spC[k]), mps = p.minPerStart;
+        const p60 = sp * fit * (mps >= 70 ? 0.95 : mps >= 60 ? 0.8 : 0.5);
+        const cameo = (1 - sp) * fit * (m > 0 ? 0.35 : 0.05);
+        return { p60, cameo, mf: sp * fit * (mps / 90) + cameo * 0.25 };
+      };
+      const fxPts = (f, k) => {
+        const { p60, cameo, mf } = mins(k);
         const o = T[model_teamIdByShort[f.opp]] || { attS: mAtt, defS: mDef };
         const atkMult = Math.pow(o.defS / mDef, 1.1) * (f.home ? 1.08 : 0.93);
         const lam = t.defS * Math.pow(o.attS / mAtt, 1.1) * (f.home ? 0.92 : 1.08);
+        const lg = s.xg * atkMult * mf, la = s.xa * atkMult * mf;
         const b = {
           appearance: 2 * p60 + 1 * cameo,
-          goals: s.xg * atkMult * gPts * mf,
-          assists: s.xa * atkMult * 3 * mf,
+          goals: lg * gPts,
+          assists: la * 3,
           cleanSheets: csPts * Math.exp(-lam) * p60,
           conceded: gcPts * 0.5 * lam * 0.85 * p60,
           defcon: p.pos === 'GK' ? 0 : dcPts * p60 / (1 + Math.exp(-(s.dc - DC_THR[p.pos] + 0.5) / 1.6)),
@@ -186,27 +267,33 @@
         };
         b.total = Object.values(b).reduce((a, v) => a + v, 0);
         b.csProb = Math.exp(-lam);
+        b.lamRet = lg + la; b.lamG = lg; b.gPts = gPts;
         return b;
       };
       const all = (model_fxAll[p.teamId] || []);
-      const gws = []; for (let g = info.gw; g < info.gw + 5; g++) gws.push(g);
-      p.byGw = gws.map(g => { const fs = all.filter(f => f.gw === g); const parts = fs.map(fxPts); return { gw: g, fixtures: fs, xp: parts.reduce((a, b) => a + b.total, 0), parts }; });
+      p.byGw = gws.map((g, k) => { const fs = all.filter(f => f.gw === g); const parts = fs.map(f => fxPts(f, k)); return { gw: g, fixtures: fs, xp: parts.reduce((a, b) => a + b.total, 0), parts }; });
       const first = p.byGw[0];
       p.xp1 = first.xp;
       p.xb = first.parts.length ? Object.fromEntries(Object.keys(first.parts[0]).map(k => [k, first.parts.reduce((a, b) => a + b[k], 0)])) : null;
       p.xp5 = p.byGw.reduce((a, g) => a + g.xp, 0);
+      /* ceiling: chance of 2+ goal involvements this GW (Poisson), and of a goal */
+      const lr = first.parts.reduce((a, b) => a + b.lamRet, 0), lgo = first.parts.reduce((a, b) => a + b.lamG, 0);
+      p.haul = 1 - Math.exp(-lr) * (1 + lr);
+      p.goalP = 1 - Math.exp(-lgo);
       const W = [1, 0.9, 0.8, 0.7, 0.6];
       const wsum = p.byGw.reduce((a, g, i) => a + g.xp * W[i], 0);
-      const formAdj = Math.min(p.form, 12) * W.reduce((a, b) => a + b, 0) * fitness * startP;
       const backers = p.src.creatorsBuy.length + p.src.sitesPick.length, warns = p.src.creatorsAvoid.length + p.src.sitesAvoid.length;
-      p.aiRaw = (0.88 * wsum + 0.12 * formAdj) * (1 + 0.03 * Math.min(backers, 4) - 0.04 * Math.min(warns, 3));
+      p.aiRaw = wsum * (1 + 0.03 * Math.min(backers, 4) - 0.04 * Math.min(warns, 3));
+      /* captain = expected points plus a premium for explosive upside (a captain's haul is doubled) */
       p.ep = p.xp1;
-      p.startP = startP; p.fitness = fitness; p.s90 = s;
+      p.capX = p.xp1 + 2.2 * p.haul;
+      p.startP = clamp01(p.spC[0]); p.fitness = p.fitC[0]; p.covering = p.coverC[0];
+      p.setPieces = [num(e.penalties_order) === 1 && 'penalties', num(e.corners_and_indirect_freekicks_order) === 1 && 'corners', num(e.direct_freekicks_order) === 1 && 'free kicks'].filter(Boolean);
     }
-    const topAi = Math.max(...players.map(p => p.aiRaw), 0.01), topEp = Math.max(...players.map(p => p.ep), 0.01);
-    for (const p of players) { p.ai = Math.round(100 * Math.pow(Math.max(0, p.aiRaw) / topAi, 0.85)); p.cap = Math.round(100 * Math.max(0, p.ep) / topEp); }
+    const topAi = Math.max(...players.map(p => p.aiRaw), 0.01), topCap = Math.max(...players.map(p => p.capX), 0.01);
+    for (const p of players) { p.ai = Math.round(100 * Math.pow(Math.max(0, p.aiRaw) / topAi, 0.85)); p.cap = Math.round(100 * Math.max(0, p.capX) / topCap); }
     for (const pos in byPos) byPos[pos].slice().sort((a, b) => b.aiRaw - a.aiRaw).forEach((p, i) => { p.rank = i + 1; });
-    players.slice().sort((a, b) => b.ep - a.ep).forEach((p, i) => { p.capRank = i + 1; });
+    players.slice().sort((a, b) => b.capX - a.capX).forEach((p, i) => { p.capRank = i + 1; });
     for (const pos in byPos) byPos[pos].slice().sort((a, b) => (b.xp5 / b.price) - (a.xp5 / a.price)).forEach((p, i) => { p.valueRank = i + 1; });
 
     /* rule-based reasons (max 3), every line tagged with its source */
@@ -216,12 +303,15 @@
       const top5 = q => p.minutes >= 270 && Math.ceil((byPos[p.pos].filter(x => x.minutes >= 270).length || 1) * (1 - q)) <= 5;
       if (p.minutes > 0 && p.pos !== 'GK' && top5(p.pX)) r.push({ good: true, text: `Top 5 ${posName} for xGI per 90`, by: 'FPL API' });
       if (p.minutes > 0 && p.pos !== 'FWD' && p.pos !== 'GK' && top5(p.pDef)) r.push({ good: true, text: `Top 5 ${posName} for defensive contributions per 90`, by: 'FPL API' });
+      if (p.covering) r.push({ good: true, text: `Next in line to start while ${p.covering} ${p.covering.includes('&') ? 'are' : 'is'} out`, by: 'Model · FPL API status' });
+      if ((p.pos === 'DEF' || p.pos === 'GK') && p.xb && p.xb.goals + p.xb.assists >= 0.9) r.push({ good: true, text: `Attacking threat: ${(p.xb.goals + p.xb.assists).toFixed(1)} expected pts from goals & assists this GW`, by: 'Model · xG/xA' });
+      if (p.setPieces.length && p.minutes > 0 && p.startP >= 0.6) r.push({ good: true, text: `On ${p.setPieces.join(' & ')}`, by: 'FPL API · set pieces' });
       if (p.rank <= 5 && p.xp5 > 0) r.push({ good: true, text: `Projected ${p.xp5.toFixed(1)} pts over the next 5 GWs (#${p.rank} ${p.pos})`, by: 'Model · FPL API' });
       if (p.valueRank <= 5 && p.minutes >= 270) r.push({ good: true, text: `Top 5 ${posName} for projected points per £m`, by: 'Model · FPL API' });
       if ((p.pos === 'DEF' || p.pos === 'GK') && p.xb && p.xb.csProb > 0.38) r.push({ good: true, text: `${Math.round(p.xb.csProb * 100)}% clean sheet chance this GW`, by: 'Model · team xGC' });
       if (p.byGw[0] && p.byGw[0].fixtures.length > 1) r.push({ good: true, text: 'Double gameweek: two fixtures this GW', by: 'FPL API · fixtures' });
       if (p.byGw[0] && !p.byGw[0].fixtures.length) r.push({ good: false, text: 'Blank gameweek: no fixture this GW', by: 'FPL API · fixtures' });
-      if (p.minutes > 0 && p.startP < 0.6 && p.status === 'a') r.push({ good: false, text: `Started ${p.starts} of his team's games`, by: 'FPL API · minutes' });
+      if (p.minutes > 0 && p.startP < 0.6 && p.status === 'a' && !p.covering) r.push({ good: false, text: p.recent ? `Started ${p.recent.st} of his team's last ${p.recent.tg} games` : `Started ${p.starts} of his team's games`, by: 'FPL API · minutes' });
       if (p.src.creatorsBuy.length) r.push({ good: true, text: `Backed by ${listNames(p.src.creatorsBuy)}`, by: 'Creators' });
       if (p.src.sitesPick.length) { const w = p.src.whys.find(x => x.good && p.src.sitesPick.includes(x.by)); r.push({ good: true, text: w ? w.text : `Recommended by ${listNames(p.src.sitesPick)}`, by: listNames(p.src.sitesPick) }); }
       if (p.avgFdr <= 2.5 && p.next.length) r.push({ good: true, text: 'Kind run: next 3 fixtures average FDR ' + p.avgFdr.toFixed(1), by: 'FPL API · FDR' });

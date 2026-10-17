@@ -43,9 +43,12 @@
     try {
       [b, c, s] = await Promise.all([fpl('bootstrap-static/'), local('data/creators.json'), local('data/sites.json')]);
     } catch (e) { return fail('The official FPL API didn\'t respond. It usually comes back within a few minutes, especially on matchdays.'); }
-    try { f = await fpl('fixtures/?future=1'); } catch (e) { f = []; }
+    const cur = (b.events || []).find(e => e.is_current);
+    const recentP = cur ? fetchJson('/api/recent?to=' + cur.id + '&n=4', 15000).catch(() => null) : Promise.resolve(null);
+    let r = null;
+    try { [f, r] = await Promise.all([fpl('fixtures/?future=1').catch(() => []), recentP]); } catch (e) { f = f || []; }
     try {
-      CR = c; SI = s; M = Engine.build(b, f, c, s);
+      CR = c; SI = s; M = Engine.build(b, f, c, s, r);
       $('#gwPill span').textContent = b.__savedAt ? 'GW' + M.info.gw + ' SAVED' : 'GW' + M.info.gw + ' LIVE';
       renderAll();
       if (b.__savedAt) $('#home').insertAdjacentHTML('afterbegin', `<div class="stamp glass stale"><i></i>FPL is updating · showing data saved ${new Date(b.__savedAt).toLocaleString('en-GB', { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })}</div>`);
@@ -97,7 +100,7 @@
               <div class="meta">${esc(p.teamName)} <span class="fx ${fxClass(p.next[0].fdr)}">${fxTxt(p.next[0])}</span></div></div>
             <span class="score">${p.cap}</span></div>
           <div class="bar"><i data-w="${p.cap}"></i></div></button>`).join('')}
-        <p class="note">Expected points this GW · projection from FPL API data</p>
+        <p class="note">Expected points + haul chance this GW · FPL API data</p>
       </div>
       ${signals ? `<div class="sec"><h2>This week's signals</h2><span>${esc(SI ? 'GW' + SI.gw : '')}</span></div><div class="rail">${signals}</div>` : ''}
       <div class="sec"><h2>Picks by position</h2><span>most-mentioned this GW</span></div>
@@ -264,14 +267,14 @@
     const fxs = p.next.slice(0, 5);
     $('#sheet').innerHTML = `<span class="glow"></span><div class="grab" id="grab"><i></i></div>
       <div class="sh-head"><div class="nm"><h3>${esc(p.full.length > 22 ? p.name : p.full)}</h3><div class="tags"><span class="pos">${p.pos}</span>${esc(p.teamName)} · £${p.price.toFixed(1)}m</div></div><button class="xbtn" id="xs" aria-label="Close">${ICON.x}</button></div>
-      <div class="stats"><div class="glass hi"><small>AI score</small><b>${p.ai}</b><em>#${p.rank} ${posName}</em></div><div class="glass"><small>Captain</small><b>${p.cap}</b><em>${p.xp1.toFixed(1)} xPts · #${p.capRank}</em></div><div class="glass"><small>Owned</small><b>${p.own < 10 ? p.own.toFixed(1) : Math.round(p.own)}%</b><em>${p.own >= 35 ? 'template' : p.own < 10 ? 'differential' : 'popular'}</em></div></div>
+      <div class="stats"><div class="glass hi"><small>AI score</small><b>${p.ai}</b><em>#${p.rank} ${posName}</em></div><div class="glass"><small>Captain</small><b>${p.cap}</b><em>${p.xp1.toFixed(1)} xPts<br>${Math.round(p.haul * 100)}% haul</em></div><div class="glass"><small>Owned</small><b>${p.own < 10 ? p.own.toFixed(1) : Math.round(p.own)}%</b><em>${p.own >= 35 ? 'template' : p.own < 10 ? 'differential' : 'popular'}</em></div></div>
       <div class="verdict glass">${p.verdict.good ? ICON.ok() : ICON.warn(TONE.gold)}${esc(p.verdict.text)}</div>
       <div><p class="sub" style="margin-bottom:10px">Next 5 gameweeks · expected points</p><div class="fxrow">${p.byGw.map(g => g.fixtures.length ? `<div class="${fxClass(Math.max(...g.fixtures.map(x => x.fdr)))}"><b>${esc(g.fixtures.map(x => x.opp).join('+'))}</b><small>${g.fixtures.map(x => x.home ? 'H' : 'A').join('')} · GW${g.gw}</small><em class="xp">${g.xp.toFixed(1)}</em></div>` : `<div><b>—</b><small>Blank · GW${g.gw}</small><em class="xp">0.0</em></div>`).join('')}</div></div>
       ${p.reasons.length ? `<div style="display:flex;flex-direction:column;gap:8px"><p class="sub">Why</p>${p.reasons.map(r => `<div class="reason glass">${r.good ? ICON.ok() : ICON.warn()}<div><p>${esc(r.text)}</p><small>${esc(r.by)}</small></div></div>`).join('')}</div>` : ''}
       <details class="bd glass"><summary>How the ${p.ai} is built ${ICON.down}</summary>
         ${p.xb ? (() => { const rows = [['Appearance', p.xb.appearance], ['Goals', p.xb.goals], ['Assists', p.xb.assists], ['Clean sheet', p.xb.cleanSheets], ['Goals conceded', p.xb.conceded], ['Defensive contributions', p.xb.defcon], ['Saves', p.xb.saves], ['Bonus', p.xb.bonus], ['Cards', p.xb.cards]].filter(r => Math.abs(r[1]) >= 0.05); const mx = Math.max(...rows.map(r => Math.abs(r[1])), 0.1);
           return `<p class="note" style="margin-top:12px">Expected points this GW: <b style="color:var(--t1)">${p.xp1.toFixed(1)}</b> · next 5 GWs: <b style="color:var(--t1)">${p.xp5.toFixed(1)}</b></p>` + rows.map(([l, v]) => `<div class="b"><div>${esc(l)}<b>${v >= 0 ? '' : '−'}${Math.abs(v).toFixed(2)}</b></div><div class="bar"><i data-w="${100 * Math.abs(v) / mx}" ${v < 0 ? 'style="background:var(--rose)"' : ''}></i></div></div>`).join(''); })() : '<p class="note" style="margin-top:12px">No fixture this gameweek.</p>'}
-        <p class="note" style="margin-top:10px">Built from his per-90 xG, xA, defensive contributions, saves and bonus (blended with the position average when he has few minutes), his expected minutes, and each opponent's real attack and defence, using FPL's own scoring. Score is next 5 GWs weighted toward the nearest, scaled so the best player this week is 100${p.src.creatorsBuy.length + p.src.sitesPick.length ? `, with a small boost from ${p.src.creatorsBuy.length + p.src.sitesPick.length} source pick${p.src.creatorsBuy.length + p.src.sitesPick.length > 1 ? 's' : ''}` : ''}.</p></details>`;
+        <p class="note" style="margin-top:10px">Built from his per-90 xG, xA, defensive contributions, saves and bonus (season plus the last 4 GWs, blended with the position average when he has few minutes), his chance of starting now (recent starts, injury flags and return dates, and extra starts when a teammate in his position is out), and each opponent's real attack and defence, using FPL's own scoring. AI score is the next 5 GWs weighted toward the nearest; Captain is this GW plus his chance of a haul. Both scaled so the best player is 100${p.src.creatorsBuy.length + p.src.sitesPick.length ? `, with a small boost from ${p.src.creatorsBuy.length + p.src.sitesPick.length} source pick${p.src.creatorsBuy.length + p.src.sitesPick.length > 1 ? 's' : ''}` : ''}.</p></details>`;
     const sh = $('#sheet'); clearTimeout(sh._t); sh.hidden = false; sh.scrollTop = 0; $('#scrim').classList.add('on'); requestAnimationFrame(() => requestAnimationFrame(() => sh.classList.add('on')));
     $('#xs').onclick = closeSheet; sh.querySelector('details').addEventListener('toggle', () => bars(sh));
     dragClose($('#grab'), sh);

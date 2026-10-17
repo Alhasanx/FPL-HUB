@@ -1,4 +1,13 @@
 {
-  "regions": ["iad1"],
-  "functions": { "api/fpl.js": { "maxDuration": 30 } }
+  "regions": [
+    "iad1"
+  ],
+  "functions": {
+    "api/fpl.js": {
+      "maxDuration": 30
+    },
+    "api/recent.js": {
+      "maxDuration": 30
+    }
+  }
 }
