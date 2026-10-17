@@ -19,14 +19,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* aurora */
 .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.aurora i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.5;transition:transform 1.2s var(--ease);will-change:transform}
-.aurora i:nth-child(1){width:340px;height:340px;background:var(--lilac);opacity:.32;left:40%;top:-140px;animation:drift1 22s ease-in-out infinite}
-.aurora i:nth-child(2){width:260px;height:260px;background:var(--mint);opacity:.18;left:-120px;top:38%;animation:drift2 26s ease-in-out infinite}
-.aurora i:nth-child(3){width:280px;height:280px;background:var(--aqua);opacity:.16;right:-100px;top:62%;animation:drift1 30s ease-in-out infinite reverse}
-.aurora i:nth-child(4){width:220px;height:220px;background:var(--rose);opacity:.14;left:10%;bottom:-80px;animation:drift2 24s ease-in-out infinite reverse}
+.aurora i{position:absolute;border-radius:50%;background:radial-gradient(closest-side,var(--c),transparent);transition:transform .8s var(--ease)}
+.aurora i:nth-child(1){width:620px;height:620px;--c:rgba(169,139,255,.30);left:20%;top:-300px}
+.aurora i:nth-child(2){width:520px;height:520px;--c:rgba(60,240,160,.14);left:-260px;top:30%}
+.aurora i:nth-child(3){width:540px;height:540px;--c:rgba(61,220,240,.13);right:-260px;top:55%}
+.aurora i:nth-child(4){width:460px;height:460px;--c:rgba(255,90,142,.11);left:0;bottom:-240px}
 @keyframes drift1{50%{transform:translate(60px,40px) scale(1.1)}}
 @keyframes drift2{50%{transform:translate(-40px,-60px) scale(.92)}}
-body[data-tab="creators"] .aurora i:nth-child(1){transform:translate(-160px,120px)}
+body[data-tab="creators"] .aurora i:nth-child(1){transform:translate(-120px,80px)}
 body[data-tab="team"] .aurora i:nth-child(2){transform:translate(160px,-200px)}
 body[data-tab="players"] .aurora i:nth-child(3){transform:translate(-200px,-260px)}
 
@@ -49,7 +49,7 @@ body[data-tab="players"] .aurora i:nth-child(3){transform:translate(-200px,-260p
 /* screens */
 .screen{display:none}
 .screen.on{display:flex;flex-direction:column;gap:20px;animation:in .38s var(--ease) both}
-@keyframes in{from{opacity:0;transform:translateY(14px);filter:blur(6px)}}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
 .screen.on>*{animation:rise .5s var(--ease) both;animation-delay:calc(var(--i,0)*45ms)}
 @keyframes rise{from{opacity:0;transform:translateY(12px)}}
 
@@ -188,7 +188,7 @@ body[data-tab="players"] .aurora i:nth-child(3){transform:translate(-200px,-260p
 .btn:active{transform:scale(.95)}
 .btn.ghost{background:var(--glass);color:var(--t1);box-shadow:none;border:1px solid var(--edge)}
 .squad{display:flex;align-items:center;gap:14px;padding:16px 16px 16px 18px;position:relative;overflow:hidden}
-.squad::before{content:"";position:absolute;width:180px;height:180px;left:-50px;top:-40px;background:var(--mint);opacity:.25;filter:blur(60px);border-radius:50%}
+.squad::before{content:"";position:absolute;width:300px;height:300px;left:-110px;top:-110px;background:radial-gradient(closest-side,rgba(60,240,160,.28),transparent);border-radius:50%}
 .squad .big{font:900 58px/1 var(--f-d);background:linear-gradient(100deg,var(--mint),var(--aqua) 55%,var(--lilac));-webkit-background-clip:text;background-clip:text;color:transparent;position:relative}
 .squad .big small{font:600 11px var(--f-m);color:var(--t3);-webkit-text-fill-color:var(--t3)}
 .squad .metrics{flex:1;display:flex;flex-direction:column;gap:8px;position:relative}
@@ -196,15 +196,15 @@ body[data-tab="players"] .aurora i:nth-child(3){transform:translate(-200px,-260p
 .squad .metrics b{font:600 11px var(--f-m)}
 .pitch{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:358/520;background:radial-gradient(120% 90% at 50% 50%,#0a1714 40%,var(--ink) 100%);border:1px solid rgba(255,255,255,.14)}
 .pitch svg.mk{position:absolute;inset:0;width:100%;height:100%}
-.pitch .fl{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+.pitch .fl{position:absolute;border-radius:50%;pointer-events:none;opacity:1!important;background:radial-gradient(closest-side,var(--fc),transparent)!important}
 .tok{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:4px;width:80px;transition:left .5s var(--ease),top .5s var(--ease)}
 .tok .disc{position:relative;width:54px;height:54px;border-radius:50%;padding:3px;background:conic-gradient(var(--c) calc(var(--v)*1%),rgba(255,255,255,.12) 0)}
-.tok .disc::after{content:"";position:absolute;inset:-6px;border-radius:50%;background:var(--c);opacity:.3;filter:blur(12px);z-index:-1}
+.tok .disc{box-shadow:0 0 16px -2px var(--c)}
 .tok .disc div{width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,var(--ink-2),color-mix(in srgb,var(--c) 35%,var(--ink-2)));display:grid;place-items:center;font:700 13px var(--f-d)}
 .tok.none .disc{background:none;border:1.5px dashed rgba(255,255,255,.35)}
 .tok.none .disc::after{display:none}
 .tok .cbadge{position:absolute;top:-6px;right:-8px;padding:2px 6px;border-radius:8px;background:var(--grad);color:var(--on);font:600 9px var(--f-m);box-shadow:0 0 10px rgba(60,240,160,.6)}
-.tok b{padding:2px 8px 3px;border-radius:8px;background:rgba(14,8,24,.72);font-size:11px;font-weight:600;white-space:nowrap;backdrop-filter:blur(8px)}
+.tok b{padding:2px 8px 3px;border-radius:8px;background:rgba(14,8,24,.72);font-size:11px;font-weight:600;white-space:nowrap;}
 .tok small{font:600 10px var(--f-m);color:var(--c)}
 .legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--t2)}
 .legend span{display:flex;align-items:center;gap:5px}.legend i{width:8px;height:8px;border-radius:50%}
@@ -228,7 +228,7 @@ body[data-tab="players"] .aurora i:nth-child(3){transform:translate(-200px,-260p
 .scrim.on{opacity:1;pointer-events:auto}
 .sheet{position:fixed;z-index:80;left:50%;bottom:0;width:min(100%,440px);max-height:92vh;overflow-y:auto;overscroll-behavior:contain;transform:translate(-50%,105%);transition:transform .33s var(--ease);border-radius:30px 30px 0 0;background:rgba(23,14,39,.97);border:1px solid var(--edge);border-bottom:0;padding:0 20px calc(28px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:20px}
 .sheet.on{transform:translate(-50%,0)}
-.sheet .glow{position:absolute;left:35px;top:-120px;width:320px;height:200px;border-radius:50%;background:var(--mint);opacity:.18;filter:blur(80px);pointer-events:none}
+.sheet .glow{position:absolute;left:0;top:-160px;width:100%;height:320px;border-radius:50%;background:radial-gradient(closest-side,rgba(60,240,160,.16),transparent);pointer-events:none}
 .grab{position:sticky;top:0;z-index:2;display:grid;place-items:center;padding:12px 0 2px;margin:0 -20px;cursor:grab;touch-action:none}
 .grab i{width:40px;height:5px;border-radius:3px;background:rgba(255,255,255,.28)}
 .sh-head{display:flex;align-items:center;gap:12px}
@@ -271,7 +271,7 @@ body[data-tab="players"] .aurora i:nth-child(3){transform:translate(-200px,-260p
 .viewer.on{display:flex;animation:pop .3s var(--ease)}
 @keyframes pop{from{opacity:0;transform:scale(.96)}}
 .viewer .wash{position:absolute;inset:0;background:linear-gradient(180deg,color-mix(in srgb,var(--a) 55%,transparent),color-mix(in srgb,var(--b) 16%,transparent) 45%,transparent);transition:background .3s}
-.viewer .blob{position:absolute;border-radius:50%;filter:blur(110px);transition:background .4s}
+.viewer .blob{display:none}
 .viewer .wm{position:absolute;right:-20px;bottom:120px;width:360px;opacity:.1;transform:rotate(-8deg);color:var(--a)}
 .viewer .in{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;max-width:440px;width:100%;margin:0 auto;padding:calc(14px + env(safe-area-inset-top,0px)) 16px calc(20px + env(safe-area-inset-bottom,0px))}
 .vprog{display:flex;gap:5px}.vprog i{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.16)}
@@ -284,7 +284,7 @@ body[data-tab="players"] .aurora i:nth-child(3){transform:translate(-200px,-260p
 .vbody{margin-top:28px;display:flex;flex-direction:column;gap:14px;flex:1}
 .vbody h2{font:900 40px/1 var(--f-d);letter-spacing:-.02em;background:linear-gradient(100deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
 .vbody>p{color:var(--t2)}
-.ticket{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:20px;background:color-mix(in srgb,var(--a) 9%,rgba(14,8,24,.5));border:1px solid color-mix(in srgb,var(--a) 28%,transparent);backdrop-filter:blur(16px)}
+.ticket{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:20px;background:color-mix(in srgb,var(--a) 9%,rgba(14,8,24,.5));border:1px solid color-mix(in srgb,var(--a) 28%,transparent);}
 .ticket .n{font:600 22px var(--f-m);color:var(--a)}
 .ticket .tx{flex:1}.ticket .tx b{font:700 16px var(--f-d);display:block}.ticket .tx small{font-size:12px;color:var(--t2)}
 .ticket.struck .av{opacity:.55;position:relative}
@@ -301,12 +301,15 @@ body[data-tab="players"] .aurora i:nth-child(3){transform:translate(-200px,-260p
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
 /* performance: blur only on chrome that floats (header pill, dock, sheet). Cards use a tinted fill instead. */
-main .glass{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(36,26,54,.55)}
+main .glass,.sheet .glass,.viewer .glass{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(36,26,54,.62)}
 main .glass.hi{background:rgba(60,240,160,.12)}
 .scrim{backdrop-filter:none;-webkit-backdrop-filter:none}
-.scrim.on{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.scrim.on{background:rgba(8,3,14,.72)}
 .sheet{will-change:transform}
 button,a,.dock{touch-action:manipulation}
 .screen.on{animation-duration:.26s}
 .screen.on>*{animation-duration:.32s;animation-delay:calc(min(var(--i,0),6)*30ms)}
 .sheet[hidden]{display:none}
+
+.scrim{background:rgba(8,3,14,0)}
+.ticker .track{will-change:transform}
