@@ -313,3 +313,7 @@ button,a,.dock{touch-action:manipulation}
 
 .scrim{background:rgba(8,3,14,0)}
 .ticker .track{will-change:transform}
+
+.fxrow{grid-template-columns:repeat(5,1fr)}
+.fxrow em.xp{font-style:normal;font:600 11px var(--f-m);color:var(--t1);margin-top:3px}
+.fxrow b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}

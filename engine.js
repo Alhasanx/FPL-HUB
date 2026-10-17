@@ -77,6 +77,7 @@
     const teamsById = Object.fromEntries(boot.teams.map(t => [t.id, t]));
     const info = gwInfo(boot);
     const fx = teamFixtures(fixtures, teamsById, info.gw);
+    const model_fxAll = fx; const model_teamIdByShort = Object.fromEntries(boot.teams.map(t => [t.short_name, t.id])); let model_teams = null;
     const resolve = resolver(boot.elements, teamsById);
     /* sources only count for the gameweek they were written for */
     const fresh = d => d && d.gw >= info.gw;
@@ -123,34 +124,90 @@
       }
     }
 
-    for (const p of players) {
-      const fitness = p.status === 'a' ? 1 : (p.status === 'd' ? p.chance / 100 : 0);
-      const startRate = clamp01(p.starts / finished);
-      const backers = p.src.creatorsBuy.length;
-      const f = {
-        form: Math.round(20 * p.pForm),
-        threat: Math.round(20 * p.pThreat),
-        fixtures: Math.round(15 * clamp01((5 - p.avgFdr) / 3)),
-        minutes: Math.round(15 * startRate * (p.chance / 100)),
-        fitness: Math.round(10 * fitness),
-        creators: Math.min(20, backers * 5)
-      };
-      p.f = f;
-      p.ai = Math.min(100, f.form + f.threat + f.fixtures + f.minutes + f.fitness + f.creators);
-      /* captain: expected points this GW, built from real per-90 output (not rankings) */
-      const nf = p.next[0];
-      const goalPts = { GK: 6, DEF: 6, MID: 5, FWD: 4 }[p.pos];
-      const sample = Math.min(1, p.minutes / 270);
-      const attack = (p.xg90 * goalPts + p.xa90 * 3) * sample;
-      const base = 2 + attack * 0.7 + Math.min(p.form, 12) * 0.3;
-      const fixMult = nf ? ({ 1: 1.25, 2: 1.15, 3: 1.0, 4: 0.88, 5: 0.78 }[nf.fdr] || 1) * (nf.home ? 1.05 : 0.97) : 0;
-      p.ep = nf ? base * fixMult * startRate * fitness : 0;
+    /* ================= projection model =================
+       Expected FPL points per fixture, from the official API only:
+       per-90 output (xG, xA, defensive contributions, saves, bonus, cards) shrunk toward
+       the position average when the sample is small, x expected minutes,
+       x opponent strength measured from real xG / xGC (not FDR), with FPL's own scoring rules. */
+    const SC = (boot.game_config && boot.game_config.scoring) || {};
+    const ptsFor = (k, pos, dflt) => { const v = SC[k]; const key = pos === 'GK' ? 'GKP' : pos; return v && typeof v === 'object' ? num(v[key]) : (v != null ? num(v) : dflt); };
+    const DC_THR = { GK: 99, DEF: 10, MID: 12, FWD: 12 };
+    const raw = Object.fromEntries(boot.elements.map(e => [e.id, e]));
+    /* team strength from player data */
+    const T = {};
+    for (const e of boot.elements) {
+      const t = T[e.team] = T[e.team] || { g: 1, xg: 0, gkMin: -1, xgc: null };
+      t.g = Math.max(t.g, num(e.starts));
+      t.xg += num(e.expected_goals);
+      if (e.element_type === 1 && num(e.minutes) > t.gkMin) { t.gkMin = num(e.minutes); t.xgc = num(e.expected_goals_conceded_per_90); }
     }
-
-    const topEp = Math.max(...players.map(p => p.ep), 0.01);
-    for (const p of players) p.cap = Math.round(100 * p.ep / topEp);
-    for (const pos in byPos) byPos[pos].slice().sort((a, b) => b.ai - a.ai).forEach((p, i) => { p.rank = i + 1; });
+    const tl = Object.values(T); tl.forEach(t => { t.att = t.xg / t.g; if (!t.gkMin || t.gkMin < 90 || !t.xgc) t.xgc = null; });
+    const mAtt = tl.reduce((a, t) => a + t.att, 0) / tl.length || 1.35;
+    const dl = tl.filter(t => t.xgc != null); const mDef = dl.reduce((a, t) => a + t.xgc, 0) / (dl.length || 1) || 1.35;
+    tl.forEach(t => { t.attS = (t.att * t.g + mAtt * 4) / (t.g + 4); t.defS = ((t.xgc ?? mDef) * t.g + mDef * 4) / (t.g + 4); });
+    model_teams = T;
+    /* position priors (median of regulars) */
+    const med = a => { const s = a.slice().sort((x, y) => x - y); return s.length ? s[Math.floor(s.length / 2)] : 0; };
+    const PRI = {};
+    for (const pos of ['GK', 'DEF', 'MID', 'FWD']) {
+      const reg = players.filter(p => p.pos === pos && p.minutes >= 450).map(p => raw[p.id]);
+      const per90 = (e, k) => num(e[k]) * 90 / Math.max(1, num(e.minutes));
+      PRI[pos] = { xg: med(reg.map(e => num(e.expected_goals_per_90))), xa: med(reg.map(e => num(e.expected_assists_per_90))), dc: med(reg.map(e => num(e.defensive_contribution_per_90))), sv: med(reg.map(e => num(e.saves_per_90))), bn: med(reg.map(e => per90(e, 'bonus'))), yc: med(reg.map(e => per90(e, 'yellow_cards'))) };
+    }
+    const K = 450;
+    const shrink = (v, m, prior) => (v * m + prior * K) / (m + K);
+    for (const p of players) {
+      const e = raw[p.id], m = p.minutes, pr = PRI[p.pos], t = T[p.teamId];
+      const per90 = k => num(e[k]) * 90 / Math.max(1, m);
+      /* finishing matters: 70% expected, 30% actual output */
+      const g90 = 0.7 * num(e.expected_goals_per_90) + 0.3 * per90('goals_scored'), a90 = 0.7 * num(e.expected_assists_per_90) + 0.3 * per90('assists');
+      const s = { xg: shrink(g90, m, pr.xg), xa: shrink(a90, m, pr.xa), dc: shrink(num(e.defensive_contribution_per_90), m, pr.dc), sv: shrink(num(e.saves_per_90), m, pr.sv), bn: shrink(per90('bonus'), m, pr.bn), yc: shrink(per90('yellow_cards'), m, pr.yc) };
+      const fitness = p.status === 'a' ? 1 : (p.status === 'd' ? p.chance / 100 : 0);
+      const startP = clamp01(p.starts / t.g);
+      const minPerStart = p.starts ? Math.min(90, m / p.starts) : 0;
+      const p60 = startP * fitness * (minPerStart >= 70 ? 0.95 : minPerStart >= 60 ? 0.8 : 0.5);
+      const cameo = (1 - startP) * fitness * (m > 0 ? 0.35 : 0.05);
+      const mf = startP * fitness * (minPerStart / 90) + cameo * 0.25;
+      const gPts = ptsFor('goals_scored', p.pos, 4), csPts = ptsFor('clean_sheets', p.pos, 0), gcPts = ptsFor('goals_conceded', p.pos, 0), dcPts = ptsFor('defensive_contribution', p.pos, 2);
+      const fxPts = f => {
+        const o = T[model_teamIdByShort[f.opp]] || { attS: mAtt, defS: mDef };
+        const atkMult = Math.pow(o.defS / mDef, 1.1) * (f.home ? 1.08 : 0.93);
+        const lam = t.defS * Math.pow(o.attS / mAtt, 1.1) * (f.home ? 0.92 : 1.08);
+        const b = {
+          appearance: 2 * p60 + 1 * cameo,
+          goals: s.xg * atkMult * gPts * mf,
+          assists: s.xa * atkMult * 3 * mf,
+          cleanSheets: csPts * Math.exp(-lam) * p60,
+          conceded: gcPts * 0.5 * lam * 0.85 * p60,
+          defcon: p.pos === 'GK' ? 0 : dcPts * p60 / (1 + Math.exp(-(s.dc - DC_THR[p.pos] + 0.5) / 1.6)),
+          saves: p.pos === 'GK' ? (s.sv * Math.pow(o.attS / mAtt, 0.8) / 3) * mf : 0,
+          bonus: s.bn * Math.sqrt(atkMult) * mf,
+          cards: -s.yc * mf
+        };
+        b.total = Object.values(b).reduce((a, v) => a + v, 0);
+        b.csProb = Math.exp(-lam);
+        return b;
+      };
+      const all = (model_fxAll[p.teamId] || []);
+      const gws = []; for (let g = info.gw; g < info.gw + 5; g++) gws.push(g);
+      p.byGw = gws.map(g => { const fs = all.filter(f => f.gw === g); const parts = fs.map(fxPts); return { gw: g, fixtures: fs, xp: parts.reduce((a, b) => a + b.total, 0), parts }; });
+      const first = p.byGw[0];
+      p.xp1 = first.xp;
+      p.xb = first.parts.length ? Object.fromEntries(Object.keys(first.parts[0]).map(k => [k, first.parts.reduce((a, b) => a + b[k], 0)])) : null;
+      p.xp5 = p.byGw.reduce((a, g) => a + g.xp, 0);
+      const W = [1, 0.9, 0.8, 0.7, 0.6];
+      const wsum = p.byGw.reduce((a, g, i) => a + g.xp * W[i], 0);
+      const formAdj = Math.min(p.form, 12) * W.reduce((a, b) => a + b, 0) * fitness * startP;
+      const backers = p.src.creatorsBuy.length + p.src.sitesPick.length, warns = p.src.creatorsAvoid.length + p.src.sitesAvoid.length;
+      p.aiRaw = (0.88 * wsum + 0.12 * formAdj) * (1 + 0.03 * Math.min(backers, 4) - 0.04 * Math.min(warns, 3));
+      p.ep = p.xp1;
+      p.startP = startP; p.fitness = fitness; p.s90 = s;
+    }
+    const topAi = Math.max(...players.map(p => p.aiRaw), 0.01), topEp = Math.max(...players.map(p => p.ep), 0.01);
+    for (const p of players) { p.ai = Math.round(100 * Math.pow(Math.max(0, p.aiRaw) / topAi, 0.85)); p.cap = Math.round(100 * Math.max(0, p.ep) / topEp); }
+    for (const pos in byPos) byPos[pos].slice().sort((a, b) => b.aiRaw - a.aiRaw).forEach((p, i) => { p.rank = i + 1; });
     players.slice().sort((a, b) => b.ep - a.ep).forEach((p, i) => { p.capRank = i + 1; });
+    for (const pos in byPos) byPos[pos].slice().sort((a, b) => (b.xp5 / b.price) - (a.xp5 / a.price)).forEach((p, i) => { p.valueRank = i + 1; });
 
     /* rule-based reasons (max 3), every line tagged with its source */
     for (const p of players) {
@@ -159,6 +216,12 @@
       const top5 = q => p.minutes >= 270 && Math.ceil((byPos[p.pos].filter(x => x.minutes >= 270).length || 1) * (1 - q)) <= 5;
       if (p.minutes > 0 && p.pos !== 'GK' && top5(p.pX)) r.push({ good: true, text: `Top 5 ${posName} for xGI per 90`, by: 'FPL API' });
       if (p.minutes > 0 && p.pos !== 'FWD' && p.pos !== 'GK' && top5(p.pDef)) r.push({ good: true, text: `Top 5 ${posName} for defensive contributions per 90`, by: 'FPL API' });
+      if (p.rank <= 5 && p.xp5 > 0) r.push({ good: true, text: `Projected ${p.xp5.toFixed(1)} pts over the next 5 GWs (#${p.rank} ${p.pos})`, by: 'Model · FPL API' });
+      if (p.valueRank <= 5 && p.minutes >= 270) r.push({ good: true, text: `Top 5 ${posName} for projected points per £m`, by: 'Model · FPL API' });
+      if ((p.pos === 'DEF' || p.pos === 'GK') && p.xb && p.xb.csProb > 0.38) r.push({ good: true, text: `${Math.round(p.xb.csProb * 100)}% clean sheet chance this GW`, by: 'Model · team xGC' });
+      if (p.byGw[0] && p.byGw[0].fixtures.length > 1) r.push({ good: true, text: 'Double gameweek: two fixtures this GW', by: 'FPL API · fixtures' });
+      if (p.byGw[0] && !p.byGw[0].fixtures.length) r.push({ good: false, text: 'Blank gameweek: no fixture this GW', by: 'FPL API · fixtures' });
+      if (p.minutes > 0 && p.startP < 0.6 && p.status === 'a') r.push({ good: false, text: `Started ${p.starts} of his team's games`, by: 'FPL API · minutes' });
       if (p.src.creatorsBuy.length) r.push({ good: true, text: `Backed by ${listNames(p.src.creatorsBuy)}`, by: 'Creators' });
       if (p.src.sitesPick.length) { const w = p.src.whys.find(x => x.good && p.src.sitesPick.includes(x.by)); r.push({ good: true, text: w ? w.text : `Recommended by ${listNames(p.src.sitesPick)}`, by: listNames(p.src.sitesPick) }); }
       if (p.avgFdr <= 2.5 && p.next.length) r.push({ good: true, text: 'Kind run: next 3 fixtures average FDR ' + p.avgFdr.toFixed(1), by: 'FPL API · FDR' });
@@ -171,7 +234,7 @@
       p.verdict = verdict(p);
     }
 
-    return { info, teamsById, players, byId: Object.fromEntries(players.map(p => [p.id, p])), resolve, fx };
+    return { info, teamsById, teams: model_teams, players, byId: Object.fromEntries(players.map(p => [p.id, p])), resolve, fx };
   }
 
   function initials(n) { const w = String(n).replace(/[^A-Za-zÀ-ÿ ]/g, ' ').trim().split(/\s+/).filter(Boolean); return (w.length > 1 ? w[0][0] + w[w.length - 1][0] : (w[0] || n).slice(0, 2)).toUpperCase(); }
