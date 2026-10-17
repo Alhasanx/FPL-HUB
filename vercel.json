@@ -1,0 +1,4 @@
+{
+  "regions": ["lhr1"],
+  "functions": { "api/fpl.js": { "maxDuration": 30 } }
+}

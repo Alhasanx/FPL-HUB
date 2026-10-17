@@ -299,3 +299,14 @@ body[data-tab="players"] .aurora i:nth-child(3){transform:translate(-200px,-260p
 .minip{position:relative;border-radius:22px;aspect-ratio:358/400;background:rgba(14,8,24,.7);border:1px solid color-mix(in srgb,var(--a) 30%,transparent);overflow:hidden}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* performance: blur only on chrome that floats (header pill, dock, sheet). Cards use a tinted fill instead. */
+main .glass{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(36,26,54,.55)}
+main .glass.hi{background:rgba(60,240,160,.12)}
+.scrim{backdrop-filter:none;-webkit-backdrop-filter:none}
+.scrim.on{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.sheet{will-change:transform}
+button,a,.dock{touch-action:manipulation}
+.screen.on{animation-duration:.26s}
+.screen.on>*{animation-duration:.32s;animation-delay:calc(min(var(--i,0),6)*30ms)}
+.sheet[hidden]{display:none}

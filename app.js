@@ -16,23 +16,44 @@
   let M = null, CR = null, SI = null;
 
   /* ---------- data ---------- */
-  async function fpl(path) {
-    try { const r = await fetch('/api/fpl?path=' + encodeURIComponent(path)); if (r.ok) return await r.json(); } catch (e) {}
-    const r = await fetch('https://fantasy.premierleague.com/api/' + path); if (!r.ok) throw new Error('HTTP ' + r.status); return r.json();
+  const CACHE = 'fpl-v1';
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  async function fetchJson(url, ms) {
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), ms);
+    try { const r = await fetch(url, { signal: ctl.signal }); if (!r.ok) throw new Error('HTTP ' + r.status); return await r.json(); } finally { clearTimeout(t); }
+  }
+  /* proxy first (with retries), then the last good copy saved in this browser */
+  async function fpl(path, opts = {}) {
+    const url = '/api/fpl?path=' + encodeURIComponent(path);
+    for (let i = 0; i < 3; i++) {
+      try {
+        const data = await fetchJson(url, 20000);
+        if (opts.save !== false) try { const c = await caches.open(CACHE); await c.put(url, new Response(JSON.stringify(data), { headers: { 'x-saved': String(Date.now()) } })); } catch (e) {}
+        return data;
+      } catch (e) { await wait(600 * (i + 1)); }
+    }
+    try { const c = await caches.open(CACHE); const r = await c.match(url); if (r) { const d = await r.json(); d.__savedAt = +r.headers.get('x-saved'); return d; } } catch (e) {}
+    throw new Error('unreachable');
   }
   async function local(path) { try { const r = await fetch(path, { cache: 'no-store' }); return r.ok ? r.json() : null; } catch (e) { return null; } }
 
   async function boot() {
     skeleton();
+    let b, f, c, s;
     try {
-      const [b, f, c, s] = await Promise.all([fpl('bootstrap-static/'), fpl('fixtures/'), local('data/creators.json'), local('data/sites.json')]);
+      [b, c, s] = await Promise.all([fpl('bootstrap-static/'), local('data/creators.json'), local('data/sites.json')]);
+    } catch (e) { return fail('The official FPL API didn\'t respond. It usually comes back within a few minutes, especially on matchdays.'); }
+    try { f = await fpl('fixtures/?future=1'); } catch (e) { f = []; }
+    try {
       CR = c; SI = s; M = Engine.build(b, f, c, s);
-      $('#gwPill span').textContent = 'GW' + M.info.gw + ' LIVE';
+      $('#gwPill span').textContent = b.__savedAt ? 'GW' + M.info.gw + ' SAVED' : 'GW' + M.info.gw + ' LIVE';
       renderAll();
-    } catch (e) {
-      $('#gwPill span').textContent = 'OFFLINE';
-      $('#home').innerHTML = `<div class="glass card panel"><h3 style="font:700 16px var(--f-d)">Couldn't reach the FPL API</h3><p class="lede">The official API didn't respond. Pull to refresh or try again in a minute.</p><button class="btn" onclick="location.reload()">Try again</button></div>`;
-    }
+      if (b.__savedAt) $('#home').insertAdjacentHTML('afterbegin', `<div class="stamp glass stale"><i></i>FPL is updating · showing data saved ${new Date(b.__savedAt).toLocaleString('en-GB', { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })}</div>`);
+    } catch (e) { console.error(e); fail('Something went wrong while building the page. Refresh to try again.'); }
+  }
+  function fail(msg) {
+    $('#gwPill span').textContent = 'OFFLINE';
+    $('#home').innerHTML = `<div class="glass card panel"><h3 style="font:700 16px var(--f-d)">Couldn't load the data</h3><p class="lede">${msg}</p><button class="btn" onclick="location.reload()">Try again</button></div>`;
   }
   function skeleton() { $('#home').innerHTML = '<div class="sk" style="height:120px"></div><div class="sk" style="height:260px"></div><div class="sk"></div><div class="sk"></div>'; }
   function renderAll() { renderHome(); renderCreators(); renderTeam(); renderPlayers(); const t = store.get('tab'); if (t && t !== 'home') go(t, true); }
@@ -250,11 +271,11 @@
       <details class="bd glass"><summary>How the ${p.ai} is built ${ICON.down}</summary>
         ${[['Form', f.form, 20], [p.threatLabel, f.threat, 20], ['Next 3 fixtures', f.fixtures, 15], ['Minutes', f.minutes, 15], ['Fitness', f.fitness, 10], [`Creators · ${p.src.creatorsBuy.length} of ${(CR && CR.creators.length) || 4}`, f.creators, 20]].map(([l, v, mx]) => `<div class="b"><div>${esc(l)}<b>${v} / ${mx}</b></div><div class="bar"><i data-w="${100 * v / mx}"></i></div></div>`).join('')}
         <p class="note" style="margin-top:10px">80 points from the FPL API compared with players in the same position, plus up to 20 from the creators.</p></details>`;
-    $('#scrim').classList.add('on'); const sh = $('#sheet'); sh.scrollTop = 0; sh.classList.add('on');
+    const sh = $('#sheet'); clearTimeout(sh._t); sh.hidden = false; sh.scrollTop = 0; $('#scrim').classList.add('on'); requestAnimationFrame(() => requestAnimationFrame(() => sh.classList.add('on')));
     $('#xs').onclick = closeSheet; sh.querySelector('details').addEventListener('toggle', () => bars(sh));
     dragClose($('#grab'), sh);
   }
-  function closeSheet() { $('#sheet').classList.remove('on'); $('#scrim').classList.remove('on'); $('#sheet').style.transform = ''; }
+  function closeSheet() { const sh = $('#sheet'); if (!sh.classList.contains('on')) return; sh.classList.remove('on'); $('#scrim').classList.remove('on'); sh.style.transform = ''; clearTimeout(sh._t); sh._t = setTimeout(() => { if (!sh.classList.contains('on')) { sh.hidden = true; sh.innerHTML = ''; } }, 360); }
   function dragClose(handle, sh) {
     let y0 = 0, dy = 0, on = false;
     handle.onpointerdown = e => { on = true; y0 = e.clientY; sh.style.transition = 'none'; handle.setPointerCapture(e.pointerId); };
@@ -265,6 +286,8 @@
   /* ---------- nav ---------- */
   const order = ['home', 'creators', 'team', 'players'];
   function go(tab, instant) {
+    closeSheet();
+    if (document.body.dataset.tab === tab && !instant) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
     document.querySelectorAll('.screen').forEach(s => s.classList.toggle('on', s.dataset.screen === tab));
     document.querySelectorAll('.dock button').forEach(b => { if (b.dataset.go === tab) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
     $('#ind').style.transform = `translateX(${order.indexOf(tab) * 100}%)`;
