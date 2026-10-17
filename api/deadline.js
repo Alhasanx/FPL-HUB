@@ -56,6 +56,7 @@ export default async function handler(req, res) {
     const slot = Math.floor(now / SLOT) * SLOT;
     const due = test || (target >= slot && target < slot + SLOT);
     const subs = subscriptions();
+    console.log('deadline-check', JSON.stringify({ gw: ev.id, due, test, ua: String(req.headers['user-agent'] || '').slice(0, 40) }));
     if (!due) return res.status(200).json({ ok: true, gw: ev.id, sendAt: new Date(target).toISOString(), subscribers: subs.length, sent: 0 });
     const cur = (boot.events || []).find(e => e.is_current);
     const [fixtures, recent] = await Promise.all([
