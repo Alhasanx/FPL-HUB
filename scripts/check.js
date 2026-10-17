@@ -17,7 +17,15 @@ for (const c of cr.creators || []) {
   ((c.moves && c.moves.transfers) || []).forEach(t => { chk(t.out, c.name + ' out'); chk(t.in, c.name + ' in'); });
 }
 (si.items || []).forEach(r => chk(r, r.source));
+/* site rows: one per player per source, each with the article's reason */
+const seen = new Set();
+for (const r of si.items || []) {
+  const k = `${r.source}|${r.type}|${r.player}`;
+  if (seen.has(k)) bad.push(`${r.source}: "${r.player}" listed twice`); seen.add(k);
+  if (!String(r.why || '').trim()) bad.push(`${r.source}: "${r.player}" has no reason (add the article's reason or drop the row)`);
+  if (!/^https?:\/\//.test(r.url || '')) bad.push(`${r.source}: "${r.player}" has no article url`);
+}
 const next = (boot.events || []).find(e => e.is_next);
 console.log(`creators gw ${cr.gw} · sites gw ${si.gw} · FPL next gw ${next && next.id}`);
-console.log(bad.length ? 'UNMATCHED:\n' + bad.join('\n') : 'All player names match FPL.');
+console.log(bad.length ? 'FIX BEFORE COMMIT:\n' + bad.join('\n') : 'All checks passed.');
 process.exit(bad.length ? 1 : 0);

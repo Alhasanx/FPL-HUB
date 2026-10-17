@@ -80,10 +80,30 @@
     const picks = Engine.picksByPosition(M);
     const sitesFresh = SI && SI.gw >= M.info.gw - 1, crFresh = CR && CR.gw >= M.info.gw - 1;
     const items = sitesFresh ? SI.items : [];
-    const signals = items.map(it => {
-      const p = M.resolve(it.player, it.team), tone = it.type === 'avoid' ? TONE.rose : TONE.mint;
-      return `<a class="signal glass" href="${esc(it.url || '#')}" target="_blank" rel="noopener" style="--tone:${tone}"><span class="chip ${it.type === 'avoid' ? 'rose' : 'mint'}">${it.type === 'avoid' ? 'Avoid' : 'Pick'}</span><h3>${esc(p ? p.web_name : it.player)}</h3><p>${esc(it.why)}</p><span class="src">${esc(it.source)}</span></a>`;
+    /* one card per player: every site that named him, each with its reason (duplicates merged, empty reasons dropped) */
+    const SHORT = { 'FF Scout': 'Scout', 'AllAboutFPL': 'AAFPL', 'FF Hub': 'Hub' };
+    const groups = new Map();
+    for (const it of items) {
+      const e = M.resolve(it.player, it.team); if (!e) continue;
+      const p = M.byId[e.id]; if (!p) continue;
+      const type = it.type === 'avoid' ? 'avoid' : 'pick', key = type + e.id;
+      const g = groups.get(key) || { p, type, srcs: [], whys: [] };
+      if (!g.srcs.includes(it.source)) g.srcs.push(it.source);
+      const why = String(it.why || '').trim();
+      if (why && !g.whys.some(w => w.text === why)) g.whys.push({ src: it.source, text: why, url: it.url });
+      groups.set(key, g);
+    }
+    const sigList = [...groups.values()].sort((a, b) => (b.type === 'pick') - (a.type === 'pick') || b.srcs.length - a.srcs.length || b.p.ai - a.p.ai).slice(0, 12);
+    const signals = sigList.map(g => {
+      const avoid = g.type === 'avoid', tone = avoid ? TONE.rose : TONE.mint;
+      const whys = g.whys.slice(0, 2).map(w => `<li><b>${esc(SHORT[w.src] || w.src)}</b> ${esc(w.text)}</li>`).join('');
+      return `<button class="signal glass" data-open="${g.p.id}" style="--tone:${tone}">
+        <div class="sg-top"><span class="chip ${avoid ? 'rose' : 'mint'}">${avoid ? 'Avoid' : 'Pick'}</span>${g.srcs.length > 1 ? `<span class="sg-n">${g.srcs.length} sites</span>` : ''}</div>
+        <h3>${esc(g.p.name)}</h3><span class="sg-meta">${esc(g.p.team)} · £${g.p.price.toFixed(1)}m · AI ${g.p.ai}</span>
+        ${whys ? `<ul>${whys}</ul>` : `<p>Named in ${esc(g.srcs[0])}'s picks, no reason given</p>`}
+        <span class="src">${g.srcs.map(x => esc(x)).join(' · ')}</span></button>`;
     }).join('');
+    const sigLabel = SI && SI.gw < M.info.gw ? `from GW${SI.gw} · GW${M.info.gw} articles not out yet` : (SI ? 'GW' + SI.gw : '');
     el.innerHTML = `
       ${flags.length ? `<div class="ticker glass"><div class="track">${flagHtml}${flagHtml}</div></div>` : ''}
       <div class="hero">
@@ -102,7 +122,7 @@
           <div class="bar"><i data-w="${p.cap}"></i></div></button>`).join('')}
         <p class="note">Expected points + haul chance this GW · FPL API data</p>
       </div>
-      ${signals ? `<div class="sec"><h2>This week's signals</h2><span>${esc(SI ? 'GW' + SI.gw : '')}</span></div><div class="rail">${signals}</div>` : ''}
+      ${signals ? `<div class="sec"><h2>${SI && SI.gw < M.info.gw ? 'Latest signals' : 'This week\'s signals'}</h2><span>${esc(sigLabel)}</span></div><div class="rail">${signals}</div>` : ''}
       <div class="sec"><h2>Picks by position</h2><span>${((CR && CR.gw < M.info.gw) || (SI && SI.gw < M.info.gw)) && (sitesFresh || crFresh) ? `from GW${Math.max(CR ? CR.gw : 0, SI ? SI.gw : 0)} sources` : 'most-mentioned this GW'}</span></div>
       <div class="picks glass card">${['GK', 'DEF', 'MID', 'FWD'].map(pos => `<div class="pgrp" style="--tone:${POSTONE[pos]}">
         <div class="lh"><i></i><span class="label">${pos}</span><span class="note">${{ GK: 'Goalkeeper', DEF: 'Defenders', MID: 'Midfielders', FWD: 'Forwards' }[pos]}</span></div>

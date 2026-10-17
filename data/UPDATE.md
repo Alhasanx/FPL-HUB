@@ -48,6 +48,9 @@ d) Fill the fixed cards from that:
 Search `site:fantasyfootballscout.co.uk Gameweek <n>`, `site:allaboutfpl.com Gameweek <n>`,
 `site:fantasyfootballhub.co.uk Gameweek <n>`; open the captain / best picks / team reveal article.
 One `items` row per player per source: {type: pick|avoid, player, team (3-letter FPL code), source, why, url}.
+Every row needs the article's own reason in `why` (one short line) and the article `url`. If an article only lists
+names with no reason (paywall, team graphic), write what it factually is, e.g. "In Scout's GW<n> Scout Picks XI" —
+never leave `why` empty, never invent a reason, never list a player twice for the same source.
 
 ## 4. Save, check, publish
 - Set `gw` = the GW the content is for (next GW, or next GW − 1 if that's what you used) and `updated` = today (YYYY-MM-DD).
