@@ -24,7 +24,9 @@ have `matchesGw: true` and a `transcriptUrl`.
 b) For each creator pick ONE video for the GW, in this order: team selection / "my team" video >
 final thoughts / complete guide > anything else that isn't a Short. Use a live stream only if it is the only one.
 If that video's URL is already in `data/creators.json` for that creator, keep the entry as is.
-If NO creator has a new GW video and the sites already show this GW, stop and change nothing.
+If NO creator has a video for the next GW yet (normal early in the week), use the latest GW that has videos
+(next GW − 1) instead, so the site is never empty — the site labels it "from GW<n> sources". Do the same for the sites.
+Stop and change nothing only when the files already hold the newest GW that has content.
 
 c) Read what he says: call **WebFetch on the video's `transcriptUrl`** (all 4 creators in parallel) with this prompt:
 "This is the transcript of <creator>'s FPL GW<n> video. Extract, as a structured list: (1) players he recommends
@@ -48,7 +50,7 @@ Search `site:fantasyfootballscout.co.uk Gameweek <n>`, `site:allaboutfpl.com Gam
 One `items` row per player per source: {type: pick|avoid, player, team (3-letter FPL code), source, why, url}.
 
 ## 4. Save, check, publish
-- Set `gw` = next GW and `updated` = today (YYYY-MM-DD) in both files (creators `gw` only if at least one creator has a GW video).
+- Set `gw` = the GW the content is for (next GW, or next GW − 1 if that's what you used) and `updated` = today (YYYY-MM-DD).
 - Use player names as FPL shows them (`web_name`, e.g. "B.Fernandes", "João Pedro") with the club code.
 - Run `node scripts/check.js boot.json` — fix every UNMATCHED name (look it up in boot.json) until it passes.
 - Commit to `main` with message `Sources: GW<n>` and push. Vercel redeploys by itself in ~30 s; no approval needed.

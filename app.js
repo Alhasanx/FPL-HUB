@@ -78,7 +78,7 @@
     const caps = Engine.captainTop(M, 3);
     const c1 = caps[0];
     const picks = Engine.picksByPosition(M);
-    const sitesFresh = SI && SI.gw >= M.info.gw, crFresh = CR && CR.gw >= M.info.gw;
+    const sitesFresh = SI && SI.gw >= M.info.gw - 1, crFresh = CR && CR.gw >= M.info.gw - 1;
     const items = sitesFresh ? SI.items : [];
     const signals = items.map(it => {
       const p = M.resolve(it.player, it.team), tone = it.type === 'avoid' ? TONE.rose : TONE.mint;
@@ -103,7 +103,7 @@
         <p class="note">Expected points + haul chance this GW · FPL API data</p>
       </div>
       ${signals ? `<div class="sec"><h2>This week's signals</h2><span>${esc(SI ? 'GW' + SI.gw : '')}</span></div><div class="rail">${signals}</div>` : ''}
-      <div class="sec"><h2>Picks by position</h2><span>most-mentioned this GW</span></div>
+      <div class="sec"><h2>Picks by position</h2><span>${((CR && CR.gw < M.info.gw) || (SI && SI.gw < M.info.gw)) && (sitesFresh || crFresh) ? `from GW${Math.max(CR ? CR.gw : 0, SI ? SI.gw : 0)} sources` : 'most-mentioned this GW'}</span></div>
       <div class="picks glass card">${['GK', 'DEF', 'MID', 'FWD'].map(pos => `<div class="pgrp" style="--tone:${POSTONE[pos]}">
         <div class="lh"><i></i><span class="label">${pos}</span><span class="note">${{ GK: 'Goalkeeper', DEF: 'Defenders', MID: 'Midfielders', FWD: 'Forwards' }[pos]}</span></div>
         ${picks[pos].length ? picks[pos].map(x => `<button class="prow" data-open="${x.p.id}"><span class="av ${pos}">${esc(x.p.ini)}</span>

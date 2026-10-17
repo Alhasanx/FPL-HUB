@@ -79,8 +79,8 @@
     const fx = teamFixtures(fixtures, teamsById, info.gw);
     const model_fxAll = fx; const model_teamIdByShort = Object.fromEntries(boot.teams.map(t => [t.short_name, t.id])); let model_teams = null;
     const resolve = resolver(boot.elements, teamsById);
-    /* sources only count for the gameweek they were written for */
-    const fresh = d => d && d.gw >= info.gw;
+    /* sources count for their gameweek, and stay visible (labelled) until the next GW's videos replace them */
+    const fresh = d => d && d.gw >= info.gw - 1;
     const src = sourceIndex(fresh(creators) ? creators : null, fresh(sites) ? sites : null, resolve);
     const finished = Math.max(1, info.finished);
 
@@ -402,6 +402,7 @@
   /* creators summaries */
   function creatorsView(model, creators) {
     const stale = !creators || creators.gw < model.info.gw;
+    const usable = creators && creators.gw >= model.info.gw - 1; /* last GW's videos still shown, labelled */
     const list = (creators && creators.creators) || [];
     const res = n => n && model.resolve(n.player || n, n.team);
     const agree = {};
@@ -410,7 +411,7 @@
     const captains = list.map(c => ({ id: c.id, name: c.name, captain: c.squad && c.squad.captain ? c.squad.captain : null }));
     const splits = [];
     for (const c of list) for (const a of c.avoids || []) { const e = res(a); if (!e || !agree[e.id]) continue; splits.push({ p: model.byId[e.id], against: [c.id], for: agree[e.id].by, whyAgainst: a.why }); }
-    return { list, agreeList: stale ? [] : agreeList, captains, splits: stale ? [] : splits, stale, gw: creators && creators.gw, updated: creators && creators.updated };
+    return { list, agreeList: usable ? agreeList : [], captains, splits: usable ? splits : [], stale, gw: creators && creators.gw, updated: creators && creators.updated };
   }
 
   root.Engine = { build, picksByPosition, captainTop, teamCheck, creatorsView, gwInfo, norm };
