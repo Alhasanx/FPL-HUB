@@ -75,6 +75,12 @@ export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
   const secret = process.env.CRON_SECRET;
   if (!secret || req.query.key !== secret) return res.status(401).json({ error: 'Unauthorized' });
+  if (req.query.probe) {
+    const urls = { ytt: `https://youtubetotranscript.com/transcript?v=${req.query.probe}`, inv: `https://inv.nadeko.net/api/v1/captions/${req.query.probe}`, yt2: `https://youtubetranscript.com/?server_vid2=${req.query.probe}` };
+    const out = {};
+    await Promise.all(Object.entries(urls).map(async ([k, u]) => { try { const r = await get(u, 12000); const t = await r.text(); const i = t.search(/transcript|caption|<text/i); out[k] = { status: r.status, len: t.length, head: t.slice(Math.max(0, i - 200), i + 2500) }; } catch (e) { out[k] = { err: String(e) }; } }));
+    return res.status(200).json(out);
+  }
   const gw = parseInt(req.query.gw, 10) || null;
   const n = Math.min(8, Math.max(1, parseInt(req.query.n, 10) || 4));
   const gwRe = gw ? new RegExp(`\\b(GW|Gameweek|Game ?week)\\s*${gw}\\b`, 'i') : null;
