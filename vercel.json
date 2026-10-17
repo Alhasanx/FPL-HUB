@@ -12,6 +12,9 @@
     "api/deadline.js": {
       "maxDuration": 30,
       "includeFiles": "engine.js"
+    },
+    "api/sources.js": {
+      "maxDuration": 60
     }
   },
   "headers": [
