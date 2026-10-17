@@ -30,7 +30,7 @@ body[data-tab="creators"] .aurora i:nth-child(1){transform:translate(-120px,80px
 body[data-tab="team"] .aurora i:nth-child(2){transform:translate(160px,-200px)}
 body[data-tab="players"] .aurora i:nth-child(3){transform:translate(-200px,-260px)}
 
-.app{position:relative;z-index:1;max-width:440px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-right,0px)) 130px max(16px,env(safe-area-inset-left,0px))}
+.app{position:relative;z-index:1;max-width:440px;margin:0 auto;padding:env(safe-area-inset-top,0px) max(16px,env(safe-area-inset-right,0px)) 130px max(16px,env(safe-area-inset-left,0px))}
 
 /* header */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 16px 14px;margin:0 -16px;background:linear-gradient(180deg,var(--ink) 60%,rgba(14,8,24,.9) 80%,rgba(14,8,24,0))}
