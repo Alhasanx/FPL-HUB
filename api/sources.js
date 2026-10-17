@@ -52,10 +52,48 @@ async function captionTracks(videoId) {
   if (m) return { tracks: JSON.parse(m[1]), via: 'web' };
   return { tracks: null, why: (/confirm you.re not a bot/i.test(html) ? 'blocked' : 'no captions') + ' · ' + tries.join(',') };
 }
+/* Invidious mirrors serve YouTube's own caption files (same words as the video), without YouTube's bot check */
+const INVIDIOUS = ['https://inv.nadeko.net', 'https://yewtu.be', 'https://invidious.nerdvpn.de', 'https://invidious.f5.si'];
+const sec = t => { const p = t.split(':').map(Number); return p.length === 3 ? p[0] * 3600 + p[1] * 60 + p[2] : p[0] * 60 + p[1]; };
+const stamp = x => `${Math.floor(x / 60)}:${String(Math.floor(x) % 60).padStart(2, '0')}`;
+function vttToText(vtt) {
+  const out = []; let last = '', lastT = -99;
+  for (const block of vtt.split(/\n\n+/)) {
+    const m = /(\d{1,2}:\d{2}(?::\d{2})?)\.\d{3}\s+-->/.exec(block);
+    if (!m) continue;
+    const lines = block.split('\n').slice(block.split('\n').findIndex(l => l.includes('-->')) + 1)
+      .map(l => decode(l.replace(/<[^>]+>/g, '')).trim()).filter(Boolean);
+    for (const l of lines) {
+      if (l === last) continue;                 /* auto-captions repeat each line twice */
+      const t = sec(m[1]);
+      if (out.length && t - lastT < 20) out[out.length - 1] += ' ' + l; else { out.push(`[${stamp(t)}] ${l}`); lastT = t; }
+      last = l;
+    }
+  }
+  return out.join('\n');
+}
+async function viaInvidious(videoId) {
+  const errs = [];
+  for (const base of INVIDIOUS) {
+    try {
+      const list = await (await get(`${base}/api/v1/captions/${videoId}`, 9000)).json();
+      const caps = (list && list.captions) || [];
+      const c = caps.find(x => /^en/.test(x.languageCode) && !/auto/i.test(x.label)) || caps.find(x => /^en/.test(x.languageCode));
+      if (!c) { errs.push(base.slice(8) + ':no en'); continue; }
+      const vtt = await (await get(base + c.url, 15000)).text();
+      const text = vttToText(vtt);
+      if (text.length > 200) return { ok: true, via: 'invidious ' + base.slice(8), lang: c.languageCode, auto: /auto/i.test(c.label), text: text.slice(0, 80000) };
+      errs.push(base.slice(8) + ':empty');
+    } catch (e) { errs.push(base.slice(8) + ':' + (e.name === 'TimeoutError' ? 'timeout' : 'err')); }
+  }
+  return { ok: false, why: errs.join(',') };
+}
 async function transcript(videoId) {
+  const inv = await viaInvidious(videoId);
+  if (inv.ok) return inv;
   try {
     const ct = await captionTracks(videoId);
-    if (!ct.tracks) return { ok: false, why: ct.why };
+    if (!ct.tracks) return { ok: false, why: inv.why + ' · ' + ct.why };
     const tracks = ct.tracks;
     const t = tracks.find(x => /^en/.test(x.languageCode) && x.kind !== 'asr') || tracks.find(x => /^en/.test(x.languageCode)) || tracks[0];
     const raw = await (await get(t.baseUrl.replace(/\\u0026/g, '&').replace(/&fmt=[^&]*/, '') + '&fmt=json3', 12000)).text();
@@ -75,12 +113,6 @@ export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
   const secret = process.env.CRON_SECRET;
   if (!secret || req.query.key !== secret) return res.status(401).json({ error: 'Unauthorized' });
-  if (req.query.probe) {
-    const urls = { ytt: `https://youtubetotranscript.com/transcript?v=${req.query.probe}`, inv: `https://inv.nadeko.net/api/v1/captions/${req.query.probe}`, yt2: `https://youtubetranscript.com/?server_vid2=${req.query.probe}` };
-    const out = {};
-    await Promise.all(Object.entries(urls).map(async ([k, u]) => { try { const r = await get(u, 12000); const t = await r.text(); const i = t.search(/transcript|caption|<text/i); out[k] = { status: r.status, len: t.length, head: t.slice(Math.max(0, i - 200), i + 2500) }; } catch (e) { out[k] = { err: String(e) }; } }));
-    return res.status(200).json(out);
-  }
   const gw = parseInt(req.query.gw, 10) || null;
   const n = Math.min(8, Math.max(1, parseInt(req.query.n, 10) || 4));
   const gwRe = gw ? new RegExp(`\\b(GW|Gameweek|Game ?week)\\s*${gw}\\b`, 'i') : null;
