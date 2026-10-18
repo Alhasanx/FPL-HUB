@@ -338,7 +338,13 @@
   async function swReg() { return navigator.serviceWorker.getRegistration('/') || navigator.serviceWorker.register('/sw.js', { scope: '/' }); }
   async function refreshBell() {
     if (!pushOK) return;
-    try { const r = await navigator.serviceWorker.getRegistration('/'); const s = r && await r.pushManager.getSubscription(); bell.classList.toggle('on', !!s && Notification.permission === 'granted'); } catch (e) {}
+    try {
+      const r = await navigator.serviceWorker.getRegistration('/'); const s = r && await r.pushManager.getSubscription();
+      const on = !!s && Notification.permission === 'granted';
+      bell.classList.toggle('on', on);
+      /* re-announce this device on every open, so a phone that isn't activated yet gets picked up */
+      if (on) fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(s) }).catch(() => {});
+    } catch (e) {}
   }
   async function enableAlerts() {
     if (isIOS && !standalone) return say('<b>Add to Home Screen first.</b><br>Tap Share <span aria-hidden="true">⎋</span> → <b>Add to Home Screen</b>, open FPL Hub from there, then tap the bell again.', 0);
