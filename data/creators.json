@@ -182,107 +182,154 @@
         "aqua"
       ],
       "video": {
-        "title": "My GW8 Transfer Plans... (FPL Review & Early Thoughts!)",
-        "url": "https://www.youtube.com/watch?v=nMAEXzktQAI",
-        "date": "2026-10-18"
+        "title": "FPL GW8 TRANSFER TIPS! | Top Picks Tier List for Gameweek 8 - 2026/27!",
+        "url": "https://www.youtube.com/watch?v=wwA7XWRl98s",
+        "date": "2026-10-19"
       },
       "buys": [
         {
+          "player": "Haaland",
+          "team": "MCI",
+          "why": "Essential; the only consistently captainable premium, expected fit for GW8",
+          "t": "13:35"
+        },
+        {
+          "player": "João Pedro",
+          "team": "CHE",
+          "why": "Strong underlying numbers and good enough Chelsea fixtures",
+          "t": "13:35"
+        },
+        {
           "player": "Calvert-Lewin",
           "team": "LEE",
-          "why": "Longer-term option he expects to be useful almost every week",
-          "t": null
+          "why": "Good recent numbers, cheap at £6m and on penalties",
+          "t": "13:35"
+        },
+        {
+          "player": "Gibbs-White",
+          "team": "NFO",
+          "why": "Likely available vs Ipswich and on penalties",
+          "t": "17:26"
+        },
+        {
+          "player": "Rogers",
+          "team": "CHE",
+          "why": "Good season so far, though overperforming",
+          "t": "17:26"
         },
         {
           "player": "Manzambi",
           "team": "AVL",
-          "why": "In form with better long-term fixtures; flag is only a minor knock",
-          "t": null
+          "why": "Differential with high shot and key-pass volume",
+          "t": "17:26"
         },
         {
-          "player": "Schade",
-          "team": "BRE",
-          "why": "Immediate returns at Hull, less appealing after GW8",
-          "t": null
+          "player": "Gabriel",
+          "team": "ARS",
+          "why": "Arsenal's GW8 and GW10 clean-sheet odds are their best of the season",
+          "t": "23:05"
+        },
+        {
+          "player": "Calafiori",
+          "team": "ARS",
+          "why": "Good value at £6m with Everton and Hull fixtures",
+          "t": "23:05"
         },
         {
           "player": "Muharemović",
           "team": "LEE",
-          "why": "'Love this pick' at Sunderland",
-          "t": null
+          "why": "Defensive contributions, set-piece threat and good fixtures",
+          "t": "23:05"
         },
         {
-          "player": "De Cuyper",
-          "team": "BHA",
-          "why": "Still strong for clean sheets and bonus",
-          "t": null
+          "player": "Thomas",
+          "team": "COV",
+          "why": "£4m defender with defensive contributions and set pieces",
+          "t": "23:05"
+        },
+        {
+          "player": "Raya",
+          "team": "ARS",
+          "why": "The only goalkeeper he would actively buy this week",
+          "t": "27:27"
         }
       ],
       "avoids": [
         {
+          "player": "Semenyo",
+          "team": "MCI",
+          "why": "Injured, out about 8 weeks",
+          "t": "04:32"
+        },
+        {
           "player": "Solanke",
           "team": "TOT",
-          "why": "Hamstring injury again; out for a couple of weeks",
-          "t": null
+          "why": "Out for at least another gameweek",
+          "t": "00:45"
+        },
+        {
+          "player": "B.Fernandes",
+          "team": "MUN",
+          "why": "Poor season so far",
+          "t": "04:32"
         },
         {
           "player": "Barry",
           "team": "EVE",
-          "why": "Poor finishing and tough fixtures; benched and likely sold",
-          "t": null
+          "why": "Poor finisher with tough fixtures",
+          "t": "00:45"
+        },
+        {
+          "player": "Brobbey",
+          "team": "SUN",
+          "why": "Hamstring issue and a weak Sunderland attack",
+          "t": "00:45"
+        },
+        {
+          "player": "James",
+          "team": "CHE",
+          "why": "Out until January",
+          "t": "09:36"
+        },
+        {
+          "player": "Tarkowski",
+          "team": "EVE",
+          "why": "Poor fixtures, away at Arsenal",
+          "t": "09:36"
+        },
+        {
+          "player": "Pickford",
+          "team": "EVE",
+          "why": "Expensive with poor fixtures",
+          "t": "27:27"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "4 free transfers; very open to making two",
-        "transfers": [
-          {
-            "out": {
-              "player": "Solanke",
-              "team": "TOT"
-            },
-            "in": {
-              "player": "Manzambi",
-              "team": "AVL"
-            }
-          },
-          {
-            "out": {
-              "player": "Barry",
-              "team": "EVE"
-            },
-            "in": {
-              "player": "Calvert-Lewin",
-              "team": "LEE"
-            }
-          }
-        ]
+        "note": null,
+        "transfers": []
       },
       "squad": {
         "xi": [],
         "captain": null,
         "vice": null,
-        "bench": [
-          "Barry",
-          "De Cuyper",
-          "Manzambi"
-        ]
+        "bench": []
       },
       "extra": [
         {
-          "topic": "GW7",
-          "text": "About 59 points; rank fell from ~50k to ~130k",
+          "topic": "Keep",
+          "text": "Would keep Saka despite blanks, citing Arsenal's projected goals (2.06 in GW8, 2.91 in GW10)",
+          "t": "04:32"
+        },
+        {
+          "topic": "Monitor",
+          "text": "Eze, Tavernier, Groß (wait until GW10+) and Lewis Hall on his watchlist",
           "t": null
         },
         {
-          "topic": "Prices",
-          "text": "Expects rises for João Pedro, Groß and Rogers; maybe Calvert-Lewin and Manzambi",
-          "t": null
-        },
-        {
-          "topic": "Fixtures",
-          "text": "Backs a Chelsea triple-up at home to Spurs; Brighton's run is difficult",
-          "t": null
+          "topic": "Avoid",
+          "text": "Brighton defenders due to tough clean-sheet odds",
+          "t": "23:05"
         }
       ]
     }
