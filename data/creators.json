@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
-  "gw": 7,
-  "updated": "2026-10-17",
+  "gw": 8,
+  "updated": "2026-10-19",
   "creators": [
     {
       "id": "FH",
@@ -11,134 +11,24 @@
         "aqua"
       ],
       "video": {
-        "title": "MY FPL GW7 TEAM SELECTION! Benching Decisions...",
-        "url": "https://www.youtube.com/watch?v=sv9PYWyrN38",
-        "date": "2026-10-15"
+        "title": "MY FPL GW8 TRANSFER PLANS · BENCH BRIGHTON PLAYERS?",
+        "url": "https://www.youtube.com/watch?v=eq1rY1f_sow",
+        "date": "2026-10-18"
       },
-      "buys": [
-        {
-          "player": "Vuskovic",
-          "team": "BHA",
-          "why": "Great pick in his own right; his replacement for De Cuyper if minutes drop",
-          "t": null
-        },
-        {
-          "player": "Calafiori",
-          "team": "ARS",
-          "why": "Incredible pick going forward as his Champions League minutes are managed",
-          "t": null
-        },
-        {
-          "player": "N.Jackson",
-          "team": "AVL",
-          "why": "Cheap forward to bring in for Gonzalo in a few weeks",
-          "t": null
-        },
-        {
-          "player": "Manzambi",
-          "team": "AVL",
-          "why": "On his watchlist",
-          "t": null
-        }
-      ],
-      "avoids": [
-        {
-          "player": "Hall",
-          "team": "NEW",
-          "why": "Starts this week but he will sell him eventually",
-          "t": null
-        },
-        {
-          "player": "Gonzalo",
-          "team": "FUL",
-          "why": "Time in the team is limited; may move to Jackson",
-          "t": null
-        },
-        {
-          "player": "Gibbs-White",
-          "team": "NFO",
-          "why": "Benched vs Arsenal; Forest better away",
-          "t": null
-        }
-      ],
+      "buys": [],
+      "avoids": [],
       "moves": {
         "chip": null,
-        "note": "Rolling his 1 free transfer (Wildcard used in GW6)",
+        "note": null,
         "transfers": []
       },
       "squad": {
-        "xi": [
-          {
-            "player": "Raya",
-            "team": "ARS"
-          },
-          {
-            "player": "De Cuyper",
-            "team": "BHA"
-          },
-          {
-            "player": "Van Hecke",
-            "team": "TOT"
-          },
-          {
-            "player": "Calafiori",
-            "team": "ARS"
-          },
-          {
-            "player": "Hall",
-            "team": "NEW"
-          },
-          {
-            "player": "Rogers",
-            "team": "CHE"
-          },
-          {
-            "player": "Saka",
-            "team": "ARS"
-          },
-          {
-            "player": "Groß",
-            "team": "BHA"
-          },
-          {
-            "player": "Gonzalo",
-            "team": "FUL"
-          },
-          {
-            "player": "Haaland",
-            "team": "MCI"
-          },
-          {
-            "player": "João Pedro",
-            "team": "CHE"
-          }
-        ],
-        "captain": "Haaland",
-        "vice": "João Pedro",
-        "bench": [
-          "Bentley",
-          "Muharemović",
-          "Gibbs-White",
-          "Slater"
-        ]
+        "xi": [],
+        "captain": null,
+        "vice": null,
+        "bench": []
       },
-      "extra": [
-        {
-          "topic": "GW6",
-          "text": "72 points, up 175k places after wildcarding",
-          "t": "0:31"
-        },
-        {
-          "topic": "De Cuyper minutes",
-          "text": "Wary after early sub at Sunderland and Mitoma's return around GW11",
-          "t": null
-        },
-        {
-          "topic": "Van Hecke",
-          "text": "Coventry, Crystal Palace and Ipswich at home coming up",
-          "t": null
-        }
-      ]
+      "extra": []
     },
     {
       "id": "LT",
@@ -148,103 +38,105 @@
         "rose"
       ],
       "video": {
-        "title": "My FPL Team for GW7 · Start/Bench/Sell Gvardiol",
-        "url": "https://www.youtube.com/watch?v=4ScoA4qHHDg",
-        "date": "2026-10-15"
+        "title": "Best Midfield replacements for Szoboszlai and others · FPL GW8 Early Thoughts",
+        "url": "https://www.youtube.com/watch?v=XYZ8TUhNGFc",
+        "date": "2026-10-19"
       },
       "buys": [
         {
-          "player": "Calvert-Lewin",
-          "team": "LEE",
-          "why": "Likely Wissa replacement; likes Leeds' GW7-10 fixtures",
+          "player": "Gibbs-White",
+          "team": "NFO",
+          "why": "On penalties, plays 90 mins, no Europe; expected to start vs Ipswich",
           "t": null
         },
         {
-          "player": "Van Hecke",
-          "team": "TOT",
-          "why": "Possible Gvardiol replacement; good home fixture every other week",
+          "player": "Rogers",
+          "team": "CHE",
+          "why": "Preferred midfielder if affordable thanks to his fixture run",
           "t": null
         },
         {
-          "player": "Silva",
+          "player": "Groß",
+          "team": "BHA",
+          "why": "Good long-term pick on pens and set pieces; wait until GW10 after LIV/MCI away",
+          "t": null
+        },
+        {
+          "player": "Tavernier",
           "team": "BOU",
-          "why": "Alternative to Van Hecke with a similar home run",
+          "why": "Reliable minutes, penalties and four goals so far",
           "t": null
         },
         {
-          "player": "Saka",
-          "team": "ARS",
-          "why": "Szoboszlai replacement around GW9; minutes and penalties",
+          "player": "Manzambi",
+          "team": "AVL",
+          "why": "Strong underlying numbers at ~£6m, but yellow-flagged",
+          "t": null
+        },
+        {
+          "player": "Schade",
+          "team": "BRE",
+          "why": "Cheap short-term option with a good fixture at Hull",
+          "t": null
+        },
+        {
+          "player": "Thomas",
+          "team": "COV",
+          "why": "Cheap alternative with Fulham and Sunderland at home",
           "t": null
         },
         {
           "player": "Slater",
           "team": "HUL",
-          "why": "Possible replacement for Sangaré",
+          "why": "Cheap alternative",
           "t": null
         }
       ],
       "avoids": [
         {
-          "player": "Wissa",
-          "team": "NEW",
-          "why": "Not playing as the main No.9; often in midfield",
+          "player": "B.Fernandes",
+          "team": "MUN",
+          "why": "Nobody should buy him; not worth £11.8m (he'd keep him vs Bournemouth)",
           "t": null
         },
         {
-          "player": "Gvardiol",
-          "team": "MCI",
-          "why": "Shares minutes with O'Reilly; rotation headache",
+          "player": "Sávio",
+          "team": "TOT",
+          "why": "Injured; expected out GW7–9, a sell for most",
           "t": null
         },
         {
-          "player": "M.Sangaré",
-          "team": "BRE",
-          "why": "Not starting for Brentford",
-          "t": null
-        },
-        {
-          "player": "Konsa",
-          "team": "ARS",
-          "why": "No place in the team once Saliba returns",
+          "player": "Szoboszlai",
+          "team": "LIV",
+          "why": "Injured and likely to miss GW8 at least; a sell for most",
           "t": null
         }
       ],
       "moves": {
         "chip": null,
-        "note": "4 free transfers, £1.1m ITB; Wissa → Calvert-Lewin fairly likely, Gvardiol out possible; Free Hit maybe GW12",
-        "transfers": [
-          {
-            "out": {
-              "player": "Wissa",
-              "team": "NEW"
-            },
-            "in": {
-              "player": "Calvert-Lewin",
-              "team": "LEE"
-            }
-          }
-        ]
+        "note": "3 free transfers, £1.9m ITB; plans to sell Sávio for Gibbs-White (or another mid) with one FT and save two; may swap M.Sangaré for Manzambi in GW9",
+        "transfers": []
       },
       "squad": {
         "xi": [],
         "captain": "Haaland",
         "vice": null,
-        "bench": [
-          "Szoboszlai",
-          "M.Sangaré",
-          "Hall"
-        ]
+        "bench": []
       },
       "extra": [
         {
-          "topic": "GW6",
-          "text": "79 points with Palmer (C) 16; into the top 75k",
-          "t": "0:17"
+          "topic": "Captain",
+          "text": "Haaland as it stands, but tempted by Palmer; João Pedro also considered",
+          "t": null
         },
         {
-          "topic": "Szoboszlai",
-          "text": "Benched on a yellow flag; expected back for GW8",
+          "topic": "Man City mids",
+          "text": "Avoid due to rotation; if forced, Cherki is the least risky",
+          "t": null
+        },
+        {
+          "topic": "Team",
+          "text": "Will confirm his team on Thursday after team news",
           "t": null
         }
       ]
@@ -257,119 +149,27 @@
         "lilac"
       ],
       "video": {
-        "title": "SELL SZOBOSZLAI? | MY FPL GW7 TEAM SELECTION",
-        "url": "https://www.youtube.com/watch?v=mzOeoXLrmuw",
-        "date": "2026-10-15"
+        "title": "BUY & CAPTAIN GIBBS-WHITE? · MY FPL GW8 TRANSFER PLANS",
+        "url": "https://www.youtube.com/watch?v=OlvN9ePNH0Y",
+        "date": "2026-10-19"
       },
-      "buys": [
-        {
-          "player": "Saka",
-          "team": "ARS",
-          "why": "Elite FPL option; wants him in for Ødegaard",
-          "t": null
-        },
-        {
-          "player": "E.Le Fée",
-          "team": "SUN",
-          "why": "Favoured Szoboszlai replacement; penalties, set pieces and open play",
-          "t": null
-        },
-        {
-          "player": "Thomas",
-          "team": "COV",
-          "why": "Likes Hall → Thomas for the fixtures",
-          "t": null
-        },
-        {
-          "player": "Vuskovic",
-          "team": "BHA",
-          "why": "Excellent option he would like to own",
-          "t": null
-        }
-      ],
-      "avoids": [
-        {
-          "player": "Szoboszlai",
-          "team": "LIV",
-          "why": "Fitness doubt; may downgrade him",
-          "t": null
-        },
-        {
-          "player": "Ødegaard",
-          "team": "ARS",
-          "why": "Not a high-upside player; tough Forest defence",
-          "t": null
-        }
-      ],
+      "buys": [],
+      "avoids": [],
       "moves": {
         "chip": null,
-        "note": "3 free transfers, £1.9m ITB; leaning to roll, final call in Friday video",
+        "note": "4 free transfers, £1.9m ITB, 2 flagged players (per video description)",
         "transfers": []
       },
       "squad": {
-        "xi": [
-          {
-            "player": "Kelleher",
-            "team": "BRE"
-          },
-          {
-            "player": "Calafiori",
-            "team": "ARS"
-          },
-          {
-            "player": "Konsa",
-            "team": "ARS"
-          },
-          {
-            "player": "Muharemović",
-            "team": "LEE"
-          },
-          {
-            "player": "Rogers",
-            "team": "CHE"
-          },
-          {
-            "player": "Palmer",
-            "team": "CHE"
-          },
-          {
-            "player": "Groß",
-            "team": "BHA"
-          },
-          {
-            "player": "Ødegaard",
-            "team": "ARS"
-          },
-          {
-            "player": "Haaland",
-            "team": "MCI"
-          },
-          {
-            "player": "João Pedro",
-            "team": "CHE"
-          },
-          {
-            "player": "Gonzalo",
-            "team": "FUL"
-          }
-        ],
-        "captain": "Haaland",
+        "xi": [],
+        "captain": null,
         "vice": null,
-        "bench": [
-          "Hall",
-          "Mendy",
-          "Szoboszlai"
-        ]
+        "bench": []
       },
       "extra": [
         {
-          "topic": "Gonzalo",
-          "text": "Biggest xGI underperformer, expects a return soon",
-          "t": "13:11"
-        },
-        {
-          "topic": "Man City attackers",
-          "text": "Doesn't trust Doku/Cherki rotation",
+          "topic": "Captain",
+          "text": "Says there's no standout captain this week (video description)",
           "t": null
         }
       ]
@@ -382,38 +182,106 @@
         "aqua"
       ],
       "video": {
-        "title": "FPL GW7 Team Selection: Too Late to BUY De Cuyper? | Transfers & Captain",
-        "url": "https://www.youtube.com/watch?v=pyRvjSS2g4E",
-        "date": "2026-10-15"
+        "title": "My GW8 Transfer Plans... (FPL Review & Early Thoughts!)",
+        "url": "https://www.youtube.com/watch?v=nMAEXzktQAI",
+        "date": "2026-10-18"
       },
-      "buys": [],
+      "buys": [
+        {
+          "player": "Calvert-Lewin",
+          "team": "LEE",
+          "why": "Longer-term option he expects to be useful almost every week",
+          "t": null
+        },
+        {
+          "player": "Manzambi",
+          "team": "AVL",
+          "why": "In form with better long-term fixtures; flag is only a minor knock",
+          "t": null
+        },
+        {
+          "player": "Schade",
+          "team": "BRE",
+          "why": "Immediate returns at Hull, less appealing after GW8",
+          "t": null
+        },
+        {
+          "player": "Muharemović",
+          "team": "LEE",
+          "why": "'Love this pick' at Sunderland",
+          "t": null
+        },
+        {
+          "player": "De Cuyper",
+          "team": "BHA",
+          "why": "Still strong for clean sheets and bonus",
+          "t": null
+        }
+      ],
       "avoids": [
         {
-          "player": "Hall",
-          "team": "NEW",
-          "why": "Willing to sacrifice him; poor next four fixtures",
+          "player": "Solanke",
+          "team": "TOT",
+          "why": "Hamstring injury again; out for a couple of weeks",
+          "t": null
+        },
+        {
+          "player": "Barry",
+          "team": "EVE",
+          "why": "Poor finishing and tough fixtures; benched and likely sold",
           "t": null
         }
       ],
       "moves": {
         "chip": null,
-        "note": "Double transfer bringing in Mitoma (benched this week), leaving 3 FTs",
-        "transfers": []
+        "note": "4 free transfers; very open to making two",
+        "transfers": [
+          {
+            "out": {
+              "player": "Solanke",
+              "team": "TOT"
+            },
+            "in": {
+              "player": "Manzambi",
+              "team": "AVL"
+            }
+          },
+          {
+            "out": {
+              "player": "Barry",
+              "team": "EVE"
+            },
+            "in": {
+              "player": "Calvert-Lewin",
+              "team": "LEE"
+            }
+          }
+        ]
       },
       "squad": {
         "xi": [],
-        "captain": "Haaland",
-        "vice": "Groß",
+        "captain": null,
+        "vice": null,
         "bench": [
-          "Botman",
-          "Hall",
-          "Szoboszlai"
+          "Barry",
+          "De Cuyper",
+          "Manzambi"
         ]
       },
       "extra": [
         {
-          "topic": "Szoboszlai",
-          "text": "Benched; missed midweek and weekend fitness unclear",
+          "topic": "GW7",
+          "text": "About 59 points; rank fell from ~50k to ~130k",
+          "t": null
+        },
+        {
+          "topic": "Prices",
+          "text": "Expects rises for João Pedro, Groß and Rogers; maybe Calvert-Lewin and Manzambi",
+          "t": null
+        },
+        {
+          "topic": "Fixtures",
+          "text": "Backs a Chelsea triple-up at home to Spurs; Brighton's run is difficult",
           "t": null
         }
       ]
