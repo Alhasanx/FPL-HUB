@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 8,
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "creators": [
     {
       "id": "FH",
@@ -11,24 +11,102 @@
         "aqua"
       ],
       "video": {
-        "title": "MY FPL GW8 TRANSFER PLANS · BENCH BRIGHTON PLAYERS?",
-        "url": "https://www.youtube.com/watch?v=eq1rY1f_sow",
-        "date": "2026-10-18"
+        "title": "FPL GAMEWEEK 8 PREVIEW · SEMENYO INJURED & HAALAND FLAGGED",
+        "url": "https://www.youtube.com/watch?v=qcBEdbx0eZw",
+        "date": "2026-10-20"
       },
-      "buys": [],
-      "avoids": [],
+      "buys": [
+        {
+          "player": "Rogers",
+          "team": "CHE",
+          "why": "Calls him the best midfielder in the game",
+          "t": null
+        },
+        {
+          "player": "Manzambi",
+          "team": "AVL",
+          "why": "His top cheap mid: best pts, xGI and shots per 90 of the options",
+          "t": null
+        },
+        {
+          "player": "Doku",
+          "team": "MCI",
+          "why": "Most nailed City winger with Semenyo out",
+          "t": null
+        },
+        {
+          "player": "Tavernier",
+          "team": "BOU",
+          "why": "Good underlying data, though he prefers Manzambi",
+          "t": null
+        },
+        {
+          "player": "Calvert-Lewin",
+          "team": "LEE",
+          "why": "Forward he'd bring in (in his wildcard draft)",
+          "t": null
+        }
+      ],
+      "avoids": [
+        {
+          "player": "Semenyo",
+          "team": "MCI",
+          "why": "Injured for around 8 weeks — sell",
+          "t": null
+        },
+        {
+          "player": "Szoboszlai",
+          "team": "LIV",
+          "why": "Out until at least the international break",
+          "t": null
+        },
+        {
+          "player": "Wissa",
+          "team": "NEW",
+          "why": "Sell because of his role/position in the team",
+          "t": null
+        },
+        {
+          "player": "Barnes",
+          "team": "NEW",
+          "why": "Probably sell, could be kept one more week",
+          "t": null
+        },
+        {
+          "player": "Saka",
+          "team": "ARS",
+          "why": "Not worth the money; prefers Palmer",
+          "t": null
+        }
+      ],
       "moves": {
         "chip": null,
-        "note": null,
+        "note": "Keeping Gibbs-White and Lewis Hall; starts Groß and benches De Cuyper vs LIV. Shows early Free Hit and Wildcard drafts.",
         "transfers": []
       },
       "squad": {
         "xi": [],
-        "captain": null,
+        "captain": "Haaland",
         "vice": null,
         "bench": []
       },
-      "extra": []
+      "extra": [
+        {
+          "topic": "Haaland",
+          "text": "Flagged after missing training but expected to face Aston Villa; still his captain",
+          "t": "0:38"
+        },
+        {
+          "topic": "Man City mids",
+          "text": "Don't rush into City midfielders this week, wait for rotation clarity",
+          "t": "1:46"
+        },
+        {
+          "topic": "Gibbs-White",
+          "text": "Expected fit for Ipswich; keep but don't buy",
+          "t": "8:47"
+        }
+      ]
     },
     {
       "id": "LT",
