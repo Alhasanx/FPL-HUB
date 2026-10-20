@@ -1,223 +1,79 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
-  "gw": 7,
-  "updated": "2026-10-17",
+  "gw": 8,
+  "updated": "2026-10-20",
   "items": [
-    {
-      "type": "pick",
-      "player": "Donnarumma",
-      "team": "MCI",
-      "source": "FF Scout",
-      "why": "Nailed on, 3 clean sheets in 6, hosts Ipswich",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/16/fpl-gameweek-7-scout-picks-three-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "Calafiori",
-      "team": "ARS",
-      "source": "FF Scout",
-      "why": "In Scout's GW7 Scout Picks XI (reasons behind the paywall)",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/16/fpl-gameweek-7-scout-picks-three-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "De Cuyper",
-      "team": "BHA",
-      "source": "FF Scout",
-      "why": "In Scout's GW7 Scout Picks XI (reasons behind the paywall)",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/16/fpl-gameweek-7-scout-picks-three-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "Groß",
-      "team": "BHA",
-      "source": "FF Scout",
-      "why": "In Scout's GW7 Scout Picks XI (reasons behind the paywall)",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/16/fpl-gameweek-7-scout-picks-three-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "Saka",
-      "team": "ARS",
-      "source": "FF Scout",
-      "why": "In Scout's GW7 Scout Picks XI (reasons behind the paywall)",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/16/fpl-gameweek-7-scout-picks-three-double-ups"
-    },
     {
       "type": "pick",
       "player": "Tavernier",
       "team": "BOU",
       "source": "FF Scout",
-      "why": "In Scout's GW7 Scout Picks XI (reasons behind the paywall)",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/16/fpl-gameweek-7-scout-picks-three-double-ups"
+      "why": "Differential buy: regular starts and set-piece duties (Kluivert may take pens)",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/20/tavernier-bruno-isak-wissa-buy-keep-or-sell-in-gameweek-8"
     },
     {
       "type": "pick",
-      "player": "Calvert-Lewin",
-      "team": "LEE",
+      "player": "Isak",
+      "team": "LIV",
       "source": "FF Scout",
-      "why": "In Scout's GW7 Scout Picks XI (reasons behind the paywall)",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/16/fpl-gameweek-7-scout-picks-three-double-ups"
+      "why": "Buy if you need a forward; strong goal threat, fixtures improve from GW10",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/20/tavernier-bruno-isak-wissa-buy-keep-or-sell-in-gameweek-8"
     },
     {
-      "type": "pick",
-      "player": "Haaland",
-      "team": "MCI",
+      "type": "avoid",
+      "player": "B.Fernandes",
+      "team": "MUN",
       "source": "FF Scout",
-      "why": "In Scout's GW7 Scout Picks XI (reasons behind the paywall)",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/16/fpl-gameweek-7-scout-picks-three-double-ups"
+      "why": "Sell: poor form, weak underlying numbers and a tough fixture run",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/20/tavernier-bruno-isak-wissa-buy-keep-or-sell-in-gameweek-8"
     },
     {
-      "type": "pick",
-      "player": "João Pedro",
-      "team": "CHE",
+      "type": "avoid",
+      "player": "Wissa",
+      "team": "NEW",
       "source": "FF Scout",
-      "why": "In Scout's GW7 Scout Picks XI (reasons behind the paywall)",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/16/fpl-gameweek-7-scout-picks-three-double-ups"
+      "why": "Sell: five weak matches and his No.9 role may not last",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/20/tavernier-bruno-isak-wissa-buy-keep-or-sell-in-gameweek-8"
     },
     {
-      "type": "pick",
-      "player": "Muharemović",
-      "team": "LEE",
+      "type": "avoid",
+      "player": "Szoboszlai",
+      "team": "LIV",
       "source": "FF Scout",
-      "why": "In Scout's GW7 Scout Picks XI (reasons behind the paywall)",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/16/fpl-gameweek-7-scout-picks-three-double-ups"
+      "why": "Sell: injured again (hamstring recurrence)",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/20/tavernier-bruno-isak-wissa-buy-keep-or-sell-in-gameweek-8"
     },
     {
-      "type": "pick",
-      "player": "King",
-      "team": "FUL",
-      "source": "FF Scout",
-      "why": "In Scout's GW7 Scout Picks XI (reasons behind the paywall)",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/16/fpl-gameweek-7-scout-picks-three-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "Verbruggen",
-      "team": "BHA",
-      "source": "AllAboutFPL",
-      "why": "Three straight clean sheets",
-      "url": "https://allaboutfpl.com/2026/10/fpl-gw7-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "De Cuyper",
-      "team": "BHA",
-      "source": "AllAboutFPL",
-      "why": "Plays on the left wing; Palace at home",
-      "url": "https://allaboutfpl.com/2026/10/fpl-gw7-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "Muharemović",
-      "team": "LEE",
-      "source": "AllAboutFPL",
-      "why": "Consistent CBIT points vs out-of-form United",
-      "url": "https://allaboutfpl.com/2026/10/fpl-gw7-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "Gvardiol",
-      "team": "MCI",
-      "source": "AllAboutFPL",
-      "why": "Attacking threat, but minutes a concern",
-      "url": "https://allaboutfpl.com/2026/10/fpl-gw7-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "Calafiori",
+      "type": "avoid",
+      "player": "Tzolis",
       "team": "ARS",
-      "source": "AllAboutFPL",
-      "why": "Attacking potential away at Forest",
-      "url": "https://allaboutfpl.com/2026/10/fpl-gw7-scout-picks-based-on-stats-analysis-and-matchups/"
+      "source": "FF Scout",
+      "why": "Sell: injury status",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/20/tavernier-bruno-isak-wissa-buy-keep-or-sell-in-gameweek-8"
     },
     {
-      "type": "pick",
-      "player": "Rogers",
-      "team": "CHE",
-      "source": "AllAboutFPL",
-      "why": "Strong form and long-range shooting vs Everton",
-      "url": "https://allaboutfpl.com/2026/10/fpl-gw7-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "Palmer",
-      "team": "CHE",
-      "source": "AllAboutFPL",
-      "why": "Creating more chances vs Everton",
-      "url": "https://allaboutfpl.com/2026/10/fpl-gw7-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "Cherki",
+      "type": "avoid",
+      "player": "Semenyo",
       "team": "MCI",
-      "source": "AllAboutFPL",
-      "why": "Explosive output vs Ipswich, rotation risk",
-      "url": "https://allaboutfpl.com/2026/10/fpl-gw7-scout-picks-based-on-stats-analysis-and-matchups/"
+      "source": "FF Scout",
+      "why": "Sell: injured, not expected back until December",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/20/tavernier-bruno-isak-wissa-buy-keep-or-sell-in-gameweek-8"
     },
     {
       "type": "pick",
-      "player": "Groß",
-      "team": "BHA",
-      "source": "AllAboutFPL",
-      "why": "Joint-top FPL scorer; Palace weak defensively",
-      "url": "https://allaboutfpl.com/2026/10/fpl-gw7-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "Haaland",
-      "team": "MCI",
-      "source": "AllAboutFPL",
-      "why": "Captain pick: scored in last five league games",
-      "url": "https://allaboutfpl.com/2026/10/fpl-gw7-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "João Pedro",
-      "team": "CHE",
-      "source": "AllAboutFPL",
-      "why": "5 goals, 3 assists in 5 vs Everton",
-      "url": "https://allaboutfpl.com/2026/10/fpl-gw7-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "Gonzalo",
-      "team": "FUL",
+      "player": "Tavernier",
+      "team": "BOU",
       "source": "FF Hub",
-      "why": "First-choice No.9, 3.01 xG with one goal; Hull at home",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-7-article-26-27"
+      "why": "GW8 differential under 10% owned, delivered a 10-pointer last week",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
     },
     {
       "type": "pick",
-      "player": "Haaland",
-      "team": "MCI",
+      "player": "Solanke",
+      "team": "TOT",
       "source": "FF Hub",
-      "why": "Clear captain choice; Ipswich still without a clean sheet",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-captain-gameweek-7-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "Saka",
-      "team": "ARS",
-      "source": "FF Hub",
-      "why": "Goal and assist threat at Forest",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-7-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "Groß",
-      "team": "BHA",
-      "source": "FF Hub",
-      "why": "Joint-top scorer: 3 goals, 5 assists",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-7-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "De Cuyper",
-      "team": "BHA",
-      "source": "FF Hub",
-      "why": "Defender playing on the left wing; Palace at home",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-7-article-26-27"
+      "why": "GW8 differential under 10% owned, plays on Monday",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
     }
   ]
 }
