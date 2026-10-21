@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 8,
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "creators": [
     {
       "id": "FH",
@@ -11,39 +11,57 @@
         "aqua"
       ],
       "video": {
-        "title": "FPL GAMEWEEK 8 PREVIEW · SEMENYO INJURED & HAALAND FLAGGED",
-        "url": "https://www.youtube.com/watch?v=qcBEdbx0eZw",
-        "date": "2026-10-20"
+        "title": "MY FPL GW8 TRANSFER TARGETS! · TOP 10 DEF, MID & FWDs",
+        "url": "https://www.youtube.com/watch?v=VVsTFyDu2Xs",
+        "date": "2026-10-21"
       },
       "buys": [
         {
+          "player": "Calafiori",
+          "team": "ARS",
+          "why": "His No.1 defender pick",
+          "t": null
+        },
+        {
+          "player": "Muharemović",
+          "team": "LEE",
+          "why": "His No.2 defender pick",
+          "t": null
+        },
+        {
           "player": "Rogers",
           "team": "CHE",
-          "why": "Calls him the best midfielder in the game",
+          "why": "His top midfielder",
           "t": null
         },
         {
-          "player": "Manzambi",
-          "team": "AVL",
-          "why": "His top cheap mid: best pts, xGI and shots per 90 of the options",
+          "player": "Mbeumo",
+          "team": "MUN",
+          "why": "Strong xG per 90 and price has dropped to £7.8m",
           "t": null
         },
         {
-          "player": "Doku",
-          "team": "MCI",
-          "why": "Most nailed City winger with Semenyo out",
+          "player": "Groß",
+          "team": "BHA",
+          "why": "Good minutes; worth buying even with LIV and MCI next",
           "t": null
         },
         {
-          "player": "Tavernier",
-          "team": "BOU",
-          "why": "Good underlying data, though he prefers Manzambi",
+          "player": "Schade",
+          "team": "BRE",
+          "why": "Cheaper mid; Hull fixture better than Manzambi's or Tavernier's",
           "t": null
         },
         {
           "player": "Calvert-Lewin",
           "team": "LEE",
-          "why": "Forward he'd bring in (in his wildcard draft)",
+          "why": "His No.3 forward; worth getting before a price rise",
+          "t": null
+        },
+        {
+          "player": "Isak",
+          "team": "LIV",
+          "why": "Fine forward option if you skip Palmer and Saka",
           "t": null
         }
       ],
@@ -51,60 +69,54 @@
         {
           "player": "Semenyo",
           "team": "MCI",
-          "why": "Injured for around 8 weeks — sell",
+          "why": "Injured and out for a while",
           "t": null
         },
         {
           "player": "Szoboszlai",
           "team": "LIV",
-          "why": "Out until at least the international break",
+          "why": "Injured",
+          "t": null
+        },
+        {
+          "player": "B.Fernandes",
+          "team": "MUN",
+          "why": "Not worth the money",
           "t": null
         },
         {
           "player": "Wissa",
           "team": "NEW",
-          "why": "Sell because of his role/position in the team",
-          "t": null
-        },
-        {
-          "player": "Barnes",
-          "team": "NEW",
-          "why": "Probably sell, could be kept one more week",
-          "t": null
-        },
-        {
-          "player": "Saka",
-          "team": "ARS",
-          "why": "Not worth the money; prefers Palmer",
+          "why": "A clear sell",
           "t": null
         }
       ],
       "moves": {
         "chip": null,
-        "note": "Keeping Gibbs-White and Lewis Hall; starts Groß and benches De Cuyper vs LIV. Shows early Free Hit and Wildcard drafts.",
+        "note": "Transfer-targets video, no own moves confirmed; considering Calvert-Lewin before his price rises. Advises against most defender transfers this week (poor fixtures).",
         "transfers": []
       },
       "squad": {
         "xi": [],
-        "captain": "Haaland",
+        "captain": null,
         "vice": null,
         "bench": []
       },
       "extra": [
         {
-          "topic": "Haaland",
-          "text": "Flagged after missing training but expected to face Aston Villa; still his captain",
-          "t": "0:38"
+          "topic": "Fixtures",
+          "text": "Few teams above a 35% clean-sheet chance this week, so defender moves can wait",
+          "t": "0:30"
         },
         {
-          "topic": "Man City mids",
-          "text": "Don't rush into City midfielders this week, wait for rotation clarity",
-          "t": "1:46"
+          "topic": "Brighton",
+          "text": "LIV and MCI next; wait until GW10 to invest more",
+          "t": null
         },
         {
-          "topic": "Gibbs-White",
-          "text": "Expected fit for Ipswich; keep but don't buy",
-          "t": "8:47"
+          "topic": "Barry",
+          "text": "Everton forward worth considering from GW9",
+          "t": "13:09"
         }
       ]
     },
@@ -116,106 +128,100 @@
         "rose"
       ],
       "video": {
-        "title": "Best Midfield replacements for Szoboszlai and others · FPL GW8 Early Thoughts",
-        "url": "https://www.youtube.com/watch?v=XYZ8TUhNGFc",
-        "date": "2026-10-19"
+        "title": "Maresca gives Haaland update · FPL Gameweek 8 Preview",
+        "url": "https://www.youtube.com/watch?v=wt0u6EyW7pI",
+        "date": "2026-10-21"
       },
       "buys": [
         {
-          "player": "Gibbs-White",
-          "team": "NFO",
-          "why": "On penalties, plays 90 mins, no Europe; expected to start vs Ipswich",
-          "t": null
+          "player": "Doku",
+          "team": "MCI",
+          "why": "Best City punt for minutes vs Aston Villa, though not a guaranteed start",
+          "t": "00:15"
         },
         {
-          "player": "Rogers",
-          "team": "CHE",
-          "why": "Preferred midfielder if affordable thanks to his fixture run",
-          "t": null
-        },
-        {
-          "player": "Groß",
-          "team": "BHA",
-          "why": "Good long-term pick on pens and set pieces; wait until GW10 after LIV/MCI away",
-          "t": null
+          "player": "Ndiaye",
+          "team": "MCI",
+          "why": "Other City option most likely to get minutes vs Villa",
+          "t": "00:15"
         },
         {
           "player": "Tavernier",
           "team": "BOU",
-          "why": "Reliable minutes, penalties and four goals so far",
+          "why": "A definite hold and a cheap buy: penalties and 90 minutes",
+          "t": "24:45"
+        },
+        {
+          "player": "Muharemović",
+          "team": "LEE",
+          "why": "His pick if buying a defender this week (Sunderland away)",
+          "t": "26:45"
+        },
+        {
+          "player": "Calvert-Lewin",
+          "team": "LEE",
+          "why": "Worth ~£0.3m more than Kostoulas for penalties and 90 minutes",
+          "t": "17:48"
+        },
+        {
+          "player": "Van Hecke",
+          "team": "TOT",
+          "why": "Rotation defender from GW9 with a good home game every other week",
           "t": null
         },
         {
-          "player": "Manzambi",
-          "team": "AVL",
-          "why": "Strong underlying numbers at ~£6m, but yellow-flagged",
-          "t": null
-        },
-        {
-          "player": "Schade",
-          "team": "BRE",
-          "why": "Cheap short-term option with a good fixture at Hull",
-          "t": null
-        },
-        {
-          "player": "Thomas",
-          "team": "COV",
-          "why": "Cheap alternative with Fulham and Sunderland at home",
-          "t": null
-        },
-        {
-          "player": "Slater",
-          "team": "HUL",
-          "why": "Cheap alternative",
+          "player": "Rodon",
+          "team": "LEE",
+          "why": "Cheap option with reliable minutes",
           "t": null
         }
       ],
       "avoids": [
         {
-          "player": "B.Fernandes",
-          "team": "MUN",
-          "why": "Nobody should buy him; not worth £11.8m (he'd keep him vs Bournemouth)",
+          "player": "Kostoulas",
+          "team": "BHA",
+          "why": "Wait until after the LIV and MCI games; early subs limit his minutes",
+          "t": "17:48"
+        },
+        {
+          "player": "Eze",
+          "team": "ARS",
+          "why": "Wouldn't spend two transfers to get him right now",
           "t": null
         },
         {
-          "player": "Sávio",
-          "team": "TOT",
-          "why": "Injured; expected out GW7–9, a sell for most",
-          "t": null
-        },
-        {
-          "player": "Szoboszlai",
-          "team": "LIV",
-          "why": "Injured and likely to miss GW8 at least; a sell for most",
-          "t": null
+          "player": "Manzambi",
+          "team": "AVL",
+          "why": "Wait for more news on his injury",
+          "t": "05:29"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "3 free transfers, £1.9m ITB; plans to sell Sávio for Gibbs-White (or another mid) with one FT and save two; may swap M.Sangaré for Manzambi in GW9",
+        "note": "No transfers confirmed. Has Lewis Hall in his XI and may switch Kerkez in by the deadline; shows Free Hit and Wildcard drafts.",
         "transfers": []
       },
       "squad": {
         "xi": [],
-        "captain": "Haaland",
+        "captain": "Palmer",
         "vice": null,
         "bench": []
       },
       "extra": [
         {
           "topic": "Captain",
-          "text": "Haaland as it stands, but tempted by Palmer; João Pedro also considered",
-          "t": null
+          "text": "Has Palmer captained for now but may switch back to Haaland: 'if in doubt, go Haaland'",
+          "t": "05:54"
         },
         {
-          "topic": "Man City mids",
-          "text": "Avoid due to rotation; if forced, Cherki is the least risky",
-          "t": null
+          "topic": "Haaland",
+          "text": "Expected to start against Aston Villa",
+          "t": "00:15"
         },
         {
-          "topic": "Team",
-          "text": "Will confirm his team on Thursday after team news",
-          "t": null
+          "topic": "Brighton",
+          "text": "Don't bench Groß and De Cuyper just because of Liverpool away; play them rather than force a transfer",
+          "t": "21:16"
         }
       ]
     },
