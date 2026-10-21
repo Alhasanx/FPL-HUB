@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 8,
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "items": [
     {
       "type": "pick",
@@ -74,6 +74,54 @@
       "source": "FF Hub",
       "why": "GW8 differential under 10% owned, plays on Monday",
       "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
+    },
+    {
+      "type": "pick",
+      "player": "Tavernier",
+      "team": "BOU",
+      "source": "AllAboutFPL",
+      "why": "Strong underlying numbers and a favourable fixture run",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gameweek-8-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "De Cuyper",
+      "team": "BHA",
+      "source": "AllAboutFPL",
+      "why": "Don't buy: heavy fixture congestion raises rotation risk (owners hold)",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gameweek-8-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Groß",
+      "team": "BHA",
+      "source": "AllAboutFPL",
+      "why": "Don't buy: heavy fixture congestion raises rotation risk (owners hold)",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gameweek-8-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "B.Fernandes",
+      "team": "MUN",
+      "source": "AllAboutFPL",
+      "why": "Sell: inconsistent returns outside one big haul",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gameweek-8-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Szoboszlai",
+      "team": "LIV",
+      "source": "AllAboutFPL",
+      "why": "Sell: injury setback, doubtful for GW8, weak returns since GW2",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gameweek-8-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Semenyo",
+      "team": "MCI",
+      "source": "AllAboutFPL",
+      "why": "Sell: knee injury, out about eight weeks",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gameweek-8-transfer-tips-players-to-buy-avoid-sell-hold/"
     }
   ]
 }
