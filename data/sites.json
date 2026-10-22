@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 8,
-  "updated": "2026-10-21",
+  "updated": "2026-10-22",
   "items": [
     {
       "type": "pick",
@@ -122,6 +122,214 @@
       "source": "AllAboutFPL",
       "why": "Sell: knee injury, out about eight weeks",
       "url": "https://allaboutfpl.com/2026/10/fpl-gameweek-8-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "pick",
+      "player": "Haaland",
+      "team": "MCI",
+      "source": "FF Scout",
+      "why": "Fit and rested, Maresca says he is OK to start; Villa 15th for xG conceded",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Gibbs-White",
+      "team": "NFO",
+      "source": "FF Scout",
+      "why": "Fit again; league-leading big-chance creator and on pens vs Ipswich (no clean sheet yet)",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Calafiori",
+      "team": "ARS",
+      "source": "FF Scout",
+      "why": "Attacking upside plus clean-sheet potential",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Ajer",
+      "team": "BRE",
+      "source": "FF Scout",
+      "why": "Good DefCon bet: 9+ contributions in six of seven games",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Schade",
+      "team": "BRE",
+      "source": "FF Scout",
+      "why": "Joint-2nd among mids for box shots, back from injury, should start vs Hull",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Muharemović",
+      "team": "LEE",
+      "source": "FF Scout",
+      "why": "DefCon and clean-sheet potential vs a Sunderland side missing two centre-backs",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Calvert-Lewin",
+      "team": "LEE",
+      "source": "FF Scout",
+      "why": "Sunderland's centre-back problems",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Kelleher",
+      "team": "BRE",
+      "source": "FF Scout",
+      "why": "In Scout's early GW8 Bus Team; alternative to Ajer",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Konsa",
+      "team": "ARS",
+      "source": "FF Scout",
+      "why": "In Scout's early GW8 Bus Team; cheaper way into the defence",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Barnes",
+      "team": "NEW",
+      "source": "FF Scout",
+      "why": "In Scout's early GW8 Bus Team",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Trafford",
+      "team": "LEE",
+      "source": "FF Scout",
+      "why": "In Scout's early GW8 Bus Team",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "João Pedro",
+      "team": "CHE",
+      "source": "FF Scout",
+      "why": "In Scout's early GW8 Bus Team",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Rogers",
+      "team": "CHE",
+      "source": "FF Scout",
+      "why": "In Scout's early GW8 Bus Team",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/21/fpl-gameweek-8-early-scout-picks-arsenal-trio-two-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Haaland",
+      "team": "MCI",
+      "source": "AllAboutFPL",
+      "why": "Captain lean (60-40) vs Aston Villa away",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gw8-team-selection-drafts-transfer-plans-and-chip-strategy/"
+    },
+    {
+      "type": "pick",
+      "player": "Manzambi",
+      "team": "AVL",
+      "source": "AllAboutFPL",
+      "why": "Target for GW9 when Villa start a strong fixture run",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gw8-team-selection-drafts-transfer-plans-and-chip-strategy/"
+    },
+    {
+      "type": "pick",
+      "player": "Rogers",
+      "team": "CHE",
+      "source": "AllAboutFPL",
+      "why": "Target for GW9/GW10",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gw8-team-selection-drafts-transfer-plans-and-chip-strategy/"
+    },
+    {
+      "type": "pick",
+      "player": "João Pedro",
+      "team": "CHE",
+      "source": "AllAboutFPL",
+      "why": "Target for GW9/GW10: 5 goals and 3 assists so far",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gw8-team-selection-drafts-transfer-plans-and-chip-strategy/"
+    },
+    {
+      "type": "pick",
+      "player": "Mbeumo",
+      "team": "MUN",
+      "source": "AllAboutFPL",
+      "why": "Buy any time from GW9; more time up top with Šeško injured",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gw8-team-selection-drafts-transfer-plans-and-chip-strategy/"
+    },
+    {
+      "type": "pick",
+      "player": "Vuskovic",
+      "team": "BHA",
+      "source": "AllAboutFPL",
+      "why": "Target from GW10: DefCon numbers, attacking threat, long-term value",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gw8-team-selection-drafts-transfer-plans-and-chip-strategy/"
+    },
+    {
+      "type": "pick",
+      "player": "Calvert-Lewin",
+      "team": "LEE",
+      "source": "AllAboutFPL",
+      "why": "Watchlist for GW9 as a direct swap for Gonzalo",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gw8-team-selection-drafts-transfer-plans-and-chip-strategy/"
+    },
+    {
+      "type": "pick",
+      "player": "Isak",
+      "team": "LIV",
+      "source": "AllAboutFPL",
+      "why": "Watchlist for GW10 ahead of Liverpool's good fixture run",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gw8-team-selection-drafts-transfer-plans-and-chip-strategy/"
+    },
+    {
+      "type": "avoid",
+      "player": "Gonzalo",
+      "team": "FUL",
+      "source": "AllAboutFPL",
+      "why": "\"Missing big chances for fun\"; planned move out in GW9",
+      "url": "https://allaboutfpl.com/2026/10/fpl-gw8-team-selection-drafts-transfer-plans-and-chip-strategy/"
+    },
+    {
+      "type": "pick",
+      "player": "Haaland",
+      "team": "MCI",
+      "source": "FF Hub",
+      "why": "\"Best finisher in the league\"; one of the best captain options if fit",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-8-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "João Pedro",
+      "team": "CHE",
+      "source": "FF Hub",
+      "why": "\"Almost essential\": 5 goals, 3 assists and nailed to start vs Spurs",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-8-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "B.Fernandes",
+      "team": "MUN",
+      "source": "FF Hub",
+      "why": "Frustrating but set-piece and penalty duties give haul potential vs Bournemouth",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-8-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "Palmer",
+      "team": "CHE",
+      "source": "FF Hub",
+      "why": "Serious haul potential vs Spurs, nailed, on pens; Hub AI's top choice",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-8-article-26-27"
     }
   ]
 }
