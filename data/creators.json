@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 8,
-  "updated": "2026-10-21",
+  "updated": "2026-10-22",
   "creators": [
     {
       "id": "FH",
@@ -11,112 +11,97 @@
         "aqua"
       ],
       "video": {
-        "title": "MY FPL GW8 TRANSFER TARGETS! · TOP 10 DEF, MID & FWDs",
-        "url": "https://www.youtube.com/watch?v=VVsTFyDu2Xs",
-        "date": "2026-10-21"
+        "title": "MY FPL GW8 TEAM SELECTION! SAKA INJURED · 2 TRANSFERS NEEDED?",
+        "url": "https://www.youtube.com/watch?v=bJp6DoKQOZA",
+        "date": "2026-10-22"
       },
       "buys": [
         {
-          "player": "Calafiori",
-          "team": "ARS",
-          "why": "His No.1 defender pick",
-          "t": null
-        },
-        {
-          "player": "Muharemović",
-          "team": "LEE",
-          "why": "His No.2 defender pick",
-          "t": null
-        },
-        {
-          "player": "Rogers",
+          "player": "Palmer",
           "team": "CHE",
-          "why": "His top midfielder",
+          "why": "Preferred Saka replacement; likes CHE fixtures (TOT, MUN at home)",
           "t": null
         },
         {
-          "player": "Mbeumo",
-          "team": "MUN",
-          "why": "Strong xG per 90 and price has dropped to £7.8m",
+          "player": "Thomas",
+          "team": "COV",
+          "why": "Likeliest defender buy: good 8-week fixtures, DefCon potential, cheap first sub",
           "t": null
         },
         {
-          "player": "Groß",
-          "team": "BHA",
-          "why": "Good minutes; worth buying even with LIV and MCI next",
-          "t": null
-        },
-        {
-          "player": "Schade",
-          "team": "BRE",
-          "why": "Cheaper mid; Hull fixture better than Manzambi's or Tavernier's",
-          "t": null
-        },
-        {
-          "player": "Calvert-Lewin",
-          "team": "LEE",
-          "why": "His No.3 forward; worth getting before a price rise",
-          "t": null
-        },
-        {
-          "player": "Isak",
-          "team": "LIV",
-          "why": "Fine forward option if you skip Palmer and Saka",
+          "player": "Konsa",
+          "team": "ARS",
+          "why": "Tempting ~£4.6m Arsenal defender, but role uncertain",
           "t": null
         }
       ],
       "avoids": [
         {
-          "player": "Semenyo",
-          "team": "MCI",
-          "why": "Injured and out for a while",
+          "player": "Saka",
+          "team": "ARS",
+          "why": "Quad injury, expects him out for a while; waiting on Friday presser",
           "t": null
         },
         {
-          "player": "Szoboszlai",
-          "team": "LIV",
-          "why": "Injured",
-          "t": null
-        },
-        {
-          "player": "B.Fernandes",
-          "team": "MUN",
-          "why": "Not worth the money",
-          "t": null
-        },
-        {
-          "player": "Wissa",
+          "player": "Hall",
           "team": "NEW",
-          "why": "A clear sell",
+          "why": "Most expendable defender, likeliest sale to fund moves",
+          "t": null
+        },
+        {
+          "player": "Gonzalo",
+          "team": "FUL",
+          "why": "Weak point he'd sell, though likely kept for Coventry away",
           "t": null
         }
       ],
       "moves": {
         "chip": null,
-        "note": "Transfer-targets video, no own moves confirmed; considering Calvert-Lewin before his price rises. Advises against most defender transfers this week (poor fixtures).",
-        "transfers": []
+        "note": "Plans to use both free transfers; £0.2m short for Saka → Palmer. Final call after Arsenal's Friday presser.",
+        "transfers": [
+          {
+            "out": {
+              "player": "Saka",
+              "team": "ARS"
+            },
+            "in": {
+              "player": "Palmer",
+              "team": "CHE"
+            }
+          },
+          {
+            "out": {
+              "player": "Hall",
+              "team": "NEW"
+            },
+            "in": {
+              "player": "Thomas",
+              "team": "COV"
+            }
+          }
+        ]
       },
       "squad": {
         "xi": [],
-        "captain": null,
+        "captain": "João Pedro",
         "vice": null,
         "bench": []
       },
       "extra": [
         {
-          "topic": "Fixtures",
-          "text": "Few teams above a 35% clean-sheet chance this week, so defender moves can wait",
-          "t": "0:30"
-        },
-        {
-          "topic": "Brighton",
-          "text": "LIV and MCI next; wait until GW10 to invest more",
+          "topic": "Captaincy",
+          "text": "João Pedro currently captain (scored in every home game); considering Haaland away at Villa",
           "t": null
         },
         {
-          "topic": "Barry",
-          "text": "Everton forward worth considering from GW9",
-          "t": "13:09"
+          "topic": "Saka",
+          "text": "Quad injury v Bayern, scans Thu/Fri; doubts he's back for GW9",
+          "t": "2:32"
+        },
+        {
+          "topic": "Gibbs-White",
+          "text": "Confirmed fit for Forest v Ipswich",
+          "t": null
         }
       ]
     },
@@ -128,100 +113,87 @@
         "rose"
       ],
       "video": {
-        "title": "Maresca gives Haaland update · FPL Gameweek 8 Preview",
-        "url": "https://www.youtube.com/watch?v=wt0u6EyW7pI",
-        "date": "2026-10-21"
+        "title": "SAKA INJURED! What to do? My FPL Team for GW8 · Top 50k",
+        "url": "https://www.youtube.com/watch?v=oZQg835JQXw",
+        "date": "2026-10-22"
       },
       "buys": [
         {
-          "player": "Doku",
-          "team": "MCI",
-          "why": "Best City punt for minutes vs Aston Villa, though not a guaranteed start",
-          "t": "00:15"
-        },
-        {
-          "player": "Ndiaye",
-          "team": "MCI",
-          "why": "Other City option most likely to get minutes vs Villa",
-          "t": "00:15"
-        },
-        {
-          "player": "Tavernier",
-          "team": "BOU",
-          "why": "A definite hold and a cheap buy: penalties and 90 minutes",
-          "t": "24:45"
-        },
-        {
-          "player": "Muharemović",
-          "team": "LEE",
-          "why": "His pick if buying a defender this week (Sunderland away)",
-          "t": "26:45"
-        },
-        {
-          "player": "Calvert-Lewin",
-          "team": "LEE",
-          "why": "Worth ~£0.3m more than Kostoulas for penalties and 90 minutes",
-          "t": "17:48"
-        },
-        {
-          "player": "Van Hecke",
-          "team": "TOT",
-          "why": "Rotation defender from GW9 with a good home game every other week",
+          "player": "Mbeumo",
+          "team": "MUN",
+          "why": "Leaning to him over Gibbs-White for higher goal threat; slightly cheaper",
           "t": null
         },
         {
-          "player": "Rodon",
-          "team": "LEE",
-          "why": "Cheap option with reliable minutes",
+          "player": "Gibbs-White",
+          "team": "NFO",
+          "why": "Main alternative: Ipswich away, 90 mins and penalties",
+          "t": null
+        },
+        {
+          "player": "Rogers",
+          "team": "CHE",
+          "why": "Nailed minutes, no Europe, better goal threat and fixtures than Gibbs-White",
+          "t": null
+        },
+        {
+          "player": "Ødegaard",
+          "team": "ARS",
+          "why": "Could take penalties and more minutes with Saka out",
           "t": null
         }
       ],
       "avoids": [
         {
-          "player": "Kostoulas",
-          "team": "BHA",
-          "why": "Wait until after the LIV and MCI games; early subs limit his minutes",
-          "t": "17:48"
-        },
-        {
-          "player": "Eze",
-          "team": "ARS",
-          "why": "Wouldn't spend two transfers to get him right now",
+          "player": "Szoboszlai",
+          "team": "LIV",
+          "why": "Leaning to sell; injury return date unclear",
           "t": null
         },
         {
-          "player": "Manzambi",
-          "team": "AVL",
-          "why": "Wait for more news on his injury",
-          "t": "05:29"
+          "player": "Saka",
+          "team": "ARS",
+          "why": "Owners should likely sell; expected to miss GW8",
+          "t": null
         }
       ],
       "moves": {
         "chip": null,
-        "note": "No transfers confirmed. Has Lewis Hall in his XI and may switch Kerkez in by the deadline; shows Free Hit and Wildcard drafts.",
-        "transfers": []
+        "note": "3 free transfers, £1.9m ITB; plans one move and to roll the other two. Not final.",
+        "transfers": [
+          {
+            "out": {
+              "player": "Szoboszlai",
+              "team": "LIV"
+            },
+            "in": {
+              "player": "Mbeumo",
+              "team": "MUN"
+            }
+          }
+        ]
       },
       "squad": {
         "xi": [],
-        "captain": "Palmer",
+        "captain": "Haaland",
         "vice": null,
         "bench": []
       },
       "extra": [
         {
-          "topic": "Captain",
-          "text": "Has Palmer captained for now but may switch back to Haaland: 'if in doubt, go Haaland'",
-          "t": "05:54"
+          "topic": "Captaincy",
+          "text": "Haaland has the armband for now; tempted by Palmer, undecided",
+          "t": null
         },
         {
-          "topic": "Haaland",
-          "text": "Expected to start against Aston Villa",
-          "t": "00:15"
+          "topic": "Penalties",
+          "text": "With Saka out, Ødegaard likely on penalties (Havertz the other option)",
+          "t": "17:30"
         },
         {
-          "topic": "Brighton",
-          "text": "Don't bench Groß and De Cuyper just because of Liverpool away; play them rather than force a transfer",
-          "t": "21:16"
+          "topic": "Man United",
+          "text": "Carrick may be sacked soon, which could affect Mbeumo's role",
+          "t": null
         }
       ]
     },
@@ -233,16 +205,77 @@
         "lilac"
       ],
       "video": {
-        "title": "BUY & CAPTAIN GIBBS-WHITE? · MY FPL GW8 TRANSFER PLANS",
-        "url": "https://www.youtube.com/watch?v=OlvN9ePNH0Y",
-        "date": "2026-10-19"
+        "title": "4 FREE TRANSFERS | MY FPL GW8 TEAM SELECTION | Fantasy Premier League Tips 2026/27",
+        "url": "https://www.youtube.com/watch?v=MThZ9FepcfQ",
+        "date": "2026-10-22"
       },
-      "buys": [],
-      "avoids": [],
+      "buys": [
+        {
+          "player": "Gibbs-White",
+          "team": "NFO",
+          "why": "Favoured: good entry point at Ipswich away, captaincy appeal",
+          "t": null
+        },
+        {
+          "player": "Mbeumo",
+          "team": "MUN",
+          "why": "Alternative: still gets big chances and could play as the No.9",
+          "t": null
+        },
+        {
+          "player": "Kroupi.Jr",
+          "team": "BOU",
+          "why": "Back soon; strong at £7.3m and would take pens ahead of Tavernier",
+          "t": null
+        },
+        {
+          "player": "N.Jackson",
+          "team": "AVL",
+          "why": "Planned GW9 replacement for Gonzalo on fixtures",
+          "t": null
+        },
+        {
+          "player": "Vuskovic",
+          "team": "BHA",
+          "why": "Planned GW11 replacement for Hall",
+          "t": null
+        }
+      ],
+      "avoids": [
+        {
+          "player": "Szoboszlai",
+          "team": "LIV",
+          "why": "Injured; almost certain to sell this week",
+          "t": null
+        },
+        {
+          "player": "Gonzalo",
+          "team": "FUL",
+          "why": "Called signing him a mistake; poor finishing, plans to sell",
+          "t": null
+        },
+        {
+          "player": "Hall",
+          "team": "NEW",
+          "why": "Not now, planned sale in GW11",
+          "t": null
+        }
+      ],
       "moves": {
         "chip": null,
-        "note": "4 free transfers, £1.9m ITB, 2 flagged players (per video description)",
-        "transfers": []
+        "note": "4 FTs, £1.9m ITB; leaning Szoboszlai → Gibbs-White (Hub suggests Mbeumo). Plans: GW9 Gonzalo → Jackson, GW11 Hall → Vuskovic. Free Hit possible GW14 or GW16.",
+        "transfers": [
+          {
+            "out": {
+              "player": "Szoboszlai",
+              "team": "LIV"
+            },
+            "in": {
+              "player": "Gibbs-White",
+              "team": "NFO"
+            }
+          }
+        ]
       },
       "squad": {
         "xi": [],
@@ -252,8 +285,18 @@
       },
       "extra": [
         {
-          "topic": "Captain",
-          "text": "Says there's no standout captain this week (video description)",
+          "topic": "Captaincy",
+          "text": "Undecided: Haaland or João Pedro the safe picks; Palmer or Gibbs-White as differentials",
+          "t": "18:31"
+        },
+        {
+          "topic": "Bench",
+          "text": "Still deciding between starting Ødegaard or Groß",
+          "t": null
+        },
+        {
+          "topic": "Calafiori",
+          "text": "5-10% chance he doesn't start against Everton",
           "t": null
         }
       ]
