@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 8,
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "creators": [
     {
       "id": "FH",
@@ -309,154 +309,171 @@
         "aqua"
       ],
       "video": {
-        "title": "FPL GW8 TRANSFER TIPS! | Top Picks Tier List for Gameweek 8 - 2026/27!",
-        "url": "https://www.youtube.com/watch?v=wwA7XWRl98s",
-        "date": "2026-10-19"
+        "title": "FPL GW8 Team Selection: My Saka & Szoboszlai Replacements! | Transfers & Captain",
+        "url": "https://www.youtube.com/watch?v=b_56mCCuTmg",
+        "date": "2026-10-22"
       },
       "buys": [
         {
-          "player": "Haaland",
-          "team": "MCI",
-          "why": "Essential; the only consistently captainable premium, expected fit for GW8",
-          "t": "13:35"
-        },
-        {
-          "player": "João Pedro",
-          "team": "CHE",
-          "why": "Strong underlying numbers and good enough Chelsea fixtures",
-          "t": "13:35"
-        },
-        {
-          "player": "Calvert-Lewin",
-          "team": "LEE",
-          "why": "Good recent numbers, cheap at £6m and on penalties",
-          "t": "13:35"
-        },
-        {
-          "player": "Gibbs-White",
-          "team": "NFO",
-          "why": "Likely available vs Ipswich and on penalties",
-          "t": "17:26"
-        },
-        {
-          "player": "Rogers",
-          "team": "CHE",
-          "why": "Good season so far, though overperforming",
-          "t": "17:26"
-        },
-        {
-          "player": "Manzambi",
-          "team": "AVL",
-          "why": "Differential with high shot and key-pass volume",
-          "t": "17:26"
-        },
-        {
-          "player": "Gabriel",
-          "team": "ARS",
-          "why": "Arsenal's GW8 and GW10 clean-sheet odds are their best of the season",
-          "t": "23:05"
-        },
-        {
-          "player": "Calafiori",
-          "team": "ARS",
-          "why": "Good value at £6m with Everton and Hull fixtures",
-          "t": "23:05"
-        },
-        {
-          "player": "Muharemović",
-          "team": "LEE",
-          "why": "Defensive contributions, set-piece threat and good fixtures",
-          "t": "23:05"
-        },
-        {
-          "player": "Thomas",
-          "team": "COV",
-          "why": "£4m defender with defensive contributions and set pieces",
-          "t": "23:05"
+          "player": "Mbeumo",
+          "team": "MUN",
+          "why": "His Saka replacement: high shot volume, strong xG/xA, set pieces and penalties",
+          "t": null
         },
         {
           "player": "Raya",
           "team": "ARS",
-          "why": "The only goalkeeper he would actively buy this week",
-          "t": "27:27"
+          "why": "Replaces Kinsky; Arsenal have the best GW8 clean-sheet odds",
+          "t": null
+        },
+        {
+          "player": "Manzambi",
+          "team": "AVL",
+          "why": "Favourite pick for GW9 onward once fit; high shot volume",
+          "t": null
+        },
+        {
+          "player": "Kroupi.Jr",
+          "team": "BOU",
+          "why": "Strong long-term differential, but not for GW8",
+          "t": null
+        },
+        {
+          "player": "Gibbs-White",
+          "team": "NFO",
+          "why": "Good pick, though he prefers Mbeumo",
+          "t": null
         }
       ],
       "avoids": [
         {
-          "player": "Semenyo",
-          "team": "MCI",
-          "why": "Injured, out about 8 weeks",
-          "t": "04:32"
+          "player": "Saka",
+          "team": "ARS",
+          "why": "Injured; sees under 1% chance he plays GW8",
+          "t": null
         },
         {
-          "player": "Solanke",
+          "player": "Kinsky",
           "team": "TOT",
-          "why": "Out for at least another gameweek",
-          "t": "00:45"
+          "why": "Tough away fixture at Chelsea, only 13% clean-sheet chance",
+          "t": null
         },
         {
-          "player": "B.Fernandes",
-          "team": "MUN",
-          "why": "Poor season so far",
-          "t": "04:32"
-        },
-        {
-          "player": "Barry",
-          "team": "EVE",
-          "why": "Poor finisher with tough fixtures",
-          "t": "00:45"
-        },
-        {
-          "player": "Brobbey",
-          "team": "SUN",
-          "why": "Hamstring issue and a weak Sunderland attack",
-          "t": "00:45"
-        },
-        {
-          "player": "James",
-          "team": "CHE",
-          "why": "Out until January",
-          "t": "09:36"
-        },
-        {
-          "player": "Tarkowski",
-          "team": "EVE",
-          "why": "Poor fixtures, away at Arsenal",
-          "t": "09:36"
-        },
-        {
-          "player": "Pickford",
-          "team": "EVE",
-          "why": "Expensive with poor fixtures",
-          "t": "27:27"
+          "player": "Szoboszlai",
+          "team": "LIV",
+          "why": "Out for 1-3 games; benched rather than sold",
+          "t": null
         }
       ],
       "moves": {
         "chip": null,
-        "note": null,
-        "transfers": []
+        "note": "4 free transfers; makes 2 and rolls the rest",
+        "transfers": [
+          {
+            "out": {
+              "player": "Saka",
+              "team": "ARS"
+            },
+            "in": {
+              "player": "Mbeumo",
+              "team": "MUN"
+            }
+          },
+          {
+            "out": {
+              "player": "Kinsky",
+              "team": "TOT"
+            },
+            "in": {
+              "player": "Raya",
+              "team": "ARS"
+            }
+          }
+        ]
       },
       "squad": {
-        "xi": [],
-        "captain": null,
+        "xi": [
+          {
+            "player": "Raya",
+            "team": "ARS"
+          },
+          {
+            "player": "Calafiori",
+            "team": "ARS"
+          },
+          {
+            "player": "Konsa",
+            "team": "ARS"
+          },
+          {
+            "player": "Muharemović",
+            "team": "LEE"
+          },
+          {
+            "player": "Thomas",
+            "team": "COV"
+          },
+          {
+            "player": "Palmer",
+            "team": "CHE"
+          },
+          {
+            "player": "Rogers",
+            "team": "CHE"
+          },
+          {
+            "player": "Groß",
+            "team": "BHA"
+          },
+          {
+            "player": "Mbeumo",
+            "team": "MUN"
+          },
+          {
+            "player": "Haaland",
+            "team": "MCI"
+          },
+          {
+            "player": "João Pedro",
+            "team": "CHE"
+          }
+        ],
+        "captain": "Haaland",
         "vice": null,
-        "bench": []
+        "bench": [
+          {
+            "player": "Button",
+            "team": "IPS"
+          },
+          {
+            "player": "De Cuyper",
+            "team": "BHA"
+          },
+          {
+            "player": "Barry",
+            "team": "EVE"
+          },
+          {
+            "player": "Szoboszlai",
+            "team": "LIV"
+          }
+        ]
       },
       "extra": [
         {
-          "topic": "Keep",
-          "text": "Would keep Saka despite blanks, citing Arsenal's projected goals (2.06 in GW8, 2.91 in GW10)",
-          "t": "04:32"
-        },
-        {
-          "topic": "Monitor",
-          "text": "Eze, Tavernier, Groß (wait until GW10+) and Lewis Hall on his watchlist",
+          "topic": "Bench",
+          "text": "Benches De Cuyper (at Liverpool) and Barry (vs Arsenal) for GW8",
           "t": null
         },
         {
-          "topic": "Avoid",
-          "text": "Brighton defenders due to tough clean-sheet odds",
-          "t": "23:05"
+          "topic": "Plans",
+          "text": "GW9: Manzambi in, possibly for Groß or Barry; deciding Manzambi vs Kroupi.Jr next week",
+          "t": null
+        },
+        {
+          "topic": "Tavernier",
+          "text": "Not recommended: early subs, lost penalties and rotation risk",
+          "t": null
         }
       ]
     }
