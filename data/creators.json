@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
-  "gw": 8,
-  "updated": "2026-10-23",
+  "gw": 9,
+  "updated": "2026-10-26",
   "creators": [
     {
       "id": "FH",
@@ -11,97 +11,33 @@
         "aqua"
       ],
       "video": {
-        "title": "MY FPL GW8 TEAM SELECTION! SAKA INJURED · 2 TRANSFERS NEEDED?",
-        "url": "https://www.youtube.com/watch?v=bJp6DoKQOZA",
-        "date": "2026-10-22"
+        "title": "HORROR GAMEWEEK · 3 INJURIES! MY FPL GW9 TRANSFER PLANS",
+        "url": "https://www.youtube.com/watch?v=8tOD9z62WBY",
+        "date": "2026-10-25"
       },
-      "buys": [
-        {
-          "player": "Palmer",
-          "team": "CHE",
-          "why": "Preferred Saka replacement; likes CHE fixtures (TOT, MUN at home)",
-          "t": null
-        },
-        {
-          "player": "Thomas",
-          "team": "COV",
-          "why": "Likeliest defender buy: good 8-week fixtures, DefCon potential, cheap first sub",
-          "t": null
-        },
-        {
-          "player": "Konsa",
-          "team": "ARS",
-          "why": "Tempting ~£4.6m Arsenal defender, but role uncertain",
-          "t": null
-        }
-      ],
-      "avoids": [
-        {
-          "player": "Saka",
-          "team": "ARS",
-          "why": "Quad injury, expects him out for a while; waiting on Friday presser",
-          "t": null
-        },
-        {
-          "player": "Hall",
-          "team": "NEW",
-          "why": "Most expendable defender, likeliest sale to fund moves",
-          "t": null
-        },
-        {
-          "player": "Gonzalo",
-          "team": "FUL",
-          "why": "Weak point he'd sell, though likely kept for Coventry away",
-          "t": null
-        }
-      ],
+      "buys": [],
+      "avoids": [],
       "moves": {
         "chip": null,
-        "note": "Plans to use both free transfers; £0.2m short for Saka → Palmer. Final call after Arsenal's Friday presser.",
-        "transfers": [
-          {
-            "out": {
-              "player": "Saka",
-              "team": "ARS"
-            },
-            "in": {
-              "player": "Palmer",
-              "team": "CHE"
-            }
-          },
-          {
-            "out": {
-              "player": "Hall",
-              "team": "NEW"
-            },
-            "in": {
-              "player": "Thomas",
-              "team": "COV"
-            }
-          }
-        ]
+        "note": null,
+        "transfers": []
       },
       "squad": {
         "xi": [],
-        "captain": "João Pedro",
+        "captain": null,
         "vice": null,
         "bench": []
       },
       "extra": [
         {
-          "topic": "Captaincy",
-          "text": "João Pedro currently captain (scored in every home game); considering Haaland away at Villa",
-          "t": null
+          "topic": "Free Hit",
+          "text": "Has a section on whether to Free Hit in GW9",
+          "t": "14:13"
         },
         {
-          "topic": "Saka",
-          "text": "Quad injury v Bayern, scans Thu/Fri; doubts he's back for GW9",
-          "t": "2:32"
-        },
-        {
-          "topic": "Gibbs-White",
-          "text": "Confirmed fit for Forest v Ipswich",
-          "t": null
+          "topic": "Plans",
+          "text": "Covers fixtures to target and potential GW9 transfers after a GW8 with 3 injuries",
+          "t": "15:10"
         }
       ]
     },
@@ -113,86 +49,32 @@
         "rose"
       ],
       "video": {
-        "title": "SAKA INJURED! What to do? My FPL Team for GW8 · Top 50k",
-        "url": "https://www.youtube.com/watch?v=oZQg835JQXw",
-        "date": "2026-10-22"
+        "title": "Do we need to sell João Pedro? FPL GW9 Early Thoughts",
+        "url": "https://www.youtube.com/watch?v=OV5QWK-D2cc",
+        "date": "2026-10-26"
       },
-      "buys": [
-        {
-          "player": "Mbeumo",
-          "team": "MUN",
-          "why": "Leaning to him over Gibbs-White for higher goal threat; slightly cheaper",
-          "t": null
-        },
-        {
-          "player": "Gibbs-White",
-          "team": "NFO",
-          "why": "Main alternative: Ipswich away, 90 mins and penalties",
-          "t": null
-        },
-        {
-          "player": "Rogers",
-          "team": "CHE",
-          "why": "Nailed minutes, no Europe, better goal threat and fixtures than Gibbs-White",
-          "t": null
-        },
-        {
-          "player": "Ødegaard",
-          "team": "ARS",
-          "why": "Could take penalties and more minutes with Saka out",
-          "t": null
-        }
-      ],
-      "avoids": [
-        {
-          "player": "Szoboszlai",
-          "team": "LIV",
-          "why": "Leaning to sell; injury return date unclear",
-          "t": null
-        },
-        {
-          "player": "Saka",
-          "team": "ARS",
-          "why": "Owners should likely sell; expected to miss GW8",
-          "t": null
-        }
-      ],
+      "buys": [],
+      "avoids": [],
       "moves": {
         "chip": null,
-        "note": "3 free transfers, £1.9m ITB; plans one move and to roll the other two. Not final.",
-        "transfers": [
-          {
-            "out": {
-              "player": "Szoboszlai",
-              "team": "LIV"
-            },
-            "in": {
-              "player": "Mbeumo",
-              "team": "MUN"
-            }
-          }
-        ]
+        "note": null,
+        "transfers": []
       },
       "squad": {
         "xi": [],
-        "captain": "Haaland",
+        "captain": null,
         "vice": null,
         "bench": []
       },
       "extra": [
         {
-          "topic": "Captaincy",
-          "text": "Haaland has the armband for now; tempted by Palmer, undecided",
-          "t": null
+          "topic": "João Pedro",
+          "text": "Main question of the video: whether to sell João Pedro",
+          "t": "03:36"
         },
         {
-          "topic": "Penalties",
-          "text": "With Saka out, Ødegaard likely on penalties (Havertz the other option)",
-          "t": "17:30"
-        },
-        {
-          "topic": "Man United",
-          "text": "Carrick may be sacked soon, which could affect Mbeumo's role",
+          "topic": "Topics",
+          "text": "Also covers Palmer, Arsenal defenders, Cherki, B.Fernandes and Tavernier",
           "t": null
         }
       ]
@@ -205,77 +87,16 @@
         "lilac"
       ],
       "video": {
-        "title": "4 FREE TRANSFERS | MY FPL GW8 TEAM SELECTION | Fantasy Premier League Tips 2026/27",
-        "url": "https://www.youtube.com/watch?v=MThZ9FepcfQ",
-        "date": "2026-10-22"
+        "title": "SELL JOÃO PEDRO & CALAFIORI? | MY FPL GW9 TRANSFER PLANS",
+        "url": "https://www.youtube.com/watch?v=OvbOe7uPKW4",
+        "date": "2026-10-25"
       },
-      "buys": [
-        {
-          "player": "Gibbs-White",
-          "team": "NFO",
-          "why": "Favoured: good entry point at Ipswich away, captaincy appeal",
-          "t": null
-        },
-        {
-          "player": "Mbeumo",
-          "team": "MUN",
-          "why": "Alternative: still gets big chances and could play as the No.9",
-          "t": null
-        },
-        {
-          "player": "Kroupi.Jr",
-          "team": "BOU",
-          "why": "Back soon; strong at £7.3m and would take pens ahead of Tavernier",
-          "t": null
-        },
-        {
-          "player": "N.Jackson",
-          "team": "AVL",
-          "why": "Planned GW9 replacement for Gonzalo on fixtures",
-          "t": null
-        },
-        {
-          "player": "Vuskovic",
-          "team": "BHA",
-          "why": "Planned GW11 replacement for Hall",
-          "t": null
-        }
-      ],
-      "avoids": [
-        {
-          "player": "Szoboszlai",
-          "team": "LIV",
-          "why": "Injured; almost certain to sell this week",
-          "t": null
-        },
-        {
-          "player": "Gonzalo",
-          "team": "FUL",
-          "why": "Called signing him a mistake; poor finishing, plans to sell",
-          "t": null
-        },
-        {
-          "player": "Hall",
-          "team": "NEW",
-          "why": "Not now, planned sale in GW11",
-          "t": null
-        }
-      ],
+      "buys": [],
+      "avoids": [],
       "moves": {
         "chip": null,
-        "note": "4 FTs, £1.9m ITB; leaning Szoboszlai → Gibbs-White (Hub suggests Mbeumo). Plans: GW9 Gonzalo → Jackson, GW11 Hall → Vuskovic. Free Hit possible GW14 or GW16.",
-        "transfers": [
-          {
-            "out": {
-              "player": "Szoboszlai",
-              "team": "LIV"
-            },
-            "in": {
-              "player": "Gibbs-White",
-              "team": "NFO"
-            }
-          }
-        ]
+        "note": "Has 4 free transfers and £0.8m in the bank for GW9; weighing selling João Pedro and Calafiori, buying Jackson and benching Arsenal defence (verdict not in description).",
+        "transfers": []
       },
       "squad": {
         "xi": [],
@@ -285,19 +106,9 @@
       },
       "extra": [
         {
-          "topic": "Captaincy",
-          "text": "Undecided: Haaland or João Pedro the safe picks; Palmer or Gibbs-White as differentials",
-          "t": "18:31"
-        },
-        {
-          "topic": "Bench",
-          "text": "Still deciding between starting Ødegaard or Groß",
-          "t": null
-        },
-        {
-          "topic": "Calafiori",
-          "text": "5-10% chance he doesn't start against Everton",
-          "t": null
+          "topic": "GW9 options",
+          "text": "Considering selling João Pedro and Calafiori, buying Jackson, benching Arsenal defence",
+          "t": "6:15"
         }
       ]
     },
@@ -309,170 +120,27 @@
         "aqua"
       ],
       "video": {
-        "title": "FPL GW8 Team Selection: My Saka & Szoboszlai Replacements! | Transfers & Captain",
-        "url": "https://www.youtube.com/watch?v=b_56mCCuTmg",
-        "date": "2026-10-22"
+        "title": "GW8 Is Over... Here's What I'm Doing in GW9!",
+        "url": "https://www.youtube.com/watch?v=rmvAa5ZVY2U",
+        "date": "2026-10-25"
       },
-      "buys": [
-        {
-          "player": "Mbeumo",
-          "team": "MUN",
-          "why": "His Saka replacement: high shot volume, strong xG/xA, set pieces and penalties",
-          "t": null
-        },
-        {
-          "player": "Raya",
-          "team": "ARS",
-          "why": "Replaces Kinsky; Arsenal have the best GW8 clean-sheet odds",
-          "t": null
-        },
-        {
-          "player": "Manzambi",
-          "team": "AVL",
-          "why": "Favourite pick for GW9 onward once fit; high shot volume",
-          "t": null
-        },
-        {
-          "player": "Kroupi.Jr",
-          "team": "BOU",
-          "why": "Strong long-term differential, but not for GW8",
-          "t": null
-        },
-        {
-          "player": "Gibbs-White",
-          "team": "NFO",
-          "why": "Good pick, though he prefers Mbeumo",
-          "t": null
-        }
-      ],
-      "avoids": [
-        {
-          "player": "Saka",
-          "team": "ARS",
-          "why": "Injured; sees under 1% chance he plays GW8",
-          "t": null
-        },
-        {
-          "player": "Kinsky",
-          "team": "TOT",
-          "why": "Tough away fixture at Chelsea, only 13% clean-sheet chance",
-          "t": null
-        },
-        {
-          "player": "Szoboszlai",
-          "team": "LIV",
-          "why": "Out for 1-3 games; benched rather than sold",
-          "t": null
-        }
-      ],
+      "buys": [],
+      "avoids": [],
       "moves": {
         "chip": null,
-        "note": "4 free transfers; makes 2 and rolls the rest",
-        "transfers": [
-          {
-            "out": {
-              "player": "Saka",
-              "team": "ARS"
-            },
-            "in": {
-              "player": "Mbeumo",
-              "team": "MUN"
-            }
-          },
-          {
-            "out": {
-              "player": "Kinsky",
-              "team": "TOT"
-            },
-            "in": {
-              "player": "Raya",
-              "team": "ARS"
-            }
-          }
-        ]
+        "note": null,
+        "transfers": []
       },
       "squad": {
-        "xi": [
-          {
-            "player": "Raya",
-            "team": "ARS"
-          },
-          {
-            "player": "Calafiori",
-            "team": "ARS"
-          },
-          {
-            "player": "Konsa",
-            "team": "ARS"
-          },
-          {
-            "player": "Muharemović",
-            "team": "LEE"
-          },
-          {
-            "player": "Thomas",
-            "team": "COV"
-          },
-          {
-            "player": "Palmer",
-            "team": "CHE"
-          },
-          {
-            "player": "Rogers",
-            "team": "CHE"
-          },
-          {
-            "player": "Groß",
-            "team": "BHA"
-          },
-          {
-            "player": "Mbeumo",
-            "team": "MUN"
-          },
-          {
-            "player": "Haaland",
-            "team": "MCI"
-          },
-          {
-            "player": "João Pedro",
-            "team": "CHE"
-          }
-        ],
-        "captain": "Haaland",
+        "xi": [],
+        "captain": null,
         "vice": null,
-        "bench": [
-          {
-            "player": "Button",
-            "team": "IPS"
-          },
-          {
-            "player": "De Cuyper",
-            "team": "BHA"
-          },
-          {
-            "player": "Barry",
-            "team": "EVE"
-          },
-          {
-            "player": "Szoboszlai",
-            "team": "LIV"
-          }
-        ]
+        "bench": []
       },
       "extra": [
         {
-          "topic": "Bench",
-          "text": "Benches De Cuyper (at Liverpool) and Barry (vs Arsenal) for GW8",
-          "t": null
-        },
-        {
-          "topic": "Plans",
-          "text": "GW9: Manzambi in, possibly for Groß or Barry; deciding Manzambi vs Kroupi.Jr next week",
-          "t": null
-        },
-        {
-          "topic": "Tavernier",
-          "text": "Not recommended: early subs, lost penalties and rotation risk",
+          "topic": "Kneejerk",
+          "text": "Reviews GW8 and whether to move early on transfers, price changes and midweek fixtures",
           "t": null
         }
       ]
