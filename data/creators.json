@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 9,
-  "updated": "2026-10-26",
+  "updated": "2026-10-27",
   "creators": [
     {
       "id": "FH",
@@ -15,29 +15,153 @@
         "url": "https://www.youtube.com/watch?v=8tOD9z62WBY",
         "date": "2026-10-25"
       },
-      "buys": [],
-      "avoids": [],
+      "buys": [
+        {
+          "player": "N.Jackson",
+          "team": "AVL",
+          "why": "Top pick to replace Gonzalo; good fixture run from GW10",
+          "t": null
+        },
+        {
+          "player": "Calvert-Lewin",
+          "team": "LEE",
+          "why": "Second choice; back in the squad and no longer flagged",
+          "t": null
+        },
+        {
+          "player": "Evanilson",
+          "team": "BOU",
+          "why": "Third choice; recent returns and good upcoming fixtures",
+          "t": null
+        },
+        {
+          "player": "Tavernier",
+          "team": "BOU",
+          "why": "Midfield target to upgrade Slater later, only if João Pedro is out long",
+          "t": null
+        },
+        {
+          "player": "Manzambi",
+          "team": "AVL",
+          "why": "Alternative midfield target to upgrade Slater later",
+          "t": null
+        }
+      ],
+      "avoids": [
+        {
+          "player": "Gonzalo",
+          "team": "FUL",
+          "why": "Number one sale; not scoring and Fulham look better without him",
+          "t": null
+        },
+        {
+          "player": "João Pedro",
+          "team": "CHE",
+          "why": "Possible sale if out long with the same injury before the busy Christmas period",
+          "t": null
+        },
+        {
+          "player": "Calafiori",
+          "team": "ARS",
+          "why": "Not worth buying for the away trip to Liverpool",
+          "t": null
+        }
+      ],
       "moves": {
         "chip": null,
-        "note": null,
-        "transfers": []
+        "note": "1 FT, nothing confirmed; waiting for pressers. No Free Hit in GW9. Likely move if the injured three are out: Gonzalo → Jackson (a -4 possible).",
+        "transfers": [
+          {
+            "out": {
+              "player": "Gonzalo",
+              "team": "FUL"
+            },
+            "in": {
+              "player": "N.Jackson",
+              "team": "AVL"
+            }
+          }
+        ]
       },
       "squad": {
-        "xi": [],
-        "captain": null,
-        "vice": null,
-        "bench": []
+        "xi": [
+          {
+            "player": "Raya",
+            "team": "ARS"
+          },
+          {
+            "player": "De Cuyper",
+            "team": "BHA"
+          },
+          {
+            "player": "Van Hecke",
+            "team": "TOT"
+          },
+          {
+            "player": "Muharemović",
+            "team": "LEE"
+          },
+          {
+            "player": "Slater",
+            "team": "HUL"
+          },
+          {
+            "player": "Groß",
+            "team": "BHA"
+          },
+          {
+            "player": "Palmer",
+            "team": "CHE"
+          },
+          {
+            "player": "Rogers",
+            "team": "CHE"
+          },
+          {
+            "player": "Gibbs-White",
+            "team": "NFO"
+          },
+          {
+            "player": "Gonzalo",
+            "team": "FUL"
+          },
+          {
+            "player": "Haaland",
+            "team": "MCI"
+          }
+        ],
+        "captain": "Haaland",
+        "vice": "Slater",
+        "bench": [
+          {
+            "player": "Thomas",
+            "team": "COV"
+          },
+          {
+            "player": "Calafiori",
+            "team": "ARS"
+          },
+          {
+            "player": "João Pedro",
+            "team": "CHE"
+          }
+        ]
       },
       "extra": [
         {
+          "topic": "Injuries",
+          "text": "Calafiori, João Pedro and Bobby Thomas all flagged; Thomas may be out for months",
+          "t": null
+        },
+        {
           "topic": "Free Hit",
-          "text": "Has a section on whether to Free Hit in GW9",
+          "text": "No Free Hit in GW9: fixtures too poor and too few strong teams to target",
           "t": "14:13"
         },
         {
-          "topic": "Plans",
-          "text": "Covers fixtures to target and potential GW9 transfers after a GW8 with 3 injuries",
-          "t": "15:10"
+          "topic": "Palmer",
+          "text": "Suspension is served in the cup; available for Man Utd at home",
+          "t": null
         }
       ]
     },
@@ -53,28 +177,145 @@
         "url": "https://www.youtube.com/watch?v=OV5QWK-D2cc",
         "date": "2026-10-26"
       },
-      "buys": [],
-      "avoids": [],
+      "buys": [
+        {
+          "player": "Tavernier",
+          "team": "BOU",
+          "why": "Favourite cheap mid: 5 goals, good numbers, good fixtures, ~83 mins per start",
+          "t": null
+        },
+        {
+          "player": "Manzambi",
+          "team": "AVL",
+          "why": "Strong alternative to Tavernier; slightly better Villa fixtures",
+          "t": null
+        },
+        {
+          "player": "N.Jackson",
+          "team": "AVL",
+          "why": "Starts most games and has a good fixture run",
+          "t": null
+        },
+        {
+          "player": "Barry",
+          "team": "EVE",
+          "why": "Cheap nailed forward to fund a move to Gabriel",
+          "t": null
+        },
+        {
+          "player": "Gabriel",
+          "team": "ARS",
+          "why": "Good target to plan for, no rush",
+          "t": null
+        },
+        {
+          "player": "Hall",
+          "team": "NEW",
+          "why": "Fine for this week only",
+          "t": null
+        }
+      ],
+      "avoids": [
+        {
+          "player": "B.Fernandes",
+          "team": "MUN",
+          "why": "Worst value pick in FPL; zero minutes in GW8",
+          "t": null
+        },
+        {
+          "player": "Palmer",
+          "team": "CHE",
+          "why": "Not worth the price, poor underlying numbers; OK to hold for now",
+          "t": null
+        },
+        {
+          "player": "Cherki",
+          "team": "MCI",
+          "why": "Repeatedly subbed at half-time; sell sooner rather than later",
+          "t": null
+        },
+        {
+          "player": "Thiago",
+          "team": "BRE",
+          "why": "Not interesting because of his four yellow cards",
+          "t": null
+        }
+      ],
       "moves": {
         "chip": null,
-        "note": null,
+        "note": "3 FT, £0.9m ITB. Likely M.Sangaré → Tavernier or Manzambi and cover João Pedro; maybe Jackson too. Waiting on injury news.",
         "transfers": []
       },
       "squad": {
-        "xi": [],
-        "captain": null,
+        "xi": [
+          {
+            "player": "Van Hecke",
+            "team": "TOT"
+          },
+          {
+            "player": "Hall",
+            "team": "NEW"
+          },
+          {
+            "player": "B.Fernandes",
+            "team": "MUN"
+          },
+          {
+            "player": "Rogers",
+            "team": "CHE"
+          },
+          {
+            "player": "Palmer",
+            "team": "CHE"
+          },
+          {
+            "player": "Groß",
+            "team": "BHA"
+          },
+          {
+            "player": "M.Sangaré",
+            "team": "BRE"
+          },
+          {
+            "player": "Haaland",
+            "team": "MCI"
+          },
+          {
+            "player": "Calvert-Lewin",
+            "team": "LEE"
+          }
+        ],
+        "captain": "Haaland",
         "vice": null,
-        "bench": []
+        "bench": [
+          {
+            "player": "João Pedro",
+            "team": "CHE"
+          },
+          {
+            "player": "Calafiori",
+            "team": "ARS"
+          },
+          {
+            "player": "De Cuyper",
+            "team": "BHA"
+          }
+        ]
       },
       "extra": [
         {
-          "topic": "João Pedro",
-          "text": "Main question of the video: whether to sell João Pedro",
-          "t": "03:36"
+          "topic": "Injuries",
+          "text": "João Pedro has a possible knee problem; Calafiori yellow-flagged, Arteta calls it small",
+          "t": null
         },
         {
-          "topic": "Topics",
-          "text": "Also covers Palmer, Arsenal defenders, Cherki, B.Fernandes and Tavernier",
+          "topic": "Prices",
+          "text": "Barry dropped to £5.6m; Tavernier expected to rise to £6.4m",
+          "t": null
+        },
+        {
+          "topic": "Man Utd",
+          "text": "Carrick may be replaced; Bruno expected back in the side if so",
           "t": null
         }
       ]
@@ -91,24 +332,137 @@
         "url": "https://www.youtube.com/watch?v=OvbOe7uPKW4",
         "date": "2026-10-25"
       },
-      "buys": [],
-      "avoids": [],
+      "buys": [
+        {
+          "player": "N.Jackson",
+          "team": "AVL",
+          "why": "Main plan to replace Gonzalo: minutes, form and Villa fixtures",
+          "t": null
+        },
+        {
+          "player": "Silva",
+          "team": "BOU",
+          "why": "Strong defence, set pieces, DefCon potential and excellent fixtures",
+          "t": null
+        },
+        {
+          "player": "Vuskovic",
+          "team": "BHA",
+          "why": "Same profile as Silva; only one fixture to avoid",
+          "t": null
+        },
+        {
+          "player": "Gabriel",
+          "team": "ARS",
+          "why": "Pivot if Calafiori is out; strong DefCon and bonus week",
+          "t": null
+        },
+        {
+          "player": "Tavernier",
+          "team": "BOU",
+          "why": "Best Bournemouth mid: reliable minutes, set pieces, some pens",
+          "t": null
+        },
+        {
+          "player": "Rayan",
+          "team": "BOU",
+          "why": "80+ minutes every game, most secure minutes at the club",
+          "t": null
+        }
+      ],
+      "avoids": [
+        {
+          "player": "Gonzalo",
+          "team": "FUL",
+          "why": "Selling this week; says he will never buy him again",
+          "t": null
+        },
+        {
+          "player": "Ødegaard",
+          "team": "ARS",
+          "why": "Likeliest midfield sale due to poor output",
+          "t": null
+        }
+      ],
       "moves": {
         "chip": null,
-        "note": "Has 4 free transfers and £0.8m in the bank for GW9; weighing selling João Pedro and Calafiori, buying Jackson and benching Arsenal defence (verdict not in description).",
-        "transfers": []
+        "note": "4 FT, £0.8m ITB. Likely one transfer; maybe Ødegaard out if he moves in midfield. Waiting for injury news.",
+        "transfers": [
+          {
+            "out": {
+              "player": "Gonzalo",
+              "team": "FUL"
+            },
+            "in": {
+              "player": "N.Jackson",
+              "team": "AVL"
+            }
+          }
+        ]
       },
       "squad": {
-        "xi": [],
-        "captain": null,
+        "xi": [
+          {
+            "player": "Kinsky",
+            "team": "TOT"
+          },
+          {
+            "player": "Muharemović",
+            "team": "LEE"
+          },
+          {
+            "player": "Hall",
+            "team": "NEW"
+          },
+          {
+            "player": "Mendy",
+            "team": "HUL"
+          },
+          {
+            "player": "Rogers",
+            "team": "CHE"
+          },
+          {
+            "player": "Palmer",
+            "team": "CHE"
+          },
+          {
+            "player": "Groß",
+            "team": "BHA"
+          },
+          {
+            "player": "Gibbs-White",
+            "team": "NFO"
+          },
+          {
+            "player": "Haaland",
+            "team": "MCI"
+          }
+        ],
+        "captain": "Haaland",
         "vice": null,
-        "bench": []
+        "bench": [
+          {
+            "player": "Konsa",
+            "team": "ARS"
+          }
+        ]
       },
       "extra": [
         {
-          "topic": "GW9 options",
-          "text": "Considering selling João Pedro and Calafiori, buying Jackson, benching Arsenal defence",
-          "t": "6:15"
+          "topic": "João Pedro",
+          "text": "Fluid on the knee: sell if out long-term, bench if only one week",
+          "t": null
+        },
+        {
+          "topic": "Kinsky",
+          "text": "Price dropped to £4.4m; plans to keep him for about five weeks",
+          "t": null
+        },
+        {
+          "topic": "Mbeumo",
+          "text": "Not buying yet; waiting for Man Utd manager news",
+          "t": null
         }
       ]
     },
@@ -124,12 +478,67 @@
         "url": "https://www.youtube.com/watch?v=rmvAa5ZVY2U",
         "date": "2026-10-25"
       },
-      "buys": [],
-      "avoids": [],
+      "buys": [
+        {
+          "player": "N.Jackson",
+          "team": "AVL",
+          "why": "The standout for him right now: strong form and confidence",
+          "t": null
+        },
+        {
+          "player": "Isak",
+          "team": "LIV",
+          "why": "Definitely a possibility: form, finishing and decent fixtures",
+          "t": null
+        },
+        {
+          "player": "Silva",
+          "team": "BOU",
+          "why": "Really wants him: consistent DefCon, attacking threat, clean-sheet odds",
+          "t": null
+        },
+        {
+          "player": "Van Hecke",
+          "team": "TOT",
+          "why": "Somewhat on the menu thanks to good defensive fixtures",
+          "t": null
+        }
+      ],
+      "avoids": [
+        {
+          "player": "João Pedro",
+          "team": "CHE",
+          "why": "Replaceable; likely moved on if out for several weeks",
+          "t": null
+        },
+        {
+          "player": "De Cuyper",
+          "team": "BHA",
+          "why": "Doesn't want to play him; sell to fund Silva",
+          "t": null
+        },
+        {
+          "player": "Evanilson",
+          "team": "BOU",
+          "why": "Categorically not: Kluivert is back and could take his spot",
+          "t": null
+        }
+      ],
       "moves": {
         "chip": null,
-        "note": null,
-        "transfers": []
+        "note": "2 FT. Plans to replace a forward and a defender if needed; could bring in Isak and Silva.",
+        "transfers": [
+          {
+            "out": {
+              "player": "De Cuyper",
+              "team": "BHA"
+            },
+            "in": {
+              "player": "Silva",
+              "team": "BOU"
+            }
+          }
+        ]
       },
       "squad": {
         "xi": [],
@@ -139,8 +548,18 @@
       },
       "extra": [
         {
-          "topic": "Kneejerk",
-          "text": "Reviews GW8 and whether to move early on transfers, price changes and midweek fixtures",
+          "topic": "Injuries",
+          "text": "João Pedro fluid around the knee (recurrence); Calafiori minor and precautionary per Arteta",
+          "t": null
+        },
+        {
+          "topic": "Palmer",
+          "text": "Red card suspension served in the League Cup, so no FPL impact",
+          "t": null
+        },
+        {
+          "topic": "Fixtures",
+          "text": "Arsenal v Hull in GW10 is a strong clean-sheet fixture",
           "t": null
         }
       ]
