@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 9,
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "items": [
     {
       "type": "pick",
@@ -122,6 +122,46 @@
       "source": "FF Scout",
       "why": "In Scout's early GW9 Scout Picks",
       "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
+    },
+    {
+      "type": "pick",
+      "player": "Tavernier",
+      "team": "BOU",
+      "source": "FF Hub",
+      "why": "Excellent GW9 option with Bournemouth hosting Leeds",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-9-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "Haaland",
+      "team": "MCI",
+      "source": "FF Hub",
+      "why": "One of the most reliable sources of returns; home to Brighton",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-9-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "N.Jackson",
+      "team": "AVL",
+      "source": "FF Hub",
+      "why": "Villa's first-choice No.9 with a good run, starting home to Fulham",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-9-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "Thiago",
+      "team": "BRE",
+      "source": "FF Hub",
+      "why": "Nailed central striker on penalties, home to Nott'm Forest",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-9-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "Palmer",
+      "team": "CHE",
+      "source": "FF Hub",
+      "why": "Attacking involvement and penalties; home to Man Utd is a top match-up",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-9-article-26-27"
     }
   ]
 }
