@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 9,
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "items": [
     {
       "type": "pick",
@@ -162,6 +162,78 @@
       "source": "FF Hub",
       "why": "Attacking involvement and penalties; home to Man Utd is a top match-up",
       "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-9-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "Manzambi",
+      "team": "AVL",
+      "source": "AllAboutFPL",
+      "why": "GW9 differential: good Villa fixtures and strong underlying numbers",
+      "url": "https://allaboutfpl.com/2026/10/top-fpl-gw9-differential-picks-to-target-ahead-of-gw9-deadline/"
+    },
+    {
+      "type": "pick",
+      "player": "Van Hecke",
+      "team": "TOT",
+      "source": "AllAboutFPL",
+      "why": "Improved Spurs defence, frequent DefCon points and some goal threat",
+      "url": "https://allaboutfpl.com/2026/10/top-fpl-gw9-differential-picks-to-target-ahead-of-gw9-deadline/"
+    },
+    {
+      "type": "pick",
+      "player": "Belloumi",
+      "team": "HUL",
+      "source": "AllAboutFPL",
+      "why": "Hull's most prolific attacker; faces a weak Ipswich defence",
+      "url": "https://allaboutfpl.com/2026/10/top-fpl-gw9-differential-picks-to-target-ahead-of-gw9-deadline/"
+    },
+    {
+      "type": "pick",
+      "player": "Suzuki",
+      "team": "AVL",
+      "source": "AllAboutFPL",
+      "why": "Improved Villa defence plus recent points and bonus",
+      "url": "https://allaboutfpl.com/2026/10/top-fpl-gw9-differential-picks-to-target-ahead-of-gw9-deadline/"
+    },
+    {
+      "type": "pick",
+      "player": "Kudus",
+      "team": "TOT",
+      "source": "AllAboutFPL",
+      "why": "Looks fully fit, recent assists and a strong fixture run",
+      "url": "https://allaboutfpl.com/2026/10/top-fpl-gw9-differential-picks-to-target-ahead-of-gw9-deadline/"
+    },
+    {
+      "type": "pick",
+      "player": "Silva",
+      "team": "BOU",
+      "source": "AllAboutFPL",
+      "why": "Strong Bournemouth defensive numbers, regular DefCon and goal threat",
+      "url": "https://allaboutfpl.com/2026/10/top-fpl-gw9-differential-picks-to-target-ahead-of-gw9-deadline/"
+    },
+    {
+      "type": "avoid",
+      "player": "Cherki",
+      "team": "MCI",
+      "source": "FF Scout",
+      "why": "Likely sell: minutes uncertain after being hooked early at Villa",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/27/jackson-evanilson-cherki-gabriel-buy-keep-or-sell-in-gameweek-9"
+    },
+    {
+      "type": "avoid",
+      "player": "Saka",
+      "team": "ARS",
+      "source": "FF Scout",
+      "why": "Obvious sell because of his injury",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/27/jackson-evanilson-cherki-gabriel-buy-keep-or-sell-in-gameweek-9"
+    },
+    {
+      "type": "avoid",
+      "player": "Semenyo",
+      "team": "MCI",
+      "source": "FF Scout",
+      "why": "Obvious sell because of his injury",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/27/jackson-evanilson-cherki-gabriel-buy-keep-or-sell-in-gameweek-9"
     }
   ]
 }
