@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 9,
-  "updated": "2026-10-29",
+  "updated": "2026-10-30",
   "items": [
     {
       "type": "pick",
@@ -136,8 +136,8 @@
       "player": "Haaland",
       "team": "MCI",
       "source": "FF Hub",
-      "why": "One of the most reliable sources of returns; home to Brighton",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-9-article-26-27"
+      "why": "Hub AI's GW9 captain: City lead the league for xG and host Brighton",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-captain-gameweek-9-article-26-27"
     },
     {
       "type": "pick",
@@ -234,6 +234,54 @@
       "source": "FF Scout",
       "why": "Obvious sell because of his injury",
       "url": "https://www.fantasyfootballscout.co.uk/2026/10/27/jackson-evanilson-cherki-gabriel-buy-keep-or-sell-in-gameweek-9"
+    },
+    {
+      "type": "pick",
+      "player": "Evanilson",
+      "team": "BOU",
+      "source": "FF Hub",
+      "why": "Scored in 3 straight under Rose and gets into the box more; Kroupi a minutes risk",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-gameweek-9-pedro-replacements-26-27-article"
+    },
+    {
+      "type": "pick",
+      "player": "Tel",
+      "team": "TOT",
+      "source": "FF Scout",
+      "why": "Picked by 2 of 3 panellists in Scout's GW9 Scout Squad",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/30/the-scout-squad-our-top-picks-for-fpl-gameweek-9-3"
+    },
+    {
+      "type": "pick",
+      "player": "Brobbey",
+      "team": "SUN",
+      "source": "FF Scout",
+      "why": "Picked by 2 of 3 panellists in Scout's GW9 Scout Squad",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/30/the-scout-squad-our-top-picks-for-fpl-gameweek-9-3"
+    },
+    {
+      "type": "pick",
+      "player": "Davis",
+      "team": "IPS",
+      "source": "FF Scout",
+      "why": "Picked by 2 of 3 panellists in Scout's GW9 Scout Squad",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/30/the-scout-squad-our-top-picks-for-fpl-gameweek-9-3"
+    },
+    {
+      "type": "avoid",
+      "player": "Gonzalo",
+      "team": "FUL",
+      "source": "FF Scout",
+      "why": "Called \"wasteful\" by the Scout Squad ahead of a tough Villa defence",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/10/30/the-scout-squad-our-top-picks-for-fpl-gameweek-9-3"
+    },
+    {
+      "type": "avoid",
+      "player": "João Pedro",
+      "team": "CHE",
+      "source": "FF Hub",
+      "why": "A sell this week: thigh injury, out for a few weeks per Alonso",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-gameweek-9-pedro-replacements-26-27-article"
     }
   ]
 }
