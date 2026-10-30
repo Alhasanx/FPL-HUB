@@ -282,6 +282,46 @@
       "source": "FF Hub",
       "why": "A sell this week: thigh injury, out for a few weeks per Alonso",
       "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-gameweek-9-pedro-replacements-26-27-article"
+    },
+    {
+      "type": "pick",
+      "player": "Haaland",
+      "team": "MCI",
+      "source": "AllAboutFPL",
+      "why": "Top captain pick: 57% of the poll, 4.68 xG in last six, projection 6.5 v Brighton (H)",
+      "url": "https://allaboutfpl.com/2026/10/top-fpl-gameweek-9-captain-picks-based-on-analysis-metrics/"
+    },
+    {
+      "type": "pick",
+      "player": "N.Jackson",
+      "team": "AVL",
+      "source": "AllAboutFPL",
+      "why": "Captain option: 2nd in the poll, 5 big chances in last six, projection 4.3 v Fulham (H)",
+      "url": "https://allaboutfpl.com/2026/10/top-fpl-gameweek-9-captain-picks-based-on-analysis-metrics/"
+    },
+    {
+      "type": "pick",
+      "player": "Tavernier",
+      "team": "BOU",
+      "source": "AllAboutFPL",
+      "why": "Captain option: 3.12 xG in last six (2nd best), projection 4.1 v Leeds (H)",
+      "url": "https://allaboutfpl.com/2026/10/top-fpl-gameweek-9-captain-picks-based-on-analysis-metrics/"
+    },
+    {
+      "type": "pick",
+      "player": "Palmer",
+      "team": "CHE",
+      "source": "AllAboutFPL",
+      "why": "Captain option: projection 5.5 v a struggling Man Utd (H), but low xG lately",
+      "url": "https://allaboutfpl.com/2026/10/top-fpl-gameweek-9-captain-picks-based-on-analysis-metrics/"
+    },
+    {
+      "type": "pick",
+      "player": "Mbeumo",
+      "team": "MUN",
+      "source": "AllAboutFPL",
+      "why": "Captain option: 1.96 xG and 4 big chances in last six games",
+      "url": "https://allaboutfpl.com/2026/10/top-fpl-gameweek-9-captain-picks-based-on-analysis-metrics/"
     }
   ]
 }
