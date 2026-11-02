@@ -1,327 +1,71 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
-  "gw": 9,
-  "updated": "2026-10-30",
+  "gw": 10,
+  "updated": "2026-11-02",
   "items": [
     {
       "type": "pick",
-      "player": "Haaland",
-      "team": "MCI",
-      "source": "FF Scout",
-      "why": "Scored in seven straight matches; the default captain",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "N.Jackson",
-      "team": "AVL",
-      "source": "FF Scout",
-      "why": "Brace at Villa Park; natural replacement if João Pedro is out",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "Gabriel",
-      "team": "ARS",
-      "source": "FF Scout",
-      "why": "Just scored and kept a clean sheet; league's best backline",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
       "player": "Van Hecke",
       "team": "TOT",
       "source": "FF Scout",
-      "why": "3 clean sheets, 3 DefCon and a goal in last six; hosts Palace",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
+      "why": "Buy: strong xGC figures, good fixtures ahead and regular DefCon points",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
     },
     {
       "type": "pick",
-      "player": "Silva",
-      "team": "BOU",
-      "source": "FF Scout",
-      "why": "Part of back-to-back clean sheets; DefCon in six of eight",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "Tavernier",
-      "team": "BOU",
-      "source": "FF Scout",
-      "why": "Already on five goals and rising in value",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "Manzambi",
-      "team": "AVL",
-      "source": "FF Scout",
-      "why": "Four attacking returns in three games before a quiet one at City",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "Palmer",
-      "team": "CHE",
-      "source": "FF Scout",
-      "why": "Not suspended for GW9; hosts Man Utd",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "Rogers",
-      "team": "CHE",
-      "source": "FF Scout",
-      "why": "Similar underlying data to Palmer for much less money",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "Barry",
-      "team": "EVE",
-      "source": "FF Scout",
-      "why": "League leader for big chances",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "Suzuki",
-      "team": "AVL",
-      "source": "FF Scout",
-      "why": "In Scout's early GW9 Scout Picks for the fixture",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "Kudus",
-      "team": "TOT",
-      "source": "FF Scout",
-      "why": "Considered for the Palace fixture; in the early GW9 Scout Picks",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "Kinsky",
-      "team": "TOT",
-      "source": "FF Scout",
-      "why": "In the early GW9 Scout Picks: form and favourable fixtures",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "van Ewijk",
-      "team": "COV",
-      "source": "FF Scout",
-      "why": "Alternative to the injured Bobby Thomas",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "Egan",
-      "team": "HUL",
-      "source": "FF Scout",
-      "why": "In Scout's early GW9 Scout Picks",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/26/fpl-gameweek-9-early-scout-picks"
-    },
-    {
-      "type": "pick",
-      "player": "Tavernier",
-      "team": "BOU",
-      "source": "FF Hub",
-      "why": "Excellent GW9 option with Bournemouth hosting Leeds",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-9-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "Haaland",
-      "team": "MCI",
-      "source": "FF Hub",
-      "why": "Hub AI's GW9 captain: City lead the league for xG and host Brighton",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-captain-gameweek-9-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "N.Jackson",
-      "team": "AVL",
-      "source": "FF Hub",
-      "why": "Villa's first-choice No.9 with a good run, starting home to Fulham",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-9-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "Thiago",
-      "team": "BRE",
-      "source": "FF Hub",
-      "why": "Nailed central striker on penalties, home to Nott'm Forest",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-9-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "Palmer",
-      "team": "CHE",
-      "source": "FF Hub",
-      "why": "Attacking involvement and penalties; home to Man Utd is a top match-up",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-9-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "Manzambi",
-      "team": "AVL",
-      "source": "AllAboutFPL",
-      "why": "GW9 differential: good Villa fixtures and strong underlying numbers",
-      "url": "https://allaboutfpl.com/2026/10/top-fpl-gw9-differential-picks-to-target-ahead-of-gw9-deadline/"
-    },
-    {
-      "type": "pick",
-      "player": "Van Hecke",
-      "team": "TOT",
-      "source": "AllAboutFPL",
-      "why": "Improved Spurs defence, frequent DefCon points and some goal threat",
-      "url": "https://allaboutfpl.com/2026/10/top-fpl-gw9-differential-picks-to-target-ahead-of-gw9-deadline/"
-    },
-    {
-      "type": "pick",
-      "player": "Belloumi",
-      "team": "HUL",
-      "source": "AllAboutFPL",
-      "why": "Hull's most prolific attacker; faces a weak Ipswich defence",
-      "url": "https://allaboutfpl.com/2026/10/top-fpl-gw9-differential-picks-to-target-ahead-of-gw9-deadline/"
-    },
-    {
-      "type": "pick",
-      "player": "Suzuki",
-      "team": "AVL",
-      "source": "AllAboutFPL",
-      "why": "Improved Villa defence plus recent points and bonus",
-      "url": "https://allaboutfpl.com/2026/10/top-fpl-gw9-differential-picks-to-target-ahead-of-gw9-deadline/"
-    },
-    {
-      "type": "pick",
-      "player": "Kudus",
-      "team": "TOT",
-      "source": "AllAboutFPL",
-      "why": "Looks fully fit, recent assists and a strong fixture run",
-      "url": "https://allaboutfpl.com/2026/10/top-fpl-gw9-differential-picks-to-target-ahead-of-gw9-deadline/"
-    },
-    {
-      "type": "pick",
-      "player": "Silva",
-      "team": "BOU",
-      "source": "AllAboutFPL",
-      "why": "Strong Bournemouth defensive numbers, regular DefCon and goal threat",
-      "url": "https://allaboutfpl.com/2026/10/top-fpl-gw9-differential-picks-to-target-ahead-of-gw9-deadline/"
-    },
-    {
-      "type": "avoid",
-      "player": "Cherki",
-      "team": "MCI",
-      "source": "FF Scout",
-      "why": "Likely sell: minutes uncertain after being hooked early at Villa",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/27/jackson-evanilson-cherki-gabriel-buy-keep-or-sell-in-gameweek-9"
-    },
-    {
-      "type": "avoid",
-      "player": "Saka",
+      "player": "Konsa",
       "team": "ARS",
       "source": "FF Scout",
-      "why": "Obvious sell because of his injury",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/27/jackson-evanilson-cherki-gabriel-buy-keep-or-sell-in-gameweek-9"
-    },
-    {
-      "type": "avoid",
-      "player": "Semenyo",
-      "team": "MCI",
-      "source": "FF Scout",
-      "why": "Obvious sell because of his injury",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/27/jackson-evanilson-cherki-gabriel-buy-keep-or-sell-in-gameweek-9"
+      "why": "Buy: big haul at a low price, but Saliba's return could cut his minutes",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
     },
     {
       "type": "pick",
       "player": "Evanilson",
       "team": "BOU",
-      "source": "FF Hub",
-      "why": "Scored in 3 straight under Rose and gets into the box more; Kroupi a minutes risk",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-gameweek-9-pedro-replacements-26-27-article"
-    },
-    {
-      "type": "pick",
-      "player": "Tel",
-      "team": "TOT",
       "source": "FF Scout",
-      "why": "Picked by 2 of 3 panellists in Scout's GW9 Scout Squad",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/30/the-scout-squad-our-top-picks-for-fpl-gameweek-9-3"
-    },
-    {
-      "type": "pick",
-      "player": "Brobbey",
-      "team": "SUN",
-      "source": "FF Scout",
-      "why": "Picked by 2 of 3 panellists in Scout's GW9 Scout Squad",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/30/the-scout-squad-our-top-picks-for-fpl-gameweek-9-3"
-    },
-    {
-      "type": "pick",
-      "player": "Davis",
-      "team": "IPS",
-      "source": "FF Scout",
-      "why": "Picked by 2 of 3 panellists in Scout's GW9 Scout Squad",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/30/the-scout-squad-our-top-picks-for-fpl-gameweek-9-3"
-    },
-    {
-      "type": "avoid",
-      "player": "Gonzalo",
-      "team": "FUL",
-      "source": "FF Scout",
-      "why": "Called \"wasteful\" by the Scout Squad ahead of a tough Villa defence",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/10/30/the-scout-squad-our-top-picks-for-fpl-gameweek-9-3"
-    },
-    {
-      "type": "avoid",
-      "player": "João Pedro",
-      "team": "CHE",
-      "source": "FF Hub",
-      "why": "A sell this week: thigh injury, out for a few weeks per Alonso",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-gameweek-9-pedro-replacements-26-27-article"
-    },
-    {
-      "type": "pick",
-      "player": "Haaland",
-      "team": "MCI",
-      "source": "AllAboutFPL",
-      "why": "Top captain pick: 57% of the poll, 4.68 xG in last six, projection 6.5 v Brighton (H)",
-      "url": "https://allaboutfpl.com/2026/10/top-fpl-gameweek-9-captain-picks-based-on-analysis-metrics/"
-    },
-    {
-      "type": "pick",
-      "player": "N.Jackson",
-      "team": "AVL",
-      "source": "AllAboutFPL",
-      "why": "Captain option: 2nd in the poll, 5 big chances in last six, projection 4.3 v Fulham (H)",
-      "url": "https://allaboutfpl.com/2026/10/top-fpl-gameweek-9-captain-picks-based-on-analysis-metrics/"
+      "why": "Keep: good upcoming fixtures, with doubts over his finishing",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
     },
     {
       "type": "pick",
       "player": "Tavernier",
       "team": "BOU",
-      "source": "AllAboutFPL",
-      "why": "Captain option: 3.12 xG in last six (2nd best), projection 4.1 v Leeds (H)",
-      "url": "https://allaboutfpl.com/2026/10/top-fpl-gameweek-9-captain-picks-based-on-analysis-metrics/"
+      "source": "FF Scout",
+      "why": "Keep: set-piece duties help, though his conversion rate is unlikely to last",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
     },
     {
       "type": "pick",
-      "player": "Palmer",
+      "player": "Manzambi",
+      "team": "AVL",
+      "source": "FF Scout",
+      "why": "Keep: five straight attacking returns, but he is hooked after the hour",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
+    },
+    {
+      "type": "pick",
+      "player": "Calvert-Lewin",
+      "team": "LEE",
+      "source": "FF Scout",
+      "why": "Keep: poor recent output, but home fixtures after the break make him worth holding",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
+    },
+    {
+      "type": "avoid",
+      "player": "Gibbs-White",
+      "team": "NFO",
+      "source": "FF Scout",
+      "why": "Sell: no goals and one assist in seven games, with tough fixtures next",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
+    },
+    {
+      "type": "avoid",
+      "player": "João Pedro",
       "team": "CHE",
-      "source": "AllAboutFPL",
-      "why": "Captain option: projection 5.5 v a struggling Man Utd (H), but low xG lately",
-      "url": "https://allaboutfpl.com/2026/10/top-fpl-gameweek-9-captain-picks-based-on-analysis-metrics/"
-    },
-    {
-      "type": "pick",
-      "player": "Mbeumo",
-      "team": "MUN",
-      "source": "AllAboutFPL",
-      "why": "Captain option: 1.96 xG and 4 big chances in last six games",
-      "url": "https://allaboutfpl.com/2026/10/top-fpl-gameweek-9-captain-picks-based-on-analysis-metrics/"
+      "source": "FF Scout",
+      "why": "Probably a sell: injured and unlikely back before the international break",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
     }
   ]
 }
