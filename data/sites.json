@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 10,
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "items": [
     {
       "type": "pick",
@@ -66,6 +66,78 @@
       "source": "FF Scout",
       "why": "Probably a sell: injured and unlikely back before the international break",
       "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
+    },
+    {
+      "type": "pick",
+      "player": "Pickford",
+      "team": "EVE",
+      "source": "FF Scout",
+      "why": "In Scout's GW10 early Scout Picks XI",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Calafiori",
+      "team": "ARS",
+      "source": "FF Scout",
+      "why": "In Scout's GW10 early Scout Picks XI",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "De Cuyper",
+      "team": "BHA",
+      "source": "FF Scout",
+      "why": "In Scout's GW10 early Scout Picks XI",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Rogers",
+      "team": "CHE",
+      "source": "FF Scout",
+      "why": "In Scout's GW10 early Scout Picks XI",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Groß",
+      "team": "BHA",
+      "source": "FF Scout",
+      "why": "In Scout's GW10 early Scout Picks XI",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Palmer",
+      "team": "CHE",
+      "source": "FF Scout",
+      "why": "In Scout's GW10 early Scout Picks XI",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Barry",
+      "team": "EVE",
+      "source": "FF Scout",
+      "why": "In Scout's GW10 early Scout Picks XI",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Haaland",
+      "team": "MCI",
+      "source": "FF Scout",
+      "why": "In Scout's GW10 early Scout Picks XI",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
+    },
+    {
+      "type": "pick",
+      "player": "Isak",
+      "team": "LIV",
+      "source": "FF Scout",
+      "why": "In Scout's GW10 early Scout Picks XI",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
     }
   ]
 }

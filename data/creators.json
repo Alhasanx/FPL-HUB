@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 10,
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "creators": [
     {
       "id": "FH",
