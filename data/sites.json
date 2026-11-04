@@ -226,6 +226,118 @@
       "source": "FF Hub",
       "why": "Sell: one league start in City's last three, minutes too unreliable for 35% ownership",
       "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
+    },
+    {
+      "type": "pick",
+      "player": "Gabriel",
+      "team": "ARS",
+      "source": "AllAboutFPL",
+      "why": "Called the most nailed Arsenal defender, with the best entry point before Hull at home",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "pick",
+      "player": "Haaland",
+      "team": "MCI",
+      "source": "AllAboutFPL",
+      "why": "Captain lean as the safe choice; Forest are winless in five league games",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "pick",
+      "player": "Tavernier",
+      "team": "BOU",
+      "source": "AllAboutFPL",
+      "why": "Obvious pick for his share of penalties and set pieces, and good form",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "pick",
+      "player": "Rayan",
+      "team": "BOU",
+      "source": "AllAboutFPL",
+      "why": "Differential punt at 2.3% ownership; 13 shots in the box over the last five matches",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "pick",
+      "player": "Palmer",
+      "team": "CHE",
+      "source": "AllAboutFPL",
+      "why": "Picked for a Bench Boost with Chelsea away at Sunderland; scored in GW9",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "pick",
+      "player": "Rogers",
+      "team": "CHE",
+      "source": "AllAboutFPL",
+      "why": "Picked for a Bench Boost with Chelsea away at Sunderland; scored in GW9",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "pick",
+      "player": "Silva",
+      "team": "BOU",
+      "source": "AllAboutFPL",
+      "why": "Slowly becoming a no-brainer pick given Bournemouth's good fixture run",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "pick",
+      "player": "Barry",
+      "team": "EVE",
+      "source": "AllAboutFPL",
+      "why": "Listed in the solid team for Coventry at home and in a Bench Boost draft",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "pick",
+      "player": "Kinsky",
+      "team": "TOT",
+      "source": "AllAboutFPL",
+      "why": "Leans to him over Leno on Spurs' defensive data, for Leeds away",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "pick",
+      "player": "De Cuyper",
+      "team": "BHA",
+      "source": "AllAboutFPL",
+      "why": "Leaning to start him: plays left wing, high ownership, solid Brighton defence",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "avoid",
+      "player": "Gibbs-White",
+      "team": "NFO",
+      "source": "AllAboutFPL",
+      "why": "On the sell list: five blanks out of five after paying 7.9m; planned swap for Tavernier or Rayan",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "avoid",
+      "player": "Muñoz",
+      "team": "NFO",
+      "source": "AllAboutFPL",
+      "why": "On the sell list with Gibbs-White; planned swap for Gabriel",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "avoid",
+      "player": "Konsa",
+      "team": "ARS",
+      "source": "AllAboutFPL",
+      "why": "Plans to remove him in the coming weeks with Saliba back for Arsenal",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "avoid",
+      "player": "Calafiori",
+      "team": "ARS",
+      "source": "AllAboutFPL",
+      "why": "Plans to remove him in the coming weeks with Saliba back for Arsenal",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
     }
   ]
 }
