@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 10,
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "items": [
     {
       "type": "pick",
@@ -178,6 +178,54 @@
       "source": "FF Hub",
       "why": "Highest-scoring player in the game so far, playing as a left-winger; Brentford at home",
       "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-10-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "N.Jackson",
+      "team": "AVL",
+      "source": "FF Hub",
+      "why": "Buy: scoring, favourable fixture run continues, not too late at about 26% owned",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
+    },
+    {
+      "type": "pick",
+      "player": "Konsa",
+      "team": "ARS",
+      "source": "FF Hub",
+      "why": "Hold: superb value with Saliba out; start him against Hull, place at risk after the break",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
+    },
+    {
+      "type": "pick",
+      "player": "Dewsbury-Hall",
+      "team": "EVE",
+      "source": "FF Hub",
+      "why": "Differential: 89 minutes per start, set-piece routes to points against Coventry",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
+    },
+    {
+      "type": "pick",
+      "player": "Rayan",
+      "team": "BOU",
+      "source": "FF Hub",
+      "why": "Differential: most big chances in the squad, medium-term option on excellent fixtures",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
+    },
+    {
+      "type": "pick",
+      "player": "Barcola",
+      "team": "LIV",
+      "source": "FF Hub",
+      "why": "Differential: no league goal yet, but explosive potential in the Champions League",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
+    },
+    {
+      "type": "avoid",
+      "player": "Cherki",
+      "team": "MCI",
+      "source": "FF Hub",
+      "why": "Sell: one league start in City's last three, minutes too unreliable for 35% ownership",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
     }
   ]
 }

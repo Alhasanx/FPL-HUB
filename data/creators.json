@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 10,
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "creators": [
     {
       "id": "FH",
@@ -11,9 +11,9 @@
         "aqua"
       ],
       "video": {
-        "title": "MY FPL GW10 TRANSFER PLANS 📝 GABRIEL vs BOURNEMOUTH PLAYERS 🍒 Fantasy Premier League 2026/27",
-        "url": "https://www.youtube.com/watch?v=LOtSsW7j9lY",
-        "date": "2026-11-01"
+        "title": "SALIBA BACK FOR ARSENAL 🚨 MY FPL GW10 TRANSFER TARGETS! ♻️  | Fantasy Premier League 2026/27",
+        "url": "https://www.youtube.com/watch?v=Qvc-ZhirLT8",
+        "date": "2026-11-04"
       },
       "buys": [],
       "avoids": [],
@@ -30,9 +30,19 @@
       },
       "extra": [
         {
-          "topic": "Transfer question",
-          "text": "The video frames his GW10 plans around Gabriel versus Bournemouth players",
-          "t": null
+          "topic": "Saliba",
+          "text": "Title and opening chapter say Saliba is available again for Arsenal",
+          "t": "00:26"
+        },
+        {
+          "topic": "Also covered",
+          "text": "Chapters on best fixtures, season data, Gibbs-White and keep or sell",
+          "t": "03:09"
+        },
+        {
+          "topic": "Top 10 lists",
+          "text": "Ranks top 10 defenders, midfielders and forwards; the names are not captured",
+          "t": "13:55"
         }
       ]
     },
@@ -44,9 +54,9 @@
         "rose"
       ],
       "video": {
-        "title": "Is it time to sell Gibbs-White? 🤔 FPL GW10 Early Thoughts 🔥",
-        "url": "https://www.youtube.com/watch?v=i0LRxoj0Yno",
-        "date": "2026-11-02"
+        "title": "🚨 Saliba is BACK! 🚨 Is It Time to SELL Konsa? 🤔 FPL Gameweek 10 Preview 🔥",
+        "url": "https://www.youtube.com/watch?v=1mx3vgfxucw",
+        "date": "2026-11-04"
       },
       "buys": [],
       "avoids": [],
@@ -63,14 +73,19 @@
       },
       "extra": [
         {
-          "topic": "Gibbs-White",
-          "text": "Opens by asking whether it is time to sell him; his answer isn't captured",
-          "t": "00:11"
+          "topic": "Konsa",
+          "text": "Title asks whether to sell him now Saliba is back; his answer is not captured",
+          "t": "00:21"
         },
         {
           "topic": "Also covered",
-          "text": "Chapters on Konsa, De Cuyper, Cherki, Tavernier and Evanilson, João Pedro",
-          "t": "07:11"
+          "text": "Chapters on Wirtz, captaincy, Free Hit and Wildcard",
+          "t": "10:24"
+        },
+        {
+          "topic": "Questions he takes",
+          "text": "Schade, when to sell Palmer, why Kluivert is not a pick, when to Wildcard, five defenders every week",
+          "t": "25:48"
         }
       ]
     },
@@ -82,9 +97,9 @@
         "lilac"
       ],
       "video": {
-        "title": "BUY & CAPTAIN ISAK? 🚀 | MY FPL GW10 TRANSFER PLANS 🚨 | Fantasy Premier League Tips 2026/27",
-        "url": "https://www.youtube.com/watch?v=1hwMevAUZoc",
-        "date": "2026-11-01"
+        "title": "SELL KONSA? 😲 | MY FPL GW10 COMPLETE GUIDE 🚀 | Fantasy Premier League Tips 2026/27",
+        "url": "https://www.youtube.com/watch?v=olCD81Aw1W4",
+        "date": "2026-11-04"
       },
       "buys": [],
       "avoids": [],
@@ -101,9 +116,19 @@
       },
       "extra": [
         {
-          "topic": "Questions he raises",
-          "text": "Back five? Silva and Vuskovic as obvious transfers? João Pedro to Isak, and captain him?",
-          "t": "17:28"
+          "topic": "5 at the back",
+          "text": "Asks whether to play five defenders, comparing Silva, Vuskovic, Van Hecke and Muharemovic",
+          "t": "00:37"
+        },
+        {
+          "topic": "Konsa",
+          "text": "Title asks whether to sell him; his answer is not captured",
+          "t": "14:23"
+        },
+        {
+          "topic": "Also covered",
+          "text": "Chapters on Liverpool and Isak, GW10 players to buy and his Wildcard team",
+          "t": "22:47"
         }
       ]
     },
