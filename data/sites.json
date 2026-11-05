@@ -338,6 +338,54 @@
       "source": "AllAboutFPL",
       "why": "Plans to remove him in the coming weeks with Saliba back for Arsenal",
       "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+    },
+    {
+      "type": "pick",
+      "player": "Raya",
+      "team": "ARS",
+      "source": "AllAboutFPL",
+      "why": "Cheap route into Arsenal's defence, which has conceded the fewest goals; Hull are second bottom for xG",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-scout-picks-based-on-stats-analysis-and-matchups/"
+    },
+    {
+      "type": "pick",
+      "player": "Dewsbury-Hall",
+      "team": "EVE",
+      "source": "AllAboutFPL",
+      "why": "Everton rank 4th for big chances and Coventry have a leaky defence; predicted second-most midfield points",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-scout-picks-based-on-stats-analysis-and-matchups/"
+    },
+    {
+      "type": "pick",
+      "player": "Manzambi",
+      "team": "AVL",
+      "source": "AllAboutFPL",
+      "why": "37 FPL points since GW5, with only Konsa and Jackson ahead; Man United are 17th and missing Baleba",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-scout-picks-based-on-stats-analysis-and-matchups/"
+    },
+    {
+      "type": "pick",
+      "player": "Isak",
+      "team": "LIV",
+      "source": "AllAboutFPL",
+      "why": "Six league goals; Crystal Palace have the worst xGC (19.23) and 31 big chances conceded",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-scout-picks-based-on-stats-analysis-and-matchups/"
+    },
+    {
+      "type": "pick",
+      "player": "N.Jackson",
+      "team": "AVL",
+      "source": "AllAboutFPL",
+      "why": "Five league goals in his last five; most shots among forwards over the last five games",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-scout-picks-based-on-stats-analysis-and-matchups/"
+    },
+    {
+      "type": "pick",
+      "player": "Rice",
+      "team": "ARS",
+      "source": "FF Hub",
+      "why": "Named with Calafiori and Gabriel in the top 10 of Hub AI predicted points for GW10-14",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-ai-teams-gameweek-10-article-26-27"
     }
   ]
 }
