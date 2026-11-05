@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 10,
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "items": [
     {
       "type": "pick",

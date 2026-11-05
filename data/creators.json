@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 10,
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "creators": [
     {
       "id": "FH",
@@ -11,15 +11,15 @@
         "aqua"
       ],
       "video": {
-        "title": "SALIBA BACK FOR ARSENAL 🚨 MY FPL GW10 TRANSFER TARGETS! ♻️  | Fantasy Premier League 2026/27",
-        "url": "https://www.youtube.com/watch?v=Qvc-ZhirLT8",
-        "date": "2026-11-04"
+        "title": "MY FPL GW10 TEAM SELECTION! 📱 MY -4 + 2 TRANSFERS CONFIRMED!  ✅😱 | Fantasy Premier League 2026/27",
+        "url": "https://www.youtube.com/watch?v=-fwUxsEQkAM",
+        "date": "2026-11-05"
       },
       "buys": [],
       "avoids": [],
       "moves": {
         "chip": null,
-        "note": null,
+        "note": "Title says \"-4 + 2 transfers confirmed\"; the player names are not captured",
         "transfers": []
       },
       "squad": {
@@ -30,19 +30,19 @@
       },
       "extra": [
         {
-          "topic": "Saliba",
-          "text": "Title and opening chapter say Saliba is available again for Arsenal",
-          "t": "00:26"
+          "topic": "Confirmed transfers",
+          "text": "Chapter on his confirmed moves; the title mentions a -4 hit, names not captured",
+          "t": "02:38"
         },
         {
-          "topic": "Also covered",
-          "text": "Chapters on best fixtures, season data, Gibbs-White and keep or sell",
-          "t": "03:09"
+          "topic": "Team selection",
+          "text": "Chapter on his GW10 team; the XI and captain are not captured",
+          "t": "06:59"
         },
         {
-          "topic": "Top 10 lists",
-          "text": "Ranks top 10 defenders, midfielders and forwards; the names are not captured",
-          "t": "13:55"
+          "topic": "Future planning",
+          "text": "Chapter on his plans beyond GW10; details not captured",
+          "t": "14:05"
         }
       ]
     },
@@ -54,9 +54,9 @@
         "rose"
       ],
       "video": {
-        "title": "🚨 Saliba is BACK! 🚨 Is It Time to SELL Konsa? 🤔 FPL Gameweek 10 Preview 🔥",
-        "url": "https://www.youtube.com/watch?v=1mx3vgfxucw",
-        "date": "2026-11-04"
+        "title": "Will Konsa start? 🤔 My FPL Team for GW10 🔥",
+        "url": "https://www.youtube.com/watch?v=iKqUknwPATA",
+        "date": "2026-11-05"
       },
       "buys": [],
       "avoids": [],
@@ -74,18 +74,13 @@
       "extra": [
         {
           "topic": "Konsa",
-          "text": "Title asks whether to sell him now Saliba is back; his answer is not captured",
-          "t": "00:21"
+          "text": "Title asks whether Konsa will start; his answer is not captured",
+          "t": null
         },
         {
-          "topic": "Also covered",
-          "text": "Chapters on Wirtz, captaincy, Free Hit and Wildcard",
-          "t": "10:24"
-        },
-        {
-          "topic": "Questions he takes",
-          "text": "Schade, when to sell Palmer, why Kluivert is not a pick, when to Wildcard, five defenders every week",
-          "t": "25:48"
+          "topic": "Team walkthrough",
+          "text": "Goes through his team by position: defenders, midfielders, forwards; names not captured",
+          "t": "03:38"
         }
       ]
     },
@@ -97,15 +92,15 @@
         "lilac"
       ],
       "video": {
-        "title": "SELL KONSA? 😲 | MY FPL GW10 COMPLETE GUIDE 🚀 | Fantasy Premier League Tips 2026/27",
-        "url": "https://www.youtube.com/watch?v=olCD81Aw1W4",
-        "date": "2026-11-04"
+        "title": "KONSA INJURED! ⚠️ | MY FPL GW10 TEAM SELECTION 🚨 | Fantasy Premier League Tips 2026/27",
+        "url": "https://www.youtube.com/watch?v=JqNlnCgzWfs",
+        "date": "2026-11-05"
       },
       "buys": [],
       "avoids": [],
       "moves": {
         "chip": null,
-        "note": null,
+        "note": "Description: has 4 free transfers, looks at routes to Gabriel and Isak; final moves not captured",
         "transfers": []
       },
       "squad": {
@@ -116,19 +111,19 @@
       },
       "extra": [
         {
-          "topic": "5 at the back",
-          "text": "Asks whether to play five defenders, comparing Silva, Vuskovic, Van Hecke and Muharemovic",
-          "t": "00:37"
-        },
-        {
           "topic": "Konsa",
-          "text": "Title asks whether to sell him; his answer is not captured",
-          "t": "14:23"
+          "text": "Description flags a possible Konsa injury",
+          "t": null
         },
         {
-          "topic": "Also covered",
-          "text": "Chapters on Liverpool and Isak, GW10 players to buy and his Wildcard team",
-          "t": "22:47"
+          "topic": "Defence",
+          "text": "Description says his defence needs upgrades",
+          "t": null
+        },
+        {
+          "topic": "Options and plans",
+          "text": "Chapter on GW10 options and plans; details not captured",
+          "t": "06:40"
         }
       ]
     },
