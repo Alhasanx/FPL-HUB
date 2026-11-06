@@ -131,14 +131,8 @@
         "captain": "Haaland",
         "vice": null,
         "bench": [
-          {
-            "player": "Van Hecke",
-            "team": "TOT"
-          },
-          {
-            "player": "João Pedro",
-            "team": "CHE"
-          }
+          "Van Hecke",
+          "João Pedro"
         ]
       },
       "extra": [
@@ -260,18 +254,9 @@
         "captain": "Haaland",
         "vice": null,
         "bench": [
-          {
-            "player": "Van Hecke",
-            "team": "TOT"
-          },
-          {
-            "player": "Hall",
-            "team": "NEW"
-          },
-          {
-            "player": "M.Sangaré",
-            "team": "BRE"
-          }
+          "Van Hecke",
+          "Hall",
+          "M.Sangaré"
         ]
       },
       "extra": [
@@ -399,18 +384,9 @@
         "captain": "Haaland",
         "vice": null,
         "bench": [
-          {
-            "player": "Gibbs-White",
-            "team": "NFO"
-          },
-          {
-            "player": "Mendy",
-            "team": "HUL"
-          },
-          {
-            "player": "João Pedro",
-            "team": "CHE"
-          }
+          "Gibbs-White",
+          "Mendy",
+          "João Pedro"
         ]
       },
       "extra": [
@@ -532,18 +508,9 @@
         "captain": "Haaland",
         "vice": "Calafiori",
         "bench": [
-          {
-            "player": "Button",
-            "team": "IPS"
-          },
-          {
-            "player": "Muharemović",
-            "team": "LEE"
-          },
-          {
-            "player": "Groß",
-            "team": "BHA"
-          }
+          "Button",
+          "Muharemović",
+          "Groß"
         ]
       },
       "extra": [
