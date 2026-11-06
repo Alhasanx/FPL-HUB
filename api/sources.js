@@ -42,8 +42,8 @@ export default async function handler(req, res) {
       const vids = await feed(ch, n);
       /* transcripts only for videos about the requested GW (or the newest one if no gw given) */
       const want = vids.filter((v, i) => gwRe ? gwRe.test(v.title + ' ' + v.description.slice(0, 300)) : i === 0);
-      /* YouTube blocks servers from reading captions; the update task reads them through youtubetotranscript.com */
-      want.forEach(v => { v.matchesGw = true; v.transcriptUrl = `https://youtubetotranscript.com/transcript?v=${v.videoId}`; });
+      /* YouTube blocks servers from reading captions; /api/transcript reads them through Supadata */
+      want.forEach(v => { v.matchesGw = true; v.transcriptUrl = `https://${req.headers.host}/api/transcript?key=${encodeURIComponent(secret)}&v=${v.videoId}`; });
       return { ...ch, videos: vids };
     } catch (e) { return { ...ch, error: String(e.message || e), videos: [] }; }
   }));

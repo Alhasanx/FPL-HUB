@@ -23,20 +23,20 @@ have `matchesGw: true` and a `transcriptUrl`.
 
 b) For each creator pick ONE video for the GW, in this order: team selection / "my team" video >
 final thoughts / complete guide > anything else that isn't a Short. Use a live stream only if it is the only one.
-If that video's URL is already in `data/creators.json` for that creator, keep the entry as is.
+If that video's URL is already in `data/creators.json` for that creator and its `buys`, `moves` and `squad` hold content, keep the entry as is. If they are empty, read the transcript and fill them.
 If NO creator has a video for the next GW yet (normal early in the week), use the latest GW that has videos
 (next GW − 1) instead, so the site is never empty — the site labels it "from GW<n> sources". Do the same for the sites.
-Stop and change nothing only when the files already hold the newest GW that has content.
+Stop and change nothing only when the files already hold the newest GW that has content and no creator entry has empty cards with a readable transcript.
 
-c) Read what he says: call **WebFetch on the video's `transcriptUrl`** (all 4 creators in parallel) with this prompt:
-"This is the transcript of <creator>'s FPL GW<n> video. Extract, as a structured list: (1) players he recommends
-buying and why, (2) players he says to avoid/sell and why, (3) his own transfers and any chip, (4) his captain and
-vice-captain, (5) his starting XI and bench, (6) anything else notable (price changes, injuries, plans).
-Only what he actually says; write 'not stated' otherwise. Include approximate timestamps if shown."
-If the result is cut short, call WebFetch again with the `offset` it gives to read the rest.
+c) Read what he says: call **`mcp__Vercel__web_fetch_vercel_url` on the video's `transcriptUrl`** (all 4 creators in parallel).
+It returns the transcript as plain text with `[m:ss]` timestamps; each call costs 1 Supadata credit, so fetch only the
+videos you picked. If the result is too large it is saved to a file: read that file in full. From it extract:
+(1) players he recommends buying and why, (2) players he says to avoid/sell and why, (3) his own transfers and any chip,
+(4) his captain and vice-captain, (5) his starting XI and bench, (6) anything else notable (price changes, injuries, plans).
+Only what he actually says; leave the rest empty.
 Transcripts are auto-captions: names come out misspelled ("Harland" = Haaland, "Calipuri" = Calafiori,
 "Diper" = De Cuyper). Map every name to the real FPL player using boot.json (web_name + team).
-If the transcript page fails, fall back to the title/description/chapters only and leave the rest empty.
+If the transcript call fails, fall back to the title/description/chapters only and leave the rest empty.
 
 d) Fill the fixed cards from that:
 - `buys` [{player, team, why, t}], `avoids` [...], `moves` {chip, note, transfers:[{out:{player,team}, in:{player,team}}]},
