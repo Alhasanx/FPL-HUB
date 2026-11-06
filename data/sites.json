@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 10,
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "items": [
     {
       "type": "pick",
@@ -386,6 +386,38 @@
       "source": "FF Hub",
       "why": "Named with Calafiori and Gabriel in the top 10 of Hub AI predicted points for GW10-14",
       "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-ai-teams-gameweek-10-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "Gabriel",
+      "team": "ARS",
+      "source": "FF Scout",
+      "why": "Captain poll option at just under 8%, after three straight clean sheets",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/06/who-is-the-best-captain-for-fpl-gameweek-10-5"
+    },
+    {
+      "type": "pick",
+      "player": "Gakpo",
+      "team": "LIV",
+      "source": "AllAboutFPL",
+      "why": "Differential: four of the next five against bottom-seven defences, starting with Palace",
+      "url": "https://allaboutfpl.com/2026/11/top-fpl-gw10-differential-picks-to-target-before-gw10-deadline/"
+    },
+    {
+      "type": "pick",
+      "player": "Vuskovic",
+      "team": "BHA",
+      "source": "AllAboutFPL",
+      "why": "Differential: joint second-highest scoring defender, 9.6 defensive contributions per 90 and 15 shots",
+      "url": "https://allaboutfpl.com/2026/11/top-fpl-gw10-differential-picks-to-target-before-gw10-deadline/"
+    },
+    {
+      "type": "pick",
+      "player": "Estêvão",
+      "team": "CHE",
+      "source": "AllAboutFPL",
+      "why": "Ultra-differential: six shots vs Man United, and Sunderland have conceded the third most goals",
+      "url": "https://allaboutfpl.com/2026/11/top-fpl-gw10-differential-picks-to-target-before-gw10-deadline/"
     }
   ]
 }

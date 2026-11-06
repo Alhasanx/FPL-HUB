@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 10,
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "creators": [
     {
       "id": "FH",
@@ -135,9 +135,9 @@
         "aqua"
       ],
       "video": {
-        "title": "FPL GW10 TRANSFER TIPS! | Top Picks Tier List for Gameweek 10 - 2026/27! ⭐",
-        "url": "https://www.youtube.com/watch?v=4d1DAuJN0UI",
-        "date": "2026-11-02"
+        "title": "FPL GW10 Team Selection: Konsa Concerns & Free Hit Plans 🚨 | Transfers & Captain",
+        "url": "https://www.youtube.com/watch?v=c1iDubon31A",
+        "date": "2026-11-05"
       },
       "buys": [],
       "avoids": [],
@@ -155,7 +155,7 @@
       "extra": [
         {
           "topic": "Video scope",
-          "text": "Buy, sell, keep and avoid tier list for GW10, by position, plus goalkeepers",
+          "text": "His GW10 team selection; the title flags Konsa concerns, Free Hit plans, transfers and captain, names not captured",
           "t": null
         }
       ]
