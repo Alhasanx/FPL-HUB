@@ -15,34 +15,147 @@
         "url": "https://www.youtube.com/watch?v=-fwUxsEQkAM",
         "date": "2026-11-05"
       },
-      "buys": [],
-      "avoids": [],
+      "buys": [
+        {
+          "player": "Silva",
+          "team": "BOU",
+          "why": "Long-run Bournemouth fixtures for the next 20 gameweeks, and his price was rising",
+          "t": "02:44"
+        },
+        {
+          "player": "Tavernier",
+          "team": "BOU",
+          "why": "Central shots, big chances, assist threat and strong bonus; preferred over Rayan",
+          "t": "10:45"
+        },
+        {
+          "player": "De Cuyper",
+          "team": "BHA",
+          "why": "So attacking he never wants to bench him",
+          "t": "07:14"
+        }
+      ],
+      "avoids": [
+        {
+          "player": "Gibbs-White",
+          "team": "NFO",
+          "why": "Not worth the money the way Forest are playing, and close to a price drop",
+          "t": "05:01"
+        },
+        {
+          "player": "Kroupi.Jr",
+          "team": "BOU",
+          "why": "Doubts he starts at Ipswich; wait until GW11 unless press conferences say otherwise",
+          "t": "10:03"
+        },
+        {
+          "player": "Palmer",
+          "team": "CHE",
+          "why": "Not worth the money; expendable when he needs funds",
+          "t": "12:15"
+        }
+      ],
       "moves": {
         "chip": null,
-        "note": "Title says \"-4 + 2 transfers confirmed\"; the player names are not captured",
-        "transfers": []
+        "note": "Took a -4 for two confirmed moves, made early on Tuesday for price changes and long-term Bournemouth fixtures",
+        "transfers": [
+          {
+            "out": {
+              "player": "Thomas",
+              "team": "COV"
+            },
+            "in": {
+              "player": "Silva",
+              "team": "BOU"
+            }
+          },
+          {
+            "out": {
+              "player": "Gibbs-White",
+              "team": "NFO"
+            },
+            "in": {
+              "player": "Tavernier",
+              "team": "BOU"
+            }
+          }
+        ]
       },
       "squad": {
-        "xi": [],
-        "captain": null,
+        "xi": [
+          {
+            "player": "Raya",
+            "team": "ARS"
+          },
+          {
+            "player": "Calafiori",
+            "team": "ARS"
+          },
+          {
+            "player": "De Cuyper",
+            "team": "BHA"
+          },
+          {
+            "player": "Silva",
+            "team": "BOU"
+          },
+          {
+            "player": "Muharemović",
+            "team": "LEE"
+          },
+          {
+            "player": "Groß",
+            "team": "BHA"
+          },
+          {
+            "player": "Tavernier",
+            "team": "BOU"
+          },
+          {
+            "player": "Palmer",
+            "team": "CHE"
+          },
+          {
+            "player": "Rogers",
+            "team": "CHE"
+          },
+          {
+            "player": "Haaland",
+            "team": "MCI"
+          },
+          {
+            "player": "N.Jackson",
+            "team": "AVL"
+          }
+        ],
+        "captain": "Haaland",
         "vice": null,
-        "bench": []
+        "bench": [
+          {
+            "player": "Van Hecke",
+            "team": "TOT"
+          },
+          {
+            "player": "João Pedro",
+            "team": "CHE"
+          }
+        ]
       },
       "extra": [
         {
-          "topic": "Confirmed transfers",
-          "text": "Chapter on his confirmed moves; the title mentions a -4 hit, names not captured",
-          "t": "02:38"
+          "topic": "Captain",
+          "text": "Haaland keeps the armband, but he is tempted by Calafiori if he can trust the minutes",
+          "t": "13:27"
         },
         {
-          "topic": "Team selection",
-          "text": "Chapter on his GW10 team; the XI and captain are not captured",
-          "t": "06:59"
+          "topic": "João Pedro",
+          "text": "Holds him last on the bench and hopes he is back after the international break",
+          "t": "12:59"
         },
         {
-          "topic": "Future planning",
-          "text": "Chapter on his plans beyond GW10; details not captured",
-          "t": "14:05"
+          "topic": "Free Hit",
+          "text": "Currently looking at GW15, with double Bournemouth at Arsenal and triple Chelsea at City",
+          "t": "17:22"
         }
       ]
     },
@@ -58,29 +171,124 @@
         "url": "https://www.youtube.com/watch?v=iKqUknwPATA",
         "date": "2026-11-05"
       },
-      "buys": [],
-      "avoids": [],
+      "buys": [
+        {
+          "player": "Vuskovic",
+          "team": "BHA",
+          "why": "Likely Konsa replacement, with Brentford at home then Hull away",
+          "t": "06:53"
+        },
+        {
+          "player": "Silva",
+          "team": "BOU",
+          "why": "Likely Konsa replacement, with Ipswich away then Forest at home",
+          "t": "06:53"
+        }
+      ],
+      "avoids": [
+        {
+          "player": "Konsa",
+          "team": "ARS",
+          "why": "Would not buy him now: knee issue and Saliba is back",
+          "t": "06:05"
+        },
+        {
+          "player": "Manzambi",
+          "team": "AVL",
+          "why": "Not interested this week; wants better minutes first",
+          "t": "13:47"
+        },
+        {
+          "player": "Hall",
+          "team": "NEW",
+          "why": "Newcastle's defence is poor, so he will not want to play him much",
+          "t": "07:40"
+        }
+      ],
       "moves": {
         "chip": null,
-        "note": null,
+        "note": "Three free transfers and £1.9m in the bank; plans to roll and have four for GW11, but will reassess Konsa after Arteta's press conference",
         "transfers": []
       },
       "squad": {
-        "xi": [],
-        "captain": null,
+        "xi": [
+          {
+            "player": "Raya",
+            "team": "ARS"
+          },
+          {
+            "player": "Calafiori",
+            "team": "ARS"
+          },
+          {
+            "player": "Konsa",
+            "team": "ARS"
+          },
+          {
+            "player": "De Cuyper",
+            "team": "BHA"
+          },
+          {
+            "player": "Palmer",
+            "team": "CHE"
+          },
+          {
+            "player": "Rogers",
+            "team": "CHE"
+          },
+          {
+            "player": "Mbeumo",
+            "team": "MUN"
+          },
+          {
+            "player": "Groß",
+            "team": "BHA"
+          },
+          {
+            "player": "N.Jackson",
+            "team": "AVL"
+          },
+          {
+            "player": "Haaland",
+            "team": "MCI"
+          },
+          {
+            "player": "Calvert-Lewin",
+            "team": "LEE"
+          }
+        ],
+        "captain": "Haaland",
         "vice": null,
-        "bench": []
+        "bench": [
+          {
+            "player": "Van Hecke",
+            "team": "TOT"
+          },
+          {
+            "player": "Hall",
+            "team": "NEW"
+          },
+          {
+            "player": "M.Sangaré",
+            "team": "BRE"
+          }
+        ]
       },
       "extra": [
         {
-          "topic": "Konsa",
-          "text": "Title asks whether Konsa will start; his answer is not captured",
-          "t": null
+          "topic": "Captain",
+          "text": "Sticks with Haaland for the minutes; Calafiori's small start doubt puts him off the armband",
+          "t": "18:36"
         },
         {
-          "topic": "Team walkthrough",
-          "text": "Goes through his team by position: defenders, midfielders, forwards; names not captured",
-          "t": "03:38"
+          "topic": "Konsa",
+          "text": "Plans to play him and let Van Hecke come off the bench if he misses out",
+          "t": "07:40"
+        },
+        {
+          "topic": "Free Hit",
+          "text": "Eyeing GW12 or GW14, possibly GW19",
+          "t": "18:36"
         }
       ]
     },
@@ -96,34 +304,130 @@
         "url": "https://www.youtube.com/watch?v=JqNlnCgzWfs",
         "date": "2026-11-05"
       },
-      "buys": [],
-      "avoids": [],
+      "buys": [
+        {
+          "player": "Silva",
+          "team": "BOU",
+          "why": "Leaning to him over Vuskovic: cheaper, better defence, slightly better Defcon, great fixtures",
+          "t": "07:10"
+        },
+        {
+          "player": "Tavernier",
+          "team": "BOU",
+          "why": "His preferred Gibbs-White replacement, for double Bournemouth at Ipswich",
+          "t": "08:41"
+        },
+        {
+          "player": "Vuskovic",
+          "team": "BHA",
+          "why": "A coin flip with Silva; expects to own both soon",
+          "t": "07:10"
+        }
+      ],
+      "avoids": [
+        {
+          "player": "Hall",
+          "team": "NEW",
+          "why": "99.9% sure he sells him this week",
+          "t": "03:18"
+        },
+        {
+          "player": "Ødegaard",
+          "team": "ARS",
+          "why": "Calls him his worst pick of the season, but will not sell before Hull at home",
+          "t": "04:35"
+        },
+        {
+          "player": "Gibbs-White",
+          "team": "NFO",
+          "why": "Has been poor, and already dropped in price",
+          "t": "10:58"
+        }
+      ],
       "moves": {
         "chip": null,
-        "note": "Description: has 4 free transfers, looks at routes to Gabriel and Isak; final moves not captured",
+        "note": "Not final at recording: four free transfers, zero in the bank. Most likely Hall to Silva and Gibbs-White to Tavernier; other routes get Gabriel or Isak by selling João Pedro",
         "transfers": []
       },
       "squad": {
-        "xi": [],
-        "captain": null,
+        "xi": [
+          {
+            "player": "Kinsky",
+            "team": "TOT"
+          },
+          {
+            "player": "Calafiori",
+            "team": "ARS"
+          },
+          {
+            "player": "Konsa",
+            "team": "ARS"
+          },
+          {
+            "player": "Muharemović",
+            "team": "LEE"
+          },
+          {
+            "player": "Hall",
+            "team": "NEW"
+          },
+          {
+            "player": "Groß",
+            "team": "BHA"
+          },
+          {
+            "player": "Rogers",
+            "team": "CHE"
+          },
+          {
+            "player": "Palmer",
+            "team": "CHE"
+          },
+          {
+            "player": "Ødegaard",
+            "team": "ARS"
+          },
+          {
+            "player": "Haaland",
+            "team": "MCI"
+          },
+          {
+            "player": "N.Jackson",
+            "team": "AVL"
+          }
+        ],
+        "captain": "Haaland",
         "vice": null,
-        "bench": []
+        "bench": [
+          {
+            "player": "Gibbs-White",
+            "team": "NFO"
+          },
+          {
+            "player": "Mendy",
+            "team": "HUL"
+          },
+          {
+            "player": "João Pedro",
+            "team": "CHE"
+          }
+        ]
       },
       "extra": [
         {
+          "topic": "Team status",
+          "text": "This is his squad before transfers; the XI changes if he makes the planned moves",
+          "t": "05:15"
+        },
+        {
+          "topic": "Captain",
+          "text": "Haaland unless he buys Gabriel or Isak, and he is tempted by Calafiori",
+          "t": "01:55"
+        },
+        {
           "topic": "Konsa",
-          "text": "Description flags a possible Konsa injury",
-          "t": null
-        },
-        {
-          "topic": "Defence",
-          "text": "Description says his defence needs upgrades",
-          "t": null
-        },
-        {
-          "topic": "Options and plans",
-          "text": "Chapter on GW10 options and plans; details not captured",
-          "t": "06:40"
+          "text": "Leans towards him not starting; expects Mosquera alongside Gabriel if so",
+          "t": "02:37"
         }
       ]
     },
@@ -139,24 +443,124 @@
         "url": "https://www.youtube.com/watch?v=c1iDubon31A",
         "date": "2026-11-05"
       },
-      "buys": [],
-      "avoids": [],
+      "buys": [
+        {
+          "player": "Vuskovic",
+          "team": "BHA",
+          "why": "Long-term pick; plans to swap Konsa for him in GW11 ahead of Hull",
+          "t": "21:10"
+        },
+        {
+          "player": "Calvert-Lewin",
+          "team": "LEE",
+          "why": "Planned GW12 buy for Coventry; talisman with high projected points",
+          "t": "21:51"
+        },
+        {
+          "player": "Manzambi",
+          "team": "AVL",
+          "why": "Planned GW12 buy for Ipswich; talisman with high projected points",
+          "t": "21:51"
+        }
+      ],
+      "avoids": [
+        {
+          "player": "Konsa",
+          "team": "ARS",
+          "why": "Likely his last reliable week: Saliba will play ahead of him when fit",
+          "t": "08:01"
+        },
+        {
+          "player": "Schade",
+          "team": "BRE",
+          "why": "Calls buying him a bad decision",
+          "t": "11:25"
+        }
+      ],
       "moves": {
         "chip": null,
-        "note": null,
+        "note": "No GW10 transfer stated. Plans Konsa to Vuskovic in GW11, Barry to Calvert-Lewin and Palmer to Manzambi in GW12, then Free Hit in GW13",
         "transfers": []
       },
       "squad": {
-        "xi": [],
-        "captain": null,
-        "vice": null,
-        "bench": []
+        "xi": [
+          {
+            "player": "Raya",
+            "team": "ARS"
+          },
+          {
+            "player": "Calafiori",
+            "team": "ARS"
+          },
+          {
+            "player": "Konsa",
+            "team": "ARS"
+          },
+          {
+            "player": "De Cuyper",
+            "team": "BHA"
+          },
+          {
+            "player": "Silva",
+            "team": "BOU"
+          },
+          {
+            "player": "Palmer",
+            "team": "CHE"
+          },
+          {
+            "player": "Rogers",
+            "team": "CHE"
+          },
+          {
+            "player": "Mbeumo",
+            "team": "MUN"
+          },
+          {
+            "player": "Haaland",
+            "team": "MCI"
+          },
+          {
+            "player": "N.Jackson",
+            "team": "AVL"
+          },
+          {
+            "player": "Barry",
+            "team": "EVE"
+          }
+        ],
+        "captain": "Haaland",
+        "vice": "Calafiori",
+        "bench": [
+          {
+            "player": "Button",
+            "team": "IPS"
+          },
+          {
+            "player": "Muharemović",
+            "team": "LEE"
+          },
+          {
+            "player": "Groß",
+            "team": "BHA"
+          }
+        ]
       },
       "extra": [
         {
-          "topic": "Video scope",
-          "text": "His GW10 team selection; the title flags Konsa concerns, Free Hit plans, transfers and captain, names not captured",
-          "t": null
+          "topic": "Captain",
+          "text": "Haaland for now, but open to switching to Calafiori before the deadline",
+          "t": "19:08"
+        },
+        {
+          "topic": "Chelsea",
+          "text": "Sunderland are good at home, so he is not fully convinced by Palmer and Rogers",
+          "t": "11:25"
+        },
+        {
+          "topic": "Free Hit",
+          "text": "Plans GW13 to swerve Bournemouth vs Brighton and target Chelsea, Liverpool and Spurs",
+          "t": "23:16"
         }
       ]
     }
