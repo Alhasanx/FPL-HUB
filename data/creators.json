@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
-  "gw": 10,
-  "updated": "2026-11-06",
+  "gw": 11,
+  "updated": "2026-11-07",
   "creators": [
     {
       "id": "FH",
@@ -285,54 +285,97 @@
         "lilac"
       ],
       "video": {
-        "title": "KONSA INJURED! ⚠️ | MY FPL GW10 TEAM SELECTION 🚨 | Fantasy Premier League Tips 2026/27",
-        "url": "https://www.youtube.com/watch?v=JqNlnCgzWfs",
-        "date": "2026-11-05"
+        "title": "BARRY 16-POINTER! 😲 | MY FPL GW11 (EARLY) TRANSFER PLANS 🚀 | Fantasy Premier League Tips 2026/27",
+        "url": "https://www.youtube.com/watch?v=3cQRT5vtctA",
+        "date": "2026-11-07"
       },
       "buys": [
         {
-          "player": "Silva",
-          "team": "BOU",
-          "why": "Leaning to him over Vuskovic: cheaper, better defence, slightly better Defcon, great fixtures",
-          "t": "07:10"
-        },
-        {
-          "player": "Tavernier",
-          "team": "BOU",
-          "why": "His preferred Gibbs-White replacement, for double Bournemouth at Ipswich",
-          "t": "08:41"
-        },
-        {
           "player": "Vuskovic",
           "team": "BHA",
-          "why": "A coin flip with Silva; expects to own both soon",
-          "t": "07:10"
+          "why": "Brighton defence is his biggest gap; attacking threat, DefCon and bonus, with Hull away in GW11",
+          "t": "16:42"
+        },
+        {
+          "player": "Van Hecke",
+          "team": "TOT",
+          "why": "Huge attacking threat for a solid Spurs defence, Ipswich at home, rotates well with Muharemović",
+          "t": "18:01"
+        },
+        {
+          "player": "Rudoni",
+          "team": "COV",
+          "why": "Cheap, on penalties, good data and fixtures; a way to free funds from Ødegaard",
+          "t": "20:09"
+        },
+        {
+          "player": "Evanilson",
+          "team": "BOU",
+          "why": "In a serious run of form with Bournemouth's great fixtures; his likeliest forward if João Pedro goes",
+          "t": "27:09"
         }
       ],
       "avoids": [
         {
-          "player": "Hall",
-          "team": "NEW",
-          "why": "99.9% sure he sells him this week",
-          "t": "03:18"
+          "player": "Konsa",
+          "team": "ARS",
+          "why": "With Saliba back his time in the team is virtually over",
+          "t": "06:00"
         },
         {
           "player": "Ødegaard",
           "team": "ARS",
-          "why": "Calls him his worst pick of the season, but will not sell before Hull at home",
-          "t": "04:35"
+          "why": "Not involved enough in final actions; the midfielder he'd sell first",
+          "t": "10:37"
         },
         {
-          "player": "Gibbs-White",
-          "team": "NFO",
-          "why": "Has been poor, and already dropped in price",
-          "t": "10:58"
+          "player": "João Pedro",
+          "team": "CHE",
+          "why": "Won't hold him indefinitely if not fit for Leeds after Alonso's vague update",
+          "t": "12:43"
+        },
+        {
+          "player": "Manzambi",
+          "team": "AVL",
+          "why": "Great data but not enough minutes to buy yet",
+          "t": "22:20"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "Not final at recording: four free transfers, zero in the bank. Most likely Hall to Silva and Gibbs-White to Tavernier; other routes get Gabriel or Isak by selling João Pedro",
-        "transfers": []
+        "note": "Early plan only, before GW10 and the break: four free transfers and expects to use three or four. Tested Konsa and Mendy to Vuskovic and Van Hecke, funded by Ødegaard to Rudoni; may also swap João Pedro for Evanilson or Calvert-Lewin. Free Hit most likely in GW14-16",
+        "transfers": [
+          {
+            "out": {
+              "player": "Konsa",
+              "team": "ARS"
+            },
+            "in": {
+              "player": "Vuskovic",
+              "team": "BHA"
+            }
+          },
+          {
+            "out": {
+              "player": "Mendy",
+              "team": "HUL"
+            },
+            "in": {
+              "player": "Van Hecke",
+              "team": "TOT"
+            }
+          },
+          {
+            "out": {
+              "player": "Ødegaard",
+              "team": "ARS"
+            },
+            "in": {
+              "player": "Rudoni",
+              "team": "COV"
+            }
+          }
+        ]
       },
       "squad": {
         "xi": [
@@ -341,36 +384,36 @@
             "team": "TOT"
           },
           {
-            "player": "Calafiori",
-            "team": "ARS"
+            "player": "Silva",
+            "team": "BOU"
           },
           {
             "player": "Konsa",
             "team": "ARS"
           },
           {
-            "player": "Muharemović",
-            "team": "LEE"
-          },
-          {
-            "player": "Hall",
-            "team": "NEW"
-          },
-          {
-            "player": "Groß",
-            "team": "BHA"
-          },
-          {
-            "player": "Rogers",
-            "team": "CHE"
+            "player": "Calafiori",
+            "team": "ARS"
           },
           {
             "player": "Palmer",
             "team": "CHE"
           },
           {
+            "player": "Rogers",
+            "team": "CHE"
+          },
+          {
+            "player": "Groß",
+            "team": "BHA"
+          },
+          {
             "player": "Ødegaard",
             "team": "ARS"
+          },
+          {
+            "player": "João Pedro",
+            "team": "CHE"
           },
           {
             "player": "Haaland",
@@ -385,25 +428,25 @@
         "vice": null,
         "bench": [
           "Gibbs-White",
-          "Mendy",
-          "João Pedro"
+          "Muharemović",
+          "Mendy"
         ]
       },
       "extra": [
         {
-          "topic": "Team status",
-          "text": "This is his squad before transfers; the XI changes if he makes the planned moves",
-          "t": "05:15"
+          "topic": "Free Hit",
+          "text": "Best weeks for most teams are 12, 14, 15 and 16; leaning towards GW14 or GW15 (GW16 also tasty for triple City vs Hull)",
+          "t": "28:31"
         },
         {
-          "topic": "Captain",
-          "text": "Haaland unless he buys Gabriel or Isak, and he is tempted by Calafiori",
-          "t": "01:55"
+          "topic": "Groß suspension risk",
+          "text": "On four yellows; a fifth in GW10 rules him out of Hull away and could see him sold",
+          "t": "09:16"
         },
         {
-          "topic": "Konsa",
-          "text": "Leans towards him not starting; expects Mosquera alongside Gabriel if so",
-          "t": "02:37"
+          "topic": "Captaincy",
+          "text": "Haaland vs Fulham the obvious GW11 captain; N.Jackson vs Sunderland a decent shout. Calvert-Lewin his pick for GW12 vs Coventry",
+          "t": "14:05"
         }
       ]
     },
