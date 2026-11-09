@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 11,
-  "updated": "2026-11-07",
+  "updated": "2026-11-09",
   "creators": [
     {
       "id": "FH",
@@ -161,48 +161,71 @@
         "rose"
       ],
       "video": {
-        "title": "Will Konsa start? 🤔 My FPL Team for GW10 🔥",
-        "url": "https://www.youtube.com/watch?v=iKqUknwPATA",
-        "date": "2026-11-05"
+        "title": "I've made a transfer! ✅ FPL GW11 Early Thoughts 🔥",
+        "url": "https://www.youtube.com/watch?v=5vj-PtywhMw",
+        "date": "2026-11-09"
       },
       "buys": [
         {
           "player": "Vuskovic",
           "team": "BHA",
-          "why": "Likely Konsa replacement, with Brentford at home then Hull away",
-          "t": "06:53"
+          "why": "His pick over Van Hecke: better next six fixtures, and not close to a suspension",
+          "t": "18:12"
         },
         {
-          "player": "Silva",
+          "player": "Van Hecke",
+          "team": "TOT",
+          "why": "Very close to Vuskovic; slight edge this week with Ipswich at home, and rotates well with Muharemović",
+          "t": "18:53"
+        },
+        {
+          "player": "Groß",
+          "team": "BHA",
+          "why": "Clearly the best at £6.3m or below: minutes, penalties and good fixtures, despite four yellows",
+          "t": "09:38"
+        },
+        {
+          "player": "Tavernier",
           "team": "BOU",
-          "why": "Likely Konsa replacement, with Ipswich away then Forest at home",
-          "t": "06:53"
+          "why": "Among the best at his price and still a good buy, but think about cover as he is on four yellows",
+          "t": "07:34"
         }
       ],
       "avoids": [
         {
-          "player": "Konsa",
-          "team": "ARS",
-          "why": "Would not buy him now: knee issue and Saliba is back",
-          "t": "06:05"
-        },
-        {
-          "player": "Manzambi",
-          "team": "AVL",
-          "why": "Not interested this week; wants better minutes first",
-          "t": "13:47"
+          "player": "Silva",
+          "team": "BOU",
+          "why": "Fourth yellow ruled him out: other defenders at his price are not close to a ban",
+          "t": "08:15"
         },
         {
           "player": "Hall",
           "team": "NEW",
-          "why": "Newcastle's defence is poor, so he will not want to play him much",
-          "t": "07:40"
+          "why": "Sold him: not a great pick and he does not trust Newcastle's defence",
+          "t": "22:51"
+        },
+        {
+          "player": "M.Sangaré",
+          "team": "BRE",
+          "why": "Calls him a dead pick: too few minutes for DefCon and not guaranteed to start",
+          "t": "24:59"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "Three free transfers and £1.9m in the bank; plans to roll and have four for GW11, but will reassess Konsa after Arteta's press conference",
-        "transfers": []
+        "note": "Moved early ahead of the price rise, leaving three free transfers and £1.8m in the bank. Probably rolls from here; Konsa is likely sold soon if he stays out of the side, and he may Free Hit in GW14",
+        "transfers": [
+          {
+            "out": {
+              "player": "Hall",
+              "team": "NEW"
+            },
+            "in": {
+              "player": "Vuskovic",
+              "team": "BHA"
+            }
+          }
+        ]
       },
       "squad": {
         "xi": [
@@ -215,12 +238,20 @@
             "team": "ARS"
           },
           {
-            "player": "Konsa",
-            "team": "ARS"
+            "player": "Van Hecke",
+            "team": "TOT"
+          },
+          {
+            "player": "Vuskovic",
+            "team": "BHA"
           },
           {
             "player": "De Cuyper",
             "team": "BHA"
+          },
+          {
+            "player": "Mbeumo",
+            "team": "MUN"
           },
           {
             "player": "Palmer",
@@ -229,10 +260,6 @@
           {
             "player": "Rogers",
             "team": "CHE"
-          },
-          {
-            "player": "Mbeumo",
-            "team": "MUN"
           },
           {
             "player": "Groß",
@@ -245,35 +272,31 @@
           {
             "player": "Haaland",
             "team": "MCI"
-          },
-          {
-            "player": "Calvert-Lewin",
-            "team": "LEE"
           }
         ],
         "captain": "Haaland",
         "vice": null,
         "bench": [
-          "Van Hecke",
-          "Hall",
+          "Konsa",
+          "Calvert-Lewin",
           "M.Sangaré"
         ]
       },
       "extra": [
         {
-          "topic": "Captain",
-          "text": "Sticks with Haaland for the minutes; Calafiori's small start doubt puts him off the armband",
-          "t": "18:36"
+          "topic": "Haaland",
+          "text": "Best GW11 captain and not worth selling for most; dropping him in GW12 is only a big differential move, ideally with a Free Hit kept for GW16",
+          "t": "00:34"
         },
         {
-          "topic": "Konsa",
-          "text": "Plans to play him and let Van Hecke come off the bench if he misses out",
-          "t": "07:40"
+          "topic": "Yellow cards",
+          "text": "Tavernier, Silva and Groß are on four, one away from a ban; Rogers is on three, so avoid stacking several of them",
+          "t": "05:31"
         },
         {
-          "topic": "Free Hit",
-          "text": "Eyeing GW12 or GW14, possibly GW19",
-          "t": "18:36"
+          "topic": "Palmer",
+          "text": "More of a worry than Rogers given poor underlying numbers at £9.8m, but hold unless there is someone you really want; Palmer to B.Fernandes tempts him",
+          "t": "13:34"
         }
       ]
     },
