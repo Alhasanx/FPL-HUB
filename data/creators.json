@@ -481,61 +481,80 @@
         "aqua"
       ],
       "video": {
-        "title": "FPL GW10 Team Selection: Konsa Concerns & Free Hit Plans 🚨 | Transfers & Captain",
-        "url": "https://www.youtube.com/watch?v=c1iDubon31A",
-        "date": "2026-11-05"
+        "title": "GW10 Is Over... Here's What I'm Doing in GW11!",
+        "url": "https://www.youtube.com/watch?v=tCywEPg2hB0",
+        "date": "2026-11-09"
       },
       "buys": [
         {
           "player": "Vuskovic",
           "team": "BHA",
-          "why": "Long-term pick; plans to swap Konsa for him in GW11 ahead of Hull",
-          "t": "21:10"
+          "why": "Wants him long term: nailed for Hull, slightly better clean-sheet odds and more attacking threat than Konsa",
+          "t": "18:48"
         },
         {
           "player": "Calvert-Lewin",
           "team": "LEE",
-          "why": "Planned GW12 buy for Coventry; talisman with high projected points",
-          "t": "21:51"
+          "why": "Possible GW12 upgrade on Barry for Coventry at home; good fixtures outside GW13",
+          "t": "20:11"
         },
         {
           "player": "Manzambi",
           "team": "AVL",
-          "why": "Planned GW12 buy for Ipswich; talisman with high projected points",
-          "t": "21:51"
+          "why": "Possible GW12 swap for Palmer, Ipswich and Palace either side of GW13, though not fully convinced",
+          "t": "20:11"
+        },
+        {
+          "player": "Groß",
+          "team": "BHA",
+          "why": "One of the few midfielders he likes right now, and a penalty taker",
+          "t": "12:18"
+        },
+        {
+          "player": "Tavernier",
+          "team": "BOU",
+          "why": "One of the few midfielders he likes right now",
+          "t": "12:18"
         }
       ],
       "avoids": [
         {
           "player": "Konsa",
           "team": "ARS",
-          "why": "Likely his last reliable week: Saliba will play ahead of him when fit",
-          "t": "08:01"
+          "why": "Selling him for his own team as Saliba returns; says he is not a sell for everyone yet",
+          "t": "15:45"
         },
         {
-          "player": "Schade",
-          "team": "BRE",
-          "why": "Calls buying him a bad decision",
-          "t": "11:25"
+          "player": "Palmer",
+          "team": "CHE",
+          "why": "Barely shooting or creating in a Chelsea attack that isn't coherent; only returned via a penalty",
+          "t": "05:30"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "No GW10 transfer stated. Plans Konsa to Vuskovic in GW11, Barry to Calvert-Lewin and Palmer to Manzambi in GW12, then Free Hit in GW13",
-        "transfers": []
+        "note": "Probably Konsa to Vuskovic in GW11, a slightly early move to beat price changes and not locked in yet. Maybe Palmer to Manzambi and Barry to Calvert-Lewin in GW12, then Free Hit in GW13 to triple up on Chelsea against Palace. He only named part of his team, so the XI shown is partial",
+        "transfers": [
+          {
+            "out": {
+              "player": "Konsa",
+              "team": "ARS"
+            },
+            "in": {
+              "player": "Vuskovic",
+              "team": "BHA"
+            }
+          }
+        ]
       },
       "squad": {
         "xi": [
           {
-            "player": "Raya",
-            "team": "ARS"
+            "player": "Silva",
+            "team": "BOU"
           },
           {
             "player": "Calafiori",
-            "team": "ARS"
-          },
-          {
-            "player": "Konsa",
             "team": "ARS"
           },
           {
@@ -543,57 +562,44 @@
             "team": "BHA"
           },
           {
-            "player": "Silva",
-            "team": "BOU"
-          },
-          {
-            "player": "Palmer",
-            "team": "CHE"
+            "player": "Konsa",
+            "team": "ARS"
           },
           {
             "player": "Rogers",
             "team": "CHE"
           },
           {
-            "player": "Mbeumo",
-            "team": "MUN"
+            "player": "Palmer",
+            "team": "CHE"
           },
           {
-            "player": "Haaland",
-            "team": "MCI"
-          },
-          {
-            "player": "N.Jackson",
-            "team": "AVL"
-          },
-          {
-            "player": "Barry",
-            "team": "EVE"
+            "player": "Groß",
+            "team": "BHA"
           }
         ],
-        "captain": "Haaland",
-        "vice": "Calafiori",
+        "captain": null,
+        "vice": null,
         "bench": [
-          "Button",
-          "Muharemović",
-          "Groß"
+          "Mbeumo",
+          "Muharemović"
         ]
       },
       "extra": [
         {
-          "topic": "Captain",
-          "text": "Haaland for now, but open to switching to Calafiori before the deadline",
-          "t": "19:08"
+          "topic": "Midfield",
+          "text": "Few midfielders are returning without a penalty: no in-form premiums and no DefCon mids, so he favours a three or even two-man midfield",
+          "t": "10:55"
         },
         {
-          "topic": "Chelsea",
-          "text": "Sunderland are good at home, so he is not fully convinced by Palmer and Rogers",
-          "t": "11:25"
+          "topic": "Schade",
+          "text": "Takes penalties while Thiago is banned for Everton and Man Utd, so he could start over Rogers or Palmer",
+          "t": "13:42"
         },
         {
-          "topic": "Free Hit",
-          "text": "Plans GW13 to swerve Bournemouth vs Brighton and target Chelsea, Liverpool and Spurs",
-          "t": "23:16"
+          "topic": "Saliba",
+          "text": "Recovery looks positive but he got no first-team minutes; about 20% to start in GW11, with Konsa about 80%",
+          "t": "17:15"
         }
       ]
     }
