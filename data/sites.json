@@ -1,423 +1,119 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
-  "gw": 10,
-  "updated": "2026-11-06",
+  "gw": 11,
+  "updated": "2026-11-10",
   "items": [
+    {
+      "type": "pick",
+      "player": "Raya",
+      "team": "ARS",
+      "source": "FF Scout",
+      "why": "Likely Arsenal clean sheet at Newcastle",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+    },
+    {
+      "type": "pick",
+      "player": "Silva",
+      "team": "BOU",
+      "source": "FF Scout",
+      "why": "Fine for GW11 despite suspension risk; earns DefCon points",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+    },
+    {
+      "type": "pick",
+      "player": "Gabriel",
+      "team": "ARS",
+      "source": "FF Scout",
+      "why": "Likely Arsenal clean sheet at Newcastle",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+    },
+    {
+      "type": "pick",
+      "player": "Vuskovic",
+      "team": "BHA",
+      "source": "FF Scout",
+      "why": "Strong DefCon output and picked up an assist for Groß's penalty",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+    },
     {
       "type": "pick",
       "player": "Van Hecke",
       "team": "TOT",
       "source": "FF Scout",
-      "why": "Buy: strong xGC figures, good fixtures ahead and regular DefCon points",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
+      "why": "Joint-best defender for shots on target",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
     },
     {
       "type": "pick",
-      "player": "Konsa",
-      "team": "ARS",
+      "player": "Kudus",
+      "team": "TOT",
       "source": "FF Scout",
-      "why": "Buy: big haul at a low price, but Saliba's return could cut his minutes",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
-    },
-    {
-      "type": "pick",
-      "player": "Evanilson",
-      "team": "BOU",
-      "source": "FF Scout",
-      "why": "Keep: good upcoming fixtures, with doubts over his finishing",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
-    },
-    {
-      "type": "pick",
-      "player": "Tavernier",
-      "team": "BOU",
-      "source": "FF Scout",
-      "why": "Keep: set-piece duties help, though his conversion rate is unlikely to last",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
-    },
-    {
-      "type": "pick",
-      "player": "Manzambi",
-      "team": "AVL",
-      "source": "FF Scout",
-      "why": "Keep: five straight attacking returns, but he is hooked after the hour",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
-    },
-    {
-      "type": "pick",
-      "player": "Calvert-Lewin",
-      "team": "LEE",
-      "source": "FF Scout",
-      "why": "Keep: poor recent output, but home fixtures after the break make him worth holding",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
-    },
-    {
-      "type": "avoid",
-      "player": "Gibbs-White",
-      "team": "NFO",
-      "source": "FF Scout",
-      "why": "Sell: no goals and one assist in seven games, with tough fixtures next",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
-    },
-    {
-      "type": "avoid",
-      "player": "João Pedro",
-      "team": "CHE",
-      "source": "FF Scout",
-      "why": "Probably a sell: injured and unlikely back before the international break",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/evanilson-van-hecke-konsa-dcl-buy-keep-or-sell-in-gameweek-10"
-    },
-    {
-      "type": "pick",
-      "player": "Pickford",
-      "team": "EVE",
-      "source": "FF Scout",
-      "why": "In Scout's GW10 early Scout Picks XI",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "Calafiori",
-      "team": "ARS",
-      "source": "FF Scout",
-      "why": "In Scout's GW10 early Scout Picks XI",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "De Cuyper",
-      "team": "BHA",
-      "source": "FF Scout",
-      "why": "In Scout's GW10 early Scout Picks XI",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "Rogers",
-      "team": "CHE",
-      "source": "FF Scout",
-      "why": "In Scout's GW10 early Scout Picks XI",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
+      "why": "A possible punt after five starts and three home assists",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
     },
     {
       "type": "pick",
       "player": "Groß",
       "team": "BHA",
       "source": "FF Scout",
-      "why": "In Scout's GW10 early Scout Picks XI",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "Palmer",
-      "team": "CHE",
-      "source": "FF Scout",
-      "why": "In Scout's GW10 early Scout Picks XI",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "Barry",
-      "team": "EVE",
-      "source": "FF Scout",
-      "why": "In Scout's GW10 early Scout Picks XI",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "Haaland",
-      "team": "MCI",
-      "source": "FF Scout",
-      "why": "In Scout's GW10 early Scout Picks XI",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "Isak",
-      "team": "LIV",
-      "source": "FF Scout",
-      "why": "In Scout's GW10 early Scout Picks XI",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/02/fpl-gameweek-10-early-scout-picks-four-double-ups"
-    },
-    {
-      "type": "pick",
-      "player": "Gabriel",
-      "team": "ARS",
-      "source": "FF Hub",
-      "why": "Called arguably the best GW10 captain: set-piece threat, DefCon returns and Arsenal's best xGC, at home to Hull",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-10-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "Calafiori",
-      "team": "ARS",
-      "source": "FF Hub",
-      "why": "Cheaper route into Arsenal's defence; first-choice left-back with a goal and two assists already",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-10-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "Haaland",
-      "team": "MCI",
-      "source": "FF Hub",
-      "why": "Reliable pick and captain option: top scorer with the highest xG, away to second-bottom Forest",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-10-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "Barry",
-      "team": "EVE",
-      "source": "FF Hub",
-      "why": "Value forward with 4 goals, at home to a Coventry side that have conceded 16",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-10-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "De Cuyper",
-      "team": "BHA",
-      "source": "FF Hub",
-      "why": "Highest-scoring player in the game so far, playing as a left-winger; Brentford at home",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-10-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "N.Jackson",
-      "team": "AVL",
-      "source": "FF Hub",
-      "why": "Buy: scoring, favourable fixture run continues, not too late at about 26% owned",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
-    },
-    {
-      "type": "pick",
-      "player": "Konsa",
-      "team": "ARS",
-      "source": "FF Hub",
-      "why": "Hold: superb value with Saliba out; start him against Hull, place at risk after the break",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
-    },
-    {
-      "type": "pick",
-      "player": "Dewsbury-Hall",
-      "team": "EVE",
-      "source": "FF Hub",
-      "why": "Differential: 89 minutes per start, set-piece routes to points against Coventry",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
-    },
-    {
-      "type": "pick",
-      "player": "Rayan",
-      "team": "BOU",
-      "source": "FF Hub",
-      "why": "Differential: most big chances in the squad, medium-term option on excellent fixtures",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
-    },
-    {
-      "type": "pick",
-      "player": "Barcola",
-      "team": "LIV",
-      "source": "FF Hub",
-      "why": "Differential: no league goal yet, but explosive potential in the Champions League",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
-    },
-    {
-      "type": "avoid",
-      "player": "Cherki",
-      "team": "MCI",
-      "source": "FF Hub",
-      "why": "Sell: one league start in City's last three, minutes too unreliable for 35% ownership",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fantasy-premier-league-ultimate-guide-fpl-tips"
-    },
-    {
-      "type": "pick",
-      "player": "Gabriel",
-      "team": "ARS",
-      "source": "AllAboutFPL",
-      "why": "Called the most nailed Arsenal defender, with the best entry point before Hull at home",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "pick",
-      "player": "Haaland",
-      "team": "MCI",
-      "source": "AllAboutFPL",
-      "why": "Captain lean as the safe choice; Forest are winless in five league games",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
+      "why": "Template pick with his best xGI of the season",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
     },
     {
       "type": "pick",
       "player": "Tavernier",
       "team": "BOU",
-      "source": "AllAboutFPL",
-      "why": "Obvious pick for his share of penalties and set pieces, and good form",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "pick",
-      "player": "Rayan",
-      "team": "BOU",
-      "source": "AllAboutFPL",
-      "why": "Differential punt at 2.3% ownership; 13 shots in the box over the last five matches",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "pick",
-      "player": "Palmer",
-      "team": "CHE",
-      "source": "AllAboutFPL",
-      "why": "Picked for a Bench Boost with Chelsea away at Sunderland; scored in GW9",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "pick",
-      "player": "Rogers",
-      "team": "CHE",
-      "source": "AllAboutFPL",
-      "why": "Picked for a Bench Boost with Chelsea away at Sunderland; scored in GW9",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "pick",
-      "player": "Silva",
-      "team": "BOU",
-      "source": "AllAboutFPL",
-      "why": "Slowly becoming a no-brainer pick given Bournemouth's good fixture run",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "pick",
-      "player": "Barry",
-      "team": "EVE",
-      "source": "AllAboutFPL",
-      "why": "Listed in the solid team for Coventry at home and in a Bench Boost draft",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "pick",
-      "player": "Kinsky",
-      "team": "TOT",
-      "source": "AllAboutFPL",
-      "why": "Leans to him over Leno on Spurs' defensive data, for Leeds away",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "pick",
-      "player": "De Cuyper",
-      "team": "BHA",
-      "source": "AllAboutFPL",
-      "why": "Leaning to start him: plays left wing, high ownership, solid Brighton defence",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "avoid",
-      "player": "Gibbs-White",
-      "team": "NFO",
-      "source": "AllAboutFPL",
-      "why": "On the sell list: five blanks out of five after paying 7.9m; planned swap for Tavernier or Rayan",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "avoid",
-      "player": "Muñoz",
-      "team": "NFO",
-      "source": "AllAboutFPL",
-      "why": "On the sell list with Gibbs-White; planned swap for Gabriel",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "avoid",
-      "player": "Konsa",
-      "team": "ARS",
-      "source": "AllAboutFPL",
-      "why": "Plans to remove him in the coming weeks with Saliba back for Arsenal",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "avoid",
-      "player": "Calafiori",
-      "team": "ARS",
-      "source": "AllAboutFPL",
-      "why": "Plans to remove him in the coming weeks with Saliba back for Arsenal",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-team-selection-drafts-transfer-plans-and-watchlist/"
-    },
-    {
-      "type": "pick",
-      "player": "Raya",
-      "team": "ARS",
-      "source": "AllAboutFPL",
-      "why": "Cheap route into Arsenal's defence, which has conceded the fewest goals; Hull are second bottom for xG",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "Dewsbury-Hall",
-      "team": "EVE",
-      "source": "AllAboutFPL",
-      "why": "Everton rank 4th for big chances and Coventry have a leaky defence; predicted second-most midfield points",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "Manzambi",
-      "team": "AVL",
-      "source": "AllAboutFPL",
-      "why": "37 FPL points since GW5, with only Konsa and Jackson ahead; Man United are 17th and missing Baleba",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "Isak",
-      "team": "LIV",
-      "source": "AllAboutFPL",
-      "why": "Six league goals; Crystal Palace have the worst xGC (19.23) and 31 big chances conceded",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-scout-picks-based-on-stats-analysis-and-matchups/"
+      "source": "FF Scout",
+      "why": "In Scout's early GW11 Scout Picks, though they note he missed a tap-in",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
     },
     {
       "type": "pick",
       "player": "N.Jackson",
       "team": "AVL",
-      "source": "AllAboutFPL",
-      "why": "Five league goals in his last five; most shots among forwards over the last five games",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gw10-scout-picks-based-on-stats-analysis-and-matchups/"
-    },
-    {
-      "type": "pick",
-      "player": "Rice",
-      "team": "ARS",
-      "source": "FF Hub",
-      "why": "Named with Calafiori and Gabriel in the top 10 of Hub AI predicted points for GW10-14",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-ai-teams-gameweek-10-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "Gabriel",
-      "team": "ARS",
       "source": "FF Scout",
-      "why": "Captain poll option at just under 8%, after three straight clean sheets",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/06/who-is-the-best-captain-for-fpl-gameweek-10-5"
+      "why": "Averaging 11 points over his last three; leads for goals since GW5",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
     },
     {
       "type": "pick",
-      "player": "Gakpo",
+      "player": "Isak",
       "team": "LIV",
-      "source": "AllAboutFPL",
-      "why": "Differential: four of the next five against bottom-seven defences, starting with Palace",
-      "url": "https://allaboutfpl.com/2026/11/top-fpl-gw10-differential-picks-to-target-before-gw10-deadline/"
+      "source": "FF Scout",
+      "why": "Seven goals in eight and faces a leaky Man Utd defence",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
     },
     {
       "type": "pick",
-      "player": "Vuskovic",
-      "team": "BHA",
-      "source": "AllAboutFPL",
-      "why": "Differential: joint second-highest scoring defender, 9.6 defensive contributions per 90 and 15 shots",
-      "url": "https://allaboutfpl.com/2026/11/top-fpl-gw10-differential-picks-to-target-before-gw10-deadline/"
+      "player": "Haaland",
+      "team": "MCI",
+      "source": "FF Scout",
+      "why": "Scored in each of his previous seven; too early to lose patience",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
     },
     {
       "type": "pick",
-      "player": "Estêvão",
-      "team": "CHE",
-      "source": "AllAboutFPL",
-      "why": "Ultra-differential: six shots vs Man United, and Sunderland have conceded the third most goals",
-      "url": "https://allaboutfpl.com/2026/11/top-fpl-gw10-differential-picks-to-target-before-gw10-deadline/"
+      "player": "Kinsky",
+      "team": "TOT",
+      "source": "FF Scout",
+      "why": "Tottenham look solid defensively",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+    },
+    {
+      "type": "pick",
+      "player": "van Ewijk",
+      "team": "COV",
+      "source": "FF Scout",
+      "why": "In Scout's early GW11 Scout Picks",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+    },
+    {
+      "type": "pick",
+      "player": "Rudoni",
+      "team": "COV",
+      "source": "FF Scout",
+      "why": "Penalty taker with three recent goals",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
     }
   ]
 }
