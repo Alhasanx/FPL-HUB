@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 11,
-  "updated": "2026-11-09",
+  "updated": "2026-11-11",
   "creators": [
     {
       "id": "FH",
@@ -11,75 +11,42 @@
         "aqua"
       ],
       "video": {
-        "title": "MY FPL GW10 TEAM SELECTION! 📱 MY -4 + 2 TRANSFERS CONFIRMED!  ✅😱 | Fantasy Premier League 2026/27",
-        "url": "https://www.youtube.com/watch?v=-fwUxsEQkAM",
-        "date": "2026-11-05"
+        "title": "MY FPL GW11 TRANSFER PLANS 📝 TIME TO SELL PALMER? 🥶 BUT TO WHO? | Fantasy Premier League 2026/27",
+        "url": "https://www.youtube.com/watch?v=SWXx3lf0Txc",
+        "date": "2026-11-11"
       },
       "buys": [
         {
-          "player": "Silva",
-          "team": "BOU",
-          "why": "Long-run Bournemouth fixtures for the next 20 gameweeks, and his price was rising",
-          "t": "02:44"
-        },
-        {
-          "player": "Tavernier",
-          "team": "BOU",
-          "why": "Central shots, big chances, assist threat and strong bonus; preferred over Rayan",
-          "t": "10:45"
-        },
-        {
-          "player": "De Cuyper",
+          "player": "Vuskovic",
           "team": "BHA",
-          "why": "So attacking he never wants to bench him",
-          "t": "07:14"
+          "why": "Now the second-highest scoring defender; first replacement if De Cuyper or Calafiori become issues",
+          "t": "11:58"
+        },
+        {
+          "player": "Evanilson",
+          "team": "BOU",
+          "why": "Strong presser in the right positions with great upcoming fixtures, if João Pedro isn't back",
+          "t": "07:58"
+        },
+        {
+          "player": "Gabriel",
+          "team": "ARS",
+          "why": "Option if he frees up money to add a second Arsenal defender",
+          "t": "12:53"
         }
       ],
       "avoids": [
         {
-          "player": "Gibbs-White",
-          "team": "NFO",
-          "why": "Not worth the money the way Forest are playing, and close to a price drop",
-          "t": "05:01"
-        },
-        {
-          "player": "Kroupi.Jr",
-          "team": "BOU",
-          "why": "Doubts he starts at Ipswich; wait until GW11 unless press conferences say otherwise",
-          "t": "10:03"
-        },
-        {
           "player": "Palmer",
           "team": "CHE",
-          "why": "Not worth the money; expendable when he needs funds",
-          "t": "12:15"
+          "why": "Underlying data and eye test don't support him; wants to sell but no obvious replacement yet",
+          "t": "09:54"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "Took a -4 for two confirmed moves, made early on Tuesday for price changes and long-term Bournemouth fixtures",
-        "transfers": [
-          {
-            "out": {
-              "player": "Thomas",
-              "team": "COV"
-            },
-            "in": {
-              "player": "Silva",
-              "team": "BOU"
-            }
-          },
-          {
-            "out": {
-              "player": "Gibbs-White",
-              "team": "NFO"
-            },
-            "in": {
-              "player": "Tavernier",
-              "team": "BOU"
-            }
-          }
-        ]
+        "note": "Plans to roll his one free transfer (0.5m ITB) unless João Pedro is out and another starter gets an issue",
+        "transfers": []
       },
       "squad": {
         "xi": [
@@ -92,7 +59,7 @@
             "team": "ARS"
           },
           {
-            "player": "De Cuyper",
+            "player": "Van Hecke",
             "team": "BHA"
           },
           {
@@ -100,16 +67,12 @@
             "team": "BOU"
           },
           {
-            "player": "Muharemović",
-            "team": "LEE"
+            "player": "De Cuyper",
+            "team": "BHA"
           },
           {
             "player": "Groß",
             "team": "BHA"
-          },
-          {
-            "player": "Tavernier",
-            "team": "BOU"
           },
           {
             "player": "Palmer",
@@ -120,36 +83,40 @@
             "team": "CHE"
           },
           {
-            "player": "Haaland",
-            "team": "MCI"
+            "player": "Tavernier",
+            "team": "BOU"
           },
           {
             "player": "N.Jackson",
             "team": "AVL"
+          },
+          {
+            "player": "Haaland",
+            "team": "MCI"
           }
         ],
         "captain": "Haaland",
-        "vice": null,
+        "vice": "N.Jackson",
         "bench": [
-          "Van Hecke",
-          "João Pedro"
+          "João Pedro",
+          "Muharemović"
         ]
       },
       "extra": [
         {
-          "topic": "Captain",
-          "text": "Haaland keeps the armband, but he is tempted by Calafiori if he can trust the minutes",
-          "t": "13:27"
-        },
-        {
           "topic": "João Pedro",
-          "text": "Holds him last on the bench and hopes he is back after the international break",
-          "t": "12:59"
+          "text": "Orange-flagged; waiting on Chelsea training news. If fit he likely starts and Silva or even Palmer could be benched",
+          "t": "03:50"
         },
         {
-          "topic": "Free Hit",
-          "text": "Currently looking at GW15, with double Bournemouth at Arsenal and triple Chelsea at City",
-          "t": "17:22"
+          "topic": "Fixture pile-up",
+          "text": "10 gameweeks in 45 days after the break, so building up transfers is the priority",
+          "t": "05:54"
+        },
+        {
+          "topic": "Palmer replacement",
+          "text": "Watching Gibbs-White, Mbeumo (if Man United get a new manager) or Manzambi; may need money for B.Fernandes",
+          "t": "19:25"
         }
       ]
     },
