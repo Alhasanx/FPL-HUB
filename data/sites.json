@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 11,
-  "updated": "2026-11-10",
+  "updated": "2026-11-14",
   "items": [
     {
       "type": "pick",
@@ -114,6 +114,46 @@
       "source": "FF Scout",
       "why": "Penalty taker with three recent goals",
       "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+    },
+    {
+      "type": "pick",
+      "player": "Rogers",
+      "team": "CHE",
+      "source": "FF Scout",
+      "why": "In Scout's GW11 wildcard team: 5 goals and 1 assist in 10 matches",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/13/fpl-gameweek-11-wildcard-best-team-pros-cons-of-using"
+    },
+    {
+      "type": "pick",
+      "player": "McGinn",
+      "team": "AVL",
+      "source": "FF Scout",
+      "why": "In Scout's GW11 wildcard team: Villa's penalty-taking captain with 6 returns in his last 6 starts",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/13/fpl-gameweek-11-wildcard-best-team-pros-cons-of-using"
+    },
+    {
+      "type": "pick",
+      "player": "Muharemović",
+      "team": "LEE",
+      "source": "FF Scout",
+      "why": "In Scout's GW11 wildcard team for defensive contributions plus attacking upside",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/13/fpl-gameweek-11-wildcard-best-team-pros-cons-of-using"
+    },
+    {
+      "type": "pick",
+      "player": "Trafford",
+      "team": "LEE",
+      "source": "FF Scout",
+      "why": "In Scout's GW11 wildcard team as part of a budget rotating goalkeeper pair",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/13/fpl-gameweek-11-wildcard-best-team-pros-cons-of-using"
+    },
+    {
+      "type": "avoid",
+      "player": "Palmer",
+      "team": "CHE",
+      "source": "FF Scout",
+      "why": "Scout's GW11 wildcard piece says his form has faded after a strong start",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/13/fpl-gameweek-11-wildcard-best-team-pros-cons-of-using"
     }
   ]
 }
