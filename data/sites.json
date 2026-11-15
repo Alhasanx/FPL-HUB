@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 11,
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "items": [
     {
       "type": "pick",
@@ -154,6 +154,54 @@
       "source": "FF Scout",
       "why": "Scout's GW11 wildcard piece says his form has faded after a strong start",
       "url": "https://www.fantasyfootballscout.co.uk/2026/11/13/fpl-gameweek-11-wildcard-best-team-pros-cons-of-using"
+    },
+    {
+      "type": "pick",
+      "player": "Vuskovic",
+      "team": "BHA",
+      "source": "AllAboutFPL",
+      "why": "Strong attacking numbers, Brighton's clean-sheet record and Hull at home",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "pick",
+      "player": "Van Hecke",
+      "team": "TOT",
+      "source": "AllAboutFPL",
+      "why": "Top defender for goals and big chances; hosts Ipswich who have no clean sheets",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Schade",
+      "team": "BRE",
+      "source": "AllAboutFPL",
+      "why": "Only 7 points in his last five and a tough run: EVE, MUN, ARS, MCI",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Barry",
+      "team": "EVE",
+      "source": "AllAboutFPL",
+      "why": "Recent hauls look unsustainable with Brentford, Liverpool and Villa next",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Thiago",
+      "team": "BRE",
+      "source": "AllAboutFPL",
+      "why": "Sell: three-match ban after his red card against Brighton",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Guéhi",
+      "team": "MCI",
+      "source": "AllAboutFPL",
+      "why": "Sell: zero points in three GWs, hip problem and withdrew from England squad",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
     }
   ]
 }
