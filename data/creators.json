@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 11,
-  "updated": "2026-11-11",
+  "updated": "2026-11-18",
   "creators": [
     {
       "id": "FH",
@@ -11,41 +11,83 @@
         "aqua"
       ],
       "video": {
-        "title": "MY FPL GW11 TRANSFER PLANS 📝 TIME TO SELL PALMER? 🥶 BUT TO WHO? | Fantasy Premier League 2026/27",
-        "url": "https://www.youtube.com/watch?v=SWXx3lf0Txc",
-        "date": "2026-11-11"
+        "title": "MY FPL GW11 TRANSFER TARGETS! ♻️ BEST MIDFIELDERS? KEEP vs SELL! | Fantasy Premier League 2026/27",
+        "url": "https://www.youtube.com/watch?v=PNRBGDvzfcU",
+        "date": "2026-11-18"
       },
       "buys": [
         {
-          "player": "Vuskovic",
-          "team": "BHA",
-          "why": "Now the second-highest scoring defender; first replacement if De Cuyper or Calafiori become issues",
-          "t": "11:58"
-        },
-        {
-          "player": "Evanilson",
-          "team": "BOU",
-          "why": "Strong presser in the right positions with great upcoming fixtures, if João Pedro isn't back",
-          "t": "07:58"
+          "player": "N.Jackson",
+          "team": "AVL",
+          "why": "Safest route into a strong Villa attack with Sunderland, Ipswich, Everton and Palace next",
+          "t": "12:12"
         },
         {
           "player": "Gabriel",
           "team": "ARS",
-          "why": "Option if he frees up money to add a second Arsenal defender",
-          "t": "12:53"
+          "why": "Nailed in the league's best defence; fixtures barely matter",
+          "t": "09:26"
+        },
+        {
+          "player": "Vuskovic",
+          "team": "BHA",
+          "why": "Safer than De Cuyper long term and better as an every-week starter",
+          "t": "09:26"
+        },
+        {
+          "player": "Rogers",
+          "team": "CHE",
+          "why": "Still the most reliable long-term midfielder if you don't own him; great minutes",
+          "t": "10:07"
+        },
+        {
+          "player": "McGinn",
+          "team": "AVL",
+          "why": "Cheaper than Manzambi with better minutes, plus penalties and set pieces",
+          "t": "11:31"
+        },
+        {
+          "player": "Evanilson",
+          "team": "BOU",
+          "why": "Nailed minutes and nice long-term fixtures; his likely buy if João Pedro is out",
+          "t": "14:54"
         }
       ],
       "avoids": [
         {
-          "player": "Palmer",
-          "team": "CHE",
-          "why": "Underlying data and eye test don't support him; wants to sell but no obvious replacement yet",
-          "t": "09:54"
+          "player": "Tarkowski",
+          "team": "EVE",
+          "why": "Not worth the money over the cheaper defenders",
+          "t": "08:02"
+        },
+        {
+          "player": "Schade",
+          "team": "BRE",
+          "why": "Underlying data not good enough",
+          "t": "08:44"
+        },
+        {
+          "player": "Hall",
+          "team": "NEW",
+          "why": "Would sell every Newcastle and Fulham player",
+          "t": "08:44"
+        },
+        {
+          "player": "Wissa",
+          "team": "NEW",
+          "why": "Would sell every Newcastle and Fulham player",
+          "t": "08:44"
+        },
+        {
+          "player": "King",
+          "team": "FUL",
+          "why": "Would sell every Newcastle and Fulham player",
+          "t": "08:44"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "Plans to roll his one free transfer (0.5m ITB) unless João Pedro is out and another starter gets an issue",
+        "note": "If João Pedro is out he'll likely sell him for Evanilson; otherwise waits a week and probably buys Calvert-Lewin, unless he sells João Pedro and Palmer for Isak. Team selection video on Thursday. XI shown is from his 11 Nov GW11 video",
         "transfers": []
       },
       "squad": {
@@ -104,19 +146,19 @@
       },
       "extra": [
         {
-          "topic": "João Pedro",
-          "text": "Orange-flagged; waiting on Chelsea training news. If fit he likely starts and Silva or even Palmer could be benched",
-          "t": "03:50"
+          "topic": "Palmer",
+          "text": "In 'discuss', not 'sell': replacements aren't obvious, so better to wait (maybe for a Man United midfielder) than rush",
+          "t": "05:55"
         },
         {
-          "topic": "Fixture pile-up",
-          "text": "10 gameweeks in 45 days after the break, so building up transfers is the priority",
-          "t": "05:54"
+          "topic": "Haaland",
+          "text": "Keep: no way he sells before Fulham at home; the debate may come once Arsenal, Leeds, Brentford and Chelsea arrive",
+          "t": "12:12"
         },
         {
-          "topic": "Palmer replacement",
-          "text": "Watching Gibbs-White, Mbeumo (if Man United get a new manager) or Manzambi; may need money for B.Fernandes",
-          "t": "19:25"
+          "topic": "Fixtures",
+          "text": "Villa and Brighton have the best next six; plan Man United buys around GW12-14 (Coventry at home)",
+          "t": "00:40"
         }
       ]
     },
@@ -128,59 +170,53 @@
         "rose"
       ],
       "video": {
-        "title": "I've made a transfer! ✅ FPL GW11 Early Thoughts 🔥",
-        "url": "https://www.youtube.com/watch?v=5vj-PtywhMw",
-        "date": "2026-11-09"
+        "title": "Is selling Haaland soon crazy? 🤔 FPL Gameweek 11 Preview 🔥",
+        "url": "https://www.youtube.com/watch?v=srWgsUqLBew",
+        "date": "2026-11-18"
       },
       "buys": [
         {
-          "player": "Vuskovic",
-          "team": "BHA",
-          "why": "His pick over Van Hecke: better next six fixtures, and not close to a suspension",
-          "t": "18:12"
+          "player": "Gibbs-White",
+          "team": "NFO",
+          "why": "Plays close to 90 every week on penalties with good Christmas fixtures; first option if a midfielder has issues",
+          "t": "11:58"
         },
         {
-          "player": "Van Hecke",
-          "team": "TOT",
-          "why": "Very close to Vuskovic; slight edge this week with Ipswich at home, and rotates well with Muharemović",
-          "t": "18:53"
+          "player": "Wirtz",
+          "team": "LIV",
+          "why": "Starting as the No.10 with good Liverpool fixtures; a 7.2m differential in a weak midfield market",
+          "t": "22:48"
         },
         {
-          "player": "Groß",
-          "team": "BHA",
-          "why": "Clearly the best at £6.3m or below: minutes, penalties and good fixtures, despite four yellows",
-          "t": "09:38"
-        },
-        {
-          "player": "Tavernier",
-          "team": "BOU",
-          "why": "Among the best at his price and still a good buy, but think about cover as he is on four yellows",
-          "t": "07:34"
+          "player": "B.Fernandes",
+          "team": "MUN",
+          "why": "Wants him for Man United's GW12-15 fixtures, ideally without selling Haaland",
+          "t": "09:59"
         }
       ],
       "avoids": [
         {
-          "player": "Silva",
-          "team": "BOU",
-          "why": "Fourth yellow ruled him out: other defenders at his price are not close to a ban",
-          "t": "08:15"
+          "player": "Palmer",
+          "team": "CHE",
+          "why": "Stats terrible right now; no confidence in him, likely sold for B.Fernandes",
+          "t": "01:56"
         },
         {
-          "player": "Hall",
-          "team": "NEW",
-          "why": "Sold him: not a great pick and he does not trust Newcastle's defence",
-          "t": "22:51"
+          "player": "Konsa",
+          "team": "ARS",
+          "why": "Long-term minutes problem; the worst time to buy him",
+          "t": "07:14"
         },
         {
-          "player": "M.Sangaré",
-          "team": "BRE",
-          "why": "Calls him a dead pick: too few minutes for DefCon and not guaranteed to start",
-          "t": "24:59"
+          "player": "Cherki",
+          "team": "MCI",
+          "why": "Minutes still dodgy and Arsenal next in GW12",
+          "t": "24:39"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "Moved early ahead of the price rise, leaving three free transfers and £1.8m in the bank. Probably rolls from here; Konsa is likely sold soon if he stays out of the side, and he may Free Hit in GW14",
+        "note": "Rolling transfers for now; plans Palmer to B.Fernandes in GW12 (only about 0.2m short) while keeping Haaland. Captains Haaland in 11, 13, 15 and 16, and Free Hits GW14 if he keeps Haaland without buying Bruno. XI shown is from his 9 Nov GW11 video",
         "transfers": [
           {
             "out": {
@@ -251,19 +287,19 @@
       },
       "extra": [
         {
-          "topic": "Haaland",
-          "text": "Best GW11 captain and not worth selling for most; dropping him in GW12 is only a big differential move, ideally with a Free Hit kept for GW16",
-          "t": "00:34"
+          "topic": "Captaincy",
+          "text": "Hard to go against Haaland vs Fulham; Isak vs Man United the alternative, De Cuyper the mega differential",
+          "t": "00:10"
         },
         {
-          "topic": "Yellow cards",
-          "text": "Tavernier, Silva and Groß are on four, one away from a ban; Rogers is on three, so avoid stacking several of them",
-          "t": "05:31"
+          "topic": "João Pedro",
+          "text": "Wouldn't spend 2-3 transfers on him even if fit: may not be ready for 90 and has had two injuries",
+          "t": "13:53"
         },
         {
-          "topic": "Palmer",
-          "text": "More of a worry than Rogers given poor underlying numbers at £9.8m, but hold unless there is someone you really want; Palmer to B.Fernandes tempts him",
-          "t": "13:34"
+          "topic": "Selling Haaland",
+          "text": "Not crazy but far from a no-brainer; he'd likely still be the best captain in four of the next six, so decide in GW12",
+          "t": "26:20"
         }
       ]
     },
@@ -448,59 +484,83 @@
         "aqua"
       ],
       "video": {
-        "title": "GW10 Is Over... Here's What I'm Doing in GW11!",
-        "url": "https://www.youtube.com/watch?v=tCywEPg2hB0",
-        "date": "2026-11-09"
+        "title": "FPL GW11 TRANSFER TIPS! | Top Picks Tier List for Gameweek 11 - 2026/27! ⭐",
+        "url": "https://www.youtube.com/watch?v=Mf2gHUseRBc",
+        "date": "2026-11-17"
       },
       "buys": [
         {
           "player": "Vuskovic",
           "team": "BHA",
-          "why": "Wants him long term: nailed for Hull, slightly better clean-sheet odds and more attacking threat than Konsa",
-          "t": "18:48"
+          "why": "His number one buy: set-piece threat, DefCon, nailed, and clean-sheet fixtures vs Hull and Newcastle",
+          "t": "28:20"
         },
         {
-          "player": "Calvert-Lewin",
-          "team": "LEE",
-          "why": "Possible GW12 upgrade on Barry for Coventry at home; good fixtures outside GW13",
-          "t": "20:11"
+          "player": "De Cuyper",
+          "team": "BHA",
+          "why": "Clean sheets plus the odd attacking return and bonus; expects him to stay at left wing",
+          "t": "28:59"
         },
         {
-          "player": "Manzambi",
+          "player": "Gabriel",
+          "team": "ARS",
+          "why": "The Arsenal defender to own long term: best attacking and DefCon threat",
+          "t": "28:59"
+        },
+        {
+          "player": "N.Jackson",
           "team": "AVL",
-          "why": "Possible GW12 swap for Palmer, Ipswich and Palace either side of GW13, though not fully convinced",
-          "t": "20:11"
+          "why": "A no-brainer: strong shooting data and Sunderland, Ipswich, Everton, Palace",
+          "t": "18:22"
         },
         {
           "player": "Groß",
           "team": "BHA",
-          "why": "One of the few midfielders he likes right now, and a penalty taker",
-          "t": "12:18"
+          "why": "Penalty taker with strong minutes, Hull away then Newcastle at home",
+          "t": "22:55"
         },
         {
-          "player": "Tavernier",
-          "team": "BOU",
-          "why": "One of the few midfielders he likes right now",
-          "t": "12:18"
+          "player": "Wirtz",
+          "team": "LIV",
+          "why": "Nailed starter at 7.2m with a decent Liverpool run until Christmas",
+          "t": "23:20"
         }
       ],
       "avoids": [
         {
           "player": "Konsa",
           "team": "ARS",
-          "why": "Selling him for his own team as Saliba returns; says he is not a sell for everyone yet",
-          "t": "15:45"
+          "why": "Too late to buy: expects him to drop out of the side soon",
+          "t": "31:53"
         },
         {
-          "player": "Palmer",
-          "team": "CHE",
-          "why": "Barely shooting or creating in a Chelsea attack that isn't coherent; only returned via a penalty",
-          "t": "05:30"
+          "player": "Gomez",
+          "team": "BHA",
+          "why": "Wonder goals aren't sustainable with very low xG and xA",
+          "t": "26:54"
+        },
+        {
+          "player": "Suzuki",
+          "team": "AVL",
+          "why": "Villa's defence is conceding the most shots and xG",
+          "t": "33:15"
+        },
+        {
+          "player": "Wissa",
+          "team": "NEW",
+          "why": "Sell: no goals or assists in six and weak fixtures",
+          "t": "03:53"
+        },
+        {
+          "player": "King",
+          "team": "FUL",
+          "why": "Sell: poor underlying numbers and a bad Fulham fixture swing",
+          "t": "11:26"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "Probably Konsa to Vuskovic in GW11, a slightly early move to beat price changes and not locked in yet. Maybe Palmer to Manzambi and Barry to Calvert-Lewin in GW12, then Free Hit in GW13 to triple up on Chelsea against Palace. He only named part of his team, so the XI shown is partial",
+        "note": "This video is buy/sell/keep/avoid only, no own transfers. From his 9 Nov GW11 video: probably Konsa to Vuskovic, maybe Palmer to Manzambi and Barry to Calvert-Lewin in GW12, then Free Hit GW13. XI shown is partial, from that video",
         "transfers": [
           {
             "out": {
@@ -554,19 +614,19 @@
       },
       "extra": [
         {
-          "topic": "Midfield",
-          "text": "Few midfielders are returning without a penalty: no in-form premiums and no DefCon mids, so he favours a three or even two-man midfield",
-          "t": "10:55"
+          "topic": "Tavernier",
+          "text": "Keep: low shot volume but keeps getting big chances, and few midfielders are better",
+          "t": "05:12"
         },
         {
           "topic": "Schade",
-          "text": "Takes penalties while Thiago is banned for Everton and Man Utd, so he could start over Rogers or Palmer",
-          "t": "13:42"
+          "text": "Up to monitor: backup penalty taker while Thiago is suspended",
+          "t": "07:14"
         },
         {
-          "topic": "Saliba",
-          "text": "Recovery looks positive but he got no first-team minutes; about 20% to start in GW11, with Konsa about 80%",
-          "t": "17:15"
+          "topic": "Konsa owners",
+          "text": "Fine to keep for one more game at centre-back vs Newcastle, but a sell soon",
+          "t": "12:08"
         }
       ]
     }
