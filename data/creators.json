@@ -457,83 +457,53 @@
         "aqua"
       ],
       "video": {
-        "title": "FPL GW11 TRANSFER TIPS! | Top Picks Tier List for Gameweek 11 - 2026/27! ⭐",
-        "url": "https://www.youtube.com/watch?v=Mf2gHUseRBc",
-        "date": "2026-11-17"
+        "title": "FPL GW11 Team Selection: Goodbye Konsa, Hello Free Hit! 💥 | Transfers & Captain",
+        "url": "https://www.youtube.com/watch?v=i0eQDpiLDSk",
+        "date": "2026-11-20"
       },
       "buys": [
         {
           "player": "Vuskovic",
           "team": "BHA",
-          "why": "His number one buy: set-piece threat, DefCon, nailed, and clean-sheet fixtures vs Hull and Newcastle",
-          "t": "28:20"
+          "why": "Better clean-sheet odds vs Hull and a DefCon/set-piece threat; fixtures look great for 8 of the next 9",
+          "t": "17:48"
         },
         {
-          "player": "De Cuyper",
-          "team": "BHA",
-          "why": "Clean sheets plus the odd attacking return and bonus; expects him to stay at left wing",
-          "t": "28:59"
-        },
-        {
-          "player": "Gabriel",
-          "team": "ARS",
-          "why": "The Arsenal defender to own long term: best attacking and DefCon threat",
-          "t": "28:59"
-        },
-        {
-          "player": "N.Jackson",
+          "player": "Manzambi",
           "team": "AVL",
-          "why": "A no-brainer: strong shooting data and Sunderland, Ipswich, Everton, Palace",
-          "t": "18:22"
+          "why": "Planned for GW12 if fit: one of the most impressive midfielders for shot volume and creating",
+          "t": "22:01"
         },
         {
-          "player": "Groß",
-          "team": "BHA",
-          "why": "Penalty taker with strong minutes, Hull away then Newcastle at home",
-          "t": "22:55"
-        },
-        {
-          "player": "Wirtz",
-          "team": "LIV",
-          "why": "Nailed starter at 7.2m with a decent Liverpool run until Christmas",
-          "t": "23:20"
+          "player": "Calvert-Lewin",
+          "team": "LEE",
+          "why": "Planned for GW12: Leeds' even-numbered gameweeks are fantastic (Coventry, Ipswich)",
+          "t": "22:48"
         }
       ],
       "avoids": [
         {
           "player": "Konsa",
           "team": "ARS",
-          "why": "Too late to buy: expects him to drop out of the side soon",
-          "t": "31:53"
+          "why": "Saliba is back, so his minutes and DefCon points will shrink every week",
+          "t": "13:45"
         },
         {
-          "player": "Gomez",
-          "team": "BHA",
-          "why": "Wonder goals aren't sustainable with very low xG and xA",
-          "t": "26:54"
+          "player": "Schade",
+          "team": "BRE",
+          "why": "Confidence dropped: Wilson likely takes penalties, will sell when a good midfielder comes up",
+          "t": "09:34"
         },
         {
-          "player": "Suzuki",
-          "team": "AVL",
-          "why": "Villa's defence is conceding the most shots and xG",
-          "t": "33:15"
-        },
-        {
-          "player": "Wissa",
-          "team": "NEW",
-          "why": "Sell: no goals or assists in six and weak fixtures",
-          "t": "03:53"
-        },
-        {
-          "player": "King",
-          "team": "FUL",
-          "why": "Sell: poor underlying numbers and a bad Fulham fixture swing",
-          "t": "11:26"
+          "player": "Palmer",
+          "team": "CHE",
+          "why": "Underlying numbers are awful; plans to sell him in GW12 (Forest away)",
+          "t": "22:01"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "This video is buy/sell/keep/avoid only, no own transfers. From his 9 Nov GW11 video: probably Konsa to Vuskovic, maybe Palmer to Manzambi and Barry to Calvert-Lewin in GW12, then Free Hit GW13. XI shown is partial, from that video",
+        "note": "Konsa to Vuskovic this week (99% sure). GW12 plan: Palmer and Barry out for Manzambi and Calvert-Lewin, then Free Hit in GW13.",
         "transfers": [
           {
             "out": {
@@ -550,56 +520,86 @@
       "squad": {
         "xi": [
           {
-            "player": "Silva",
-            "team": "BOU"
+            "player": "Raya",
+            "team": "ARS"
           },
           {
             "player": "Calafiori",
             "team": "ARS"
           },
           {
+            "player": "Vuskovic",
+            "team": "BHA"
+          },
+          {
             "player": "De Cuyper",
             "team": "BHA"
           },
           {
-            "player": "Konsa",
-            "team": "ARS"
-          },
-          {
-            "player": "Rogers",
-            "team": "CHE"
+            "player": "Silva",
+            "team": "BOU"
           },
           {
             "player": "Palmer",
             "team": "CHE"
           },
           {
+            "player": "Rogers",
+            "team": "CHE"
+          },
+          {
             "player": "Groß",
             "team": "BHA"
+          },
+          {
+            "player": "Haaland",
+            "team": "MCI"
+          },
+          {
+            "player": "N.Jackson",
+            "team": "AVL"
+          },
+          {
+            "player": "Barry",
+            "team": "EVE"
           }
         ],
-        "captain": null,
-        "vice": null,
+        "captain": "Haaland",
+        "vice": "N.Jackson",
         "bench": [
-          "Mbeumo",
-          "Muharemović"
+          {
+            "player": "Button",
+            "team": "IPS"
+          },
+          {
+            "player": "Schade",
+            "team": "BRE"
+          },
+          {
+            "player": "Mbeumo",
+            "team": "MUN"
+          },
+          {
+            "player": "Muharemović",
+            "team": "LEE"
+          }
         ]
       },
       "extra": [
         {
-          "topic": "Tavernier",
-          "text": "Keep: low shot volume but keeps getting big chances, and few midfielders are better",
-          "t": "05:12"
+          "topic": "Free Hit GW13",
+          "text": "Plans a GW13 Free Hit: Spurs and Liverpool defence, Chelsea triple-up, Gibbs-White, Haaland",
+          "t": "23:31"
         },
         {
-          "topic": "Schade",
-          "text": "Up to monitor: backup penalty taker while Thiago is suspended",
-          "t": "07:14"
+          "topic": "Mbeumo",
+          "text": "Keeps him for now (good underlying data, new manager bounce) and eyes GW16 at Arsenal as the exit point",
+          "t": "12:20"
         },
         {
-          "topic": "Konsa owners",
-          "text": "Fine to keep for one more game at centre-back vs Newcastle, but a sell soon",
-          "t": "12:08"
+          "topic": "Captain",
+          "text": "An obvious Haaland week vs Fulham at home; about 96% of experts captain him",
+          "t": "19:58"
         }
       ]
     }
