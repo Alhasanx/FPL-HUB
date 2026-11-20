@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 11,
-  "updated": "2026-11-15",
+  "updated": "2026-11-20",
   "items": [
     {
       "type": "pick",
@@ -202,6 +202,54 @@
       "source": "AllAboutFPL",
       "why": "Sell: zero points in three GWs, hip problem and withdrew from England squad",
       "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "pick",
+      "player": "Haaland",
+      "team": "MCI",
+      "source": "FF Hub",
+      "why": "Nailed, on penalties, home to Fulham; Hub AI's top predicted scorer",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-11-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "N.Jackson",
+      "team": "AVL",
+      "source": "FF Hub",
+      "why": "In form first-choice No. 9 vs a weak Sunderland defence",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-11-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "Palmer",
+      "team": "CHE",
+      "source": "FF Hub",
+      "why": "Indifferent start, but Leeds at home, set pieces and penalties",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-11-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "De Cuyper",
+      "team": "BHA",
+      "source": "FF Hub",
+      "why": "Best budget option and the game's top scorer after 10 GWs",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-11-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "Isak",
+      "team": "LIV",
+      "source": "FF Hub",
+      "why": "Seven goals, Liverpool's sole striker, United in the relegation zone",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-11-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "Vuskovic",
+      "team": "BHA",
+      "source": "FF Hub",
+      "why": "Hull concede the most headed attempts, plus DefCon potential",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-fixtures-gameweek-11-article-26-27"
     }
   ]
 }
