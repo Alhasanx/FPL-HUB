@@ -159,82 +159,88 @@
         "rose"
       ],
       "video": {
-        "title": "🚨 Raya INJURED 🚨 FPL Kneejerk Gameweek 12 🔥",
-        "url": "https://www.youtube.com/watch?v=gezr1X2E7MA",
-        "date": "2026-11-22"
+        "title": "Is Wirtz essential? 🤔 FPL GW12 Early Thoughts 🔥",
+        "url": "https://www.youtube.com/watch?v=cIuOhZHFccA",
+        "date": "2026-11-23"
       },
       "buys": [
         {
-          "player": "B.Fernandes",
-          "team": "MUN",
-          "why": "Brentford at home, would captain him; the only reason he'd sell Palmer",
-          "t": "09:45"
-        },
-        {
-          "player": "Wirtz",
-          "team": "LIV",
-          "why": "On fire recently and Liverpool's fixtures are very good",
-          "t": "07:16"
-        },
-        {
           "player": "A.Becker",
           "team": "LIV",
-          "why": "Raya replacement he can play every week; long run of good fixtures",
-          "t": "06:27"
+          "why": "Favourite Raya replacement: Liverpool's fixtures are good for a long time (hamstring-prone though)",
+          "t": "02:30"
+        },
+        {
+          "player": "Trafford",
+          "team": "LEE",
+          "why": "Coventry at home first, good bonus when he keeps home clean sheets; only City/Liverpool away in the next four",
+          "t": "03:56"
         },
         {
           "player": "Verbruggen",
           "team": "BHA",
-          "why": "Best Raya replacement if you don't already have triple Brighton",
-          "t": "05:38"
+          "why": "Sub-5m Raya replacement if you lack three Brighton: strong defence, good run of fixtures",
+          "t": "10:20"
         },
         {
-          "player": "Rudoni",
-          "team": "COV",
-          "why": "Cheap midfielder in his Palmer→Bruno combination",
-          "t": "11:08"
+          "player": "Wirtz",
+          "team": "LIV",
+          "why": "In great form with good numbers and fixtures; buy if you need a midfielder, but not essential",
+          "t": "11:32"
+        },
+        {
+          "player": "B.Fernandes",
+          "team": "MUN",
+          "why": "Big differential: nailed 90 mins, on penalties, best captain on paper in GW14",
+          "t": "29:54"
         }
       ],
       "avoids": [
         {
-          "player": "Manzambi",
-          "team": "AVL",
-          "why": "Hard avoid: too many early substitutions",
-          "t": "63:18"
+          "player": "Cherki",
+          "team": "MCI",
+          "why": "Minutes not good enough; sell, Cherki→Wirtz is a good move",
+          "t": "22:30"
         },
         {
-          "player": "McGinn",
-          "team": "AVL",
-          "why": "Hard avoid: early subs",
-          "t": "63:18"
+          "player": "Foden",
+          "team": "MCI",
+          "why": "Can't guarantee he starts; not a pick at all",
+          "t": "24:40"
+        },
+        {
+          "player": "Arrizabalaga",
+          "team": "ARS",
+          "why": "Only worth it if Raya is out until 2027; Arsenal's next fixtures aren't great",
+          "t": "01:17"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "No early transfers (European games midweek). Leaning Raya→Alisson and Palmer→B.Fernandes with Wirtz/Rudoni; otherwise Palmer stays and he Free Hits GW14. Raya decision depends on injury length",
+        "note": "4 free transfers, 1.8m ITB. Raya out depending on injury length: short → McNally→Kinsky, long → Kepa, in between → Trafford/Petrović/Alisson. Torn between Palmer→B.Fernandes now or a GW14 Free Hit (then Alisson now, Wirtz and Saka in GW13). May sell Calafiori for Muharemović",
         "transfers": []
       },
       "squad": {
         "xi": [],
         "captain": "Calvert-Lewin",
-        "vice": null,
+        "vice": "De Cuyper",
         "bench": []
       },
       "extra": [
         {
           "topic": "Haaland",
-          "text": "Benching Haaland at Arsenal is justifiable but not essential",
-          "t": "54:58"
+          "text": "Don't sell him before Arsenal: he's the best captain on paper in GW13, 15 and 16; only Haaland→Isak + Bruno makes sense",
+          "t": "16:13"
         },
         {
-          "topic": "Free Hit",
-          "text": "Probably GW14 (Bruno vs Coventry); GW16 if selling Haaland, GW19 as a fallback",
-          "t": "72:02"
+          "topic": "Palmer",
+          "text": "Fine to sell, but the windows are GW12 or GW14; prefers rolling the transfer over Palmer→Wirtz",
+          "t": "25:24"
         },
         {
-          "topic": "Arsenal defence",
-          "text": "Benching Calafiori and Konsa; may go without Arsenal defenders for a while",
-          "t": "37:18"
+          "topic": "Man City",
+          "text": "Use Arsenal away to cut City headaches (Cherki, Foden, defenders); Doku can be held as a differential",
+          "t": "21:41"
         }
       ]
     },
