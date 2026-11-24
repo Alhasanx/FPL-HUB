@@ -1,255 +1,175 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
-  "gw": 11,
-  "updated": "2026-11-20",
+  "gw": 12,
+  "updated": "2026-11-24",
   "items": [
     {
       "type": "pick",
-      "player": "Raya",
-      "team": "ARS",
+      "player": "Trafford",
+      "team": "LEE",
       "source": "FF Scout",
-      "why": "Likely Arsenal clean sheet at Newcastle",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+      "why": "In Scout's GW12 early Scout Picks squad; buy-or-sell piece backs him as Leeds' defence has been strong under Farke",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
       "type": "pick",
       "player": "Silva",
       "team": "BOU",
       "source": "FF Scout",
-      "why": "Fine for GW11 despite suspension risk; earns DefCon points",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+      "why": "In Scout's GW12 early Scout Picks squad",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
       "type": "pick",
-      "player": "Gabriel",
-      "team": "ARS",
-      "source": "FF Scout",
-      "why": "Likely Arsenal clean sheet at Newcastle",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
-    },
-    {
-      "type": "pick",
-      "player": "Vuskovic",
+      "player": "De Cuyper",
       "team": "BHA",
       "source": "FF Scout",
-      "why": "Strong DefCon output and picked up an assist for Groß's penalty",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+      "why": "In Scout's GW12 early Scout Picks squad",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
       "type": "pick",
       "player": "Van Hecke",
       "team": "TOT",
       "source": "FF Scout",
-      "why": "Joint-best defender for shots on target",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
-    },
-    {
-      "type": "pick",
-      "player": "Kudus",
-      "team": "TOT",
-      "source": "FF Scout",
-      "why": "A possible punt after five starts and three home assists",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+      "why": "In Scout's GW12 early Scout Picks squad",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
       "type": "pick",
       "player": "Groß",
       "team": "BHA",
       "source": "FF Scout",
-      "why": "Template pick with his best xGI of the season",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
-    },
-    {
-      "type": "pick",
-      "player": "Tavernier",
-      "team": "BOU",
-      "source": "FF Scout",
-      "why": "In Scout's early GW11 Scout Picks, though they note he missed a tap-in",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
-    },
-    {
-      "type": "pick",
-      "player": "N.Jackson",
-      "team": "AVL",
-      "source": "FF Scout",
-      "why": "Averaging 11 points over his last three; leads for goals since GW5",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
-    },
-    {
-      "type": "pick",
-      "player": "Isak",
-      "team": "LIV",
-      "source": "FF Scout",
-      "why": "Seven goals in eight and faces a leaky Man Utd defence",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
-    },
-    {
-      "type": "pick",
-      "player": "Haaland",
-      "team": "MCI",
-      "source": "FF Scout",
-      "why": "Scored in each of his previous seven; too early to lose patience",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+      "why": "In Scout's GW12 early Scout Picks squad",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
       "type": "pick",
       "player": "Kinsky",
       "team": "TOT",
       "source": "FF Scout",
-      "why": "Tottenham look solid defensively",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+      "why": "In Scout's GW12 early Scout Picks squad",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
       "type": "pick",
-      "player": "van Ewijk",
-      "team": "COV",
+      "player": "Belloumi",
+      "team": "HUL",
       "source": "FF Scout",
-      "why": "In Scout's early GW11 Scout Picks",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
+      "why": "In Scout's GW12 early Scout Picks squad",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
       "type": "pick",
-      "player": "Rudoni",
-      "team": "COV",
-      "source": "FF Scout",
-      "why": "Penalty taker with three recent goals",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/09/fpl-gameweek-11-early-scout-picks-4-3-3-with-no-chelsea"
-    },
-    {
-      "type": "pick",
-      "player": "Rogers",
-      "team": "CHE",
-      "source": "FF Scout",
-      "why": "In Scout's GW11 wildcard team: 5 goals and 1 assist in 10 matches",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/13/fpl-gameweek-11-wildcard-best-team-pros-cons-of-using"
-    },
-    {
-      "type": "pick",
-      "player": "McGinn",
+      "player": "N.Jackson",
       "team": "AVL",
       "source": "FF Scout",
-      "why": "In Scout's GW11 wildcard team: Villa's penalty-taking captain with 6 returns in his last 6 starts",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/13/fpl-gameweek-11-wildcard-best-team-pros-cons-of-using"
+      "why": "In Scout's GW12 early Scout Picks squad",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
       "type": "pick",
       "player": "Muharemović",
       "team": "LEE",
       "source": "FF Scout",
-      "why": "In Scout's GW11 wildcard team for defensive contributions plus attacking upside",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/13/fpl-gameweek-11-wildcard-best-team-pros-cons-of-using"
+      "why": "In Scout's GW12 early Scout Picks squad; called a DefCon magnet",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
       "type": "pick",
-      "player": "Trafford",
+      "player": "Calvert-Lewin",
       "team": "LEE",
       "source": "FF Scout",
-      "why": "In Scout's GW11 wildcard team as part of a budget rotating goalkeeper pair",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/13/fpl-gameweek-11-wildcard-best-team-pros-cons-of-using"
+      "why": "In Scout's GW12 early Scout Picks squad; Leeds have Coventry and Ipswich at home soon",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
-      "type": "avoid",
-      "player": "Palmer",
-      "team": "CHE",
+      "type": "pick",
+      "player": "Tavernier",
+      "team": "BOU",
       "source": "FF Scout",
-      "why": "Scout's GW11 wildcard piece says his form has faded after a strong start",
-      "url": "https://www.fantasyfootballscout.co.uk/2026/11/13/fpl-gameweek-11-wildcard-best-team-pros-cons-of-using"
+      "why": "In Scout's GW12 early Scout Picks squad; FPL's top midfielder for non-penalty xGI",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
       "type": "pick",
-      "player": "Vuskovic",
-      "team": "BHA",
-      "source": "AllAboutFPL",
-      "why": "Strong attacking numbers, Brighton's clean-sheet record and Hull at home",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
-    },
-    {
-      "type": "pick",
-      "player": "Van Hecke",
-      "team": "TOT",
-      "source": "AllAboutFPL",
-      "why": "Top defender for goals and big chances; hosts Ipswich who have no clean sheets",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
-    },
-    {
-      "type": "avoid",
-      "player": "Schade",
-      "team": "BRE",
-      "source": "AllAboutFPL",
-      "why": "Only 7 points in his last five and a tough run: EVE, MUN, ARS, MCI",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
-    },
-    {
-      "type": "avoid",
-      "player": "Barry",
-      "team": "EVE",
-      "source": "AllAboutFPL",
-      "why": "Recent hauls look unsustainable with Brentford, Liverpool and Villa next",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
-    },
-    {
-      "type": "avoid",
-      "player": "Thiago",
-      "team": "BRE",
-      "source": "AllAboutFPL",
-      "why": "Sell: three-match ban after his red card against Brighton",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
-    },
-    {
-      "type": "avoid",
-      "player": "Guéhi",
-      "team": "MCI",
-      "source": "AllAboutFPL",
-      "why": "Sell: zero points in three GWs, hip problem and withdrew from England squad",
-      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-11-transfer-tips-players-to-buy-avoid-sell-hold/"
-    },
-    {
-      "type": "pick",
-      "player": "Haaland",
-      "team": "MCI",
-      "source": "FF Hub",
-      "why": "Nailed, on penalties, home to Fulham; Hub AI's top predicted scorer",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-11-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "N.Jackson",
-      "team": "AVL",
-      "source": "FF Hub",
-      "why": "In form first-choice No. 9 vs a weak Sunderland defence",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-11-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "Palmer",
-      "team": "CHE",
-      "source": "FF Hub",
-      "why": "Indifferent start, but Leeds at home, set pieces and penalties",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-11-article-26-27"
-    },
-    {
-      "type": "pick",
-      "player": "De Cuyper",
-      "team": "BHA",
-      "source": "FF Hub",
-      "why": "Best budget option and the game's top scorer after 10 GWs",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-11-article-26-27"
+      "player": "Gibbs-White",
+      "team": "NFO",
+      "source": "FF Scout",
+      "why": "In Scout's GW12 early Scout Picks squad; Forest penalty taker",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
       "type": "pick",
       "player": "Isak",
       "team": "LIV",
-      "source": "FF Hub",
-      "why": "Seven goals, Liverpool's sole striker, United in the relegation zone",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-11-article-26-27"
+      "source": "FF Scout",
+      "why": "In Scout's GW12 early Scout Picks squad; appeal boosted by Tarkowski's suspension",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
     },
     {
       "type": "pick",
-      "player": "Vuskovic",
-      "team": "BHA",
-      "source": "FF Hub",
-      "why": "Hull concede the most headed attempts, plus DefCon potential",
-      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-fixtures-gameweek-11-article-26-27"
+      "player": "Gabriel",
+      "team": "ARS",
+      "source": "FF Scout",
+      "why": "In Scout's GW12 early Scout Picks squad; one Arsenal defender still makes it despite the City game",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
+    },
+    {
+      "type": "pick",
+      "player": "Wirtz",
+      "team": "LIV",
+      "source": "FF Scout",
+      "why": "Buy (or wait to GW13): strong output and good fixture run",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/wirtz-cherki-haaland-palmer-buy-keep-or-sell-in-gameweek-12"
+    },
+    {
+      "type": "pick",
+      "player": "Okafor",
+      "team": "LEE",
+      "source": "FF Scout",
+      "why": "Nice differential punt at about 1% ownership",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/wirtz-cherki-haaland-palmer-buy-keep-or-sell-in-gameweek-12"
+    },
+    {
+      "type": "avoid",
+      "player": "Haaland",
+      "team": "MCI",
+      "source": "FF Scout",
+      "why": "Left out of the early Scout Picks: away to Arsenal after three blanks",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
+    },
+    {
+      "type": "avoid",
+      "player": "B.Fernandes",
+      "team": "MUN",
+      "source": "FF Scout",
+      "why": "Buying would be 'more in blind hope than expectation' vs Brentford",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
+    },
+    {
+      "type": "avoid",
+      "player": "Mbeumo",
+      "team": "MUN",
+      "source": "FF Scout",
+      "why": "Buying would be 'more in blind hope than expectation' vs Brentford",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/fpl-gameweek-12-early-scout-picks-leeds-triple-up-no-haaland"
+    },
+    {
+      "type": "avoid",
+      "player": "Cherki",
+      "team": "MCI",
+      "source": "FF Scout",
+      "why": "Sell: benched three times in five Gameweeks",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/wirtz-cherki-haaland-palmer-buy-keep-or-sell-in-gameweek-12"
+    },
+    {
+      "type": "avoid",
+      "player": "João Pedro",
+      "team": "CHE",
+      "source": "FF Scout",
+      "why": "Obvious sell because of his injury",
+      "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/wirtz-cherki-haaland-palmer-buy-keep-or-sell-in-gameweek-12"
     }
   ]
 }
