@@ -1,7 +1,7 @@
 {
   "_schema": "Players the sites recommend (pick) or warn against (avoid) for this gameweek. One row per player per source.",
   "gw": 12,
-  "updated": "2026-11-24",
+  "updated": "2026-11-25",
   "items": [
     {
       "type": "pick",
@@ -170,6 +170,118 @@
       "source": "FF Scout",
       "why": "Obvious sell because of his injury",
       "url": "https://www.fantasyfootballscout.co.uk/2026/11/23/wirtz-cherki-haaland-palmer-buy-keep-or-sell-in-gameweek-12"
+    },
+    {
+      "type": "pick",
+      "player": "Calvert-Lewin",
+      "team": "LEE",
+      "source": "AllAboutFPL",
+      "why": "Top 5 forward for several underlying stats with a favourable run of fixtures",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-12-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "pick",
+      "player": "Wirtz",
+      "team": "LIV",
+      "source": "AllAboutFPL",
+      "why": "In form with good fixtures: Everton, Sunderland, Chelsea",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-12-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Gabriel",
+      "team": "ARS",
+      "source": "AllAboutFPL",
+      "why": "Safest Arsenal defender but hard to justify at £8.1m; avoid Arsenal's defence for now",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-12-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Raya",
+      "team": "ARS",
+      "source": "AllAboutFPL",
+      "why": "Shoulder injury makes £6.3m on him uncertain right now",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-12-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Calafiori",
+      "team": "ARS",
+      "source": "AllAboutFPL",
+      "why": "Rotation risk from Hincapié plus fixtures; a risk worth avoiding",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-12-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Konsa",
+      "team": "ARS",
+      "source": "AllAboutFPL",
+      "why": "Saliba's return may cost him his place",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-12-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Cherki",
+      "team": "MCI",
+      "source": "AllAboutFPL",
+      "why": "Sell: only two starts in his last five league appearances",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-12-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Gvardiol",
+      "team": "MCI",
+      "source": "AllAboutFPL",
+      "why": "Sell: 12 points in seven GWs and lost his place to O'Reilly",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-12-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "avoid",
+      "player": "Tarkowski",
+      "team": "EVE",
+      "source": "AllAboutFPL",
+      "why": "Sell: three-match ban after a straight red card",
+      "url": "https://allaboutfpl.com/2026/11/fpl-gameweek-12-transfer-tips-players-to-buy-avoid-sell-hold/"
+    },
+    {
+      "type": "pick",
+      "player": "Calvert-Lewin",
+      "team": "LEE",
+      "source": "FF Hub",
+      "why": "Coventry at home, full 90s and Leeds penalty taker; Hub AI 2nd-highest GW12 projection",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-12-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "De Cuyper",
+      "team": "BHA",
+      "source": "FF Hub",
+      "why": "Newcastle at home with a poor defence; set-piece taker; Hub AI 3rd-highest projection",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-12-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "B.Fernandes",
+      "team": "MUN",
+      "source": "FF Hub",
+      "why": "Brentford at home, 90 mins, set pieces and penalties; Hub AI top GW12 projection",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-12-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "N.Jackson",
+      "team": "AVL",
+      "source": "FF Hub",
+      "why": "Villa's main No.9 with six goals; Ipswich away concede a lot",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-12-article-26-27"
+    },
+    {
+      "type": "pick",
+      "player": "Isak",
+      "team": "LIV",
+      "source": "FF Hub",
+      "why": "Plenty of minutes and no real rotation rival, though Everton away is not easy",
+      "url": "https://www.fantasyfootballhub.co.uk/articles/fpl-best-players-gameweek-12-article-26-27"
     }
   ]
 }
