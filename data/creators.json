@@ -1,7 +1,7 @@
 {
   "_schema": "One entry per creator per gameweek. Fill only what the video actually says. Empty arrays and null are fine; the site shows them as 'not mentioned' / TBC. 't' is the timestamp in the video (mm:ss) or null.",
   "gw": 12,
-  "updated": "2026-11-23",
+  "updated": "2026-11-26",
   "creators": [
     {
       "id": "FH",
@@ -11,97 +11,98 @@
         "aqua"
       ],
       "video": {
-        "title": "RAYA INJURED ⚠️ 🇪🇸 MY FPL GW12 TRANSFER PLANS 📝 | Fantasy Premier League 2026/27",
-        "url": "https://www.youtube.com/watch?v=waX_2OCapH4",
-        "date": "2026-11-23"
+        "title": "MY FPL GW12 TEAM SELECTION! 📱 2 TRANSFERS INCOMING? ⏳👀 | Fantasy Premier League 2026/27",
+        "url": "https://www.youtube.com/watch?v=shPwcFwKufM",
+        "date": "2026-11-26"
       },
       "buys": [
         {
-          "player": "Verbruggen",
-          "team": "BHA",
-          "why": "Most likely Raya replacement: best fixture run and can start every week",
-          "t": "07:20"
-        },
-        {
           "player": "Kinsky",
           "team": "TOT",
-          "why": "Bentley up to Kinsky (4.4m) if Raya is only out short-term",
-          "t": "07:20"
-        },
-        {
-          "player": "Wirtz",
-          "team": "LIV",
-          "why": "Palmer replacement: cheap, goal and assist vs Man Utd, good Liverpool run",
-          "t": "09:58"
-        },
-        {
-          "player": "Isak",
-          "team": "LIV",
-          "why": "João Pedro replacement if he downgrades Palmer",
-          "t": "10:36"
+          "why": "Cheap Raya cover (4.4m); Spurs defence strong and doesn't block a Bournemouth spot",
+          "t": "17:11"
         },
         {
           "player": "Calvert-Lewin",
           "team": "LEE",
-          "why": "Cheaper João Pedro replacement: Coventry at home a great entry point",
-          "t": "10:36"
+          "why": "Likely João Pedro replacement; would get the armband vs Coventry at home",
+          "t": "20:07"
+        },
+        {
+          "player": "Evanilson",
+          "team": "BOU",
+          "why": "Alternative forward with an excellent run (FUL, BHA, HUL)",
+          "t": "14:54"
         },
         {
           "player": "Vuskovic",
           "team": "BHA",
-          "why": "Calafiori replacement, Newcastle at home; could wait",
-          "t": "09:20"
+          "why": "Calafiori→Vuskovic appeals on fixtures, but not a priority this week",
+          "t": "11:52"
+        },
+        {
+          "player": "Wirtz",
+          "team": "LIV",
+          "why": "Main Palmer replacement he likes, but DCL/Evanilson rank higher this week",
+          "t": "14:05"
         }
       ],
       "avoids": [
         {
-          "player": "Palmer",
-          "team": "CHE",
-          "why": "Not impressed, not worth the money; biggest issue in his team",
-          "t": "03:13"
-        },
-        {
-          "player": "Raya",
-          "team": "ARS",
-          "why": "Shoulder injury, likely a long lay-off; will sell if out for a while",
-          "t": "05:13"
-        },
-        {
           "player": "João Pedro",
           "team": "CHE",
-          "why": "Still injured on his bench; would love to sell",
-          "t": "03:55"
+          "why": "Injured, expected out a couple more weeks; priority sale",
+          "t": "14:54"
+        },
+        {
+          "player": "Palmer",
+          "team": "CHE",
+          "why": "Data and performances poor (0.1 xGI/90), though kind fixtures tempt him to keep",
+          "t": "13:17"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "2 free transfers, 0.5m ITB, no early moves. Waiting on Raya/João Pedro news and Man Utd's Champions League game. Likely Raya→Verbruggen (or Bentley→Kinsky if short-term), then Palmer→Wirtz or João Pedro→Isak/Calvert-Lewin. Free Hit possible in GW14 for Man Utd",
-        "transfers": []
+        "note": "2 free transfers, ~0.5m ITB; nothing confirmed until the Alonso (Thu) and Arteta (Fri) pressers. Likely Bentley→Kinsky (keeps Raya) and João Pedro→Calvert-Lewin. Leaning towards a GW15 Free Hit (GW14 the alternative)",
+        "transfers": [
+          {
+            "out": {
+              "player": "Bentley",
+              "team": "COV"
+            },
+            "in": {
+              "player": "Kinsky",
+              "team": "TOT"
+            }
+          },
+          {
+            "out": {
+              "player": "João Pedro",
+              "team": "CHE"
+            },
+            "in": {
+              "player": "Calvert-Lewin",
+              "team": "LEE"
+            }
+          }
+        ]
       },
       "squad": {
         "xi": [
           {
-            "player": "Raya",
-            "team": "ARS"
+            "player": "Kinsky",
+            "team": "TOT"
           },
           {
             "player": "De Cuyper",
             "team": "BHA"
           },
           {
-            "player": "Silva",
-            "team": "BOU"
-          },
-          {
-            "player": "Van Hecke",
-            "team": "TOT"
-          },
-          {
             "player": "Muharemović",
             "team": "LEE"
           },
           {
-            "player": "Tavernier",
+            "player": "Silva",
             "team": "BOU"
           },
           {
@@ -117,37 +118,44 @@
             "team": "CHE"
           },
           {
+            "player": "Tavernier",
+            "team": "BOU"
+          },
+          {
             "player": "Haaland",
             "team": "MCI"
           },
           {
             "player": "N.Jackson",
             "team": "AVL"
+          },
+          {
+            "player": "Calvert-Lewin",
+            "team": "LEE"
           }
         ],
-        "captain": "N.Jackson",
+        "captain": "Calvert-Lewin",
         "vice": null,
         "bench": [
-          "Calafiori",
-          "Bentley",
-          "João Pedro"
+          "Van Hecke",
+          "Calafiori"
         ]
       },
       "extra": [
         {
           "topic": "Raya",
-          "text": "Waits for the injury timeline: long-term → Verbruggen, short-term → Bentley to Kinsky",
-          "t": "07:20"
+          "text": "Keeping Raya for Arsenal's long-term fixtures; may risk no transfer if Arteta is positive on Friday",
+          "t": "06:09"
         },
         {
-          "topic": "Man Utd",
-          "text": "Not ready to buy Man Utd attackers yet; may wait for a GW14 Free Hit (Coventry at home)",
-          "t": "11:15"
+          "topic": "Free Hit",
+          "text": "GW14 vs GW15 Free Hit; current transfers lean him to GW15",
+          "t": "16:26"
         },
         {
           "topic": "Benching",
-          "text": "If he makes a second move, Silva (Fulham away) is the likeliest bench, maybe Palmer",
-          "t": "12:36"
+          "text": "Palmer or Tavernier could still be benched for Van Hecke at the deadline",
+          "t": "18:44"
         }
       ]
     },
@@ -159,88 +167,81 @@
         "rose"
       ],
       "video": {
-        "title": "Is Wirtz essential? 🤔 FPL GW12 Early Thoughts 🔥",
-        "url": "https://www.youtube.com/watch?v=cIuOhZHFccA",
-        "date": "2026-11-23"
+        "title": "It's time to buy a goalkeeper 🧤 My FPL Team for GW12 🔥",
+        "url": "https://www.youtube.com/watch?v=k177AGbv_6Y",
+        "date": "2026-11-26"
       },
       "buys": [
         {
-          "player": "A.Becker",
-          "team": "LIV",
-          "why": "Favourite Raya replacement: Liverpool's fixtures are good for a long time (hamstring-prone though)",
-          "t": "02:30"
+          "player": "Kinsky",
+          "team": "TOT",
+          "why": "Covers the injured Raya; Sunderland away and Fulham at home; near a price rise",
+          "t": "03:27"
         },
         {
-          "player": "Trafford",
+          "player": "Muharemović",
           "team": "LEE",
-          "why": "Coventry at home first, good bonus when he keeps home clean sheets; only City/Liverpool away in the next four",
-          "t": "03:56"
-        },
-        {
-          "player": "Verbruggen",
-          "team": "BHA",
-          "why": "Sub-5m Raya replacement if you lack three Brighton: strong defence, good run of fixtures",
-          "t": "10:20"
-        },
-        {
-          "player": "Wirtz",
-          "team": "LIV",
-          "why": "In great form with good numbers and fixtures; buy if you need a midfielder, but not essential",
-          "t": "11:32"
+          "why": "Great vs Coventry, but on a GW14 Free Hit plan he'd only play twice in six",
+          "t": "08:19"
         },
         {
           "player": "B.Fernandes",
           "team": "MUN",
-          "why": "Big differential: nailed 90 mins, on penalties, best captain on paper in GW14",
-          "t": "29:54"
+          "why": "Would captain him as a differential, but will likely get him on the GW14 Free Hit instead",
+          "t": "19:22"
         }
       ],
       "avoids": [
         {
-          "player": "Cherki",
-          "team": "MCI",
-          "why": "Minutes not good enough; sell, Cherki→Wirtz is a good move",
-          "t": "22:30"
+          "player": "Mbeumo",
+          "team": "MUN",
+          "why": "No longer playing as a number nine; be cautious buying him now",
+          "t": "14:14"
         },
         {
-          "player": "Foden",
-          "team": "MCI",
-          "why": "Can't guarantee he starts; not a pick at all",
-          "t": "24:40"
-        },
-        {
-          "player": "Arrizabalaga",
-          "team": "ARS",
-          "why": "Only worth it if Raya is out until 2027; Arsenal's next fixtures aren't great",
-          "t": "01:17"
+          "player": "A.Becker",
+          "team": "LIV",
+          "why": "Good in theory but always picks up an injury during the season",
+          "t": "06:17"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "4 free transfers, 1.8m ITB. Raya out depending on injury length: short → McNally→Kinsky, long → Kepa, in between → Trafford/Petrović/Alisson. Torn between Palmer→B.Fernandes now or a GW14 Free Hit (then Alisson now, Wirtz and Saka in GW13). May sell Calafiori for Muharemović",
-        "transfers": []
+        "note": "4 free transfers, 1.8m ITB. Very likely McNally→Kinsky (keeps Raya); maybe Calafiori or Konsa→Muharemović but hesitant; may roll the rest. Keeping Palmer and Haaland. ~95% sure of a GW14 Free Hit",
+        "transfers": [
+          {
+            "out": {
+              "player": "McNally",
+              "team": "FUL"
+            },
+            "in": {
+              "player": "Kinsky",
+              "team": "TOT"
+            }
+          }
+        ]
       },
       "squad": {
         "xi": [],
         "captain": "Calvert-Lewin",
-        "vice": "De Cuyper",
+        "vice": null,
         "bench": []
       },
       "extra": [
         {
+          "topic": "Captaincy",
+          "text": "Calvert-Lewin (home, on penalties) over N.Jackson; De Cuyper or Groß if you want to go rogue",
+          "t": "24:55"
+        },
+        {
+          "topic": "Bournemouth",
+          "text": "No rush for Bournemouth defenders on a GW14 Free Hit plan; waiting until GW16",
+          "t": "08:19"
+        },
+        {
           "topic": "Haaland",
-          "text": "Don't sell him before Arsenal: he's the best captain on paper in GW13, 15 and 16; only Haaland→Isak + Bruno makes sense",
-          "t": "16:13"
-        },
-        {
-          "topic": "Palmer",
-          "text": "Fine to sell, but the windows are GW12 or GW14; prefers rolling the transfer over Palmer→Wirtz",
-          "t": "25:24"
-        },
-        {
-          "topic": "Man City",
-          "text": "Use Arsenal away to cut City headaches (Cherki, Foden, defenders); Doku can be held as a differential",
-          "t": "21:41"
+          "text": "Fine to bench at Arsenal, but he'd play him and prefers him to Isak going forward",
+          "t": "22:10"
         }
       ]
     },
@@ -252,59 +253,41 @@
         "lilac"
       ],
       "video": {
-        "title": "SELL PALMER? BUY WIRTZ? 🚀 | MY FPL GW12 TRANSFER PLANS 🚨 | Fantasy Premier League Tips 2026/27",
-        "url": "https://www.youtube.com/watch?v=fslwKxI-RHc",
-        "date": "2026-11-22"
+        "title": "DCL CAPTAIN? BENCH PALMER? 🤔 | MY FPL GW12 TEAM SELECTION 🚨 | Fantasy Premier League Tips 2026/27",
+        "url": "https://www.youtube.com/watch?v=S0zCSzrq9QY",
+        "date": "2026-11-26"
       },
       "buys": [
         {
           "player": "Wirtz",
           "team": "LIV",
-          "why": "Favourite midfielder: form, stronger underlying data, decent price",
-          "t": "22:22"
+          "why": "The midfielder he wants: looks brilliant, strong minutes, good Liverpool fixtures",
+          "t": "17:02"
         },
         {
           "player": "Isak",
           "team": "LIV",
-          "why": "Best forward to own; Haaland→Isak is an option",
-          "t": "25:00"
+          "why": "Calvert-Lewin→Isak is a GW13 option if Liverpool look elite",
+          "t": "28:37"
         },
         {
-          "player": "Rudoni",
-          "team": "COV",
-          "why": "On penalties with real open-play threat for 4.9m",
-          "t": "19:36"
-        },
-        {
-          "player": "Tavernier",
-          "team": "BOU",
-          "why": "Most likely sub-7m midfielder to return week to week",
-          "t": "20:21"
-        },
-        {
-          "player": "Jacquet",
-          "team": "LIV",
-          "why": "First defender in if he needs one: DefCon and cheaper than Van Dijk",
-          "t": "18:56"
+          "player": "Trafford",
+          "team": "LEE",
+          "why": "Still thinks he's the best keeper in FPL; rotates well with Kinsky",
+          "t": "03:43"
         }
       ],
       "avoids": [
         {
           "player": "Palmer",
           "team": "CHE",
-          "why": "Wants to sell; benched and not worth 10m on current form",
-          "t": "13:30"
-        },
-        {
-          "player": "Kroupi.Jr",
-          "team": "BOU",
-          "why": "Still not starting; minutes unlikely to reach 90",
-          "t": "20:21"
+          "why": "No goal or assist threat; benched for Forest away, likeliest sale",
+          "t": "10:01"
         }
       ],
       "moves": {
         "chip": null,
-        "note": "1 free transfer, 0.0m ITB; leaning towards rolling. If he moves it's Palmer→Wirtz (then bench Silva for a 4-4-2). A -4 for Palmer→B.Fernandes and Haaland→Isak is less likely. Waiting on Man Utd",
+        "note": "1 free transfer, 0.0m ITB; planning to roll. Possible moves in GW13 (e.g. Palmer→Wirtz); probably a Free Hit in GW14, GW15 the alternative",
         "transfers": []
       },
       "squad": {
@@ -330,10 +313,6 @@
             "team": "LEE"
           },
           {
-            "player": "Silva",
-            "team": "BOU"
-          },
-          {
             "player": "Groß",
             "team": "BHA"
           },
@@ -346,6 +325,10 @@
             "team": "NFO"
           },
           {
+            "player": "Haaland",
+            "team": "MCI"
+          },
+          {
             "player": "Calvert-Lewin",
             "team": "LEE"
           },
@@ -355,28 +338,28 @@
           }
         ],
         "captain": "Calvert-Lewin",
-        "vice": null,
+        "vice": "De Cuyper",
         "bench": [
-          "Haaland",
+          "Silva",
           "Palmer",
           "Ødegaard"
         ]
       },
       "extra": [
         {
+          "topic": "Back five",
+          "text": "~50% chance he starts Silva too and benches Haaland if Raya is fit",
+          "t": "21:02"
+        },
+        {
           "topic": "Captaincy",
-          "text": "Between Calvert-Lewin, Muharemović and De Cuyper (maybe N.Jackson)",
-          "t": "29:06"
+          "text": "Calvert-Lewin has the armband; De Cuyper or Muharemović tempting for clean sheet + attacking returns",
+          "t": "20:23"
         },
         {
           "topic": "Yellow cards",
-          "text": "Silva and Groß are both on four yellows",
-          "t": "12:50"
-        },
-        {
-          "topic": "Goalkeepers",
-          "text": "Kinsky–Trafford rotation is tempting but needs 1.2m",
-          "t": "17:51"
+          "text": "Groß and Silva are on four yellows; suspensions may decide the Free Hit week",
+          "t": "14:17"
         }
       ]
     },
